@@ -1,0 +1,79 @@
+* {
+    font-family: Roboto, sans-serif;
+}
+
+.container {
+    width: 100%;
+    text-align: center;
+}
+
+h2 {
+    padding: 12px;
+}
+
+.rumah {
+    color: #101B94;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.form-control {
+    box-sizing: border-box;
+    width: 100%;
+    height: 45px;
+    border: 2px solid #656FE0;
+    border-radius: 8px;
+    padding: 18px;
+}
+
+.form-change-password {
+    width: 100%;
+    margin-bottom: 12px;
+    text-align: end;
+}
+
+.changePassword {
+    text-decoration: none;
+    color: #000000;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.btn {
+    width: 100%;
+    height: 40px;
+    padding: 8px auto;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.btn-primary {
+    background: #101B94;
+    color: white;
+}
+
+.btn-light {
+    background: #ffffff;
+    color: #101B94;
+    border: 1px solid #101B94;
+}
+
+.or {
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.img-google {
+    width: 22px;
+    margin-right: 12px;
+}
