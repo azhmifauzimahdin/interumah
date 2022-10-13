@@ -3,10 +3,10 @@ import { Google } from "../../../assets"
 import { Button } from "../../../component"
 import '../Auth.css'
 
-const Login: React.FC = () => {
+const Register: React.FC = () => {
     return (
         <div className="container">
-            <h2>Selamat Datang di Interior <span className="rumah">Rumah</span></h2>
+            <h2>Formulir Registrasi</h2>
             <form action="">
                 <div className="form-group">
                     <input type="email" name="email" className="form-control" placeholder="Masukan Email Anda" />
@@ -14,19 +14,20 @@ const Login: React.FC = () => {
                 <div className="form-group">
                     <input type="password" name="password" className="form-control" placeholder="Masukan Password Anda" />
                 </div>
-                <div className="form-change-password">
-                    <a href="/change_password" className="changePassword">Lupa Password?</a>
+                <div className="form-group">
+                    <input type="password" name="confirmPassword" className="form-control" placeholder="Konfirmasi Ulang Password" />
                 </div>
                 <div className="form-group">
-                    <Button type="primary">Masuk</Button>
+                    <div className="checkboxRegister">
+                        <input type="checkbox" name="checkbox" value="Saya" />Saya setuju dengan <span> Syarat dan Ketentuan</span> yang berlaku
+                    </div>
+                </div>
+                <div className="form-group">
+                    <Button type="primary">Daftar</Button>
                 </div>
             </form>
-            <div className="or">
-                <span>------------- OR ------------</span>
-            </div>
-            <Button type="secondary"><img src={Google} alt="Google" className="img-google" /> Masuk Menggunakan Google</Button>
         </div>
     )
 }
 
-export default Login
+export default Register

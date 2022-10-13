@@ -35,12 +35,24 @@ h2 {
     padding: 2.5vh 1.4vw;
 }
 
-
 .changePassword {
     text-decoration: none;
     color: #000000;
     font-size: 12px;
     font-weight: 400;
+}
+
+.form-group .checkboxRegister {
+    font-size: 12px;
+}
+
+.form-group .checkboxRegister span {
+    font-weight: 600;
+}
+
+.form-group .checkboxRegister input[type="checkbox"] {
+    accent-color: #101B94;
+    vertical-align: middle;
 }
 
 /* .btn {
