@@ -1,5 +1,6 @@
 import React from "react"
 import { Google } from "../../../assets"
+import { Button } from "../../../component"
 import './Login.css'
 
 const Login: React.FC = () => {
@@ -17,13 +18,13 @@ const Login: React.FC = () => {
                     <a href="/change_password" className="changePassword">Lupa Password?</a>
                 </div>
                 <div className="form-group">
-                    <button className="btn btn-primary">Masuk</button>
+                    <Button type="primary">Masuk</Button>
                 </div>
             </form>
             <div className="or">
                 <span>------------- OR ------------</span>
             </div>
-            <button className="btn btn-light"><img src={Google} alt="Google" className="img-google" /> Masuk Menggunakan Google</button>
+            <Button type="secondary"><img src={Google} alt="Google" className="img-google" /> Masuk Menggunakan Google</Button>
         </div>
     )
 }

@@ -46,28 +46,6 @@ nav ul li a {
     transition: all 0.3s ease;
 }
 
-.btn {
-    width: 100%;
-    padding: 8px 18px;
-    border-radius: 8px;
-    border: none;
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-.btn-primary {
-    background: #101B94;
-    color: #ffffff;
-    border: none;
-}
-
-.btn-active {
-    background: #ffffff;
-    border: 1px solid #101B94;
-    color: #101B94;
-}
-
 nav ul li a:hover {
     color: #111;
 }

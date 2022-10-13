@@ -1,6 +1,7 @@
 import React from "react"
 import { Outlet } from "react-router-dom"
 import { Amico, Logo } from "../../assets"
+import { Button } from "../../component"
 import './Auth.css'
 
 const Auth: React.FC = () => {
@@ -19,8 +20,8 @@ const Auth: React.FC = () => {
                     <li><a href="/">Kategori</a></li>
                     <li><a href="/">About Us</a></li>
                     <li><a href="/">Company</a></li>
-                    <li><a href="/"><button className="btn btn-active">Login</button></a></li>
-                    <li><a href="/"><button className="btn btn-primary">Sign Up</button></a></li>
+                    <li><Button type="secondary">Login</Button></li>
+                    <li><Button type="primary">Sign Up</Button></li>
                 </ul>
             </nav>
             <div className="auth-layout--container">
