@@ -1,20 +1,26 @@
 .btn {
+    width: 100%;
     border: none;
     border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .btn-sm {
-    padding: 6px 16px;
+    padding: 0.8vh 1.2vw;
     font-size: small;
 }
 
 .btn-md {
-    padding: 8px 18px;
+    padding: 1.1vh 1.4vw;
+    height: 7vh;
     font-size: medium;
 }
 
 .btn-lg {
-    padding: 10px 20px;
+    padding: 1.4vh 1.6vh;
     font-size: large;
 }
 
@@ -27,4 +33,10 @@
     background: #ffffff;
     color: #101B94;
     border: 1px solid #101B94;
+}
+
+@media (max-width: 920px) {
+    .btn-md {
+        height: 5vh;
+    }
 }
