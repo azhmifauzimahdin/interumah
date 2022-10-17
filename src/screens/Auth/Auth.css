@@ -35,6 +35,19 @@ h2 {
     padding: 2.5vh 1.4vw;
 }
 
+.input-group {
+    width: 100%;
+    margin-bottom: 3.3vh;
+    position: relative;
+}
+
+.input-group-prepend {
+    position: absolute;
+    top: 50%;
+    right: 3.3vh;
+    transform: translateY(-45%);
+}
+
 .changePassword {
     text-decoration: none;
     color: #000000;

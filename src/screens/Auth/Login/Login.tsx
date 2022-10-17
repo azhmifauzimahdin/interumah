@@ -5,10 +5,14 @@ import { Button } from "../../../component"
 import { authService } from "../../../services"
 import { LoginRequest } from "../../../types/Login"
 import '../Auth.css'
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
 const Login: React.FC = () => {
     const navigate = useNavigate()
     const [, setSending] = useState<boolean>(false)
+    const [changePassword, setChangePassword] = useState(true)
+    const changeStatus = changePassword === true ? false : true
 
     const login = async (e: React.FormEvent<HTMLFormElement>) => {
         setSending(true)
@@ -36,8 +40,15 @@ const Login: React.FC = () => {
                 <div className="form-group">
                     <input type="email" name="email" className="form-control" placeholder="Masukan Email Anda" />
                 </div>
-                <div className="form-group">
-                    <input type="password" name="password" className="form-control" placeholder="Masukan Password Anda" />
+                <div className="input-group">
+                    <input type={changePassword ? "password" : "text"} name="password" className="form-control" placeholder="Masukan Password Anda" />
+                    <div className="input-group-prepend">
+                        <span className="input-group-text" onClick={() => {
+                            setChangePassword(changeStatus);
+                        }}>
+                            {changeStatus ? <Visibility /> : <VisibilityOff />}
+                        </span>
+                    </div>
                 </div>
                 <div className="form-change-password">
                     <a href="/change_password" className="changePassword">Lupa Password?</a>
@@ -50,7 +61,7 @@ const Login: React.FC = () => {
                 <span>------------- OR ------------</span>
             </div>
             <Button type="secondary"><img src={Google} alt="Google" className="img-google" /> Masuk Menggunakan Google</Button>
-        </div>
+        </div >
     )
 }
 
