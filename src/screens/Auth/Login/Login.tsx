@@ -10,12 +10,10 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
 const Login: React.FC = () => {
     const navigate = useNavigate()
-    const [, setSending] = useState<boolean>(false)
     const [changePassword, setChangePassword] = useState(true)
     const changeStatus = changePassword === true ? false : true
 
     const login = async (e: React.FormEvent<HTMLFormElement>) => {
-        setSending(true)
         try {
             e.preventDefault()
 
@@ -27,9 +25,7 @@ const Login: React.FC = () => {
             localStorage.setItem('@token', resp.data.token)
 
             navigate('/user/dashboard')
-            setSending(false)
         } catch (error: any) {
-            setSending(false)
             alert(error.response.data.message)
         }
     }
@@ -60,7 +56,7 @@ const Login: React.FC = () => {
             <div className="or">
                 <span>------------- OR ------------</span>
             </div>
-            <Button type="secondary"><img src={Google} alt="Google" className="img-google" /> Masuk Menggunakan Google</Button>
+            <Button type="secondary"><img src={Google} alt="Logo Google" className="img-google" /> Masuk Menggunakan Google</Button>
         </div >
     )
 }

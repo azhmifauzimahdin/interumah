@@ -1,23 +1,60 @@
 import React, { useState } from "react"
 import { Button } from "../../../component"
 import '../Auth.css'
-import Visibility from "@material-ui/icons/Visibility";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import Visibility from "@material-ui/icons/Visibility"
+import VisibilityOff from "@material-ui/icons/VisibilityOff"
+import { useNavigate } from "react-router-dom"
+import { authService } from "../../../services"
+import { RegisterRequest } from "../../../types/Register"
 
 const Register: React.FC = () => {
     const [changePassword1, setChangePassword1] = useState(true)
     const [changePassword2, setChangePassword2] = useState(true)
     const changeStatus1 = changePassword1 === true ? false : true
     const changeStatus2 = changePassword2 === true ? false : true
+
+    const [password, setPassword] = useState<string>('')
+    const [repeatedPassword, setRepeatedPassword] = useState<string>('')
+
+    const navigate = useNavigate()
+
+    const register = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        if (isPasswordMatch) {
+            try {
+                const formData = new FormData(e.target as HTMLFormElement)
+                console.log('formdata', formData)
+                const inputObject = Object.fromEntries(formData)
+                console.log('inputobject', inputObject)
+
+                const register = await authService.register(inputObject as any as RegisterRequest)
+                console.log('register', register)
+                alert('Registasi berhasil. Silahkan login')
+                navigate('/auth/login')
+            } catch (error: any) {
+                alert(error.response.data.message)
+            }
+        } else {
+            alert('Password tidak sama')
+        }
+    }
+
+    let isPasswordMatch: undefined | boolean = undefined
+    if (password !== repeatedPassword) {
+        isPasswordMatch = false
+    } else {
+        isPasswordMatch = true
+    }
+
     return (
         <div className="container">
             <h2>Formulir Registrasi</h2>
-            <form action="">
+            <form onSubmit={register}>
                 <div className="form-group">
                     <input type="email" name="email" className="form-control" placeholder="Masukan Email Anda" />
                 </div>
                 <div className="input-group">
-                    <input type={changePassword1 ? "password" : "text"} name="password" className="form-control" placeholder="Masukan Password Anda" />
+                    <input type={changePassword1 ? "password" : "text"} onChange={(e) => setPassword(e.target.value)} name="password" className="form-control" placeholder="Masukan Password Anda" value={password} />
                     <div className="input-group-prepend">
                         <span className="input-group-text" onClick={() => {
                             setChangePassword1(changeStatus1);
@@ -27,7 +64,7 @@ const Register: React.FC = () => {
                     </div>
                 </div>
                 <div className="input-group">
-                    <input type={changePassword2 ? "password" : "text"} name="confirmPassword" className="form-control" placeholder="Konfirmasi Ulang Password" />
+                    <input type={changePassword2 ? "password" : "text"} onChange={(e) => setRepeatedPassword(e.target.value)} className="form-control" placeholder="Konfirmasi Ulang Password" />
                     <div className="input-group-prepend">
                         <span className="input-group-text" onClick={() => {
                             setChangePassword2(changeStatus2);
@@ -35,10 +72,15 @@ const Register: React.FC = () => {
                             {changeStatus2 ? <Visibility /> : <VisibilityOff />}
                         </span>
                     </div>
+                    <div>
+                        <div>
+                            {isPasswordMatch === false ? <span>Password not match</span> : null}
+                        </div>
+                    </div>
                 </div>
                 <div className="form-group">
                     <div className="checkboxRegister">
-                        <input type="checkbox" name="checkbox" value="Saya" />Saya setuju dengan <span> Syarat dan Ketentuan</span> yang berlaku
+                        <input type="checkbox" name="checkbox" />Saya setuju dengan <span> Syarat dan Ketentuan</span> yang berlaku
                     </div>
                 </div>
                 <div className="form-group">

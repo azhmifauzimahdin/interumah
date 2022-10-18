@@ -8,9 +8,9 @@ const LayoutRegister: React.FC = () => {
     return (
         <div className="auth-layout">
             <nav>
-                <div className="logo">
-                    <img src={Logo} alt="Logo" />
-                </div>
+                <figure className="logo">
+                    <img src={Logo} alt="Logo Interumah" />
+                </figure>
                 <input type="checkbox" id="click" className="checkboxLayout" />
                 <label htmlFor="click" className="menu-btn">
                     <i className="fas fa-bars"></i>
@@ -24,16 +24,18 @@ const LayoutRegister: React.FC = () => {
                     <li><a href="/auth/register"><Button type="primary">Sign Up</Button></a></li>
                 </ul>
             </nav>
-            <div className="auth-layout--container">
-                <div className="auth-layout--sidebar">
-                    <img src={AmicoRegister} alt="Amico" className="img--amico-register" />
-                </div>
-                <div className="auth-layout--content">
-                    <div className="content">
+            <main className="auth-layout--container">
+                <aside className="auth-layout--sidebar">
+                    <figure>
+                        <img src={AmicoRegister} alt="Gambar sidebar register" className="img--amico-register" />
+                    </figure>
+                </aside>
+                <section className="auth-layout--content">
+                    <article className="content">
                         <Outlet />
-                    </div>
-                </div>
-            </div>
+                    </article>
+                </section>
+            </main>
         </div >
     )
 }
