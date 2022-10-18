@@ -21,8 +21,7 @@ const Login: React.FC = () => {
             const inputObject = Object.fromEntries(formData)
 
             const resp = await authService.login(inputObject as any as LoginRequest)
-
-            localStorage.setItem('@token', resp.data.token)
+            localStorage.setItem('@token', resp.data.data.accessToken)
 
             navigate('/user/dashboard')
         } catch (error: any) {

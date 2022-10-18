@@ -8,5 +8,5 @@ export const register = async (request: RegisterRequest): Promise<AxiosResponse<
 }
 
 export const login = async (request: LoginRequest): Promise<AxiosResponse<LoginResponse>> => {
-    return await httpRequest.post('/auth/login', request)
+    return await httpRequest.post('/auth', request)
 }
