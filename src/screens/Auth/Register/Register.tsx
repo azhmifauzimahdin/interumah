@@ -12,9 +12,9 @@ const Register: React.FC = () => {
     const [changePassword2, setChangePassword2] = useState(true)
     const changeStatus1 = changePassword1 === true ? false : true
     const changeStatus2 = changePassword2 === true ? false : true
-
     const [password, setPassword] = useState<string>('')
     const [repeatedPassword, setRepeatedPassword] = useState<string>('')
+    const [checkTerms, setCheckTerms] = useState<boolean>(false)
 
     const navigate = useNavigate()
 
@@ -45,12 +45,16 @@ const Register: React.FC = () => {
     } else {
         isPasswordMatch = true
     }
+    const disableButton = !checkTerms ? true : false
 
     return (
         <div className="container">
             <h2>Formulir Registrasi</h2>
             <form onSubmit={register}>
                 <div className="form-group">
+                    <input type="hidden" name="firstName" />
+                    <input type="hidden" name="lastName" />
+                    <input type="hidden" name="phoneNumber" />
                     <input type="email" name="email" className="form-control" placeholder="Masukan Email Anda" />
                 </div>
                 <div className="input-group">
@@ -72,19 +76,14 @@ const Register: React.FC = () => {
                             {changeStatus2 ? <Visibility /> : <VisibilityOff />}
                         </span>
                     </div>
-                    <div>
-                        <div>
-                            {isPasswordMatch === false ? <span>Password not match</span> : null}
-                        </div>
-                    </div>
                 </div>
                 <div className="form-group">
                     <div className="checkboxRegister">
-                        <input type="checkbox" name="checkbox" />Saya setuju dengan <span> Syarat dan Ketentuan</span> yang berlaku
+                        <input type="checkbox" name="checkbox" onChange={(e) => setCheckTerms(e.target.checked)} />Saya setuju dengan <span> Syarat dan Ketentuan</span> yang berlaku
                     </div>
                 </div>
                 <div className="form-group">
-                    <Button type="primary">Daftar</Button>
+                    <Button type="primary" cek={disableButton}>Daftar</Button>
                 </div>
             </form>
         </div>

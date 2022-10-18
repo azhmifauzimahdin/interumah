@@ -6,6 +6,8 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    font-size: 17px;
+    font-weight: 700;
 }
 
 .btn-sm {
@@ -24,6 +26,7 @@
     font-size: large;
 }
 
+
 .btn-primary {
     background: #101B94;
     color: white;
@@ -33,6 +36,11 @@
     background: #ffffff;
     color: #101B94;
     border: 1px solid #101B94;
+}
+
+.btn-disabled {
+    background: #B7B7B7;
+    color: white;
 }
 
 @media (max-width: 920px) {
