@@ -8,7 +8,7 @@
 }
 
 h2 {
-    margin: 0 0.9vw 7.2vh;
+    margin: 0 0.9vw 4vh;
 }
 
 .rumah {
@@ -17,7 +17,7 @@ h2 {
 
 .form-group {
     width: 100%;
-    margin-bottom: 3.3vh;
+    margin-top: 3.3vh;
 }
 
 .form-change-password {
@@ -33,11 +33,12 @@ h2 {
     border: 2px solid #656FE0;
     border-radius: 8px;
     padding: 2.5vh 1.4vw;
+    display: flex;
 }
 
 .input-group {
     width: 100%;
-    margin-bottom: 3.3vh;
+    margin-top: 3.3vh;
     position: relative;
 }
 
@@ -46,6 +47,18 @@ h2 {
     top: 50%;
     right: 3.3vh;
     transform: translateY(-45%);
+}
+
+.error-message {
+    font-weight: 700;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    padding: 0.4vh 0.4vw;
+}
+
+.cekdulu {
+    margin-left: 0.5vw;
 }
 
 .changePassword {
@@ -85,7 +98,7 @@ h2 {
 
 .or {
     font-size: 12px;
-    margin-bottom: 3.3vh;
+    margin: 3.3vh 0;
 }
 
 .img-google {

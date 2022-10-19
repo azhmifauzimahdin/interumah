@@ -5,13 +5,13 @@ import { Button } from "../../../component"
 import { authService } from "../../../services"
 import { LoginRequest } from "../../../types/Login"
 import '../Auth.css'
-import Visibility from "@material-ui/icons/Visibility";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import { Info, Visibility, VisibilityOff } from "@material-ui/icons"
 
 const Login: React.FC = () => {
     const navigate = useNavigate()
     const [changePassword, setChangePassword] = useState(true)
     const changeStatus = changePassword === true ? false : true
+    const [errorMessage, setErrorMessage] = useState<string>('')
 
     const login = async (e: React.FormEvent<HTMLFormElement>) => {
         try {
@@ -25,7 +25,7 @@ const Login: React.FC = () => {
 
             navigate('/user/dashboard')
         } catch (error: any) {
-            alert(error.response.data.message)
+            setErrorMessage(error.response.data.message)
         }
     }
     return (
@@ -45,6 +45,11 @@ const Login: React.FC = () => {
                         </span>
                     </div>
                 </div>
+                {errorMessage ? (
+                    <div className="error-message">
+                        <Info color="error" fontSize="small" /><span className="cekdulu">{errorMessage}</span>
+                    </div>
+                ) : null}
                 <div className="form-change-password">
                     <a href="/change_password" className="changePassword">Lupa Password?</a>
                 </div>

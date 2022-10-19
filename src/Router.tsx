@@ -13,10 +13,10 @@ const Router: React.FC = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/user/dashboard" element={<UserDashboard />} />
-                <Route path="/auth" element={<LayoutLogin />} >
+                <Route element={<LayoutLogin />} >
                     <Route path="/auth/login" element={<Login />} />
                 </Route>
-                <Route path="/auth" element={<LayoutRegister />} >
+                <Route element={<LayoutRegister />} >
                     <Route path="/auth/register" element={<Register />} />
                 </Route>
 

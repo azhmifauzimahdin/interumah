@@ -1,8 +1,7 @@
 import React, { useState } from "react"
 import { Button } from "../../../component"
 import '../Auth.css'
-import Visibility from "@material-ui/icons/Visibility"
-import VisibilityOff from "@material-ui/icons/VisibilityOff"
+import { Visibility, VisibilityOff } from "@material-ui/icons"
 import { useNavigate } from "react-router-dom"
 import { authService } from "../../../services"
 import { RegisterRequest } from "../../../types/Register"
