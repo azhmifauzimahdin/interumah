@@ -4,7 +4,7 @@ import { RegisterRequest, RegisterResponse } from "../types/Register";
 import { httpRequest } from "./api";
 
 export const register = async (request: RegisterRequest): Promise<AxiosResponse<RegisterResponse>> => {
-    return await httpRequest.post('/auth/register', request)
+    return await httpRequest.post('/users', request)
 }
 
 export const login = async (request: LoginRequest): Promise<AxiosResponse<LoginResponse>> => {

@@ -19,20 +19,13 @@ const Login: React.FC = () => {
 
             const formData = new FormData(e.target as HTMLFormElement)
             const inputObject = Object.fromEntries(formData)
-            console.log('inputObject', inputObject)
 
             const resp = await authService.login(inputObject as any as LoginRequest)
             localStorage.setItem('@token', resp.data.data.accessToken)
 
             navigate('/user/dashboard')
         } catch (error: any) {
-            if (error.response.data.code === 400 && error.response.data.message === "BAD_REQUEST") {
-                setErrorMessage(error.response.data.errors.email)
-                console.log('Masuk if')
-            } else {
-                setErrorMessage(error.response.data.message)
-                console.log('Masuk else')
-            }
+            setErrorMessage(error.response.data.message)
         }
     }
     return (

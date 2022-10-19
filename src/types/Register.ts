@@ -1,16 +1,22 @@
 import { User } from "./User";
 
 export interface RegisterRequest {
-    firstName: string;
-    lastName: string;
+    name: string;
+    age: string;
+    phone: string;
+    address: string;
+    job: string;
     email: string;
     password: string;
-    phoneNumber: string;
+    confirmPassword: string;
+    role: string;
+}
+
+export interface RegisterResponseData {
+    email: string;
 }
 
 export interface RegisterResponse {
-    expiresOn: string;
-    token: string;
-    user: User;
-    userId: string;
+    code: number;
+    data: RegisterResponseData;
 }
