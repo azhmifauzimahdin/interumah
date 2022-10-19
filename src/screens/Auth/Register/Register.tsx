@@ -62,7 +62,7 @@ const Register: React.FC = () => {
                         <span className="input-group-text" onClick={() => {
                             setChangePassword1(changeStatus1);
                         }}>
-                            {changeStatus1 ? <Visibility /> : <VisibilityOff />}
+                            {changeStatus1 ? <Visibility fontSize="small" /> : <VisibilityOff fontSize="small" color="disabled" />}
                         </span>
                     </div>
                 </div>

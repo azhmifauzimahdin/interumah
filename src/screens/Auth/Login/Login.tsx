@@ -19,13 +19,20 @@ const Login: React.FC = () => {
 
             const formData = new FormData(e.target as HTMLFormElement)
             const inputObject = Object.fromEntries(formData)
+            console.log('inputObject', inputObject)
 
             const resp = await authService.login(inputObject as any as LoginRequest)
             localStorage.setItem('@token', resp.data.data.accessToken)
 
             navigate('/user/dashboard')
         } catch (error: any) {
-            setErrorMessage(error.response.data.message)
+            if (error.response.data.code === 400 && error.response.data.message === "BAD_REQUEST") {
+                setErrorMessage(error.response.data.errors.email)
+                console.log('Masuk if')
+            } else {
+                setErrorMessage(error.response.data.message)
+                console.log('Masuk else')
+            }
         }
     }
     return (
@@ -33,23 +40,23 @@ const Login: React.FC = () => {
             <h2>Selamat Datang di Interior <span className="rumah">Rumah</span></h2>
             <form onSubmit={login}>
                 <div className="form-group">
-                    <input type="email" name="email" className="form-control" placeholder="Masukan Email Anda" />
+                    <input type="email" name="email" className="form-control" placeholder="Masukan Email Anda" required />
                 </div>
                 <div className="input-group">
-                    <input type={changePassword ? "password" : "text"} name="password" className="form-control" placeholder="Masukan Password Anda" />
+                    <input type={changePassword ? "password" : "text"} name="password" className="form-control" placeholder="Masukan Password Anda" required />
                     <div className="input-group-prepend">
                         <span className="input-group-text" onClick={() => {
                             setChangePassword(changeStatus);
                         }}>
-                            {changeStatus ? <Visibility /> : <VisibilityOff />}
+                            {changeStatus ? <Visibility fontSize="small" /> : <VisibilityOff fontSize="small" color="disabled" />}
                         </span>
                     </div>
+                    {errorMessage ? (
+                        <div className="error-message">
+                            <Info color="error" fontSize="small" /><span className="textErrorMessage">{errorMessage}</span>
+                        </div>
+                    ) : null}
                 </div>
-                {errorMessage ? (
-                    <div className="error-message">
-                        <Info color="error" fontSize="small" /><span className="cekdulu">{errorMessage}</span>
-                    </div>
-                ) : null}
                 <div className="form-change-password">
                     <a href="/change_password" className="changePassword">Lupa Password?</a>
                 </div>
