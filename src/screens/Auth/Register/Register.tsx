@@ -22,8 +22,19 @@ const Register: React.FC = () => {
         try {
             const formData = new FormData(e.target as HTMLFormElement)
             const inputObject = Object.fromEntries(formData)
+            var nameMatch = inputObject.email.toString().match(/^([^@]*)@/)
+            var username = nameMatch ? nameMatch[1] : null
+            const objectRegister = {
+                ...inputObject,
+                name: username,
+                age: "0",
+                phone: "xxxxxxxxxxx",
+                address: "-",
+                job: "-",
+                role: "user"
+            }
 
-            await authService.register(inputObject as any as RegisterRequest)
+            await authService.register(objectRegister as any as RegisterRequest)
             navigate('/auth/login')
         } catch (error: any) {
             setErrorMessagePassword(error.response.data.errors.password)
@@ -38,12 +49,12 @@ const Register: React.FC = () => {
             <h2>Formulir Registrasi</h2>
             <form onSubmit={register}>
                 <div className="form-group">
-                    <input type="hidden" name="name" value="-" />
+                    {/* <input type="hidden" name="name" value="-" />
                     <input type="hidden" name="age" value="0" />
                     <input type="hidden" name="phone" value="0xxxxxxxxxx" />
                     <input type="hidden" name="address" value="-" />
                     <input type="hidden" name="job" value="-" />
-                    <input type="hidden" name="role" value="user" />
+                    <input type="hidden" name="role" value="user" /> */}
                     <input type="email" name="email" className="form-control" placeholder="Masukan Email Anda" />
                     {errorMessageEmail ? (
                         <div className="error-message">
