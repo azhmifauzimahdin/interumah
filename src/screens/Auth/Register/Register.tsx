@@ -17,7 +17,6 @@ const Register: React.FC = () => {
     const [errorMessagePassword, setErrorMessagePassword] = useState<string>('')
     const [sending, setSending] = useState<boolean>(false)
 
-
     const navigate = useNavigate()
 
     const register = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -34,7 +33,7 @@ const Register: React.FC = () => {
                 ...inputObject,
                 name: username,
                 age: "0",
-                phone: "xxxxxxxxxxx",
+                phone: "00000000000",
                 address: "-",
                 job: "-",
                 role: "user"
@@ -45,8 +44,9 @@ const Register: React.FC = () => {
             setSending(false)
         } catch (error: any) {
             setSending(false)
-            setErrorMessagePassword(error.response.data.errors.password.toString())
-            setErrorMessageEmail(error.response.data.errors.email.toString())
+            setErrorMessageEmail(error.response.data.errors.email)
+            setErrorMessagePassword(error.response.data.errors.password)
+            console.log('error', error)
         }
     }
 
@@ -75,14 +75,14 @@ const Register: React.FC = () => {
                             {changeStatus1 ? <Visibility fontSize="small" /> : <VisibilityOff fontSize="small" color="disabled" />}
                         </span>
                     </div>
-                    {errorMessagePassword === "Password tidak boleh kosong." ? (
+                    {errorMessagePassword ? (
                         <div className="error-message">
                             <Info color="error" fontSize="small" /><span className="textErrorMessage">{errorMessagePassword}</span>
                         </div>
                     ) : null}
                 </div>
                 <div className="input-group">
-                    <input type={changePassword2 ? "password" : "text"} name="confirmPasword" className={classname} placeholder="Konfirmasi Ulang Password" disabled={sending} />
+                    <input type={changePassword2 ? "password" : "text"} name="confirmPassword" className={classname} placeholder="Konfirmasi Ulang Password" disabled={sending} />
                     <div className="input-group-prepend">
                         <span className="input-group-text" onClick={() => {
                             setChangePassword2(changeStatus2);
@@ -90,11 +90,6 @@ const Register: React.FC = () => {
                             {changeStatus2 ? <Visibility fontSize="small" /> : <VisibilityOff fontSize="small" color="disabled" />}
                         </span>
                     </div>
-                    {errorMessagePassword !== "Password tidak boleh kosong." && errorMessagePassword ? (
-                        <div className="error-message">
-                            <Info color="error" fontSize="small" /><span className="textErrorMessage">{errorMessagePassword}</span>
-                        </div>
-                    ) : null}
                 </div>
                 <div className="form-group">
                     <div className="checkboxRegister">
