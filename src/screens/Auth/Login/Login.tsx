@@ -44,8 +44,6 @@ const Login: React.FC = () => {
                     setErrorMessagePassword(error.response.data.message)
                 }
             }
-            console.log('error', error)
-            console.log('message', error.response.data.message)
         }
     }
 
@@ -88,7 +86,7 @@ const Login: React.FC = () => {
             <div className="or">
                 <span>------------- OR ------------</span>
             </div>
-            <Button type="secondary"><img src={Google} alt="Logo Google" className="img-google" /> Masuk Menggunakan Google</Button>
+            <Button type="secondary" ><img src={Google} alt="Logo Google" className="img-google" /> Masuk Menggunakan Google</Button>
         </div >
     )
 }

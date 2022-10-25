@@ -53,7 +53,6 @@ const Register: React.FC = () => {
     const disableButton = !checkTerms ? true : false
     const classname = errorMessageEmail || errorMessagePassword ? "form-control input-invalid" : "form-control"
 
-
     return (
         <div className="container">
             <h2>Formulir Registrasi</h2>

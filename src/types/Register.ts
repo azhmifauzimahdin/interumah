@@ -1,5 +1,3 @@
-import { User } from "./User";
-
 export interface RegisterRequest {
     name: string;
     age: string;
