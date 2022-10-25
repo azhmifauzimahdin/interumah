@@ -10,10 +10,15 @@ import { Info, Visibility, VisibilityOff } from "@material-ui/icons"
 const Login: React.FC = () => {
     const navigate = useNavigate()
     const [changePassword, setChangePassword] = useState(true)
+    const [errorMessageEmail, setErrorMessageEmail] = useState<string>('')
+    const [errorMessagePassword, setErrorMessagePassword] = useState<string>('')
+    const [sending, setSending] = useState<boolean>(false)
     const changeStatus = changePassword === true ? false : true
-    const [errorMessage, setErrorMessage] = useState<string>('')
 
     const login = async (e: React.FormEvent<HTMLFormElement>) => {
+        setSending(true)
+        setErrorMessageEmail('')
+        setErrorMessagePassword('')
         try {
             e.preventDefault()
 
@@ -23,20 +28,43 @@ const Login: React.FC = () => {
             const resp = await authService.login(inputObject as any as LoginRequest)
             localStorage.setItem('@token', resp.data.data.accessToken)
 
-            navigate('/user/dashboard')
+            navigate('/dashboard')
+            setSending(false)
         } catch (error: any) {
-            setErrorMessage(error.response.data.message)
+            setSending(false)
+            if (error.response.data.message === "BAD_REQUEST") {
+                setErrorMessageEmail(error.response.data.errors.email)
+                setErrorMessagePassword(error.response.data.errors.password)
+            } else {
+                if (error.response.data.message === "User tidak ditemukan") {
+                    setErrorMessageEmail(error.response.data.message)
+                    console.log('masuk')
+                } else {
+                    console.log('keluar')
+                    setErrorMessagePassword(error.response.data.message)
+                }
+            }
+            console.log('error', error)
+            console.log('message', error.response.data.message)
         }
     }
+
+    const classname = errorMessageEmail || errorMessagePassword ? "form-control input-invalid" : "form-control"
+
     return (
         <div className="container">
             <h2>Selamat Datang di Interior <span className="rumah">Rumah</span></h2>
             <form onSubmit={login}>
                 <div className="form-group">
-                    <input type="email" name="email" className="form-control" placeholder="Masukan Email Anda" required />
+                    <input type="email" name="email" className={classname} placeholder="Masukan Email Anda" disabled={sending} />
+                    {errorMessageEmail ? (
+                        <div className="error-message">
+                            <Info color="error" fontSize="small" /><span className="textErrorMessage">{errorMessageEmail}</span>
+                        </div>
+                    ) : null}
                 </div>
                 <div className="input-group">
-                    <input type={changePassword ? "password" : "text"} name="password" className="form-control" placeholder="Masukan Password Anda" required />
+                    <input type={changePassword ? "password" : "text"} name="password" className={classname} placeholder="Masukan Password Anda" disabled={sending} />
                     <div className="input-group-prepend">
                         <span className="input-group-text" onClick={() => {
                             setChangePassword(changeStatus);
@@ -44,9 +72,9 @@ const Login: React.FC = () => {
                             {changeStatus ? <Visibility fontSize="small" /> : <VisibilityOff fontSize="small" color="disabled" />}
                         </span>
                     </div>
-                    {errorMessage ? (
+                    {errorMessagePassword ? (
                         <div className="error-message">
-                            <Info color="error" fontSize="small" /><span className="textErrorMessage">{errorMessage}</span>
+                            <Info color="error" fontSize="small" /><span className="textErrorMessage">{errorMessagePassword}</span>
                         </div>
                     ) : null}
                 </div>
@@ -54,7 +82,7 @@ const Login: React.FC = () => {
                     <a href="/change_password" className="changePassword">Lupa Password?</a>
                 </div>
                 <div className="form-group">
-                    <Button type="primary">Masuk</Button>
+                    <Button type="primary" disabled={sending}>Masuk</Button>
                 </div>
             </form>
             <div className="or">
