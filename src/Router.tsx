@@ -12,12 +12,12 @@ const Router: React.FC = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/dashboard" element={<UserDashboard />} />
+                <Route path="/user/dashboard" element={<UserDashboard />} />
                 <Route element={<LayoutLogin />} >
-                    <Route path="/auth/login" element={<Login />} />
+                    <Route path="/login" element={<Login />} />
                 </Route>
                 <Route element={<LayoutRegister />} >
-                    <Route path="/auth/register" element={<Register />} />
+                    <Route path="/register" element={<Register />} />
                 </Route>
 
             </Routes>

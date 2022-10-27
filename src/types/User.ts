@@ -1,3 +1,9 @@
-import { RegisterRequest } from "./Register"
-
-export type User = RegisterRequest
+export interface Profile {
+    email: string,
+    name: string,
+    phone: string,
+    age: string,
+    address: string,
+    job: string,
+    role: string
+}

@@ -28,7 +28,7 @@ const Login: React.FC = () => {
             const resp = await authService.login(inputObject as any as LoginRequest)
             localStorage.setItem('@token', resp.data.data.accessToken)
 
-            navigate('/dashboard')
+            navigate('/user/dashboard')
             setSending(false)
         } catch (error: any) {
             setSending(false)
@@ -38,9 +38,7 @@ const Login: React.FC = () => {
             } else {
                 if (error.response.data.message === "User tidak ditemukan") {
                     setErrorMessageEmail(error.response.data.message)
-                    console.log('masuk')
                 } else {
-                    console.log('keluar')
                     setErrorMessagePassword(error.response.data.message)
                 }
             }

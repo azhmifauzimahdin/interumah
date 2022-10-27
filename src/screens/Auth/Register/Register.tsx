@@ -40,13 +40,12 @@ const Register: React.FC = () => {
             }
 
             await authService.register(objectRegister as any as RegisterRequest)
-            navigate('/auth/login')
+            navigate('/login')
             setSending(false)
         } catch (error: any) {
             setSending(false)
             setErrorMessageEmail(error.response.data.errors.email)
             setErrorMessagePassword(error.response.data.errors.password)
-            console.log('error', error)
         }
     }
 

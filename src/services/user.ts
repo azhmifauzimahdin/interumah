@@ -1,7 +1,7 @@
 import { AxiosResponse } from "axios"
-import { User } from "../types/User"
+import { Profile } from "../types/User"
 import { httpRequest } from "./api"
 
-export const getLoginUser = async (): Promise<AxiosResponse<User>> => {
+export const getProfile = async (): Promise<AxiosResponse<Profile>> => {
     return await httpRequest.get('/users/1')
 }

@@ -20,8 +20,8 @@ const LayoutRegister: React.FC = () => {
                     <li><a href="/">Kategori</a></li>
                     <li><a href="/">About Us</a></li>
                     <li><a href="/">Company</a></li>
-                    <li><a href="/auth/login"><Button type="secondary">Login</Button></a></li>
-                    <li><a href="/auth/register"><Button type="primary">Sign Up</Button></a></li>
+                    <li><a href="/login"><Button type="secondary">Login</Button></a></li>
+                    <li><a href="/register"><Button type="primary">Sign Up</Button></a></li>
                 </ul>
             </nav>
             <main className="auth-layout--container">
