@@ -27,19 +27,8 @@ const Register: React.FC = () => {
         try {
             const formData = new FormData(e.target as HTMLFormElement)
             const inputObject = Object.fromEntries(formData)
-            var nameMatch = inputObject.email.toString().match(/^([^@]*)@/)
-            var username = nameMatch ? nameMatch[1] : null
-            const objectRegister = {
-                ...inputObject,
-                name: username,
-                age: "0",
-                phone: "00000000000",
-                address: "-",
-                job: "-",
-                role: "user"
-            }
 
-            await authService.register(objectRegister as any as RegisterRequest)
+            await authService.register(inputObject as any as RegisterRequest)
             navigate('/login')
             setSending(false)
         } catch (error: any) {
