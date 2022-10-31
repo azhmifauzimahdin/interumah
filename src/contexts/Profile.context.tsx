@@ -3,8 +3,8 @@ import { Profile } from "../types/User"
 
 const defaultValue: Profile = {
     name: '',
-    age: '',
     phone: '',
+    age: '',
     address: '',
     job: '',
     email: '',
