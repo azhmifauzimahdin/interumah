@@ -21,7 +21,6 @@ const Dashboard: React.FC = () => {
         getUsers()
     }, [])
 
-    console.log('user', user)
     const logout = () => {
         localStorage.removeItem('@token')
         navigate('/login')

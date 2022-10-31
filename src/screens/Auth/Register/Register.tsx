@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Button } from "../../../component"
+import { Button, PWDRequisite } from "../../../component"
 import '../Auth.css'
 import { Info, Visibility, VisibilityOff } from "@material-ui/icons"
 import { useNavigate } from "react-router-dom"
@@ -16,6 +16,14 @@ const Register: React.FC = () => {
     const [errorMessageEmail, setErrorMessageEmail] = useState<string>('')
     const [errorMessagePassword, setErrorMessagePassword] = useState<string>('')
     const [sending, setSending] = useState<boolean>(false)
+    const [pwdRequiste, setPWDRequiste] = useState(false)
+    const [checks, setChecks] = useState({
+        lowercaseCheck: false,
+        uppercaseCheck: false,
+        numericCheck: false,
+        nonAlphanumericCheck: false,
+        minCharacterCheck: false
+    })
 
     const navigate = useNavigate()
 
@@ -41,6 +49,29 @@ const Register: React.FC = () => {
     const disableButton = !checkTerms ? true : false
     const classname = errorMessageEmail || errorMessagePassword ? "form-control input-invalid" : "form-control"
 
+    const handleOnFocusPassword = () => {
+        setPWDRequiste(true)
+    }
+    const handleOnBlurPassword = () => {
+        setPWDRequiste(false)
+    }
+    const handleKeyUpPassword = (e: any) => {
+        const { value } = e.target
+        const lowercaseCheck = /[a-z]/.test(value)
+        const uppercaseCheck = /[A-Z]/.test(value)
+        const numericCheck = /[\d]/.test(value)
+        const nonAlphanumericCheck = /[\W]/.test(value)
+        const minCharacterCheck = /.{8,}/.test(value)
+        setChecks({
+            lowercaseCheck,
+            uppercaseCheck,
+            numericCheck,
+            nonAlphanumericCheck,
+            minCharacterCheck
+        })
+
+    }
+
     return (
         <div className="container">
             <h2>Formulir Registrasi</h2>
@@ -54,7 +85,7 @@ const Register: React.FC = () => {
                     ) : null}
                 </div>
                 <div className="input-group">
-                    <input type={changePassword1 ? "password" : "text"} name="password" className={classname} placeholder="Masukan Password Anda" disabled={sending} />
+                    <input type={changePassword1 ? "password" : "text"} name="password" className={classname} placeholder="Masukan Password Anda" disabled={sending} onFocus={handleOnFocusPassword} onBlur={handleOnBlurPassword} onKeyUp={handleKeyUpPassword} />
                     <div className="input-group-prepend">
                         <span className="input-group-text" onClick={() => {
                             setChangePassword1(changeStatus1);
@@ -67,6 +98,14 @@ const Register: React.FC = () => {
                             <Info color="error" fontSize="small" /><span className="textErrorMessage">{errorMessagePassword}</span>
                         </div>
                     ) : null}
+                    {pwdRequiste ?
+                        <PWDRequisite
+                            lowercaseFlag={checks.lowercaseCheck ? "validStrength" : "invalidStrength"}
+                            uppercaseFlag={checks.uppercaseCheck ? "validStrength" : "invalidStrength"}
+                            numericFlag={checks.numericCheck ? "validStrength" : "invalidStrength"}
+                            nonAlphanumericFlag={checks.nonAlphanumericCheck ? "validStrength" : "invalidStrength"}
+                            minCharacterFlag={checks.minCharacterCheck ? "validStrength" : "invalidStrength"}
+                        /> : null}
                 </div>
                 <div className="input-group">
                     <input type={changePassword2 ? "password" : "text"} name="confirmPassword" className={classname} placeholder="Konfirmasi Ulang Password" disabled={sending} />

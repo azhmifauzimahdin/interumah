@@ -1,0 +1,24 @@
+.PasswordStrengBox {
+    margin-left: 1vw;
+}
+
+.validStrength,
+.invalidStrength {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-size: 14px;
+}
+
+.messageStrength {
+    margin-left: 1vw;
+}
+
+.validStrength {
+    color: green;
+}
+
+.invalidStrength {
+    color: red;
+}
