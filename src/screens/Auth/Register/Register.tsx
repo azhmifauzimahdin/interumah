@@ -1,12 +1,14 @@
 import React, { useState } from "react"
-import { Button, PWDRequisite } from "../../../component"
+import { Button, ModalBlank, PWDRequisite } from "../../../component"
 import '../Auth.css'
-import { useNavigate } from "react-router-dom"
 import { authService } from "../../../services"
 import { RegisterRequest } from "../../../types/Register"
 import { IconInfo, IconVisibility, IconVisibilityOff } from "../../../component/Icon"
+import { IlustrationRegisterSuccess } from "../../../assets"
+import { useNavigate } from "react-router-dom"
 
 const Register: React.FC = () => {
+    const navigate = useNavigate()
     const [changePassword1, setChangePassword1] = useState(true)
     const [changePassword2, setChangePassword2] = useState(true)
     const changeStatus1 = changePassword1 === true ? false : true
@@ -25,8 +27,6 @@ const Register: React.FC = () => {
         minCharacterCheck: false
     })
 
-    const navigate = useNavigate()
-
     const register = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setSending(true)
@@ -36,9 +36,9 @@ const Register: React.FC = () => {
             const formData = new FormData(e.target as HTMLFormElement)
             const inputObject = Object.fromEntries(formData)
 
-            await authService.register(inputObject as any as RegisterRequest)
-            navigate('/login')
+            // await authService.register(inputObject as any as RegisterRequest)
             setSending(false)
+            toggleModal(e)
         } catch (error: any) {
             setSending(false)
             setErrorMessageEmail(error.response.data.errors.email)
@@ -73,61 +73,91 @@ const Register: React.FC = () => {
 
     }
 
+    const [showModal, setShowModal] = useState<boolean>(false)
+
+    const toggleModal = (e: any) => {
+        e.preventDefault()
+
+        if (e.target === e.currentTarget) {
+            setShowModal(prevState => !prevState)
+        }
+    }
+    const navigateLogin = () => {
+        navigate('/login')
+    }
+
     return (
-        <div className="container">
-            <h2>Formulir Registrasi</h2>
-            <form onSubmit={register}>
-                <div className="form-group">
-                    <input type="email" name="email" className={classNameEmail} placeholder="Masukan Email Anda" disabled={sending} />
-                    {errorMessageEmail ? (
-                        <div className="error-message">
-                            <IconInfo color="danger" /><span className="textErrorMessage">{errorMessageEmail}</span>
+        <>
+            <div className="container">
+                <h2>Formulir Registrasi</h2>
+                <form onSubmit={register}>
+                    <div className="form-group">
+                        <input type="email" name="email" className={classNameEmail} placeholder="Masukan Email Anda" disabled={sending} />
+                        {errorMessageEmail ? (
+                            <div className="error-message">
+                                <IconInfo color="danger" /><span className="textErrorMessage">{errorMessageEmail}</span>
+                            </div>
+                        ) : null}
+                    </div>
+                    <div className="input-group">
+                        <input type={changePassword1 ? "password" : "text"} name="password" className={classNamePassword} placeholder="Masukan Password Anda" disabled={sending} onFocus={handleOnFocusPassword} onBlur={handleOnBlurPassword} onKeyUp={handleKeyUpPassword} />
+                        <div className="input-group-prepend">
+                            <span className="input-group-text" onClick={() => {
+                                setChangePassword1(changeStatus1);
+                            }}>
+                                {changeStatus1 ? <IconVisibility /> : <IconVisibilityOff color="secondary" />}
+                            </span>
                         </div>
-                    ) : null}
-                </div>
-                <div className="input-group">
-                    <input type={changePassword1 ? "password" : "text"} name="password" className={classNamePassword} placeholder="Masukan Password Anda" disabled={sending} onFocus={handleOnFocusPassword} onBlur={handleOnBlurPassword} onKeyUp={handleKeyUpPassword} />
-                    <div className="input-group-prepend">
-                        <span className="input-group-text" onClick={() => {
-                            setChangePassword1(changeStatus1);
-                        }}>
-                            {changeStatus1 ? <IconVisibility /> : <IconVisibilityOff color="secondary" />}
-                        </span>
+                        {errorMessagePassword ? (
+                            <div className="error-message">
+                                <IconInfo color="danger" /><span className="textErrorMessage">{errorMessagePassword}</span>
+                            </div>
+                        ) : null}
+                        {pwdRequiste ?
+                            <PWDRequisite
+                                lowercaseFlag={checks.lowercaseCheck ? "validStrength" : "invalidStrength"}
+                                uppercaseFlag={checks.uppercaseCheck ? "validStrength" : "invalidStrength"}
+                                numericFlag={checks.numericCheck ? "validStrength" : "invalidStrength"}
+                                nonAlphanumericFlag={checks.nonAlphanumericCheck ? "validStrength" : "invalidStrength"}
+                                minCharacterFlag={checks.minCharacterCheck ? "validStrength" : "invalidStrength"}
+                            /> : null}
                     </div>
-                    {errorMessagePassword ? (
-                        <div className="error-message">
-                            <IconInfo color="danger" /><span className="textErrorMessage">{errorMessagePassword}</span>
+                    <div className="input-group">
+                        <input type={changePassword2 ? "password" : "text"} name="confirmPassword" className={classNamePassword} placeholder="Konfirmasi Ulang Password" disabled={sending} />
+                        <div className="input-group-prepend">
+                            <span className="input-group-text" onClick={() => {
+                                setChangePassword2(changeStatus2);
+                            }}>
+                                {changeStatus2 ? <IconVisibility /> : <IconVisibilityOff color="secondary" />}
+                            </span>
                         </div>
-                    ) : null}
-                    {pwdRequiste ?
-                        <PWDRequisite
-                            lowercaseFlag={checks.lowercaseCheck ? "validStrength" : "invalidStrength"}
-                            uppercaseFlag={checks.uppercaseCheck ? "validStrength" : "invalidStrength"}
-                            numericFlag={checks.numericCheck ? "validStrength" : "invalidStrength"}
-                            nonAlphanumericFlag={checks.nonAlphanumericCheck ? "validStrength" : "invalidStrength"}
-                            minCharacterFlag={checks.minCharacterCheck ? "validStrength" : "invalidStrength"}
-                        /> : null}
-                </div>
-                <div className="input-group">
-                    <input type={changePassword2 ? "password" : "text"} name="confirmPassword" className={classNamePassword} placeholder="Konfirmasi Ulang Password" disabled={sending} />
-                    <div className="input-group-prepend">
-                        <span className="input-group-text" onClick={() => {
-                            setChangePassword2(changeStatus2);
-                        }}>
-                            {changeStatus2 ? <IconVisibility /> : <IconVisibilityOff color="secondary" />}
-                        </span>
                     </div>
-                </div>
-                <div className="form-group">
-                    <div className="checkboxRegister">
-                        <input type="checkbox" onChange={(e) => setCheckTerms(e.target.checked)} />Saya setuju dengan <span> Syarat dan Ketentuan</span> yang berlaku
+                    <div className="form-group">
+                        <div className="checkboxRegister">
+                            <input type="checkbox" onChange={(e) => setCheckTerms(e.target.checked)} />Saya setuju dengan <span> Syarat dan Ketentuan</span> yang berlaku
+                        </div>
                     </div>
+                    <div className="form-group">
+                        <Button type="primary" disabled={disableButton || sending}>Daftar</Button>
+                    </div>
+                </form>
+            </div>
+            <ModalBlank
+                visible={showModal}
+                onClose={toggleModal}
+            >
+                <div className="modalRegisterSuccess-title">
+                    <span className="titleBlue">Selamat!</span> <br />Anda Berhasil Membuat Akun Baru
                 </div>
-                <div className="form-group">
-                    <Button type="primary" disabled={disableButton || sending}>Daftar</Button>
+                <div className="modalRegisterSuccess-ilustration">
+                    <img src={IlustrationRegisterSuccess} alt="Ilustration Register Success" className="imgIlustrationRegisterSuccess" />
                 </div>
-            </form>
-        </div>
+                <div className="modalRegisterSuccess-link">
+                    <span onClick={navigateLogin}>Masuk Kembali</span>
+                </div>
+
+            </ModalBlank>
+        </>
     )
 }
 

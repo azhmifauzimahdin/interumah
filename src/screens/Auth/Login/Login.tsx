@@ -51,7 +51,7 @@ const Login: React.FC = () => {
 
     return (
         <div className="container">
-            <div className="titleLogin">Selamat Datang di <span className="rumah">Interumah</span></div>
+            <div className="titleLogin">Selamat Datang di <span className="titleBlue">Interumah</span></div>
             <form onSubmit={login}>
                 <div className="form-group">
                     <input type="email" name="email" className={classNameEmail} placeholder="Masukan Email Anda" disabled={sending} />

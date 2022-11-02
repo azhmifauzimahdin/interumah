@@ -1,6 +1,6 @@
 import React from "react"
 import { Outlet } from "react-router-dom"
-import { AmicoLogin, Logo } from "../../../assets/index"
+import { IlustrationLogin, Logo } from "../../../assets/index"
 import { Button } from "../../../component/index"
 import '../Auth.css'
 
@@ -28,7 +28,7 @@ const LayoutLogin: React.FC = () => {
             <main className="auth-layout--container">
                 <aside className="auth-layout--sidebar">
                     <figure>
-                        <img src={AmicoLogin} alt="Gambar sidebar login" className="img--amico-login" />
+                        <img src={IlustrationLogin} alt="Ilustration Login" className="img--amico-login" />
                     </figure>
                 </aside>
                 <section className="auth-layout--content">

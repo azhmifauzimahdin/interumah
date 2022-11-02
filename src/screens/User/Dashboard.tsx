@@ -1,6 +1,7 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { ModalBlank } from "../../component"
 import { authService, userService } from "../../services"
 import { Profile, Users } from "../../types/User"
 
@@ -39,12 +40,12 @@ const Dashboard: React.FC = () => {
     }, [navigate, token])
 
     const logout = async () => {
-
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
         try {
             const resp = await authService.logout()
             console.log("resp", resp)
-            localStorage.removeItem('@token')
+            localStorage.removeItem('token')
+            localStorage.removeItem('refreshToken')
             navigate('/login')
         } catch (error) {
             console.log("error", error);
