@@ -1,9 +1,10 @@
 import React, { useState } from "react"
-import { Button, IconInfo, PWDRequisite } from "../../../component"
+import { Button, PWDRequisite } from "../../../component"
 import '../Auth.css'
 import { useNavigate } from "react-router-dom"
 import { authService } from "../../../services"
 import { RegisterRequest } from "../../../types/Register"
+import { IconInfo, IconVisibility, IconVisibilityOff } from "../../../component/Icon"
 
 const Register: React.FC = () => {
     const [changePassword1, setChangePassword1] = useState(true)
@@ -80,7 +81,7 @@ const Register: React.FC = () => {
                     <input type="email" name="email" className={classNameEmail} placeholder="Masukan Email Anda" disabled={sending} />
                     {errorMessageEmail ? (
                         <div className="error-message">
-                            <IconInfo alt="Icon warning" color="error" /><span className="textErrorMessage">{errorMessageEmail}</span>
+                            <IconInfo color="danger" /><span className="textErrorMessage">{errorMessageEmail}</span>
                         </div>
                     ) : null}
                 </div>
@@ -90,12 +91,12 @@ const Register: React.FC = () => {
                         <span className="input-group-text" onClick={() => {
                             setChangePassword1(changeStatus1);
                         }}>
-                            {/* {changeStatus1 ? <Visibility fontSize="small" /> : <VisibilityOff fontSize="small" color="disabled" />} */}
+                            {changeStatus1 ? <IconVisibility /> : <IconVisibilityOff color="secondary" />}
                         </span>
                     </div>
                     {errorMessagePassword ? (
                         <div className="error-message">
-                            <IconInfo alt="Icon warning" color="error" /><span className="textErrorMessage">{errorMessagePassword}</span>
+                            <IconInfo color="danger" /><span className="textErrorMessage">{errorMessagePassword}</span>
                         </div>
                     ) : null}
                     {pwdRequiste ?
@@ -113,7 +114,7 @@ const Register: React.FC = () => {
                         <span className="input-group-text" onClick={() => {
                             setChangePassword2(changeStatus2);
                         }}>
-                            {/* {changeStatus2 ? <Visibility fontSize="small" /> : <VisibilityOff fontSize="small" color="disabled" />} */}
+                            {changeStatus2 ? <IconVisibility /> : <IconVisibilityOff color="secondary" />}
                         </span>
                     </div>
                 </div>

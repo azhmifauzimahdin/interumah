@@ -1,0 +1,5 @@
+export { default as IconInfo } from "./Info/Info"
+export { default as IconVisibility } from "./Visibility/Visibility"
+export { default as IconVisibilityOff } from "./VisibilityOff/VisibiltyOff"
+export { default as IconCheckCircleOutline } from "./CheckCircleOutline/CheckCircleOutline"
+export { default as IconHighlightOff } from "./HiglightOff/HighlightOff"

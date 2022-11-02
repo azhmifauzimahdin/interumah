@@ -1,7 +1,8 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Google } from "../../../assets"
-import { Button, IconInfo } from "../../../component"
+import { Button } from "../../../component"
+import { IconInfo, IconVisibility, IconVisibilityOff } from "../../../component/Icon"
 import { authService } from "../../../services"
 import { LoginRequest } from "../../../types/Login"
 import '../Auth.css'
@@ -56,7 +57,7 @@ const Login: React.FC = () => {
                     <input type="email" name="email" className={classNameEmail} placeholder="Masukan Email Anda" disabled={sending} />
                     {errorMessageEmail ? (
                         <div className="error-message">
-                            <IconInfo alt="Icon warning" color="error" /><span className="textErrorMessage">{errorMessageEmail}</span>
+                            <IconInfo color="danger" /><span className="textErrorMessage">{errorMessageEmail}</span>
                         </div>
                     ) : null}
                 </div>
@@ -66,12 +67,12 @@ const Login: React.FC = () => {
                         <span className="input-group-text" onClick={() => {
                             setChangePassword(changeStatus);
                         }}>
-                            {/* {changeStatus ? <Visibility fontSize="small" /> : <VisibilityOff fontSize="small" color="disabled" />} */}
+                            {changeStatus ? <IconVisibility /> : <IconVisibilityOff color="secondary" />}
                         </span>
                     </div>
                     {errorMessagePassword ? (
                         <div className="error-message">
-                            <IconInfo alt="Icon warning" color="error" /><span className="textErrorMessage">{errorMessagePassword}</span>
+                            <IconInfo color="danger" /><span className="textErrorMessage">{errorMessagePassword}</span>
                         </div>
                     ) : null}
                 </div>

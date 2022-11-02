@@ -8,11 +8,12 @@
     display: flex;
     align-items: center;
     justify-content: start;
+    font-weight: 700;
     font-size: 0.83vw;
 }
 
 .messageStrength {
-    margin-left: 1vw;
+    margin-left: 0.8vw;
 }
 
 .validStrength {

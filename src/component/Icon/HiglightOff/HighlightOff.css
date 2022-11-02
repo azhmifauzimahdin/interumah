@@ -1,0 +1,11 @@
+.highlightOff {
+    width: 1.04vw;
+}
+
+.highlightOff-primary {
+    fill: #1E1E1F;
+}
+
+.highlightOff-danger {
+    fill: red;
+}

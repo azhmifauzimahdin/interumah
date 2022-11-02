@@ -1,0 +1,11 @@
+.checkCircleOutline {
+    width: 1.04vw;
+}
+
+.checkCircleOutline-primary {
+    fill: #1E1E1F;
+}
+
+.checkCircleOutline-success {
+    fill: green;
+}

@@ -1,18 +1,11 @@
-.IconInfo {}
-
-.info-sm {}
-
-.info-md {
-    /* background: #1E1E1F; */
-    width: 16px;
-    height: 16px;
+.info {
+    width: 0.93vw;
 }
-
-.info-lg {}
-
 
 .info-primary {
-    /* background: #1E1E1F; */
+    fill: #1E1E1F
 }
 
-.info-error {}
+.info-danger {
+    fill: #FF6C6C;
+}
