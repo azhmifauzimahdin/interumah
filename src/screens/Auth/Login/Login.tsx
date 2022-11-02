@@ -1,11 +1,10 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Google } from "../../../assets"
-import { Button } from "../../../component"
+import { Button, IconInfo } from "../../../component"
 import { authService } from "../../../services"
 import { LoginRequest } from "../../../types/Login"
 import '../Auth.css'
-import { Info, Visibility, VisibilityOff } from "@material-ui/icons"
 
 const Login: React.FC = () => {
     const navigate = useNavigate()
@@ -51,13 +50,13 @@ const Login: React.FC = () => {
 
     return (
         <div className="container">
-            <h2>Selamat Datang di Interior <span className="rumah">Rumah</span></h2>
+            <div className="titleLogin">Selamat Datang di <span className="rumah">Interumah</span></div>
             <form onSubmit={login}>
                 <div className="form-group">
                     <input type="email" name="email" className={classNameEmail} placeholder="Masukan Email Anda" disabled={sending} />
                     {errorMessageEmail ? (
                         <div className="error-message">
-                            <Info color="error" fontSize="small" /><span className="textErrorMessage">{errorMessageEmail}</span>
+                            <IconInfo alt="Icon warning" color="error" /><span className="textErrorMessage">{errorMessageEmail}</span>
                         </div>
                     ) : null}
                 </div>
@@ -67,12 +66,12 @@ const Login: React.FC = () => {
                         <span className="input-group-text" onClick={() => {
                             setChangePassword(changeStatus);
                         }}>
-                            {changeStatus ? <Visibility fontSize="small" /> : <VisibilityOff fontSize="small" color="disabled" />}
+                            {/* {changeStatus ? <Visibility fontSize="small" /> : <VisibilityOff fontSize="small" color="disabled" />} */}
                         </span>
                     </div>
                     {errorMessagePassword ? (
                         <div className="error-message">
-                            <Info color="error" fontSize="small" /><span className="textErrorMessage">{errorMessagePassword}</span>
+                            <IconInfo alt="Icon warning" color="error" /><span className="textErrorMessage">{errorMessagePassword}</span>
                         </div>
                     ) : null}
                 </div>

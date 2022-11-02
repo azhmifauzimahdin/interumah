@@ -17,11 +17,12 @@ const LayoutLogin: React.FC = () => {
                 </label>
                 <ul>
                     <li><a href="/">Beranda</a></li>
-                    <li><a href="/">Kategori</a></li>
-                    <li><a href="/">About Us</a></li>
-                    <li><a href="/">Company</a></li>
-                    <li><a href="/login"><Button type="primary">Login</Button></a></li>
-                    <li><a href="/register"><Button type="secondary">Sign Up</Button></a></li>
+                    <li><a href="/">Produk</a></li>
+                    <li><a href="/">Blog</a></li>
+                    <li><a href="/">Perusahaan</a></li>
+                    <li><a href="/">Bantuan</a></li>
+                    <li><a href="/login"><Button type="primary">Masuk</Button></a></li>
+                    <li><a href="/register"><Button type="secondary">Daftar</Button></a></li>
                 </ul>
             </nav>
             <main className="auth-layout--container">
