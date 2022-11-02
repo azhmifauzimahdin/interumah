@@ -5,10 +5,12 @@ export const httpRequest = axios.create({
 })
 
 httpRequest.interceptors.request.use(config => {
-    const appToken = localStorage.getItem('@token')
+    const appToken = localStorage.getItem('token')
+    const refreshToken = localStorage.getItem('refreshtoken')
     if (appToken) {
         config.headers = {
-            'Authorization': `Bearer ${appToken}`
+            'Authorization': `Bearer ${appToken}`,
+            'refreshToken': `Beare ${refreshToken}`
         }
     }
     return config

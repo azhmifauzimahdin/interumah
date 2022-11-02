@@ -26,7 +26,8 @@ const Login: React.FC = () => {
             const inputObject = Object.fromEntries(formData)
 
             const resp = await authService.login(inputObject as any as LoginRequest)
-            localStorage.setItem('@token', resp.data.data.accessToken)
+            localStorage.setItem('token', resp.data.data.accessToken)
+            localStorage.setItem('refreshToken', resp.data.data.refreshToken)
 
             navigate('/user/dashboard')
             setSending(false)
@@ -45,14 +46,15 @@ const Login: React.FC = () => {
         }
     }
 
-    const classname = errorMessageEmail || errorMessagePassword ? "form-control input-invalid" : "form-control"
+    const classNameEmail = errorMessageEmail ? "form-control input-invalid" : "form-control"
+    const classNamePassword = errorMessagePassword ? "form-control input-invalid" : "form-control"
 
     return (
         <div className="container">
             <h2>Selamat Datang di Interior <span className="rumah">Rumah</span></h2>
             <form onSubmit={login}>
                 <div className="form-group">
-                    <input type="email" name="email" className={classname} placeholder="Masukan Email Anda" disabled={sending} />
+                    <input type="email" name="email" className={classNameEmail} placeholder="Masukan Email Anda" disabled={sending} />
                     {errorMessageEmail ? (
                         <div className="error-message">
                             <Info color="error" fontSize="small" /><span className="textErrorMessage">{errorMessageEmail}</span>
@@ -60,7 +62,7 @@ const Login: React.FC = () => {
                     ) : null}
                 </div>
                 <div className="input-group">
-                    <input type={changePassword ? "password" : "text"} name="password" className={classname} placeholder="Masukan Password Anda" disabled={sending} />
+                    <input type={changePassword ? "password" : "text"} name="password" className={classNamePassword} placeholder="Masukan Password Anda" disabled={sending} />
                     <div className="input-group-prepend">
                         <span className="input-group-text" onClick={() => {
                             setChangePassword(changeStatus);

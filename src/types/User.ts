@@ -1,3 +1,13 @@
+export interface Users {
+    id: number;
+    name: string;
+    email: string;
+}
+
+export interface UsersResponse {
+    users: Users[];
+}
+
 export interface Profile {
     name: string,
     phone: string,
