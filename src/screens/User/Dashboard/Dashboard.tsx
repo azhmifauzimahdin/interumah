@@ -1,9 +1,9 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { ModalBlank } from "../../component"
-import { authService, userService } from "../../services"
-import { Profile, Users } from "../../types/User"
+import { ModalBlank } from "../../../component"
+import { authService, userService } from "../../../services"
+import { Profile, Users } from "../../../types/User"
 
 const Dashboard: React.FC = () => {
     const navigate = useNavigate()

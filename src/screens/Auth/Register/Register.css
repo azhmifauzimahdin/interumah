@@ -8,7 +8,7 @@
 }
 
 .titleRegister {
-    margin: 0 0.9vw 5.6vh;
+    margin-bottom: 5.6vh;
     font-size: 1.87vw;
     font-weight: 700;
 }
@@ -35,9 +35,7 @@
     border: 2px solid #656FE0;
     border-radius: 8px;
     padding: 2.5vh 1.4vw;
-    display: flex;
     font-size: 1.04vw;
-    box-sizing: border-box;
 }
 
 .input-invalid {

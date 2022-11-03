@@ -4,15 +4,17 @@ import './Button.css'
 export interface ButtonProps {
     children?: React.ReactNode
     onClick?: React.MouseEventHandler<HTMLButtonElement>
+    button?: 'btn' | 'btnInput'
     type?: 'primary' | 'secondary'
     size?: 'sm' | 'md' | 'lg'
     disabled?: boolean
 }
 
 const Button: React.FC<ButtonProps> = props => {
+    const button = props.button || 'btn'
     const type = props.type || 'primary'
     const size = props.size || 'md'
-    const cek = !props.disabled ? `btn btn-${size} btn-${type}` : `btn btn-${size} btn-disabled`
+    const cek = !props.disabled ? `${button} btn-${size} btn-${type}` : `${button} btn-${size} btn-disabled`
 
     return (
         <button

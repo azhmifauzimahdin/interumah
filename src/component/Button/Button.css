@@ -7,6 +7,20 @@
     justify-content: center;
     cursor: pointer;
     font-weight: 700;
+    height: 6.9vh;
+}
+
+.btnInput {
+    border: none;
+    border-radius: 0px 8px 8px 0px;
+    border: 0.2vw solid #1D86FF;
+    border-left: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 700;
+    height: 7.6vh;
 }
 
 .btn-sm {
@@ -16,7 +30,6 @@
 
 .btn-md {
     padding: 1.1vh 1.4vw;
-    height: 7vh;
     font-size: 1.14vw;
 }
 
