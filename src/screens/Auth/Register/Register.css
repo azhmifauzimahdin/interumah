@@ -7,7 +7,7 @@
     text-align: center;
 }
 
-.titleLogin {
+.titleRegister {
     margin: 0 0.9vw 5.6vh;
     font-size: 1.87vw;
     font-weight: 700;
@@ -94,16 +94,6 @@ input:disabled {
 .form-group .checkboxRegister input[type="checkbox"] {
     accent-color: #101B94;
     vertical-align: middle;
-}
-
-.or {
-    font-size: 0.93vw;
-    margin: 3.3vh 0;
-}
-
-.img-google {
-    width: 1.7vw;
-    margin-right: 0.9vw;
 }
 
 /* Modal */

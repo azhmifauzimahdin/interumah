@@ -1,19 +1,20 @@
 import React from "react"
 import { Outlet } from "react-router-dom"
 import { IlustrationLogin, Logo } from "../../../assets/index"
+import { IconBar } from "../../../component/Icon"
 import { Button } from "../../../component/index"
-import '../Auth.css'
+import './LayoutLogin.css'
 
 const LayoutLogin: React.FC = () => {
     return (
-        <div className="auth-layout">
-            <nav>
+        <div className="login-layout">
+            <nav className="login-navbar">
                 <figure className="logo">
                     <img src={Logo} alt="Logo Interumah" />
                 </figure>
                 <input type="checkbox" id="click" className="checkboxLayout" />
                 <label htmlFor="click" className="menu-btn">
-                    <i className="fas fa-bars"></i>
+                    <i><IconBar /></i>
                 </label>
                 <ul>
                     <li><a href="/">Beranda</a></li>
@@ -25,14 +26,14 @@ const LayoutLogin: React.FC = () => {
                     <li><a href="/register"><Button type="secondary">Daftar</Button></a></li>
                 </ul>
             </nav>
-            <main className="auth-layout--container">
-                <aside className="auth-layout--sidebar">
+            <main className="login-container">
+                <aside className="login-aside">
                     <figure>
-                        <img src={IlustrationLogin} alt="Ilustration Login" className="img--amico-login" />
+                        <img src={IlustrationLogin} alt="Ilustration Login" className="img-ilustration-login" />
                     </figure>
                 </aside>
-                <section className="auth-layout--content">
-                    <article className="content">
+                <section className="login-section">
+                    <article className="login-article">
                         <Outlet />
                     </article>
                 </section>

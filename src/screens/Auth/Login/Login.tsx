@@ -5,7 +5,7 @@ import { Button } from "../../../component"
 import { IconInfo, IconVisibility, IconVisibilityOff } from "../../../component/Icon"
 import { authService } from "../../../services"
 import { LoginRequest } from "../../../types/Login"
-import '../Auth.css'
+import './Login.css'
 
 const Login: React.FC = () => {
     const navigate = useNavigate()
@@ -77,7 +77,7 @@ const Login: React.FC = () => {
                     ) : null}
                 </div>
                 <div className="form-change-password">
-                    <a href="/change_password" className="changePassword">Lupa Password?</a>
+                    <a href="/forget_password" className="changePassword">Lupa Password?</a>
                 </div>
                 <div className="form-group">
                     <Button type="primary" disabled={sending}>Masuk</Button>

@@ -1,19 +1,20 @@
 import React from "react"
 import { Outlet } from "react-router-dom"
 import { IlustrationRegister, Logo } from "../../../assets/index"
+import { IconBar } from "../../../component/Icon"
 import { Button } from "../../../component/index"
-import '../Auth.css'
+import './LayoutRegister.css'
 
 const LayoutRegister: React.FC = () => {
     return (
-        <div className="auth-layout">
-            <nav>
+        <div className="register-layout">
+            <nav className="register-navbar">
                 <figure className="logo">
                     <img src={Logo} alt="Logo Interumah" />
                 </figure>
                 <input type="checkbox" id="click" className="checkboxLayout" />
                 <label htmlFor="click" className="menu-btn">
-                    <i className="fas fa-bars"></i>
+                    <i><IconBar /></i>
                 </label>
                 <ul>
                     <li><a href="/">Beranda</a></li>
@@ -25,14 +26,14 @@ const LayoutRegister: React.FC = () => {
                     <li><a href="/register"><Button type="primary">Daftar</Button></a></li>
                 </ul>
             </nav>
-            <main className="auth-layout--container">
-                <aside className="auth-layout--sidebar">
+            <main className="register-container">
+                <aside className="register-aside">
                     <figure>
-                        <img src={IlustrationRegister} alt="Ilustration Register" className="img--amico-register" />
+                        <img src={IlustrationRegister} alt="Ilustration Register" className="img-ilustration-register" />
                     </figure>
                 </aside>
-                <section className="auth-layout--content">
-                    <article className="content">
+                <section className="register-section">
+                    <article className="register-article">
                         <Outlet />
                     </article>
                 </section>

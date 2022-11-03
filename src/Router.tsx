@@ -4,8 +4,7 @@ import {
     Routes,
     Route
 } from "react-router-dom"
-import LayoutLogin from "./layouts/Auth/Login/LayoutLogin"
-import LayoutRegister from "./layouts/Auth/Register/LayoutRegister"
+import { LayoutForgetPassword, LayoutLogin, LayoutRegister } from "./layouts/Auth"
 import { Login, Register, UserDashboard } from "./screens"
 
 const Router: React.FC = () => {
@@ -18,6 +17,9 @@ const Router: React.FC = () => {
                 </Route>
                 <Route element={<LayoutRegister />} >
                     <Route path="/register" element={<Register />} />
+                </Route>
+                <Route path="/forget_password" element={<LayoutForgetPassword />}>
+                    <Route />
                 </Route>
 
             </Routes>

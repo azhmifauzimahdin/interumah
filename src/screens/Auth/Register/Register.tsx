@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 import { Button, ModalBlank, PWDRequisite } from "../../../component"
-import '../Auth.css'
 import { authService } from "../../../services"
 import { RegisterRequest } from "../../../types/Register"
 import { IconInfo, IconVisibility, IconVisibilityOff } from "../../../component/Icon"
 import { IlustrationRegisterSuccess } from "../../../assets"
 import { useNavigate } from "react-router-dom"
+import './Register.css'
 
 const Register: React.FC = () => {
     const navigate = useNavigate()
@@ -36,7 +36,7 @@ const Register: React.FC = () => {
             const formData = new FormData(e.target as HTMLFormElement)
             const inputObject = Object.fromEntries(formData)
 
-            // await authService.register(inputObject as any as RegisterRequest)
+            await authService.register(inputObject as any as RegisterRequest)
             setSending(false)
             toggleModal(e)
         } catch (error: any) {
@@ -89,7 +89,7 @@ const Register: React.FC = () => {
     return (
         <>
             <div className="container">
-                <h2>Formulir Registrasi</h2>
+                <div className="titleRegister">Formulir Registrasi</div>
                 <form onSubmit={register}>
                     <div className="form-group">
                         <input type="email" name="email" className={classNameEmail} placeholder="Masukan Email Anda" disabled={sending} />
