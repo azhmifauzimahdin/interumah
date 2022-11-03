@@ -1,0 +1,34 @@
+* {
+    font-family: Roboto, sans-serif;
+}
+
+.container {
+    width: 100%;
+    text-align: center;
+}
+
+.titleForgetPasswordCheckEmail {
+    margin-bottom: 3.88vh;
+    font-size: 1.66vw;
+    font-weight: 700;
+}
+
+.forgetCheckEmail-ilustration {
+    width: 100%;
+    margin-bottom: 3.88vh;
+}
+
+.imgIlustrationForgetCheckEmail {
+    width: 16.61vw;
+}
+
+.forgetCheckEmail-link {
+    width: 100%;
+    font-size: 1.04vw;
+    font-weight: 700;
+}
+
+.forgetCheckEmail-link a {
+    color: #101B94;
+    text-decoration: none;
+}
