@@ -1,0 +1,125 @@
+* {
+    font-family: Roboto, sans-serif;
+}
+
+.user-layout {
+    width: 100%;
+}
+
+.user-navbar {
+    position: fixed;
+    top: 0;
+    background: #ffffff;
+    display: flex;
+    height: 16vh;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4vh 7vw 0 5.7vw;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-navbar .logo {
+    width: 16vw;
+    height: 7vh;
+    margin-bottom: 4vh;
+}
+
+.user-navbar .logo img {
+    height: 100%;
+}
+
+.user-navbar ul {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.user-navbar ul li {
+    margin: 0 0 0 2.8vw;
+    font-size: 1.25vw;
+    font-weight: 700;
+}
+
+.user-navbar ul li a {
+    color: #101B94;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.user-navbar ul li a:hover {
+    color: #111;
+}
+
+.user-navbar .menu-btn i,
+.checkboxLayout {
+    display: none;
+}
+
+.user-container {
+    width: 100%;
+    background: aqua;
+    padding: 16vh 0 0 0;
+}
+
+@media (max-width: 920px) {
+    .user-navbar {
+        height: 8vh;
+    }
+
+    .user-navbar .logo {
+        width: 20vw;
+        height: 3.4vh;
+    }
+
+    .user-navbar .menu-btn i {
+        display: block;
+    }
+
+    /* #click:checked~.menu-btn i:before {
+        content: "\f00d";
+    } */
+
+    .user-navbar ul {
+        position: fixed;
+        top: 6vh;
+        left: -200%;
+        background: #111;
+        height: 100vh;
+        width: 100%;
+        padding: 0;
+        text-align: center;
+        display: block;
+        transition: all 0.3s ease;
+    }
+
+    #click:checked~ul {
+        left: 0;
+    }
+
+    .user-navbar ul li {
+        width: 100%;
+        margin: 40px 0;
+    }
+
+    .user-navbar ul li a {
+        width: 100%;
+        margin-left: -100%;
+        display: block;
+        transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    #click:checked~ul li a {
+        margin-left: 0px;
+    }
+
+    .user-navbar ul li a.active,
+    .user-navbar ul li a:hover {
+        background: none;
+        color: cyan;
+    }
+}
