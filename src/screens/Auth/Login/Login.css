@@ -85,9 +85,22 @@ input:disabled {
     margin: 3.3vh 0;
 }
 
+.buttonLoginWithGoogle {
+    margin-bottom: 3.3vh;
+}
+
 .img-google {
     width: 1.7vw;
     margin-right: 0.9vw;
+}
+
+.linktoRegister {
+    font-size: 1.04vw;
+}
+
+.linktoRegister .linktoRegister-text {
+    font-weight: 700;
+    color: #101B94;
 }
 
 @media (max-width: 920px) {

@@ -15,10 +15,10 @@ const InputEmail: React.FC = () => {
             <div className="forgetInputPassword-ilustration">
                 <img src={IlustrationForgetPasswordInputEmail} alt="Ilustration Forget Password" className="imgIlustrationForgetInputPassword" />
             </div>
-            <div className="forgetInputPasswrod-form">
+            <div className="forgetInputPassword-form">
                 <form onSubmit={sendEmail}>
                     <div className="input-group-button">
-                        <input type="text" className="form-control-button" />
+                        <input type="text" className="form-control-button" placeholder="Masukan Email Anda" />
                         <div className="input-group-prependbutton">
                             <Button button="btnInput">Kirim</Button>
                         </div>

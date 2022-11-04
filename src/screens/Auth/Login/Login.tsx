@@ -86,7 +86,12 @@ const Login: React.FC = () => {
             <div className="or">
                 <span>------------- OR ------------</span>
             </div>
-            <Button type="secondary" ><img src={Google} alt="Logo Google" className="img-google" /> Masuk Menggunakan Google</Button>
+            <div className="buttonLoginWithGoogle">
+                <Button type="secondary" ><img src={Google} alt="Logo Google" className="img-google" /> Masuk Menggunakan Google</Button>
+            </div>
+            <div className="linktoRegister">
+                <span>Belum punya akun? <span className="linktoRegister-text">Daftar</span></span>
+            </div>
         </div >
     )
 }
