@@ -1,9 +1,11 @@
 import React, { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { Button, PWDRequisite } from "../../../../component"
 import { IconVisibility, IconVisibilityOff } from "../../../../component/Icon"
 import "./ChangePassword.css"
 
 const ChangePassword: React.FC = () => {
+    const navigate = useNavigate()
     const [changePassword1, setChangePassword1] = useState(true)
     const [changePassword2, setChangePassword2] = useState(true)
     const changeStatus1 = changePassword1 === true ? false : true
@@ -23,9 +25,9 @@ const ChangePassword: React.FC = () => {
         setSending(true)
         try {
             setSending(false)
+            navigate('/success_password_change')
         } catch (error) {
             setSending(false)
-
         }
     }
 

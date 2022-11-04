@@ -3,7 +3,7 @@ import { Button, ModalBlank, PWDRequisite } from "../../../component"
 import { authService } from "../../../services"
 import { RegisterRequest } from "../../../types/Register"
 import { IconInfo, IconVisibility, IconVisibilityOff } from "../../../component/Icon"
-import { IlustrationRegisterSuccess } from "../../../assets"
+import { IlustrationSuccess } from "../../../assets"
 import { useNavigate } from "react-router-dom"
 import './Register.css'
 
@@ -150,7 +150,7 @@ const Register: React.FC = () => {
                     <span className="titleBlue">Selamat!</span> <br />Anda Berhasil Membuat Akun Baru
                 </div>
                 <div className="modalRegisterSuccess-ilustration">
-                    <img src={IlustrationRegisterSuccess} alt="Ilustration Register Success" className="imgIlustrationRegisterSuccess" />
+                    <img src={IlustrationSuccess} alt="Ilustration Register Success" className="imgIlustrationRegisterSuccess" />
                 </div>
                 <div className="modalRegisterSuccess-link">
                     <span onClick={navigateLogin}>Masuk Kembali</span>

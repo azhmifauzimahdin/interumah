@@ -5,7 +5,7 @@ import {
     Route
 } from "react-router-dom"
 import { LayoutForgetPassword, LayoutLogin, LayoutRegister } from "./layouts/Auth"
-import { ChangePassword, Login, PasswordCheckEmail, PasswordInputEmail, Register } from "./screens/Auth"
+import { ChangePassword, Login, PasswordCheckEmail, PasswordInputEmail, Register, SuccessPasswordChange } from "./screens/Auth"
 import { UserDashboard } from "./screens/User"
 
 const Router: React.FC = () => {
@@ -23,6 +23,7 @@ const Router: React.FC = () => {
                     <Route path="/forget_password" element={<PasswordInputEmail />} />
                     <Route path="/forget_password/check_email" element={<PasswordCheckEmail />} />
                     <Route path="/change_password" element={<ChangePassword />} />
+                    <Route path="/success_password_change" element={<SuccessPasswordChange />} />
                 </Route>
 
             </Routes>
