@@ -4,17 +4,21 @@ import {
     Routes,
     Route
 } from "react-router-dom"
+import { LayoutLandingPage, LayoutUser } from "./layouts"
 import { LayoutForgetPassword, LayoutLogin, LayoutRegister } from "./layouts/Auth"
-import LayoutUser from "./layouts/User/LayoutUser"
 import { ChangePassword, Login, PasswordCheckEmail, PasswordInputEmail, Register, SuccessPasswordChange } from "./screens/Auth"
+import LandingPage from "./screens/LandingPage/LandingPage"
 import { UserDashboard } from "./screens/User"
 
 const Router: React.FC = () => {
     return (
         <BrowserRouter>
             <Routes>
+                <Route element={<LayoutLandingPage />}>
+                    <Route path="/" element={<LandingPage />} />
+                </Route>
                 <Route element={<LayoutUser />} >
-                    <Route path="/user/dashboard" element={<UserDashboard />} />
+                    <Route path="/dashboard" element={<UserDashboard />} />
                 </Route>
                 <Route element={<LayoutLogin />} >
                     <Route path="/login" element={<Login />} />

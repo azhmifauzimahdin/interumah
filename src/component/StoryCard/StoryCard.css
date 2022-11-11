@@ -1,0 +1,36 @@
+* {
+    font-family: Roboto, sans-serif;
+}
+
+.storyCard {
+    width: 100%;
+    text-align: start;
+}
+
+.storyCard-imgStory {
+    width: 100%;
+    height: 32vh;
+    margin: 0;
+    border-radius: 2.6vw;
+    overflow: hidden;
+    margin-bottom: 2.12vh;
+}
+
+.storyCard-imgStory img {
+    object-fit: fill;
+    width: 100%;
+    height: 100%;
+}
+
+.storyCard-title {
+    font-size: 1.87vw;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 2.12vh;
+}
+
+.storyCard-date {
+    font-size: 1.25vw;
+    font-weight: 700;
+    color: #ffffff;
+}

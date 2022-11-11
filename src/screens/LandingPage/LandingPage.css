@@ -1,0 +1,274 @@
+* {
+    font-family: Roboto, sans-serif;
+}
+
+.landingPage-container {
+    width: 100%;
+}
+
+.landingPage-mainOne {
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.landingPage-mainOne-article {
+    height: 100%;
+    padding: 28vh 0 0 12.5vw;
+    width: 51.56vw;
+    box-sizing: border-box;
+}
+
+.landingPage-mainOne-article .header {
+    font-size: 1.45vw;
+    font-weight: 700;
+    color: #101B94;
+    margin-bottom: 0.74vh;
+}
+
+.landingPage-mainOne-article .sectionOne {
+    font-size: 2.5vw;
+    font-weight: 700;
+    color: #000000;
+    width: 37vw;
+    line-height: 143.69%;
+    margin-bottom: 2vh;
+}
+
+.landingPage-mainOne-article .sectionTwo {
+    font-size: 1.25vw;
+    font-weight: 400;
+    color: #000000;
+    width: 37vw;
+    margin-bottom: 4.6vh;
+}
+
+.landingPage-mainOne-article .sectionThree {
+    width: 14.2vw;
+}
+
+.landingPage-mainOne-figure {
+    flex-grow: 1;
+    height: 100%;
+    margin: 0;
+    padding-top: 6.6vh;
+    box-sizing: border-box;
+}
+
+.landingPage-mainOne-figure img {
+    width: 34.4vw;
+}
+
+.landingPage-mainTwo {
+    height: 96vh;
+    background: #101B94;
+    border-radius: 7.81vw 7.81vw 0 0;
+    padding: 9.81vh 10vw;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.landingPage-mainTwo-articleOne {
+    width: 100%;
+    margin-bottom: 12.66vh;
+}
+
+.landingPage-mainTwo-articleOne .header {
+    font-size: 2.5vw;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 3.42vh;
+}
+
+.landingPage-mainTwo-articleOne .sectionOne {
+    width: 44.4vw;
+    font-size: 1.25vw;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0 auto;
+}
+
+.landingPage-mainTwo-articleTwo {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: #ffffff;
+}
+
+.landingPage-mainTwo-articleTwo .section {
+    width: 18.33vw;
+}
+
+.landingPage-mainTwo-articleTwo .section .figure {
+    margin: 0;
+    width: 100%;
+    margin-bottom: 1.8vh;
+}
+
+.landingPage-mainTwo-articleTwo .section .figure img {
+    height: 19.62vh;
+}
+
+.landingPage-mainTwo-articleTwo .section header {
+    font-size: 1.87vw;
+    font-weight: 700;
+    margin-bottom: 1.85vh;
+}
+
+.landingPage-mainTwo-articleTwo .section section {
+    font-size: 1.25vw;
+    font-weight: 400;
+}
+
+.landingPage-mainThree {
+    height: 136.85vh;
+    text-align: center;
+    padding: 6vh 13vw;
+}
+
+.landingPage-mainThree-articleOne {
+    width: 100%;
+    margin-bottom: 5.4vh;
+}
+
+.landingPage-mainThree-articleOne .header {
+    font-size: 2.5vw;
+    font-weight: 700;
+    color: #101B94;
+}
+
+.landingPage-mainThree-articleOne .ProductMenu {
+    width: 100%;
+    padding: 0 8vw;
+    box-sizing: border-box;
+}
+
+.landingPage-mainThree-articleOne .ProductMenu ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.landingPage-mainThree-articleTwo {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 8.14vh;
+}
+
+.landingPage-mainThree-articleTwo .product {
+    width: 15.67vw;
+    margin: 1.64vh 1.2vw;
+}
+
+.landingPage-mainThree-articleThree {
+    width: 14.63vw;
+    height: 7.6vh;
+    margin: 0 auto;
+}
+
+.landingPage-mainFour {
+    width: 100%;
+    /* height: 208.33vh; */
+    height: 240vh;
+    background-image: url(../../assets/img/backgroundImageOne.svg);
+    background-size: cover;
+    padding: 40vh 10.25vw;
+    box-sizing: border-box;
+}
+
+.landingPage-mainFour-header {
+    font-size: 2.5vw;
+    font-weight: 700;
+    padding-left: 1vw;
+    margin-bottom: 7.87vh;
+    color: #ffffff;
+}
+
+.landingPage-mainFour-articleOne {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 16vh;
+}
+
+.landingPage-mainFour-articleOne .story {
+    width: 24vw;
+    margin: 0 1vw 2.59vh;
+}
+
+.landingPage-mainFour-footer {
+    width: 100%;
+    color: #ffffff;
+}
+
+.landingPage-mainFour-footer .hrOne {
+    height: 0.64vh;
+    background: #D9D9D9;
+    margin-bottom: 3.5vh;
+}
+
+.landingPage-mainFour-footer .logo {
+    margin-left: 0;
+    margin-bottom: 5.74vh;
+}
+
+.landingPage-mainFour-footer .logo img {
+    width: 18.54vw;
+}
+
+.landingPage-mainFour-footer .articleMenuFooter {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.landingPage-mainFour-footer .articleMenuFooter .section {
+    width: 25%;
+}
+
+.landingPage-mainFour-footer .articleMenuFooter .section .header {
+    font-size: 1.25vw;
+    font-weight: 700;
+    margin-bottom: 1.57vh;
+}
+
+.landingPage-mainFour-footer .articleMenuFooter .section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.landingPage-mainFour-footer .articleMenuFooter .section ul li {
+    font-size: 1.04vw;
+    font-weight: 400;
+    margin-bottom: 1.38vh;
+}
+
+.landingPage-mainFour-footer .articleMenuFooter .section ul li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.landingPage-mainFour-footer .articleMenuFooter .section .figure {
+    margin-left: 0;
+    margin-bottom: 6.94vh;
+    width: 100%;
+}
+
+.landingPage-mainFour-footer .articleMenuFooter .section .figure a {
+    margin-right: 1.77vw;
+}
+
+.landingPage-mainFour-footer .articleCopyRight {
+    width: 100%;
+    font-size: 1.04vw;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 5.09vh;
+}

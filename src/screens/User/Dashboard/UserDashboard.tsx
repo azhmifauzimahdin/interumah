@@ -1,14 +1,15 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { ModalBlank } from "../../../component"
+import { Button } from "../../../component"
 import { authService, userService } from "../../../services"
 import { Profile, Users } from "../../../types/User"
+import "./UserDashboard.css"
 
-const Dashboard: React.FC = () => {
+const UserDashboard: React.FC = () => {
     const navigate = useNavigate()
-    const [users, setUsers] = useState<Users[]>()
-    const [user, setUser] = useState<Profile>()
+    const [, setUsers] = useState<Users[]>()
+    const [, setUser] = useState<Profile>()
     const token = localStorage.getItem("token")
 
     const getUsers = async () => {
@@ -41,6 +42,9 @@ const Dashboard: React.FC = () => {
 
     const logout = async () => {
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+        localStorage.removeItem('token')
+        localStorage.removeItem('refreshToken')
+        navigate('/login')
         try {
             const resp = await authService.logout()
             console.log("resp", resp)
@@ -53,12 +57,11 @@ const Dashboard: React.FC = () => {
     }
 
     return (
-        <div>
+        <main>
             <h1>Dashboard</h1>
-            <p>{user?.email}</p>
-            <button onClick={logout}>Logout</button>
-        </div>
+            <Button onClick={logout}>Logout</Button>
+        </main>
     )
 }
 
-export default Dashboard
+export default UserDashboard

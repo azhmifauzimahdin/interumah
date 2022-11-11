@@ -7,17 +7,15 @@
 }
 
 .register-navbar {
-    position: fixed;
     background: #ffffff;
     display: flex;
-    height: 16vh;
+    height: 14vh;
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    padding: 1.4vh 7vw 0 2.7vw;
+    padding: 0.4vh 7vw 0 2.7vw;
     flex-wrap: wrap;
     box-sizing: border-box;
-    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.1);
 }
 
 .register-navbar .logo {
@@ -61,17 +59,15 @@
 
 .register-container {
     width: 100%;
-    padding-top: 16vh;
-    padding-bottom: 16vh;
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 4.4vh;
 }
 
 .register-aside {
     width: 54%;
     padding: 0 0 0 5.7vw;
     box-sizing: border-box;
-    padding-bottom: 8vh;
 }
 
 .img-ilustration-register {

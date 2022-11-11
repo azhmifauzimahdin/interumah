@@ -29,7 +29,7 @@ const Login: React.FC = () => {
             localStorage.setItem('token', resp.data.data.accessToken)
             localStorage.setItem('refreshToken', resp.data.data.refreshToken)
 
-            navigate('/user/dashboard')
+            navigate('/dashboard')
             setSending(false)
         } catch (error: any) {
             setSending(false)

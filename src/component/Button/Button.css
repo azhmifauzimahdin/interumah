@@ -6,8 +6,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-weight: 700;
-    height: 6.9vh;
+    font-size: 1.14vw;
 }
 
 .btnInput {
@@ -21,33 +20,70 @@
     cursor: pointer;
     font-weight: 700;
     height: 7.6vh;
-}
-
-.btn-sm {
-    padding: 0.8vh 1.2vw;
-    font-size: 0.84vw;
-}
-
-.btn-md {
-    padding: 1.1vh 1.4vw;
     font-size: 1.14vw;
 }
 
-.btn-lg {
-    padding: 1.4vh 1.6vh;
-    font-size: 1.44vw;
+.btnProduct {
+    border: none;
+    width: 11.71vw;
+    border-radius: 1.56vw;
 }
 
+.btn-size-sm {
+    height: 5vh;
+    padding: 0 1.2vw;
+}
+
+.btn-size-md {
+    height: 7.6vh;
+    padding: 0 1.6vw;
+}
+
+.btn-size-lg {
+    padding: 1.4vh 2vw;
+    height: 6.57vh;
+}
+
+.btn-normal {
+    font-weight: 400;
+}
+
+.btn-bold {
+    font-weight: 700;
+}
 
 .btn-primary {
     background: #101B94;
     color: white;
 }
 
+.btn-primary:hover {
+    background: #1D86FF;
+    color: white;
+}
+
 .btn-secondary {
     background: #ffffff;
     color: #101B94;
-    border: 1px solid #101B94;
+    border: 2px solid #101B94;
+}
+
+.btn-colorfull {
+    background: linear-gradient(268.97deg, #1D86FF 20.46%, #101B94 71.87%);
+    color: #ffffff;
+    border-radius: 2.6vw;
+}
+
+.btn-font-sm {
+    font-size: 0.83vw;
+}
+
+.btn-font-md {
+    font-size: 1.14vw;
+}
+
+.btn-font-lg {
+    font-size: 1.66vw;
 }
 
 .btn-disabled {

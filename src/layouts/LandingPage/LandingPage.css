@@ -1,0 +1,121 @@
+* {
+    font-family: Roboto, sans-serif;
+}
+
+.landingPage-layout {
+    width: 100%;
+}
+
+.landingPage-navbar {
+    background: #ffffff;
+    display: flex;
+    height: 14vh;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.4vh 7vw 0 2.7vw;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.landingPage-navbar .logo {
+    width: 16vw;
+    height: 7vh;
+    margin-bottom: 4vh;
+}
+
+.landingPage-navbar .logo img {
+    height: 100%;
+}
+
+.landingPage-navbar ul {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.landingPage-navbar ul li {
+    margin: 0 0 0 2.8vw;
+    font-size: 1.25vw;
+    font-weight: 700;
+}
+
+.landingPage-navbar ul li a {
+    color: #101B94;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    height: 6.9vh;
+}
+
+.landingPage-navbar ul li a:hover {
+    color: #111;
+}
+
+.landingPage-navbar .menu-btn i,
+.checkboxLayout {
+    display: none;
+}
+
+.landingPage-container {
+    width: 100%;
+}
+
+@media (max-width: 920px) {
+    .landingPage-navbar {
+        height: 8vh;
+    }
+
+    .landingPage-navbar .logo {
+        width: 20vw;
+        height: 3.4vh;
+    }
+
+    .landingPage-navbar .menu-btn i {
+        display: block;
+    }
+
+    /* #click:checked~.menu-btn i:before {
+        content: "\f00d";
+    } */
+
+    .landingPage-navbar ul {
+        position: fixed;
+        top: 6vh;
+        left: -200%;
+        background: #111;
+        height: 100vh;
+        width: 100%;
+        padding: 0;
+        text-align: center;
+        display: block;
+        transition: all 0.3s ease;
+    }
+
+    #click:checked~ul {
+        left: 0;
+    }
+
+    .landingPage-navbar ul li {
+        width: 100%;
+        margin: 40px 0;
+    }
+
+    .landingPage-navbar ul li a {
+        width: 100%;
+        margin-left: -100%;
+        display: block;
+        transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    #click:checked~ul li a {
+        margin-left: 0px;
+    }
+
+    .landingPage-navbar ul li a.active,
+    .landingPage-navbar ul li a:hover {
+        background: none;
+        color: cyan;
+    }
+}

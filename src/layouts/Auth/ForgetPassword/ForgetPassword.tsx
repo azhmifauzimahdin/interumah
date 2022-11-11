@@ -9,11 +9,13 @@ const ForgetPassword: React.FC = () => {
         <div className="forgetpassword-layout">
             <nav className="forgetpassword-navbar">
                 <figure className="logo">
-                    <img src={Logo} alt="Logo Interumah" />
+                    <a href="/">
+                        <img src={Logo} alt="Logo Interumah" />
+                    </a>
                 </figure>
                 <ul>
                     <li><a href="/register">Belum Punya Akun?</a></li>
-                    <li><a href="/login"><Button type="primary">Masuk</Button></a></li>
+                    <li><a href="/login"><Button type="primary" size="sm">Masuk</Button></a></li>
                 </ul>
             </nav>
             <main className="forgetpassword-container">

@@ -10,7 +10,9 @@ const LayoutRegister: React.FC = () => {
         <div className="register-layout">
             <nav className="register-navbar">
                 <figure className="logo">
-                    <img src={Logo} alt="Logo Interumah" />
+                    <a href="/">
+                        <img src={Logo} alt="Logo Interumah" />
+                    </a>
                 </figure>
                 <input type="checkbox" id="click" className="checkboxLayout" />
                 <label htmlFor="click" className="menu-btn">
@@ -22,8 +24,8 @@ const LayoutRegister: React.FC = () => {
                     <li><a href="/">Blog</a></li>
                     <li><a href="/">Perusahaan</a></li>
                     <li><a href="/">Bantuan</a></li>
-                    <li><a href="/login"><Button type="secondary">Masuk</Button></a></li>
-                    <li><a href="/register"><Button type="primary">Daftar</Button></a></li>
+                    <li><a href="/login"><Button type="primary" size="sm">Masuk</Button></a></li>
+                    <li><a href="/register"><Button type="secondary" size="sm">Daftar</Button></a></li>
                 </ul>
             </nav>
             <main className="register-container">
