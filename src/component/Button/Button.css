@@ -6,7 +6,6 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 1.14vw;
 }
 
 .btnInput {
@@ -20,7 +19,6 @@
     cursor: pointer;
     font-weight: 700;
     height: 7.6vh;
-    font-size: 1.14vw;
 }
 
 .btnProduct {
@@ -91,12 +89,109 @@
     color: white;
 }
 
-@media (max-width: 920px) {
+@media screen and (max-width: 800px) {
+    .btn {
+        border-radius: 4px;
+    }
+
+    .btnProduct {
+        width: 18vw;
+        border-radius: 5px;
+    }
+
+    .btn-size-lg {
+        height: 26px;
+    }
+
+    .btn-size-sm {
+        height: 28px;
+    }
+
     .btn-size-md {
         height: 5vh;
     }
 
+    .btn-secondary {
+        border: 1px solid #101B94;
+    }
+
+    .btn-font-sm {
+        font-size: 12px;
+    }
+
     .btn-font-md {
-        font-size: 16px;
+        font-size: 10px;
+    }
+
+}
+
+@media screen and (max-width: 550px) {
+    .btn {
+        border-radius: 4px;
+    }
+
+    .btnProduct {
+        width: 18vw;
+        border-radius: 5px;
+    }
+
+    .btn-size-lg {
+        height: 16px;
+    }
+
+    .btn-size-sm {
+        height: 20px;
+    }
+
+    .btn-size-md {
+        height: 5vh;
+    }
+
+    .btn-secondary {
+        border: 1px solid #101B94;
+    }
+
+    .btn-font-sm {
+        font-size: 12px;
+    }
+
+    .btn-font-md {
+        font-size: 8px;
+    }
+
+}
+
+@media screen and (max-width: 450px) {
+    .btn {
+        border-radius: 4px;
+    }
+
+    .btnProduct {
+        width: 18vw;
+        border-radius: 5px;
+    }
+
+    .btn-size-lg {
+        height: 16px;
+    }
+
+    .btn-size-sm {
+        height: 20px;
+    }
+
+    .btn-size-md {
+        height: 5vh;
+    }
+
+    .btn-secondary {
+        border: 1px solid #101B94;
+    }
+
+    .btn-font-sm {
+        font-size: 8px;
+    }
+
+    .btn-font-md {
+        font-size: 8px;
     }
 }

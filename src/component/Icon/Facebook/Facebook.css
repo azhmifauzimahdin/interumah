@@ -1,3 +1,21 @@
 .facebook {
     width: 1.82vw;
 }
+
+@media screen and (max-width: 800px) {
+    .facebook {
+        width: 3vw;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .facebook {
+        width: 4vw;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .facebook {
+        width: 4.82vw;
+    }
+}

@@ -1,3 +1,21 @@
 .playstore {
     width: 1.82vw;
 }
+
+@media screen and (max-width: 800px) {
+    .playstore {
+        width: 3vw;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .playstore {
+        width: 4vw;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .playstore {
+        width: 4.82vw;
+    }
+}

@@ -5,3 +5,21 @@
 .favorite-primary {
     stroke: #C80707;
 }
+
+@media screen and (max-width: 800px) {
+    .favorite {
+        width: 3.6vw;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .favorite {
+        width: 3.6vw;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .favorite {
+        width: 3.38vw;
+    }
+}

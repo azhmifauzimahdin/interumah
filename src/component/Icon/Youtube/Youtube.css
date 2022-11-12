@@ -1,3 +1,21 @@
 .youtube {
     width: 2.03vw;
 }
+
+@media screen and (max-width: 800px) {
+    .youtube {
+        width: 3.8vw;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .youtube {
+        width: 5.2vw;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .youtube {
+        width: 6.03vw;
+    }
+}

@@ -93,3 +93,136 @@
 .productCard-optionProduct .btnDetail {
     width: 10.88vw;
 }
+
+@media screen and (max-width: 800px) {
+    .productCard {
+        padding-bottom: 10px;
+    }
+
+    .productCard-imgProduct {
+        height: 200px;
+        margin-bottom: 8px;
+    }
+
+    .productCard-title {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .productCard-company {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .productCard-address {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .productCard-address .icon {
+        width: 3vw;
+    }
+
+    .productCard-price {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .productCard-price .icon {
+        width: 3vw;
+    }
+
+    .productCard-optionProduct .btnFavorit {
+        height: 20px;
+    }
+
+    .productCard-optionProduct .btnDetail {
+        width: 30vw;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .productCard {
+        padding-bottom: 1px;
+    }
+
+    .productCard-imgProduct {
+        height: 160px;
+        margin-bottom: 8px;
+    }
+
+    .productCard-title {
+        font-size: 14px;
+    }
+
+    .productCard-company {
+        font-size: 10px;
+    }
+
+    .productCard-address {
+        font-size: 10px;
+    }
+
+    .productCard-address .icon {
+        width: 3vw;
+    }
+
+    .productCard-price {
+        font-size: 10px;
+    }
+
+    .productCard-price .icon {
+        width: 3vw;
+    }
+
+    .productCard-optionProduct .btnFavorit {
+        height: 20px;
+    }
+
+    .productCard-optionProduct .btnDetail {
+        width: 30vw;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .productCard {
+        padding-bottom: 1px;
+    }
+
+    .productCard-imgProduct {
+        height: 140px;
+        margin-bottom: 8px;
+    }
+
+    .productCard-title {
+        font-size: 12px;
+    }
+
+    .productCard-company {
+        font-size: 8px;
+    }
+
+    .productCard-address {
+        font-size: 8px;
+    }
+
+    .productCard-address .icon {
+        width: 3vw;
+    }
+
+    .productCard-price {
+        font-size: 8px;
+    }
+
+    .productCard-price .icon {
+        width: 3vw;
+    }
+
+    .productCard-optionProduct .btnFavorit {
+        height: 20px;
+    }
+
+    .productCard-optionProduct .btnDetail {
+        width: 30vw;
+    }
+}

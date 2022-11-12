@@ -14,7 +14,6 @@
 }
 
 .landingPage-mainOne-article {
-    height: 100%;
     padding: 28vh 0 0 12.5vw;
     width: 51.56vw;
     box-sizing: border-box;
@@ -50,7 +49,6 @@
 
 .landingPage-mainOne-figure {
     flex-grow: 1;
-    height: 100%;
     margin: 0;
     padding-top: 6.6vh;
     box-sizing: border-box;
@@ -271,4 +269,544 @@
     font-weight: 400;
     text-align: center;
     margin-top: 5.09vh;
+}
+
+@media screen and (max-width: 800px) {
+    .landingPage-container {
+        width: 100%;
+    }
+
+    .landingPage-mainOne {
+        height: 380px;
+    }
+
+    .landingPage-mainOne-article {
+        padding: 80px 0 0 90px;
+    }
+
+    .landingPage-mainOne-article .header {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+
+    .landingPage-mainOne-article .sectionOne {
+        margin-bottom: 6px;
+    }
+
+    .landingPage-mainOne-article .sectionTwo {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .landingPage-mainOne-article .sectionThree {
+        width: 20vw;
+    }
+
+    .landingPage-mainOne-figure img {
+        width: 34.4vw;
+    }
+
+    .landingPage-mainTwo {
+        height: 600px;
+        border-radius: 50px 50px 0 0;
+        padding: 20px 20px;
+    }
+
+    .landingPage-mainTwo-articleOne {
+        margin-bottom: 28px;
+    }
+
+    .landingPage-mainTwo-articleOne .header {
+        font-size: 22px;
+        margin-bottom: 6px;
+    }
+
+    .landingPage-mainTwo-articleOne .sectionOne {
+        width: 80%;
+        font-size: 12px;
+        margin-bottom: 40px;
+    }
+
+    .landingPage-mainTwo-articleTwo .section {
+        width: 50%;
+    }
+
+    .landingPage-mainTwo-articleTwo .section .figure {
+        width: 100%;
+    }
+
+    .landingPage-mainTwo-articleTwo .section .figure img {
+        height: 120px;
+    }
+
+    .landingPage-mainTwo-articleTwo .section header {
+        font-size: 16px;
+        margin-bottom: 4px;
+    }
+
+    .landingPage-mainTwo-articleTwo .section section {
+        font-size: 12px;
+        width: 80%;
+        margin-left: 10%;
+        margin-bottom: 38px;
+    }
+
+    .landingPage-mainThree {
+        height: 1780px;
+        padding: 20px 20px;
+    }
+
+    .landingPage-mainThree-articleOne {
+        margin-bottom: 5px;
+    }
+
+    .landingPage-mainThree-articleOne .header {
+        font-size: 24px;
+    }
+
+    .landingPage-mainThree-articleOne .ProductMenu {
+        width: 100%;
+        padding: 0 22px;
+    }
+
+    .landingPage-mainThree-articleOne .ProductMenu ul {
+        padding: 0;
+    }
+
+    .landingPage-mainThree-articleTwo {
+        margin-bottom: 20px;
+    }
+
+    .landingPage-mainThree-articleTwo .product {
+        width: 46%;
+        margin: 2% 1%;
+    }
+
+    .landingPage-mainThree-articleThree {
+        width: 14.63vw;
+        height: 7.6vh;
+        margin: 0 auto;
+    }
+
+    .landingPage-mainFour {
+        height: 1100px;
+        padding: 200px 20px;
+    }
+
+    .landingPage-mainFour-header {
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .landingPage-mainFour-articleOne {
+        margin-bottom: 16px;
+    }
+
+    .landingPage-mainFour-footer .hrOne {
+        height: 2px;
+        margin-bottom: 8px;
+    }
+
+    .landingPage-mainFour-footer .logo {
+        margin-left: 0;
+        margin-bottom: 18px;
+    }
+
+    .landingPage-mainFour-footer .logo img {
+        width: 20vw;
+    }
+
+    .landingPage-mainFour-footer .articleMenuFooter {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .landingPage-mainFour-footer .articleMenuFooter .section {
+        width: 25%;
+    }
+
+    .landingPage-mainFour-footer .articleMenuFooter .section .header {
+        font-size: 16px;
+    }
+
+    .landingPage-mainFour-footer .articleMenuFooter .section ul li {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+
+    .landingPage-mainFour-footer .articleMenuFooter .section .figure {
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+
+    .landingPage-mainFour-footer .articleMenuFooter .section .figure a {
+        margin-right: 10px;
+    }
+
+    .landingPage-mainFour-footer .articleCopyRight {
+        font-size: 12px;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .landingPage-container {
+        width: 100%;
+    }
+
+    .landingPage-mainOne {
+        height: 280px;
+    }
+
+    .landingPage-mainOne-article {
+        padding: 62px 0 0 56px;
+    }
+
+    .landingPage-mainOne-article .header {
+        font-size: 10px;
+        margin-bottom: 4px;
+    }
+
+    .landingPage-mainOne-article .sectionOne {
+        margin-bottom: 4px;
+    }
+
+    .landingPage-mainOne-article .sectionTwo {
+        font-size: 8px;
+        margin-bottom: 8px;
+    }
+
+    .landingPage-mainOne-article .sectionThree {
+        width: 20vw;
+    }
+
+    .landingPage-mainOne-figure img {
+        width: 34.4vw;
+    }
+
+    .landingPage-mainTwo {
+        height: 480px;
+        border-radius: 50px 50px 0 0;
+        padding: 20px 20px;
+    }
+
+    .landingPage-mainTwo-articleOne {
+        margin-bottom: 20px;
+    }
+
+    .landingPage-mainTwo-articleOne .header {
+        font-size: 18px;
+        margin-bottom: 4px;
+    }
+
+    .landingPage-mainTwo-articleOne .sectionOne {
+        width: 80%;
+        font-size: 8px;
+        margin-bottom: 40px;
+    }
+
+    .landingPage-mainTwo-articleTwo .section {
+        width: 50%;
+    }
+
+    .landingPage-mainTwo-articleTwo .section .figure {
+        width: 100%;
+    }
+
+    .landingPage-mainTwo-articleTwo .section .figure img {
+        height: 80px;
+    }
+
+    .landingPage-mainTwo-articleTwo .section header {
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+
+    .landingPage-mainTwo-articleTwo .section section {
+        font-size: 8px;
+        width: 80%;
+        margin-left: 10%;
+        margin-bottom: 38px;
+    }
+
+    .landingPage-mainThree {
+        height: 1280px;
+        padding: 20px 20px;
+    }
+
+    .landingPage-mainThree-articleOne {
+        margin-bottom: 5px;
+    }
+
+    .landingPage-mainThree-articleOne .header {
+        font-size: 18px;
+    }
+
+    .landingPage-mainThree-articleOne .ProductMenu {
+        width: 100%;
+        padding: 0 12px;
+    }
+
+    .landingPage-mainThree-articleOne .ProductMenu ul {
+        padding: 0;
+    }
+
+    .landingPage-mainThree-articleTwo {
+        margin-bottom: 20px;
+    }
+
+    .landingPage-mainThree-articleTwo .product {
+        width: 46%;
+        margin: 2% 1%;
+    }
+
+    .landingPage-mainThree-articleThree {
+        width: 14.63vw;
+        height: 7.6vh;
+        margin: 0 auto;
+    }
+
+    .landingPage-mainFour {
+        height: 1100px;
+        padding: 200px 20px;
+    }
+
+    .landingPage-mainFour-header {
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .landingPage-mainFour-articleOne {
+        margin-bottom: 16px;
+    }
+
+    .landingPage-mainFour-footer .hrOne {
+        height: 2px;
+        margin-bottom: 8px;
+    }
+
+    .landingPage-mainFour-footer .logo {
+        margin-left: 0;
+        margin-bottom: 12px;
+    }
+
+    .landingPage-mainFour-footer .logo img {
+        width: 20vw;
+    }
+
+    .landingPage-mainFour-footer .articleMenuFooter {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .landingPage-mainFour-footer .articleMenuFooter .section {
+        width: 50%;
+    }
+
+    .landingPage-mainFour-footer .articleMenuFooter .section .header {
+        font-size: 14px;
+    }
+
+    .landingPage-mainFour-footer .articleMenuFooter .section ul li {
+        font-size: 10px;
+        margin-bottom: 8px;
+    }
+
+    .landingPage-mainFour-footer .articleMenuFooter .section .figure {
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+
+    .landingPage-mainFour-footer .articleMenuFooter .section .figure a {
+        margin-right: 10px;
+    }
+
+    .landingPage-mainFour-footer .articleCopyRight {
+        font-size: 8px;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .landingPage-container {
+        width: 100%;
+    }
+
+    .landingPage-mainOne {
+        height: 240px;
+    }
+
+    .landingPage-mainOne-article {
+        padding: 62px 0 0 56px;
+    }
+
+    .landingPage-mainOne-article .header {
+        font-size: 10px;
+        margin-bottom: 4px;
+    }
+
+    .landingPage-mainOne-article .sectionOne {
+        margin-bottom: 4px;
+    }
+
+    .landingPage-mainOne-article .sectionTwo {
+        font-size: 8px;
+        margin-bottom: 8px;
+    }
+
+    .landingPage-mainOne-article .sectionThree {
+        width: 20vw;
+    }
+
+    .landingPage-mainOne-figure img {
+        width: 34.4vw;
+    }
+
+    .landingPage-mainTwo {
+        height: 480px;
+        border-radius: 50px 50px 0 0;
+        padding: 20px 20px;
+    }
+
+    .landingPage-mainTwo-articleOne {
+        margin-bottom: 20px;
+    }
+
+    .landingPage-mainTwo-articleOne .header {
+        font-size: 18px;
+        margin-bottom: 4px;
+    }
+
+    .landingPage-mainTwo-articleOne .sectionOne {
+        width: 80%;
+        font-size: 8px;
+        margin-bottom: 40px;
+    }
+
+    .landingPage-mainTwo-articleTwo .section {
+        width: 50%;
+    }
+
+    .landingPage-mainTwo-articleTwo .section .figure {
+        width: 100%;
+    }
+
+    .landingPage-mainTwo-articleTwo .section .figure img {
+        height: 80px;
+    }
+
+    .landingPage-mainTwo-articleTwo .section header {
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+
+    .landingPage-mainTwo-articleTwo .section section {
+        font-size: 8px;
+        width: 80%;
+        margin-left: 10%;
+        margin-bottom: 38px;
+    }
+
+    .landingPage-mainThree {
+        height: 100%;
+        padding: 20px 20px;
+    }
+
+    .landingPage-mainThree-articleOne {
+        margin-bottom: 5px;
+    }
+
+    .landingPage-mainThree-articleOne .header {
+        font-size: 18px;
+    }
+
+    .landingPage-mainThree-articleOne .ProductMenu {
+        width: 100%;
+        padding: 0 12px;
+    }
+
+    .landingPage-mainThree-articleOne .ProductMenu ul {
+        padding: 0;
+    }
+
+    .landingPage-mainThree-articleTwo {
+        margin-bottom: 20px;
+    }
+
+    .landingPage-mainThree-articleTwo .product {
+        width: 46%;
+        margin: 2% 1%;
+    }
+
+    .landingPage-mainThree-articleThree {
+        width: 14.63vw;
+        height: 7.6vh;
+        margin: 0 auto;
+    }
+
+    .landingPage-mainFour {
+        height: 100%;
+        padding: 200px 20px;
+    }
+
+    .landingPage-mainFour-header {
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .landingPage-mainFour-articleOne {
+        margin-bottom: 16px;
+    }
+
+    .landingPage-mainFour-footer .hrOne {
+        height: 2px;
+        margin-bottom: 8px;
+    }
+
+    .landingPage-mainFour-footer .logo {
+        margin-left: 0;
+        margin-bottom: 12px;
+    }
+
+    .landingPage-mainFour-footer .logo img {
+        width: 20vw;
+    }
+
+    .landingPage-mainFour-footer .articleMenuFooter {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .landingPage-mainFour-footer .articleMenuFooter .section {
+        width: 50%;
+    }
+
+    .landingPage-mainFour-footer .articleMenuFooter .section .header {
+        font-size: 14px;
+    }
+
+    .landingPage-mainFour-footer .articleMenuFooter .section ul li {
+        font-size: 10px;
+        margin-bottom: 8px;
+    }
+
+    .landingPage-mainFour-footer .articleMenuFooter .section .figure {
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+
+    .landingPage-mainFour-footer .articleMenuFooter .section .figure a {
+        margin-right: 10px;
+    }
+
+    .landingPage-mainFour-footer .articleCopyRight {
+        font-size: 8px;
+        margin-top: 10px;
+    }
 }

@@ -1,3 +1,21 @@
 .instagram {
     width: 1.82vw;
 }
+
+@media screen and (max-width:800px) {
+    .instagram {
+        width: 3vw;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .instagram {
+        width: 4vw;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .instagram {
+        width: 4.82vw;
+    }
+}

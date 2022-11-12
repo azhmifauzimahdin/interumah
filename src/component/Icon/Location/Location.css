@@ -2,6 +2,20 @@
     width: 0.73vw;
 }
 
-.infolocation-primary {
-    fill: #1E1E1F
+@media screen and (max-width: 800px) {
+    .location {
+        width: 12px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .location {
+        width: 8px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .location {
+        width: 10px;
+    }
 }
