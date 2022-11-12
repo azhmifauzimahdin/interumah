@@ -111,10 +111,11 @@
     } */
 
     .register-navbar ul {
+        z-index: 1;
         position: fixed;
         top: 6vh;
         left: -200%;
-        background: #111;
+        background: #ffffff;
         height: 100vh;
         width: 100%;
         padding: 0;
@@ -128,8 +129,9 @@
     }
 
     .register-navbar ul li {
-        width: 100%;
-        margin: 40px 0;
+        width: 60%;
+        margin: 12px auto;
+        font-size: 16px;
     }
 
     .register-navbar ul li a {

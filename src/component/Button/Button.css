@@ -92,7 +92,11 @@
 }
 
 @media (max-width: 920px) {
-    .btn-md {
+    .btn-size-md {
         height: 5vh;
+    }
+
+    .btn-font-md {
+        font-size: 16px;
     }
 }

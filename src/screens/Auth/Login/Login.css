@@ -46,7 +46,7 @@ input:disabled {
     border: 2px solid #B7B7B7;
 }
 
-.input-group {
+/* .input-group {
     width: 100%;
     margin-bottom: 3.3vh;
     position: relative;
@@ -57,7 +57,7 @@ input:disabled {
     top: 3.8vh;
     right: 1.4vw;
     transform: translateY(-45%);
-}
+} */
 
 .error-message {
     width: 100%;

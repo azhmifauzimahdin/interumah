@@ -110,12 +110,13 @@
     } */
 
     .login-navbar ul {
+        z-index: 1;
         position: fixed;
         top: 6vh;
         left: -200%;
-        background: #111;
+        background: #ffffff;
         height: 100vh;
-        width: 100%;
+        width: 100vw;
         padding: 0;
         text-align: center;
         display: block;
@@ -127,8 +128,9 @@
     }
 
     .login-navbar ul li {
-        width: 100%;
-        margin: 40px 0;
+        width: 60%;
+        margin: 12px auto;
+        font-size: 16px;
     }
 
     .login-navbar ul li a {
