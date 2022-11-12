@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3a856521.css",
+    "main.js": "/static/js/main.97508518.js",
+    "static/js/787.28cb0dcd.chunk.js": "/static/js/787.28cb0dcd.chunk.js",
+    "static/media/logoFooter.svg": "/static/media/logoFooter.86398c6c71b3b9dc588cf2eca5dd03c7.svg",
+    "static/media/imgStory1.png": "/static/media/imgStory1.2460419ee374e49c67c9.png",
+    "static/media/imageOne.svg": "/static/media/imageOne.e08a4fffe825857c22476b29c6cb6295.svg",
+    "static/media/imgStory4.png": "/static/media/imgStory4.9b6061ed27acd9ee135d.png",
+    "static/media/IlustrationKonsultasi.svg": "/static/media/IlustrationKonsultasi.c5c124f9d14562c34691f68c7d206099.svg",
+    "static/media/imgStory3.png": "/static/media/imgStory3.0335a6bb1fd972ec919a.png",
+    "static/media/IlustrationWujudkan.svg": "/static/media/IlustrationWujudkan.13d575a04d97197c2b5cb0c087660c3d.svg",
+    "static/media/imgStory2.png": "/static/media/imgStory2.6783462e11cb83340271.png",
+    "static/media/imgStory5.png": "/static/media/imgStory5.790e0398083310e4e16d.png",
+    "static/media/IlustrationCheckEmail.svg": "/static/media/IlustrationCheckEmail.7d8f65e8aa858abca395a16e423e4d9f.svg",
+    "static/media/imgClassic5.png": "/static/media/imgClassic5.bfd4745e6e58ac4b56c6.png",
+    "static/media/imgClassic7.png": "/static/media/imgClassic7.8732bf58de87b46ab91c.png",
+    "static/media/imgClassic6.png": "/static/media/imgClassic6.13cb1737ff77280bc5bc.png",
+    "static/media/imgClassic4.png": "/static/media/imgClassic4.bbc3c81e5972cf52281b.png",
+    "static/media/imgClassic2.png": "/static/media/imgClassic2.c415b489ede3ecac6e94.png",
+    "static/media/imgClassic3.png": "/static/media/imgClassic3.7646f247f08eb77fa69f.png",
+    "static/media/imgClassic1.png": "/static/media/imgClassic1.a8190ef112eb069d8db8.png",
+    "static/media/imgClassic8.png": "/static/media/imgClassic8.a8190ef112eb069d8db8.png",
+    "static/media/IlustrationLogin.svg": "/static/media/IlustrationLogin.24ba12c3fff8fb89da9865dd0334f281.svg",
+    "static/media/IlustrationRegisterSuccess.svg": "/static/media/IlustrationRegisterSuccess.0b8ad677ca440ee1019ad5702531cb7b.svg",
+    "static/media/IlustrationForgetPasswordInputEmail.svg": "/static/media/IlustrationForgetPasswordInputEmail.8eb792fd21e5da537e93e13ce1b3ecc1.svg",
+    "static/media/IlustrationPilihDesainmu.svg": "/static/media/IlustrationPilihDesainmu.65f5767d0a38e95daeb47642f93e2cb5.svg",
+    "static/media/IlustrationRegister.svg": "/static/media/IlustrationRegister.c301e2ed8c4c715c9a65f74154255d93.svg",
+    "static/media/IlustrartionTemukan.svg": "/static/media/IlustrartionTemukan.0960a83095f11e3ea779b635f282525b.svg",
+    "static/media/logo.svg": "/static/media/logo.a307dd07d6ed9ac9269dc79597cef4b7.svg",
+    "static/media/Google.svg": "/static/media/Google.201730076e2a170b95d1861b3f8fd3d1.svg",
+    "static/media/backgroundImageOne.svg": "/static/media/backgroundImageOne.1f15cfa578e245d544ca.svg",
+    "index.html": "/index.html",
+    "main.3a856521.css.map": "/static/css/main.3a856521.css.map",
+    "main.97508518.js.map": "/static/js/main.97508518.js.map",
+    "787.28cb0dcd.chunk.js.map": "/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3a856521.css",
+    "static/js/main.97508518.js"
+  ]
+}
