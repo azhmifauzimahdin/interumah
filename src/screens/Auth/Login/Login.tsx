@@ -50,16 +50,16 @@ const Login: React.FC = () => {
     const classNamePassword = errorMessagePassword ? "form-control input-invalid" : "form-control"
 
     return (
-        <div className="container">
-            <div className="titleLogin">Selamat Datang di <span className="titleBlue">Interumah</span></div>
+        <article className="container">
+            <header className="titleLogin">Selamat Datang di <span className="titleBlue">Interumah</span></header>
             <form onSubmit={login}>
-                <div className="form-group">
+                <section className="form-group">
                     <Input type="email" name="email" className={classNameEmail} placeholder="Masukan Email Anda" disabled={sending} />
                     {errorMessageEmail ? (
                         <ErrorMessage>{errorMessageEmail}</ErrorMessage>
                     ) : null}
-                </div>
-                <div className="input-group">
+                </section>
+                <section className="input-group">
                     <Input type={changePassword ? "password" : "text"} name="password" className={classNamePassword} placeholder="Masukan Password Anda" disabled={sending} />
                     <div className="input-group-prepend">
                         <span className="input-group-text" onClick={() => {
@@ -71,24 +71,24 @@ const Login: React.FC = () => {
                     {errorMessagePassword ? (
                         <ErrorMessage>{errorMessagePassword}</ErrorMessage>
                     ) : null}
-                </div>
-                <div className="form-change-password">
+                </section>
+                <section className="form-change-password">
                     <a href="/forget_password" className="changePassword">Lupa Password?</a>
-                </div>
-                <div className="form-group">
+                </section>
+                <section className="form-group">
                     <Button type="primary" disabled={sending}>Masuk</Button>
-                </div>
+                </section>
             </form>
-            <div className="or">
+            <section className="or">
                 <span>------------- OR ------------</span>
-            </div>
-            <div className="buttonLoginWithGoogle">
+            </section>
+            <section className="buttonLoginWithGoogle">
                 <Button type="secondary" ><img src={Google} alt="Logo Google" className="img-google" /> Masuk Menggunakan Google</Button>
-            </div>
-            <div className="linktoRegister">
+            </section>
+            <section className="linktoRegister">
                 <span>Belum punya akun? <a href="/register">Daftar</a></span>
-            </div>
-        </div >
+            </section>
+        </article>
     )
 }
 

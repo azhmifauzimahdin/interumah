@@ -88,16 +88,16 @@ const Register: React.FC = () => {
 
     return (
         <>
-            <div className="container">
-                <div className="titleRegister">Formulir Registrasi</div>
+            <article className="container">
+                <header className="titleRegister">Formulir Registrasi</header>
                 <form onSubmit={register}>
-                    <div className="form-group">
+                    <section className="form-group">
                         <Input type="email" name="email" className={classNameEmail} placeholder="Masukan Email Anda" disabled={sending} />
                         {errorMessageEmail ? (
                             <ErrorMessage>{errorMessageEmail}</ErrorMessage>
                         ) : null}
-                    </div>
-                    <div className="input-group">
+                    </section>
+                    <section className="input-group">
                         <Input type={changePassword1 ? "password" : "text"} name="password" className={classNamePassword} placeholder="Masukan Password Anda" disabled={sending} onFocus={handleOnFocusPassword} onBlur={handleOnBlurPassword} onKeyUp={handleKeyUpPassword} />
                         <div className="input-group-prepend">
                             <span className="input-group-text" onClick={() => {
@@ -117,8 +117,8 @@ const Register: React.FC = () => {
                                 nonAlphanumericFlag={checks.nonAlphanumericCheck ? "validStrength" : "invalidStrength"}
                                 minCharacterFlag={checks.minCharacterCheck ? "validStrength" : "invalidStrength"}
                             /> : null}
-                    </div>
-                    <div className="input-group">
+                    </section>
+                    <section className="input-group">
                         <input type={changePassword2 ? "password" : "text"} name="confirmPassword" className={classNamePassword} placeholder="Konfirmasi Ulang Password" disabled={sending} />
                         <div className="input-group-prepend">
                             <span className="input-group-text" onClick={() => {
@@ -127,33 +127,33 @@ const Register: React.FC = () => {
                                 {changeStatus2 ? <IconVisibility /> : <IconVisibilityOff color="secondary" />}
                             </span>
                         </div>
-                    </div>
-                    <div className="form-group">
+                    </section>
+                    <section className="form-group">
                         <div className="checkboxRegister">
                             <input type="checkbox" onChange={(e) => setCheckTerms(e.target.checked)} />Saya setuju dengan <span> Syarat dan Ketentuan</span> yang berlaku
                         </div>
-                    </div>
-                    <div className="form-group">
+                    </section>
+                    <section className="form-group">
                         <Button type="primary" disabled={disableButton || sending}>Daftar</Button>
-                    </div>
-                    <div className="linktoLogin">
+                    </section>
+                    <section className="linktoLogin">
                         <span>Sudah punya akun? <a href="/login">Masuk</a></span>
-                    </div>
+                    </section>
                 </form>
-            </div>
+            </article>
             <ModalBlank
                 visible={showModal}
                 onClose={toggleModal}
             >
-                <div className="modalRegisterSuccess-title">
+                <section className="modalRegisterSuccess-title">
                     <span className="titleBlue">Selamat!</span> <br />Anda Berhasil Membuat Akun Baru
-                </div>
-                <div className="modalRegisterSuccess-ilustration">
+                </section>
+                <section className="modalRegisterSuccess-ilustration">
                     <img src={IlustrationSuccess} alt="Ilustration Register Success" className="imgIlustrationRegisterSuccess" />
-                </div>
-                <div className="modalRegisterSuccess-link">
+                </section>
+                <section className="modalRegisterSuccess-link">
                     <span onClick={navigateLogin}>Masuk Kembali</span>
-                </div>
+                </section>
 
             </ModalBlank>
         </>

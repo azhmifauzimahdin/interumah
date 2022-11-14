@@ -7,7 +7,7 @@ import "./LandingPage.css"
 
 const LandingPage: React.FC = () => {
     return (
-        <div className="landingPage-container">
+        <article className="landingPage-container">
             <main className="landingPage-mainOne">
                 <article className="landingPage-mainOne-article">
                     <header className="header">#InterumahAja</header>
@@ -240,7 +240,7 @@ const LandingPage: React.FC = () => {
                     </article>
                 </footer>
             </main>
-        </div>
+        </article>
     )
 }
 

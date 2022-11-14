@@ -4,15 +4,15 @@ import "./CheckEmail.css"
 
 const CheckEmail: React.FC = () => {
     return (
-        <div className="container">
-            <div className="titleForgetPasswordCheckEmail">Email sudah dikirim! <br /> Check Emailmu sekarang</div>
-            <div className="forgetCheckEmail-ilustration">
+        <article className="container">
+            <section className="titleForgetPasswordCheckEmail">Email sudah dikirim! <br /> Check Emailmu sekarang</section>
+            <figure className="forgetCheckEmail-ilustration">
                 <img src={IlustrationForgetPasswordCheckEmail} alt="Ilustration Forget Password" className="imgIlustrationForgetCheckEmail" />
-            </div>
-            <div className="forgetCheckEmail-link">
+            </figure>
+            <section className="forgetCheckEmail-link">
                 <a href="/login">Masuk Kembali</a>
-            </div>
-        </div>
+            </section>
+        </article>
     )
 }
 

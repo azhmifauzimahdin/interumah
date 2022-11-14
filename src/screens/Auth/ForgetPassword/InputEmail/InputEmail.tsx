@@ -10,25 +10,25 @@ const InputEmail: React.FC = () => {
         navigate('/forget_password/check_email')
     }
     return (
-        <div className="container">
-            <div className="titleForgetPasswordInputEmail">Formulir Registrasi</div>
-            <div className="forgetInputPassword-ilustration">
+        <article className="container">
+            <header className="titleForgetPasswordInputEmail">Formulir Registrasi</header>
+            <figure className="forgetInputPassword-ilustration">
                 <img src={IlustrationForgetPasswordInputEmail} alt="Ilustration Forget Password" className="imgIlustrationForgetInputPassword" />
-            </div>
-            <div className="forgetInputPassword-form">
+            </figure>
+            <article className="forgetInputPassword-form">
                 <form onSubmit={sendEmail}>
-                    <div className="input-group-button">
+                    <section className="input-group-button">
                         <Input type="text" name="email" className="prepend-btn" placeholder="Masukan Email Anda" />
                         <div className="input-group-prependbutton">
                             <Button button="btnInput">Kirim</Button>
                         </div>
-                    </div>
+                    </section>
                 </form>
-            </div>
-            <div className="forgetInputPassword-link">
+            </article>
+            <section className="forgetInputPassword-link">
                 <span>Ingat password anda? <a href="/login">Login</a></span>
-            </div>
-        </div>
+            </section>
+        </article>
     )
 }
 

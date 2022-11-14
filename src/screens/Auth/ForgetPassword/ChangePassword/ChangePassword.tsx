@@ -55,11 +55,11 @@ const ChangePassword: React.FC = () => {
 
     }
     return (
-        <div className="container">
-            <div className="titleChangePassword">Buat Password Baru Anda!</div>
-            <div className="ChangePassword-form">
+        <article className="container">
+            <header className="titleChangePassword">Buat Password Baru Anda!</header>
+            <article className="ChangePassword-form">
                 <form onSubmit={changePassword}>
-                    <div className="input-group">
+                    <section className="input-group">
                         <Input type={changePassword1 ? "password" : "text"} name="password" className="form-control" placeholder="Masukan Password Anda" disabled={sending} onFocus={handleOnFocusPassword} onBlur={handleOnBlurPassword} onKeyUp={handleKeyUpPassword} />
                         <div className="input-group-prepend">
                             <span className="input-group-text" onClick={() => {
@@ -76,8 +76,8 @@ const ChangePassword: React.FC = () => {
                                 nonAlphanumericFlag={checks.nonAlphanumericCheck ? "validStrength" : "invalidStrength"}
                                 minCharacterFlag={checks.minCharacterCheck ? "validStrength" : "invalidStrength"}
                             /> : null}
-                    </div>
-                    <div className="input-group">
+                    </section>
+                    <section className="input-group">
                         <Input type={changePassword2 ? "password" : "text"} name="confirmPassword" className="form-control" placeholder="Konfirmasi Ulang Password" disabled={sending} />
                         <div className="input-group-prepend">
                             <span className="input-group-text" onClick={() => {
@@ -86,13 +86,13 @@ const ChangePassword: React.FC = () => {
                                 {changeStatus2 ? <IconVisibility /> : <IconVisibilityOff color="secondary" />}
                             </span>
                         </div>
-                    </div>
-                    <div className="btn-changePassword">
+                    </section>
+                    <section className="btn-changePassword">
                         <Button>Buat Password</Button>
-                    </div>
+                    </section>
                 </form>
-            </div>
-        </div>
+            </article>
+        </article>
     )
 }
 
