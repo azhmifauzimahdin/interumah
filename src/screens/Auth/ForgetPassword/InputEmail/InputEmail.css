@@ -1,7 +1,3 @@
-* {
-    font-family: Roboto, sans-serif;
-}
-
 .container {
     width: 100%;
     text-align: center;
@@ -39,7 +35,7 @@
     border: 0.2vw solid #1D86FF;
     border-right: none;
     border-radius: 8px 0px 0px 8px;
-    padding: 2.5vh 1.4vw;
+    padding: 0 1.4vw;
     font-size: 1.04vw;
 }
 
@@ -55,10 +51,30 @@
 
 .forgetInputPassword-link span {
     font-size: 1.04vw;
-    font-weight: 700;
+    font-weight: 400;
 }
 
 .forgetInputPassword-link span a {
     color: #101B94;
     text-decoration: none;
+}
+
+@media screen and (max-width: 920px) {
+    .titleForgetPasswordInputEmail {
+        font-size: 4.66vw;
+    }
+
+    .imgIlustrationForgetInputPassword {
+        width: 40.66vw;
+    }
+
+    .form-control-button {
+        height: 6.6vh;
+        font-size: 3.04vw;
+        padding: 0 4.4vw;
+    }
+
+    .forgetInputPassword-link span {
+        font-size: 3.04vw;
+    }
 }

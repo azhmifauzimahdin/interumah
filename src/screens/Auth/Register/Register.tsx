@@ -140,6 +140,9 @@ const Register: React.FC = () => {
                     <div className="form-group">
                         <Button type="primary" disabled={disableButton || sending}>Daftar</Button>
                     </div>
+                    <div className="linktoLogin">
+                        <span>Sudah punya akun? <a href="/login">Masuk</a></span>
+                    </div>
                 </form>
             </div>
             <ModalBlank

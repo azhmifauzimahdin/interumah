@@ -1,7 +1,3 @@
-* {
-    font-family: Roboto, sans-serif;
-}
-
 .container {
     width: 100%;
     text-align: center;
@@ -31,4 +27,18 @@
 .forgetCheckEmail-link a {
     color: #101B94;
     text-decoration: none;
+}
+
+@media screen and (max-width: 920px) {
+    .titleForgetPasswordCheckEmail {
+        font-size: 4.66vw;
+    }
+
+    .imgIlustrationForgetCheckEmail {
+        width: 40.61vw;
+    }
+
+    .forgetCheckEmail-link {
+        font-size: 3.04vw;
+    }
 }

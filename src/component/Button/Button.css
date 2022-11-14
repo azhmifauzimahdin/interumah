@@ -99,16 +99,30 @@
         border-radius: 5px;
     }
 
+    .btnInput {
+        height: 6.6vh;
+        border: none;
+        border-radius: 0px 8px 8px 0px;
+        border: 0.2vw solid #1D86FF;
+        border-left: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-weight: 700;
+    }
+
     .btn-size-lg {
         height: 26px;
     }
 
     .btn-size-sm {
         height: 28px;
+        padding: 0 2vw;
     }
 
     .btn-size-md {
-        height: 5vh;
+        height: 6.6vh;
     }
 
     .btn-secondary {

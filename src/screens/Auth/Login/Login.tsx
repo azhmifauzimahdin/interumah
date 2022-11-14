@@ -90,7 +90,7 @@ const Login: React.FC = () => {
                 <Button type="secondary" ><img src={Google} alt="Logo Google" className="img-google" /> Masuk Menggunakan Google</Button>
             </div>
             <div className="linktoRegister">
-                <span>Belum punya akun? <span className="linktoRegister-text">Daftar</span></span>
+                <span>Belum punya akun? <a href="/register">Daftar</a></span>
             </div>
         </div >
     )
