@@ -1,0 +1,28 @@
+.error-message {
+    width: 100%;
+    font-weight: 700;
+    font-size: 0.83vw;
+    display: flex;
+    align-items: center;
+    padding: 0.6vh 0.4vw;
+}
+
+.iconErrorMessage {
+    width: 4%;
+}
+
+.textErrorMessage {
+    margin-left: 0.5vw;
+    text-align: left;
+}
+
+@media screen and (max-width: 920px) {
+    .error-message {
+        font-size: 2.83vw;
+        padding: 0.6vh 1.4vw;
+    }
+
+    .textErrorMessage {
+        margin-left: 1.5vw;
+    }
+}

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Button, Input, ModalBlank, PWDRequisite } from "../../../component"
+import { Button, ErrorMessage, Input, ModalBlank, PWDRequisite } from "../../../component"
 import { authService } from "../../../services"
 import { RegisterRequest } from "../../../types/Register"
 import { IconInfo, IconVisibility, IconVisibilityOff } from "../../../component/Icon"
@@ -94,9 +94,7 @@ const Register: React.FC = () => {
                     <div className="form-group">
                         <Input type="email" name="email" className={classNameEmail} placeholder="Masukan Email Anda" disabled={sending} />
                         {errorMessageEmail ? (
-                            <div className="error-message">
-                                <IconInfo color="danger" /><span className="textErrorMessage">{errorMessageEmail}</span>
-                            </div>
+                            <ErrorMessage>{errorMessageEmail}</ErrorMessage>
                         ) : null}
                     </div>
                     <div className="input-group">
@@ -109,9 +107,7 @@ const Register: React.FC = () => {
                             </span>
                         </div>
                         {errorMessagePassword ? (
-                            <div className="error-message">
-                                <IconInfo color="danger" /><span className="textErrorMessage">{errorMessagePassword}</span>
-                            </div>
+                            <ErrorMessage>{errorMessagePassword}</ErrorMessage>
                         ) : null}
                         {pwdRequiste ?
                             <PWDRequisite

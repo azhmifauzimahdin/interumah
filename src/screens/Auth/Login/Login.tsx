@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Google } from "../../../assets"
-import { Button, Input } from "../../../component"
+import { Button, ErrorMessage, Input } from "../../../component"
 import { IconInfo, IconVisibility, IconVisibilityOff } from "../../../component/Icon"
 import { authService } from "../../../services"
 import { LoginRequest } from "../../../types/Login"
@@ -56,9 +56,7 @@ const Login: React.FC = () => {
                 <div className="form-group">
                     <Input type="email" name="email" className={classNameEmail} placeholder="Masukan Email Anda" disabled={sending} />
                     {errorMessageEmail ? (
-                        <div className="error-message">
-                            <IconInfo color="danger" /><span className="textErrorMessage">{errorMessageEmail}</span>
-                        </div>
+                        <ErrorMessage>{errorMessageEmail}</ErrorMessage>
                     ) : null}
                 </div>
                 <div className="input-group">
@@ -71,9 +69,7 @@ const Login: React.FC = () => {
                         </span>
                     </div>
                     {errorMessagePassword ? (
-                        <div className="error-message">
-                            <IconInfo color="danger" /><span className="textErrorMessage">{errorMessagePassword}</span>
-                        </div>
+                        <ErrorMessage>{errorMessagePassword}</ErrorMessage>
                     ) : null}
                 </div>
                 <div className="form-change-password">

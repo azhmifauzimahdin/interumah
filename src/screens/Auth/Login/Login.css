@@ -41,20 +41,6 @@
     text-align: end;
 }
 
-.error-message {
-    width: 100%;
-    font-weight: 700;
-    font-size: 0.83vw;
-    display: flex;
-    align-items: center;
-    padding: 0.6vh 0.4vw;
-}
-
-.textErrorMessage {
-    margin-left: 0.5vw;
-    text-align: left;
-}
-
 .changePassword {
     text-decoration: none;
     color: #000000;
@@ -99,15 +85,6 @@
     .input-group-prepend {
         top: 3.4vh;
         right: 2.4vw;
-    }
-
-    .error-message {
-        font-size: 2.83vw;
-        padding: 0.6vh 1.4vw;
-    }
-
-    .textErrorMessage {
-        margin-left: 1.5vw;
     }
 
     .changePassword {
