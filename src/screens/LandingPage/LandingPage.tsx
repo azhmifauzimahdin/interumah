@@ -14,7 +14,7 @@ const LandingPage: React.FC = () => {
                     <section className="sectionOne">Koleksi Terbaru Desain Interior Trending Tahun 2020</section>
                     <section className="sectionTwo">Kamu bisa berkonsultasi dengan desainer professional terkait desain rumah impian Anda!</section>
                     <section className="sectionThree">
-                        <Button size="lg" fontWeight="normal">Temukan Desainmu</Button>
+                        <Button size="lg" fontWeight="normal" fontSize="sm">Temukan Desainmu</Button>
                     </section>
                 </article>
                 <figure className="landingPage-mainOne-figure">

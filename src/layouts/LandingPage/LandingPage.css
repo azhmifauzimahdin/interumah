@@ -1,7 +1,3 @@
-* {
-    font-family: Roboto, sans-serif;
-}
-
 .landingPage-layout {
     width: 100%;
 }
@@ -46,7 +42,6 @@
     text-decoration: none;
     border-radius: 5px;
     transition: all 0.3s ease;
-    height: 6.9vh;
 }
 
 .landingPage-navbar ul li a:hover {
@@ -62,7 +57,7 @@
     width: 100%;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 920px) {
     .landingPage-navbar {
         height: 8vh;
     }
@@ -98,7 +93,7 @@
     }
 
     .landingPage-navbar ul li {
-        width: 60%;
+        width: 40%;
         margin: 12px auto;
         font-size: 16px;
     }

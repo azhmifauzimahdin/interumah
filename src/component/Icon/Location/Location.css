@@ -2,20 +2,8 @@
     width: 0.73vw;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 920px) {
     .location {
-        width: 12px;
-    }
-}
-
-@media screen and (max-width: 550px) {
-    .location {
-        width: 8px;
-    }
-}
-
-@media screen and (max-width: 450px) {
-    .location {
-        width: 10px;
+        width: 2vw;
     }
 }

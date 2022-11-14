@@ -1,7 +1,3 @@
-* {
-    font-family: Roboto, sans-serif;
-}
-
 .storyCard {
     width: 100%;
     text-align: start;
@@ -33,4 +29,15 @@
     font-size: 1.25vw;
     font-weight: 700;
     color: #ffffff;
+}
+
+@media screen and (max-width: 920px) {
+    .storyCard-imgStory {
+        height: 100%;
+        margin-bottom: 2%;
+    }
+
+    .storyCard-title {
+        margin-bottom: 4%;
+    }
 }

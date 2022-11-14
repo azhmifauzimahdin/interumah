@@ -1,7 +1,3 @@
-* {
-    font-family: Roboto, sans-serif;
-}
-
 .productCard {
     width: 100%;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -94,135 +90,56 @@
     width: 10.88vw;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 920px) {
     .productCard {
-        padding-bottom: 10px;
+        padding-bottom: 2%;
     }
 
     .productCard-imgProduct {
-        height: 200px;
-        margin-bottom: 8px;
+        height: 26%;
+        margin-bottom: 2%;
     }
 
     .productCard-title {
-        font-size: 18px;
-        margin-bottom: 8px;
+        font-size: 2.5vw;
+        margin-bottom: 2.55%;
     }
 
     .productCard-company {
-        font-size: 14px;
-        margin-bottom: 10px;
+        font-size: 2vw;
+        margin-bottom: 2%;
     }
 
     .productCard-address {
-        font-size: 14px;
-        margin-bottom: 10px;
+        font-size: 2vw;
+        margin-bottom: 1.74%;
     }
 
     .productCard-address .icon {
-        width: 3vw;
+        width: 2.7vw;
+        margin-right: 2vw;
     }
 
     .productCard-price {
-        font-size: 14px;
-        margin-bottom: 20px;
+        font-size: 2vw;
+        margin-bottom: 2%;
     }
 
     .productCard-price .icon {
-        width: 3vw;
+        width: 2.7vw;
+        margin-right: 2vw;
+    }
+
+    .productCard-optionProduct {
+        height: 100%;
+        margin-bottom: 2%;
     }
 
     .productCard-optionProduct .btnFavorit {
-        height: 20px;
+        flex: 1;
     }
 
     .productCard-optionProduct .btnDetail {
-        width: 30vw;
-    }
-}
-
-@media screen and (max-width: 550px) {
-    .productCard {
-        padding-bottom: 1px;
-    }
-
-    .productCard-imgProduct {
-        height: 160px;
-        margin-bottom: 8px;
-    }
-
-    .productCard-title {
-        font-size: 14px;
-    }
-
-    .productCard-company {
-        font-size: 10px;
-    }
-
-    .productCard-address {
-        font-size: 10px;
-    }
-
-    .productCard-address .icon {
-        width: 3vw;
-    }
-
-    .productCard-price {
-        font-size: 10px;
-    }
-
-    .productCard-price .icon {
-        width: 3vw;
-    }
-
-    .productCard-optionProduct .btnFavorit {
-        height: 20px;
-    }
-
-    .productCard-optionProduct .btnDetail {
-        width: 30vw;
-    }
-}
-
-@media screen and (max-width: 450px) {
-    .productCard {
-        padding-bottom: 1px;
-    }
-
-    .productCard-imgProduct {
-        height: 140px;
-        margin-bottom: 8px;
-    }
-
-    .productCard-title {
-        font-size: 12px;
-    }
-
-    .productCard-company {
-        font-size: 8px;
-    }
-
-    .productCard-address {
-        font-size: 8px;
-    }
-
-    .productCard-address .icon {
-        width: 3vw;
-    }
-
-    .productCard-price {
-        font-size: 8px;
-    }
-
-    .productCard-price .icon {
-        width: 3vw;
-    }
-
-    .productCard-optionProduct .btnFavorit {
-        height: 20px;
-    }
-
-    .productCard-optionProduct .btnDetail {
-        width: 30vw;
+        width: 80%;
     }
 }

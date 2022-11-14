@@ -1,21 +1,9 @@
 .price {
-    width: 10.93vw;
+    width: 0.93vw;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 920px) {
     .price {
-        width: 18px;
-    }
-}
-
-@media screen and (max-width: 550px) {
-    .price {
-        width: 10px;
-    }
-}
-
-@media screen and (max-width: 450px) {
-    .price {
-        width: 10px;
+        width: 2vw;
     }
 }
