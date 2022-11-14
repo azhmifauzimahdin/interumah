@@ -9,3 +9,9 @@
 .checkCircleOutline-success {
     fill: green;
 }
+
+@media screen and (max-width: 920px) {
+    .checkCircleOutline {
+        width: 3vw;
+    }
+}

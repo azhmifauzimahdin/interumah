@@ -22,3 +22,15 @@
 .invalidStrength {
     color: red;
 }
+
+@media screen and (max-width: 920px) {
+    .PasswordStrengBox {
+        margin-left: 2vw;
+    }
+
+    .validStrength,
+    .invalidStrength {
+        font-size: 2.4vw;
+        padding: 0 0;
+    }
+}

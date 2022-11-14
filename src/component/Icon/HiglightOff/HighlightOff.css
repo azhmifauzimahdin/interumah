@@ -9,3 +9,9 @@
 .highlightOff-danger {
     fill: red;
 }
+
+@media screen and (max-width: 920px) {
+    .highlightOff {
+        width: 3vw;
+    }
+}
