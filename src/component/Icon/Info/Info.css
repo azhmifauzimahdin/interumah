@@ -9,3 +9,9 @@
 .info-danger {
     fill: #FF6C6C;
 }
+
+@media screen and (max-width: 920px) {
+    .info {
+        width: 2.93vw;
+    }
+}

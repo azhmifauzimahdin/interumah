@@ -1,13 +1,8 @@
-* {
-    font-family: Roboto, sans-serif;
-}
-
 .login-layout {
     width: 100%;
 }
 
 .login-navbar {
-    background: #ffffff;
     display: flex;
     height: 14vh;
     width: 100%;
@@ -159,10 +154,6 @@
     }
 
     .login-aside {
-        width: 100%;
-    }
-
-    .login-section {
         width: 100%;
     }
 
