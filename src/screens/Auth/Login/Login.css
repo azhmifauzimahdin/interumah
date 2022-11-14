@@ -41,24 +41,6 @@
     text-align: end;
 }
 
-.form-control {
-    box-sizing: border-box;
-    width: 100%;
-    height: 7.6vh;
-    border: 2px solid #656FE0;
-    border-radius: 8px;
-    padding: 2.5vh 1.4vw;
-    font-size: 1.04vw;
-}
-
-.input-invalid {
-    border: 2px solid #C80707;
-}
-
-input:disabled {
-    border: 2px solid #B7B7B7;
-}
-
 .error-message {
     width: 100%;
     font-weight: 700;
@@ -112,12 +94,6 @@ input:disabled {
 
     .titleLogin {
         font-size: 5.87vw;
-    }
-
-    .form-control {
-        height: 6.6vh;
-        padding: 0 4.4vw;
-        font-size: 3.04vw;
     }
 
     .input-group-prepend {

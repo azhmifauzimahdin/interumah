@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { Button, PWDRequisite } from "../../../../component"
+import { Button, Input, PWDRequisite } from "../../../../component"
 import { IconVisibility, IconVisibilityOff } from "../../../../component/Icon"
 import "./ChangePassword.css"
 
@@ -60,7 +60,7 @@ const ChangePassword: React.FC = () => {
             <div className="ChangePassword-form">
                 <form onSubmit={changePassword}>
                     <div className="input-group">
-                        <input type={changePassword1 ? "password" : "text"} name="password" className="form-control" placeholder="Masukan Password Anda" disabled={sending} onFocus={handleOnFocusPassword} onBlur={handleOnBlurPassword} onKeyUp={handleKeyUpPassword} />
+                        <Input type={changePassword1 ? "password" : "text"} name="password" className="form-control" placeholder="Masukan Password Anda" disabled={sending} onFocus={handleOnFocusPassword} onBlur={handleOnBlurPassword} onKeyUp={handleKeyUpPassword} />
                         <div className="input-group-prepend">
                             <span className="input-group-text" onClick={() => {
                                 setChangePassword1(changeStatus1);
@@ -78,7 +78,7 @@ const ChangePassword: React.FC = () => {
                             /> : null}
                     </div>
                     <div className="input-group">
-                        <input type={changePassword2 ? "password" : "text"} name="confirmPassword" className="form-control" placeholder="Konfirmasi Ulang Password" disabled={sending} />
+                        <Input type={changePassword2 ? "password" : "text"} name="confirmPassword" className="form-control" placeholder="Konfirmasi Ulang Password" disabled={sending} />
                         <div className="input-group-prepend">
                             <span className="input-group-text" onClick={() => {
                                 setChangePassword2(changeStatus2);

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Google } from "../../../assets"
-import { Button } from "../../../component"
+import { Button, Input } from "../../../component"
 import { IconInfo, IconVisibility, IconVisibilityOff } from "../../../component/Icon"
 import { authService } from "../../../services"
 import { LoginRequest } from "../../../types/Login"
@@ -54,7 +54,7 @@ const Login: React.FC = () => {
             <div className="titleLogin">Selamat Datang di <span className="titleBlue">Interumah</span></div>
             <form onSubmit={login}>
                 <div className="form-group">
-                    <input type="email" name="email" className={classNameEmail} placeholder="Masukan Email Anda" disabled={sending} />
+                    <Input type="email" name="email" className={classNameEmail} placeholder="Masukan Email Anda" disabled={sending} />
                     {errorMessageEmail ? (
                         <div className="error-message">
                             <IconInfo color="danger" /><span className="textErrorMessage">{errorMessageEmail}</span>
@@ -62,7 +62,7 @@ const Login: React.FC = () => {
                     ) : null}
                 </div>
                 <div className="input-group">
-                    <input type={changePassword ? "password" : "text"} name="password" className={classNamePassword} placeholder="Masukan Password Anda" disabled={sending} />
+                    <Input type={changePassword ? "password" : "text"} name="password" className={classNamePassword} placeholder="Masukan Password Anda" disabled={sending} />
                     <div className="input-group-prepend">
                         <span className="input-group-text" onClick={() => {
                             setChangePassword(changeStatus);

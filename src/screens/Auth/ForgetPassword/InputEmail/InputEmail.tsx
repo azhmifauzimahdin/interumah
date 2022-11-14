@@ -1,7 +1,7 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
 import { IlustrationForgetPasswordInputEmail } from "../../../../assets"
-import { Button } from "../../../../component"
+import { Button, Input } from "../../../../component"
 import "./InputEmail.css"
 
 const InputEmail: React.FC = () => {
@@ -18,7 +18,7 @@ const InputEmail: React.FC = () => {
             <div className="forgetInputPassword-form">
                 <form onSubmit={sendEmail}>
                     <div className="input-group-button">
-                        <input type="text" className="form-control-button" placeholder="Masukan Email Anda" />
+                        <Input type="text" name="email" className="prepend-btn" placeholder="Masukan Email Anda" />
                         <div className="input-group-prependbutton">
                             <Button button="btnInput">Kirim</Button>
                         </div>

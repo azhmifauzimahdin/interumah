@@ -91,7 +91,7 @@
 
 @media screen and (max-width: 920px) {
     .btn {
-        border-radius: 4px;
+        border-radius: 5px;
     }
 
     .btnProduct {
@@ -101,15 +101,6 @@
 
     .btnInput {
         height: 6.6vh;
-        border: none;
-        border-radius: 0px 8px 8px 0px;
-        border: 0.2vw solid #1D86FF;
-        border-left: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        font-weight: 700;
     }
 
     .btn-size-lg {

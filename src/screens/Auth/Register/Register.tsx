@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Button, ModalBlank, PWDRequisite } from "../../../component"
+import { Button, Input, ModalBlank, PWDRequisite } from "../../../component"
 import { authService } from "../../../services"
 import { RegisterRequest } from "../../../types/Register"
 import { IconInfo, IconVisibility, IconVisibilityOff } from "../../../component/Icon"
@@ -92,7 +92,7 @@ const Register: React.FC = () => {
                 <div className="titleRegister">Formulir Registrasi</div>
                 <form onSubmit={register}>
                     <div className="form-group">
-                        <input type="email" name="email" className={classNameEmail} placeholder="Masukan Email Anda" disabled={sending} />
+                        <Input type="email" name="email" className={classNameEmail} placeholder="Masukan Email Anda" disabled={sending} />
                         {errorMessageEmail ? (
                             <div className="error-message">
                                 <IconInfo color="danger" /><span className="textErrorMessage">{errorMessageEmail}</span>
@@ -100,7 +100,7 @@ const Register: React.FC = () => {
                         ) : null}
                     </div>
                     <div className="input-group">
-                        <input type={changePassword1 ? "password" : "text"} name="password" className={classNamePassword} placeholder="Masukan Password Anda" disabled={sending} onFocus={handleOnFocusPassword} onBlur={handleOnBlurPassword} onKeyUp={handleKeyUpPassword} />
+                        <Input type={changePassword1 ? "password" : "text"} name="password" className={classNamePassword} placeholder="Masukan Password Anda" disabled={sending} onFocus={handleOnFocusPassword} onBlur={handleOnBlurPassword} onKeyUp={handleKeyUpPassword} />
                         <div className="input-group-prepend">
                             <span className="input-group-text" onClick={() => {
                                 setChangePassword1(changeStatus1);
