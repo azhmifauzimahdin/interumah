@@ -5,3 +5,9 @@
 .visibility-primary {
     fill: #1E1E1F
 }
+
+@media screen and (max-width: 920px) {
+    .visibility {
+        width: 4.56vw;
+    }
+}

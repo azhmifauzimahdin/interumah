@@ -1,13 +1,8 @@
-* {
-    font-family: Roboto, sans-serif;
-}
-
 .register-layout {
     width: 100%;
 }
 
 .register-navbar {
-    background: #ffffff;
     display: flex;
     height: 14vh;
     width: 100%;
@@ -80,7 +75,6 @@
     width: 46%;
     padding: 4vh 7vw;
     box-sizing: border-box;
-    padding-bottom: 8vh;
 }
 
 .register-article {
@@ -164,11 +158,6 @@
     }
 
     .register-section {
-        width: 100%;
-    }
-
-    .register-article {
         width: 90%;
-        margin: 0 auto;
     }
 }

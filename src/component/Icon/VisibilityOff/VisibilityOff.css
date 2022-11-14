@@ -9,3 +9,9 @@
 .visibilityOff-secondary {
     fill: #B7B7B7
 }
+
+@media screen and (max-width: 920px) {
+    .visibilityOff {
+        width: 4.56vw;
+    }
+}

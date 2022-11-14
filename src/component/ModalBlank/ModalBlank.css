@@ -24,3 +24,9 @@
 .modal-box-content {
     text-align: center;
 }
+
+@media screen and (max-width: 920px) {
+    .modal-box {
+        width: 70.6vw;
+    }
+}
