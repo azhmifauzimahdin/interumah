@@ -14,13 +14,13 @@
 }
 
 .register-navbar .logo {
-    width: 16vw;
+    width: 15vw;
     height: 7vh;
     margin-bottom: 4vh;
 }
 
 .register-navbar .logo img {
-    height: 100%;
+    width: 100%;
 }
 
 .register-navbar ul {
@@ -94,6 +94,7 @@
     .register-navbar .logo {
         width: 20vw;
         height: 3.4vh;
+        margin-top: 4vh;
     }
 
     .register-navbar .menu-btn i {

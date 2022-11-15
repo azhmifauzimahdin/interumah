@@ -14,13 +14,13 @@
 }
 
 .login-navbar .logo {
-    width: 16vw;
+    width: 15vw;
     height: 7.03vh;
     margin-bottom: 4vh;
 }
 
 .login-navbar .logo img {
-    height: 100%;
+    width: 100%;
 }
 
 .login-navbar ul {
@@ -94,6 +94,7 @@
     .login-navbar .logo {
         width: 20vw;
         height: 3.4vh;
+        margin-top: 4vh;
     }
 
     .login-navbar .menu-btn i {
