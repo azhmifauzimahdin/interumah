@@ -117,7 +117,6 @@
 }
 
 .landingPage-mainThree {
-    height: 136.85vh;
     text-align: center;
     padding: 6vh 13vw;
 }
@@ -153,11 +152,6 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 8.14vh;
-}
-
-.landingPage-mainThree-articleTwo .product {
-    width: 15.67vw;
-    margin: 1.64vh 1.2vw;
 }
 
 .landingPage-mainThree-articleThree {
@@ -348,7 +342,6 @@
     }
 
     .landingPage-mainThree {
-        height: 100%;
         padding: 20px 20px;
     }
 
@@ -371,11 +364,6 @@
 
     .landingPage-mainThree-articleTwo {
         margin-bottom: 20px;
-    }
-
-    .landingPage-mainThree-articleTwo .product {
-        width: 46%;
-        margin: 2% 1%;
     }
 
     .landingPage-mainThree-articleThree {

@@ -1,11 +1,28 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { IlustrationKonsultasi, IlustrationPilihDesainmu, IlustrationTemukan, IlustrationWujudkan, ImageOne, LogoFooter } from "../../assets"
-import { imgClassic1, imgClassic2, imgClassic3, imgClassic4, imgClassic5, imgClassic6, imgClassic7, imgClassic8, imgStory1, imgStory2, imgStory3, imgStory4, imgStory5 } from "../../assets/dummy"
+import { imgStory1, imgStory2, imgStory3, imgStory4, imgStory5 } from "../../assets/dummy"
 import { Button, ProductCard, StoryCard } from "../../component"
 import { IconAppStore, IconFacebook, IconInstagram, IconPlayStore, IconTiktok, IconYoutube } from "../../component/Icon"
+import { DesignService } from "../../services"
+import { Design } from "../../types/Design"
 import "./LandingPage.css"
 
 const LandingPage: React.FC = () => {
+    const [designsData, setDesignData] = useState<Design[]>([])
+
+    const getDesigns = async () => {
+        try {
+            const response = await DesignService.getAllDesigns()
+            setDesignData(response.data.data)
+        } catch (error) {
+            console.log('error', error)
+        }
+    }
+
+    useEffect(() => {
+        getDesigns()
+    }, [])
+
     return (
         <article className="landingPage-container">
             <main className="landingPage-mainOne">
@@ -72,70 +89,71 @@ const LandingPage: React.FC = () => {
                     </nav>
                 </article>
                 <article className="landingPage-mainThree-articleTwo">
-                    <section className="product">
-                        <ProductCard
-                            img={imgClassic1}
-                            title="Ruang Keluarga Classic 65"
-                            company="PT. Media Kreasi Abadi"
-                            address="Balikpapan, Indonesia"
-                            price="10.000.000" />
-                    </section>
-                    <section className="product">
-                        <ProductCard
-                            img={imgClassic2}
-                            title="Ruang Keluarga Classic 65"
-                            company="PT. Media Kreasi Abadi"
-                            address="Balikpapan, Indonesia"
-                            price="10.000.000" />
-                    </section>
-                    <section className="product">
-                        <ProductCard
-                            img={imgClassic3}
-                            title="Ruang Keluarga Classic 65"
-                            company="PT. Media Kreasi Abadi"
-                            address="Balikpapan, Indonesia"
-                            price="10.000.000" />
-                    </section>
-                    <section className="product">
-                        <ProductCard
-                            img={imgClassic4}
-                            title="Ruang Keluarga Classic 65"
-                            company="PT. Media Kreasi Abadi"
-                            address="Balikpapan, Indonesia"
-                            price="10.000.000" />
-                    </section>
-                    <section className="product">
-                        <ProductCard
-                            img={imgClassic5}
-                            title="Ruang Keluarga Classic 65"
-                            company="PT. Media Kreasi Abadi"
-                            address="Balikpapan, Indonesia"
-                            price="10.000.000" />
-                    </section>
-                    <section className="product">
-                        <ProductCard
-                            img={imgClassic6}
-                            title="Ruang Keluarga Classic 65"
-                            company="PT. Media Kreasi Abadi"
-                            address="Balikpapan, Indonesia"
-                            price="10.000.000" />
-                    </section>
-                    <section className="product">
-                        <ProductCard
-                            img={imgClassic7}
-                            title="Ruang Keluarga Classic 65"
-                            company="PT. Media Kreasi Abadi"
-                            address="Balikpapan, Indonesia"
-                            price="10.000.000" />
-                    </section>
-                    <section className="product">
-                        <ProductCard
-                            img={imgClassic8}
-                            title="Ruang Keluarga Classic 65"
-                            company="PT. Media Kreasi Abadi"
-                            address="Balikpapan, Indonesia"
-                            price="10.000.000" />
-                    </section>
+                    <ProductCard data={designsData} />
+                    {/* <section className="product">
+                            <ProductCard
+                                img={imgClassic1}
+                                title="Ruang Keluarga Classic 65"
+                                company="PT. Media Kreasi Abadi"
+                                address="Balikpapan, Indonesia"
+                                price="10.000.000" />
+                        </section>
+                        <section className="product">
+                            <ProductCard
+                                img={imgClassic2}
+                                title="Ruang Keluarga Classic 65"
+                                company="PT. Media Kreasi Abadi"
+                                address="Balikpapan, Indonesia"
+                                price="10.000.000" />
+                        </section>
+                        <section className="product">
+                            <ProductCard
+                                img={imgClassic3}
+                                title="Ruang Keluarga Classic 65"
+                                company="PT. Media Kreasi Abadi"
+                                address="Balikpapan, Indonesia"
+                                price="10.000.000" />
+                        </section>
+                        <section className="product">
+                            <ProductCard
+                                img={imgClassic4}
+                                title="Ruang Keluarga Classic 65"
+                                company="PT. Media Kreasi Abadi"
+                                address="Balikpapan, Indonesia"
+                                price="10.000.000" />
+                        </section>
+                        <section className="product">
+                            <ProductCard
+                                img={imgClassic5}
+                                title="Ruang Keluarga Classic 65"
+                                company="PT. Media Kreasi Abadi"
+                                address="Balikpapan, Indonesia"
+                                price="10.000.000" />
+                        </section>
+                        <section className="product">
+                            <ProductCard
+                                img={imgClassic6}
+                                title="Ruang Keluarga Classic 65"
+                                company="PT. Media Kreasi Abadi"
+                                address="Balikpapan, Indonesia"
+                                price="10.000.000" />
+                        </section>
+                        <section className="product">
+                            <ProductCard
+                                img={imgClassic7}
+                                title="Ruang Keluarga Classic 65"
+                                company="PT. Media Kreasi Abadi"
+                                address="Balikpapan, Indonesia"
+                                price="10.000.000" />
+                        </section>
+                        <section className="product">
+                            <ProductCard
+                                img={imgClassic8}
+                                title="Ruang Keluarga Classic 65"
+                                company="PT. Media Kreasi Abadi"
+                                address="Balikpapan, Indonesia"
+                                price="10.000.000" />
+                        </section> */}
                 </article>
                 <article className="landingPage-mainThree-articleThree">
                     <Button type="colorfull" fontSize="lg">Selengkapnya</Button>
