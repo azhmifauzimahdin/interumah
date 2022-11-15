@@ -10,9 +10,11 @@ export interface ButtonProps {
     size?: 'sm' | 'md' | 'lg'
     fontWeight?: 'normal' | 'bold'
     disabled?: boolean
+    name?: any
 }
 
 const Button: React.FC<ButtonProps> = props => {
+    const { name } = props
     const button = props.button || 'btn'
     const fontSize = props.fontSize || 'md'
     const type = props.type || 'primary'
@@ -25,6 +27,7 @@ const Button: React.FC<ButtonProps> = props => {
             className={cek}
             onClick={props.onClick}
             disabled={props.disabled}
+            name={name}
         >
             {props.children}
         </button>

@@ -5,34 +5,52 @@ import { Button, ProductCard, StoryCard } from "../../component"
 import { IconAppStore, IconFacebook, IconInstagram, IconPlayStore, IconTiktok, IconYoutube } from "../../component/Icon"
 import { CategoryService, DesignService } from "../../services"
 import { Category } from "../../types/Category"
-import { Design } from "../../types/Design"
+import { Design, SpecificDesign } from "../../types/Design"
 import "./LandingPage.css"
 
 const LandingPage: React.FC = () => {
     const [categoriesData, setCategoriesData] = useState<Category[]>([])
     const [designsData, setDesignData] = useState<Design[]>([])
+    const [specificDesignData, setSpecificDesignData] = useState<SpecificDesign>()
 
     const getAllCategories = async () => {
         try {
-            const responseGetAllCategories = await CategoryService.getAllCategories()
-            setCategoriesData(responseGetAllCategories.data.data.categories)
+            const response = await CategoryService.getAllCategories()
+            setCategoriesData(response.data.data.categories)
         } catch (error) {
             console.log('error', error)
         }
     }
+
     const getAllDesigns = async () => {
         try {
-            const responseGetAllDesigns = await DesignService.getAllDesigns()
-            setDesignData(responseGetAllDesigns.data.data)
+            const response = await DesignService.getAllDesigns()
+            setDesignData(response.data.data)
         } catch (error) {
             console.log('error', error)
         }
+    }
+
+    const getSpecificDesign = async (id: number) => {
+        try {
+            const response = await DesignService.getSpecificDesigns(id)
+            setSpecificDesignData(response.data.data)
+        } catch (error) {
+            console.log('error', error)
+        }
+    }
+
+    const handleButtonCategory = (e: any) => {
+        let nameOfFunction = e.target.name
+        getSpecificDesign(nameOfFunction)
     }
 
     useEffect(() => {
         getAllCategories()
         getAllDesigns()
     }, [])
+
+    console.log('scp', specificDesignData)
 
     return (
         <article className="landingPage-container">
@@ -93,11 +111,9 @@ const LandingPage: React.FC = () => {
                     <nav className="ProductMenu">
                         <ul>
                             <li><Button size="sm" button="btnProduct">Semua Kategori</Button></li>
-                            {categoriesData.length > 0 ? categoriesData.map(data => {
-                                return (
-                                    <li><Button size="sm" button="btnProduct" type="secondary">{data.name}</Button></li>
-                                )
-                            }) : null}
+                            {categoriesData.length > 0 ? categoriesData.map(data => (
+                                <li key={data.id}><Button size="sm" button="btnProduct" type="secondary" name={data.id} onClick={handleButtonCategory}>{data.name}</Button></li>
+                            )) : null}
                         </ul>
                     </nav>
                 </article>
