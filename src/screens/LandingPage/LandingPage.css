@@ -143,7 +143,12 @@
     align-items: center;
     flex-wrap: wrap;
     list-style: none;
-    justify-content: space-between;
+    justify-content: center;
+}
+
+.landingPage-mainThree-articleOne .ProductMenu ul li {
+    /* width: 20%; */
+    padding: 0.6vw;
 }
 
 .landingPage-mainThree-articleTwo {

@@ -15,7 +15,6 @@ const ProductCard: React.FC<ProductCardProps> = props => {
     }
 
     useEffect(() => {
-        console.log('props', props.data)
         if (props.data.length === 0) return
         initiateDesign([...props.data])
     }, [props.data])
@@ -43,25 +42,6 @@ const ProductCard: React.FC<ProductCardProps> = props => {
                             </section>
                         </article>
                     </article>
-                    // <article className="productCard">
-                    //     <figure className="productCard-imgProduct">
-                    //         <img src={img} alt="Classic" />
-                    //     </figure>
-                    //     <article className="productCard-article">
-                    //         <header className="productCard-title">{title}</header>
-                    //         <section className="productCard-company">{company}</section>
-                    //         <section className="productCard-address">
-                    //             <span className="icon"><IconLocation /></span>{address}
-                    //         </section>
-                    //         <section className="productCard-price">
-                    //             <span className="icon"><IconPrice /></span>Rp. {price}
-                    //         </section>
-                    //         <section className="productCard-optionProduct">
-                    //             <section className="btnFavorit"><IconFavorite /></section>
-                    //             <section className="btnDetail"><Button fontWeight="normal" size="sm" fontSize="sm">Lihat detail</Button></section>
-                    //         </section>
-                    //     </article>
-                    // </article>
                 )
             }) : null
             }

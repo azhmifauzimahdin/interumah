@@ -3,24 +3,35 @@ import { IlustrationKonsultasi, IlustrationPilihDesainmu, IlustrationTemukan, Il
 import { imgStory1, imgStory2, imgStory3, imgStory4, imgStory5 } from "../../assets/dummy"
 import { Button, ProductCard, StoryCard } from "../../component"
 import { IconAppStore, IconFacebook, IconInstagram, IconPlayStore, IconTiktok, IconYoutube } from "../../component/Icon"
-import { DesignService } from "../../services"
+import { CategoryService, DesignService } from "../../services"
+import { Category } from "../../types/Category"
 import { Design } from "../../types/Design"
 import "./LandingPage.css"
 
 const LandingPage: React.FC = () => {
+    const [categoriesData, setCategoriesData] = useState<Category[]>([])
     const [designsData, setDesignData] = useState<Design[]>([])
 
-    const getDesigns = async () => {
+    const getAllCategories = async () => {
         try {
-            const response = await DesignService.getAllDesigns()
-            setDesignData(response.data.data)
+            const responseGetAllCategories = await CategoryService.getAllCategories()
+            setCategoriesData(responseGetAllCategories.data.data.categories)
+        } catch (error) {
+            console.log('error', error)
+        }
+    }
+    const getAllDesigns = async () => {
+        try {
+            const responseGetAllDesigns = await DesignService.getAllDesigns()
+            setDesignData(responseGetAllDesigns.data.data)
         } catch (error) {
             console.log('error', error)
         }
     }
 
     useEffect(() => {
-        getDesigns()
+        getAllCategories()
+        getAllDesigns()
     }, [])
 
     return (
@@ -82,78 +93,16 @@ const LandingPage: React.FC = () => {
                     <nav className="ProductMenu">
                         <ul>
                             <li><Button size="sm" button="btnProduct">Semua Kategori</Button></li>
-                            <li><Button size="sm" button="btnProduct" type="secondary">Ruang Tamu</Button></li>
-                            <li><Button size="sm" button="btnProduct" type="secondary">Ruang Keluarga</Button></li>
-                            <li><Button size="sm" button="btnProduct" type="secondary">Kamar Mandi</Button></li>
+                            {categoriesData.length > 0 ? categoriesData.map(data => {
+                                return (
+                                    <li><Button size="sm" button="btnProduct" type="secondary">{data.name}</Button></li>
+                                )
+                            }) : null}
                         </ul>
                     </nav>
                 </article>
                 <article className="landingPage-mainThree-articleTwo">
                     <ProductCard data={designsData} />
-                    {/* <section className="product">
-                            <ProductCard
-                                img={imgClassic1}
-                                title="Ruang Keluarga Classic 65"
-                                company="PT. Media Kreasi Abadi"
-                                address="Balikpapan, Indonesia"
-                                price="10.000.000" />
-                        </section>
-                        <section className="product">
-                            <ProductCard
-                                img={imgClassic2}
-                                title="Ruang Keluarga Classic 65"
-                                company="PT. Media Kreasi Abadi"
-                                address="Balikpapan, Indonesia"
-                                price="10.000.000" />
-                        </section>
-                        <section className="product">
-                            <ProductCard
-                                img={imgClassic3}
-                                title="Ruang Keluarga Classic 65"
-                                company="PT. Media Kreasi Abadi"
-                                address="Balikpapan, Indonesia"
-                                price="10.000.000" />
-                        </section>
-                        <section className="product">
-                            <ProductCard
-                                img={imgClassic4}
-                                title="Ruang Keluarga Classic 65"
-                                company="PT. Media Kreasi Abadi"
-                                address="Balikpapan, Indonesia"
-                                price="10.000.000" />
-                        </section>
-                        <section className="product">
-                            <ProductCard
-                                img={imgClassic5}
-                                title="Ruang Keluarga Classic 65"
-                                company="PT. Media Kreasi Abadi"
-                                address="Balikpapan, Indonesia"
-                                price="10.000.000" />
-                        </section>
-                        <section className="product">
-                            <ProductCard
-                                img={imgClassic6}
-                                title="Ruang Keluarga Classic 65"
-                                company="PT. Media Kreasi Abadi"
-                                address="Balikpapan, Indonesia"
-                                price="10.000.000" />
-                        </section>
-                        <section className="product">
-                            <ProductCard
-                                img={imgClassic7}
-                                title="Ruang Keluarga Classic 65"
-                                company="PT. Media Kreasi Abadi"
-                                address="Balikpapan, Indonesia"
-                                price="10.000.000" />
-                        </section>
-                        <section className="product">
-                            <ProductCard
-                                img={imgClassic8}
-                                title="Ruang Keluarga Classic 65"
-                                company="PT. Media Kreasi Abadi"
-                                address="Balikpapan, Indonesia"
-                                price="10.000.000" />
-                        </section> */}
                 </article>
                 <article className="landingPage-mainThree-articleThree">
                     <Button type="colorfull" fontSize="lg">Selengkapnya</Button>
