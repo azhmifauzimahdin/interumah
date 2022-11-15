@@ -1,7 +1,10 @@
 import axios from "axios"
 
+// export const httpRequest = axios.create({
+//     baseURL: 'https://mka-team-f-dev.herokuapp.com'
+// })
 export const httpRequest = axios.create({
-    baseURL: 'https://mka-team-f-dev.herokuapp.com'
+    baseURL: 'http://103.250.10.102'
 })
 
 httpRequest.interceptors.request.use(config => {

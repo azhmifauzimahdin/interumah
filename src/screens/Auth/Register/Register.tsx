@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Button, ErrorMessage, Input, ModalBlank, PWDRequisite } from "../../../component"
 import { authService } from "../../../services"
 import { RegisterRequest } from "../../../types/Register"
-import { IconInfo, IconVisibility, IconVisibilityOff } from "../../../component/Icon"
+import { IconVisibility, IconVisibilityOff } from "../../../component/Icon"
 import { IlustrationSuccess } from "../../../assets"
 import { useNavigate } from "react-router-dom"
 import './Register.css'
@@ -34,11 +34,13 @@ const Register: React.FC = () => {
         setErrorMessagePassword('')
         try {
             const formData = new FormData(e.target as HTMLFormElement)
-            const inputObject = Object.fromEntries(formData)
+            let inputObject = Object.fromEntries(formData)
 
             await authService.register(inputObject as any as RegisterRequest)
             setSending(false)
-            toggleModal(e)
+            toggleModal()
+            const resetForm = e.target as HTMLFormElement
+            resetForm.reset()
         } catch (error: any) {
             setSending(false)
             setErrorMessageEmail(error.response.data.errors.email)
@@ -75,12 +77,11 @@ const Register: React.FC = () => {
 
     const [showModal, setShowModal] = useState<boolean>(false)
 
-    const toggleModal = (e: any) => {
-        e.preventDefault()
-
-        if (e.target === e.currentTarget) {
-            setShowModal(prevState => !prevState)
-        }
+    const toggleModal = () => {
+        setShowModal(prevState => !prevState)
+    }
+    const onStayModal = (e: any) => {
+        e.stopPropagation()
     }
     const navigateLogin = () => {
         navigate('/login')
@@ -90,7 +91,7 @@ const Register: React.FC = () => {
         <>
             <article className="container">
                 <header className="titleRegister">Formulir Registrasi</header>
-                <form onSubmit={register}>
+                <form onSubmit={register} id="ya">
                     <section className="form-group">
                         <Input type="email" name="email" className={classNameEmail} placeholder="Masukan Email Anda" disabled={sending} />
                         {errorMessageEmail ? (
@@ -144,6 +145,7 @@ const Register: React.FC = () => {
             <ModalBlank
                 visible={showModal}
                 onClose={toggleModal}
+                OnStay={onStayModal}
             >
                 <section className="modalRegisterSuccess-title">
                     <span className="titleBlue">Selamat!</span> <br />Anda Berhasil Membuat Akun Baru
