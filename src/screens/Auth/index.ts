@@ -4,3 +4,4 @@ export { default as PasswordInputEmail } from "./ForgetPassword/InputEmail/Input
 export { default as PasswordCheckEmail } from "./ForgetPassword/CheckEmail/CheckEmail"
 export { default as ChangePassword } from "./ForgetPassword/ChangePassword/ChangePassword"
 export { default as SuccessPasswordChange } from "./ForgetPassword/SuccessPasswordChange/SuccessPasswordChange"
+export { default as FailedPasswordChange } from "./ForgetPassword/FailedChangePassword/FailedPasswordChange"

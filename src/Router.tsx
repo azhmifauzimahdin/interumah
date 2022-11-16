@@ -6,7 +6,7 @@ import {
 } from "react-router-dom"
 import { LayoutLandingPage, LayoutUser } from "./layouts"
 import { LayoutForgetPassword, LayoutLogin, LayoutRegister } from "./layouts/Auth"
-import { ChangePassword, Login, PasswordCheckEmail, PasswordInputEmail, Register, SuccessPasswordChange } from "./screens/Auth"
+import { ChangePassword, FailedPasswordChange, Login, PasswordCheckEmail, PasswordInputEmail, Register, SuccessPasswordChange } from "./screens/Auth"
 import LandingPage from "./screens/LandingPage/LandingPage"
 import { UserDashboard } from "./screens/User"
 
@@ -31,6 +31,7 @@ const Router: React.FC = () => {
                     <Route path="/forget_password/check_email" element={<PasswordCheckEmail />} />
                     <Route path="/users/forgot-password/verify" element={<ChangePassword />} />
                     <Route path="/success_password_change" element={<SuccessPasswordChange />} />
+                    <Route path="/failed_password_change" element={<FailedPasswordChange />} />
                 </Route>
 
             </Routes>

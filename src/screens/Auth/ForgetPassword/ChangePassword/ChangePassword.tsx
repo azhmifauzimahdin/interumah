@@ -26,6 +26,7 @@ const ChangePassword: React.FC = () => {
     const [email, setemail] = useState<string>()
     const [errorMessagePassword, setErrorMessagePassword] = useState<string>('')
 
+    //----- Change Password -----
     const changePassword = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setSending(true)
@@ -49,16 +50,7 @@ const ChangePassword: React.FC = () => {
         }
     }
 
-    const getEmail = async () => {
-        try {
-            const response = await ResetPasswordService.GetEmailChangePassword(token)
-            setemail(response.data.data.email)
-        } catch (error: any) {
-            console.log('error', error);
-        }
-    }
-
-    // Password Validation
+    // ----- Password Validation -----
     const handleOnFocusPassword = () => {
         setPWDRequiste(true)
     }
@@ -82,52 +74,62 @@ const ChangePassword: React.FC = () => {
 
     }
 
+    //----- Get Email -----
     useEffect(() => {
-        getEmail()
-    }, [])
+        ResetPasswordService.GetEmailChangePassword(token)
+            .then(response => {
+                setemail(response.data.data.email)
+            })
+            .catch(error => {
+                console.log('error', error)
+                navigate('/failed_password_change')
+            })
+    }, [navigate, token])
 
     return (
-        <article className="container">
-            <header className="titleChangePassword">Buat Password Baru Anda!</header>
-            <article className="ChangePassword-form">
-                <form onSubmit={changePassword}>
-                    <section className="input-group">
-                        <Input type={changePassword1 ? "password" : "text"} name="password" className="form-control" placeholder="Masukan Password Anda" disabled={sending} onFocus={handleOnFocusPassword} onBlur={handleOnBlurPassword} onKeyUp={handleKeyUpPassword} />
-                        <div className="input-group-prepend">
-                            <span className="input-group-text" onClick={() => {
-                                setChangePassword1(changeStatus1);
-                            }}>
-                                {changeStatus1 ? <IconVisibility /> : <IconVisibilityOff color="secondary" />}
-                            </span>
-                        </div>
-                        {errorMessagePassword ? (
-                            <ErrorMessage>{errorMessagePassword}</ErrorMessage>
-                        ) : null}
-                        {pwdRequiste ?
-                            <PWDRequisite
-                                lowercaseFlag={checks.lowercaseCheck ? "validStrength" : "invalidStrength"}
-                                uppercaseFlag={checks.uppercaseCheck ? "validStrength" : "invalidStrength"}
-                                numericFlag={checks.numericCheck ? "validStrength" : "invalidStrength"}
-                                nonAlphanumericFlag={checks.nonAlphanumericCheck ? "validStrength" : "invalidStrength"}
-                                minCharacterFlag={checks.minCharacterCheck ? "validStrength" : "invalidStrength"}
-                            /> : null}
-                    </section>
-                    <section className="input-group">
-                        <Input type={changePassword2 ? "password" : "text"} name="confirmPassword" className="form-control" placeholder="Konfirmasi Ulang Password" disabled={sending} />
-                        <div className="input-group-prepend">
-                            <span className="input-group-text" onClick={() => {
-                                setChangePassword2(changeStatus2);
-                            }}>
-                                {changeStatus2 ? <IconVisibility /> : <IconVisibilityOff color="secondary" />}
-                            </span>
-                        </div>
-                    </section>
-                    <section className="btn-changePassword">
-                        <Button disabled={sending}>Buat Password</Button>
-                    </section>
-                </form>
+        <>
+            <article className="containerChangePassword">
+                <header className="titleChangePassword">Buat Password Baru Anda!</header>
+                <article className="ChangePassword-form">
+                    <form onSubmit={changePassword}>
+                        <section className="input-group">
+                            <Input type={changePassword1 ? "password" : "text"} name="password" className="form-control" placeholder="Masukan Password Anda" disabled={sending} onFocus={handleOnFocusPassword} onBlur={handleOnBlurPassword} onKeyUp={handleKeyUpPassword} />
+                            <div className="input-group-prepend">
+                                <span className="input-group-text" onClick={() => {
+                                    setChangePassword1(changeStatus1);
+                                }}>
+                                    {changeStatus1 ? <IconVisibility /> : <IconVisibilityOff color="secondary" />}
+                                </span>
+                            </div>
+                            {errorMessagePassword ? (
+                                <ErrorMessage>{errorMessagePassword}</ErrorMessage>
+                            ) : null}
+                            {pwdRequiste ?
+                                <PWDRequisite
+                                    lowercaseFlag={checks.lowercaseCheck ? "validStrength" : "invalidStrength"}
+                                    uppercaseFlag={checks.uppercaseCheck ? "validStrength" : "invalidStrength"}
+                                    numericFlag={checks.numericCheck ? "validStrength" : "invalidStrength"}
+                                    nonAlphanumericFlag={checks.nonAlphanumericCheck ? "validStrength" : "invalidStrength"}
+                                    minCharacterFlag={checks.minCharacterCheck ? "validStrength" : "invalidStrength"}
+                                /> : null}
+                        </section>
+                        <section className="input-group">
+                            <Input type={changePassword2 ? "password" : "text"} name="confirmPassword" className="form-control" placeholder="Konfirmasi Ulang Password" disabled={sending} />
+                            <div className="input-group-prepend">
+                                <span className="input-group-text" onClick={() => {
+                                    setChangePassword2(changeStatus2);
+                                }}>
+                                    {changeStatus2 ? <IconVisibility /> : <IconVisibilityOff color="secondary" />}
+                                </span>
+                            </div>
+                        </section>
+                        <section className="btn-changePassword">
+                            <Button disabled={sending}>Buat Password</Button>
+                        </section>
+                    </form>
+                </article>
             </article>
-        </article>
+        </>
     )
 }
 
