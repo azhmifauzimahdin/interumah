@@ -26,16 +26,15 @@
 .input-group-button {
     width: 100%;
     display: flex;
-    margin-bottom: 3.3vh;
 }
 
 .input-group-prependbuttpn {
-    position: absolute;
     top: 2px;
     right: 2px;
 }
 
 .forgetInputPassword-link {
+    margin-top: 3.3vh;
     width: 100%;
 }
 

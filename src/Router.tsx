@@ -29,7 +29,7 @@ const Router: React.FC = () => {
                 <Route element={<LayoutForgetPassword />}>
                     <Route path="/forget_password" element={<PasswordInputEmail />} />
                     <Route path="/forget_password/check_email" element={<PasswordCheckEmail />} />
-                    <Route path="/change_password" element={<ChangePassword />} />
+                    <Route path="/users/forgot-password/verify" element={<ChangePassword />} />
                     <Route path="/success_password_change" element={<SuccessPasswordChange />} />
                 </Route>
 

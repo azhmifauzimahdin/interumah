@@ -49,9 +49,6 @@ const LandingPage: React.FC = () => {
         getAllCategories()
         getAllDesigns()
     }, [])
-
-    console.log('scp', specificDesignData)
-
     return (
         <article className="landingPage-container">
             <main className="landingPage-mainOne">

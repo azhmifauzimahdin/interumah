@@ -1,7 +1,9 @@
-import React, { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import React, { useEffect, useState } from "react"
+import { useNavigate, useSearchParams } from "react-router-dom"
 import { Button, Input, PWDRequisite } from "../../../../component"
 import { IconVisibility, IconVisibilityOff } from "../../../../component/Icon"
+import { ResetPasswordService } from "../../../../services"
+import { ChangePasswordData } from "../../../../types/ResetPassword"
 import "./ChangePassword.css"
 
 const ChangePassword: React.FC = () => {
@@ -19,15 +21,38 @@ const ChangePassword: React.FC = () => {
         nonAlphanumericCheck: false,
         minCharacterCheck: false
     })
+    let [searchParams] = useSearchParams()
+    const token = searchParams.get("token")
+    const [email, setemail] = useState<string>()
 
-    const changePassword = () => {
-        // e.preventDefault()
+    const changePassword = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
         setSending(true)
         try {
+            const formData = new FormData(e.target as HTMLFormElement)
+            const inputObject = Object.fromEntries(formData)
+            const objectChangePassword = {
+                ...inputObject,
+                email: email,
+                token: token
+            }
+            console.log('objectChangePassword', objectChangePassword);
+
+            await ResetPasswordService.ChangePasswordPost(objectChangePassword as any as ChangePasswordData)
             setSending(false)
-            navigate('/success_password_change')
+            // navigate('/success_password_change')
         } catch (error) {
             setSending(false)
+            console.log('error', error);
+        }
+    }
+
+    const getEmail = async () => {
+        try {
+            const response = await ResetPasswordService.GetEmailChangePassword(token)
+            setemail(response.data.data.email)
+        } catch (error: any) {
+            console.log('error', error);
         }
     }
 
@@ -54,6 +79,11 @@ const ChangePassword: React.FC = () => {
         })
 
     }
+
+    useEffect(() => {
+        getEmail()
+    }, [])
+
     return (
         <article className="container">
             <header className="titleChangePassword">Buat Password Baru Anda!</header>
