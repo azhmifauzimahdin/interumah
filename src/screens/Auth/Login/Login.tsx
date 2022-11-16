@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Google } from "../../../assets"
 import { Button, ErrorMessage, Input } from "../../../component"
-import { IconInfo, IconVisibility, IconVisibilityOff } from "../../../component/Icon"
+import { IconVisibility, IconVisibilityOff } from "../../../component/Icon"
 import { authService } from "../../../services"
 import { LoginRequest } from "../../../types/Login"
 import './Login.css'

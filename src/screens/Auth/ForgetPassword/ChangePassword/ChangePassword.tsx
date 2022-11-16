@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
-import { Button, Input, PWDRequisite } from "../../../../component"
+import { Button, ErrorMessage, Input, PWDRequisite } from "../../../../component"
 import { IconVisibility, IconVisibilityOff } from "../../../../component/Icon"
 import { ResetPasswordService } from "../../../../services"
 import { ChangePasswordData } from "../../../../types/ResetPassword"
@@ -24,6 +24,7 @@ const ChangePassword: React.FC = () => {
     let [searchParams] = useSearchParams()
     const token = searchParams.get("token")
     const [email, setemail] = useState<string>()
+    const [errorMessagePassword, setErrorMessagePassword] = useState<string>('')
 
     const changePassword = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -36,14 +37,15 @@ const ChangePassword: React.FC = () => {
                 email: email,
                 token: token
             }
+
             console.log('objectChangePassword', objectChangePassword);
 
             await ResetPasswordService.ChangePasswordPost(objectChangePassword as any as ChangePasswordData)
             setSending(false)
-            // navigate('/success_password_change')
-        } catch (error) {
+            navigate('/success_password_change')
+        } catch (error: any) {
             setSending(false)
-            console.log('error', error);
+            setErrorMessagePassword(error.response.data.errors.password)
         }
     }
 
@@ -98,6 +100,9 @@ const ChangePassword: React.FC = () => {
                                 {changeStatus1 ? <IconVisibility /> : <IconVisibilityOff color="secondary" />}
                             </span>
                         </div>
+                        {errorMessagePassword ? (
+                            <ErrorMessage>{errorMessagePassword}</ErrorMessage>
+                        ) : null}
                         {pwdRequiste ?
                             <PWDRequisite
                                 lowercaseFlag={checks.lowercaseCheck ? "validStrength" : "invalidStrength"}
@@ -118,7 +123,7 @@ const ChangePassword: React.FC = () => {
                         </div>
                     </section>
                     <section className="btn-changePassword">
-                        <Button>Buat Password</Button>
+                        <Button disabled={sending}>Buat Password</Button>
                     </section>
                 </form>
             </article>
