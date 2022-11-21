@@ -34,7 +34,7 @@
 
 .btnProduct {
     border: none;
-    width: 11.71vw;
+    /* width: 11.71vw; */
     border-radius: 1.56vw;
     cursor: pointer;
 }
