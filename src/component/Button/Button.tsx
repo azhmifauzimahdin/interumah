@@ -4,9 +4,9 @@ import './Button.css'
 export interface ButtonProps {
     children?: React.ReactNode
     onClick?: React.MouseEventHandler<HTMLButtonElement>
-    button?: 'btn' | 'btnInput' | 'btnProduct'
+    button?: 'btn' | 'btnInput' | 'btnSearch' | 'btnProduct'
     fontSize?: 'sm' | 'md' | 'lg'
-    type?: 'primary' | 'secondary' | 'colorfull'
+    type?: 'primary' | 'secondary' | 'colorfull' | 'gray'
     size?: 'sm' | 'md' | 'lg'
     fontWeight?: 'normal' | 'bold'
     disabled?: boolean

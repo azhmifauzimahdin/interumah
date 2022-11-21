@@ -1,0 +1,13 @@
+.favoriteBorder-size-md {
+    width: 1.38vw;
+}
+
+.favoriteBorder-color-primary {
+    stroke: #C80707;
+}
+
+@media screen and (max-width: 920px) {
+    .favoriteBorder-size-md {
+        width: 3.6vw;
+    }
+}

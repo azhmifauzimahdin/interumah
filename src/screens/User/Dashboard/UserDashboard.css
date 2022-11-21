@@ -1,0 +1,199 @@
+.userDashbord-container {
+    width: 100%;
+}
+
+.userDashbord-mainOne {
+    width: 100%;
+    padding: 7.31vh 14.58vw;
+    box-sizing: border-box;
+}
+
+.userDashbord-mainTwo {
+    width: 100%;
+    padding: 1.31vh 14.58vw;
+    box-sizing: border-box;
+}
+
+.userDashboard-mainTwo-articleOne {
+    background: #ffffff;
+    border: 0.1vw solid #797979;
+    border-radius: 1.4vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 3.3vh 1.4vw;
+}
+
+.userDashboard-mainTwo-articleOne .referensiRuangan {
+    width: 54%;
+}
+
+.userDashboard-mainTwo-articleOne .referensiRuangan .header {
+    font-size: 2.08vw;
+    font-weight: 700;
+    margin-bottom: 5.6vh;
+}
+
+.userDashboard-mainTwo-articleOne .referensiRuangan .boxIconReferensi {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.userDashboard-mainTwo-articleOne .referensiRuangan .boxIconReferensi .iconReferensi {
+    text-align: center;
+    width: 25%;
+    font-size: 1.14vw;
+    font-weight: 400;
+}
+
+.userDashboard-mainTwo-articleOne .referensiRuangan .boxIconReferensi .iconReferensi .icon {
+    width: 100%;
+}
+
+.userDashboard-mainTwo-articleOne .referensiRuangan .boxIconReferensi .iconReferensi .title {
+    width: 100%;
+}
+
+.userDashboard-mainTwo-articleOne .daftarDesainer {
+    width: 44%;
+}
+
+.userDashboard-mainTwo-articleOne .daftarDesainer .boxheader {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 1.7vh;
+}
+
+.userDashboard-mainTwo-articleOne .daftarDesainer .boxheader .header {
+    font-size: 2.08vw;
+    font-weight: 700;
+}
+
+.userDashboard-mainTwo-articleOne .daftarDesainer .boxheader .link {
+    padding-top: 1.8vh;
+    font-size: 1.25vw;
+    font-weight: 700;
+    color: #152CBF;
+}
+
+.userDashboard-mainTwo-articleOne .daftarDesainer .boxIconDesainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.userDashboard-mainTwo-articleOne .daftarDesainer .boxIconDesainer::-webkit-scrollbar {
+    height: 0px;
+}
+
+.userDashboard-mainTwo-articleOne .daftarDesainer .boxIconDesainer .iconDesainer {
+    font-size: 1.14vw;
+    font-weight: 400;
+    flex-shrink: 0;
+    margin: 1vh 1vw;
+    width: 7.4vw;
+    height: 16.4vh;
+    background: gray;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.userDashboard-mainTwo-articleOne .daftarDesainer .boxIconDesainer .iconDesainer:nth-child(1) {
+    margin: 1vh 1vw 1vh 0;
+}
+
+.userDashboard-mainTwo-articleOne .daftarDesainer .boxIconDesainer .iconDesainer:nth-last-child(1) {
+    margin: 1vh 0 1vh 1vw;
+}
+
+.userDashboard-mainTwo-articleOne .daftarDesainer .boxIconDesainer .iconDesainer .icon img {
+    width: 100%;
+    height: 100%;
+}
+
+.userDashboard-mainTwo-articleOne .daftarDesainer .boxIconDesainer .deskripsi {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0.83vw;
+    color: #ffffff;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    background: linear-gradient(1.84deg, rgba(0, 0, 0, 0.8) 33.77%, rgba(255, 255, 255, 0) 91.97%);
+}
+
+.userDashboard-mainTwo-articleOne .daftarDesainer .boxIconDesainer .content {
+    width: 100%;
+    padding: 0 0 0.8vh 0.6vw;
+    box-sizing: border-box;
+}
+
+.userDashboard-mainTwo-articleOne .kategori {
+    width: 100%;
+    margin-top: 3.3vh;
+}
+
+.userDashboard-mainTwo-articleOne .kategori ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: 0;
+}
+
+.userDashboard-mainTwo-articleOne .kategori ul::-webkit-scrollbar {
+    height: 0px;
+}
+
+.userDashboard-mainTwo-articleOne .kategori ul li {
+    margin: 0 1vw;
+    width: 100%;
+}
+
+.userDashboard-mainTwo-articleOne .kategori ul li img {
+    height: 70%;
+    margin-right: 0.8vw;
+}
+
+.userDashboard-mainTwo-articleOne .kategori ul li .detailKategori {
+    white-space: nowrap;
+}
+
+.userDashbord-mainThree {
+    width: 100%;
+    padding: 3vh 13.2vw;
+    box-sizing: border-box;
+}
+
+.userDashbord-mainThree-articleOne {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 8.14vh;
+}
+
+.userDashbord-mainThree-articleTwo {
+    width: 14.63vw;
+    height: 7.6vh;
+    margin: 0 auto;
+}

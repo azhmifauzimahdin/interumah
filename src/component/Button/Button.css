@@ -18,7 +18,18 @@
     justify-content: center;
     cursor: pointer;
     font-weight: 700;
-    height: 7.6vh;
+}
+
+.btnSearch {
+    border: none;
+    border-radius: 0px 15px 15px 0px;
+    border: 0.2vw solid #1D86FF;
+    border-left: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 700;
 }
 
 .btnProduct {
@@ -29,7 +40,7 @@
 }
 
 .btn-size-sm {
-    height: 5vh;
+    height: 5.86vh;
     padding: 0 1.2vw;
 }
 
@@ -64,13 +75,19 @@
 .btn-secondary {
     background: #ffffff;
     color: #101B94;
-    border: 2px solid #101B94;
+    border: 0.11vw solid #101B94;
 }
 
 .btn-colorfull {
     background: linear-gradient(268.97deg, #1D86FF 20.46%, #101B94 71.87%);
     color: #ffffff;
     border-radius: 2.6vw;
+}
+
+.btn-gray {
+    background: #EBEBEB;
+    border: 0.2vw solid #101B94;
+    border-left: none;
 }
 
 .btn-font-sm {

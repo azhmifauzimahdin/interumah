@@ -49,8 +49,8 @@ const Register: React.FC = () => {
     }
 
     const disableButton = !checkTerms ? true : false
-    const classNameEmail = errorMessageEmail ? "form-control input-invalid" : "form-control"
-    const classNamePassword = errorMessagePassword ? "form-control input-invalid" : "form-control"
+    const classNameEmail = errorMessageEmail ? "input-invalid" : ""
+    const classNamePassword = errorMessagePassword ? "input-invalid" : ""
 
     const handleOnFocusPassword = () => {
         setPWDRequiste(true)
@@ -93,13 +93,13 @@ const Register: React.FC = () => {
                 <header className="titleRegister">Formulir Registrasi</header>
                 <form onSubmit={register} id="ya">
                     <section className="form-group">
-                        <Input type="email" name="email" className={classNameEmail} placeholder="Masukan Email Anda" disabled={sending} />
+                        <Input type="email" name="email" inputValid={classNameEmail} placeholder="Masukan Email Anda" disabled={sending} />
                         {errorMessageEmail ? (
                             <ErrorMessage>{errorMessageEmail}</ErrorMessage>
                         ) : null}
                     </section>
                     <section className="input-group">
-                        <Input type={changePassword1 ? "password" : "text"} name="password" className={classNamePassword} placeholder="Masukan Password Anda" disabled={sending} onFocus={handleOnFocusPassword} onBlur={handleOnBlurPassword} onKeyUp={handleKeyUpPassword} />
+                        <Input type={changePassword1 ? "password" : "text"} name="password" inputValid={classNamePassword} placeholder="Masukan Password Anda" disabled={sending} onFocus={handleOnFocusPassword} onBlur={handleOnBlurPassword} onKeyUp={handleKeyUpPassword} />
                         <div className="input-group-prepend">
                             <span className="input-group-text" onClick={() => {
                                 setChangePassword1(changeStatus1);
@@ -120,7 +120,7 @@ const Register: React.FC = () => {
                             /> : null}
                     </section>
                     <section className="input-group">
-                        <input type={changePassword2 ? "password" : "text"} name="confirmPassword" className={classNamePassword} placeholder="Konfirmasi Ulang Password" disabled={sending} />
+                        <Input type={changePassword2 ? "password" : "text"} name="confirmPassword" inputValid={classNamePassword} placeholder="Konfirmasi Ulang Password" disabled={sending} />
                         <div className="input-group-prepend">
                             <span className="input-group-text" onClick={() => {
                                 setChangePassword2(changeStatus2);

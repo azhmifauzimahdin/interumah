@@ -11,7 +11,7 @@ import "./LandingPage.css"
 const LandingPage: React.FC = () => {
     const [categoriesData, setCategoriesData] = useState<Category[]>([])
     const [designsData, setDesignData] = useState<Design[]>([])
-    const [specificDesignData, setSpecificDesignData] = useState<SpecificDesign>()
+    const [, setSpecificDesignData] = useState<SpecificDesign>()
 
     const getAllCategories = async () => {
         try {
@@ -50,7 +50,7 @@ const LandingPage: React.FC = () => {
         getAllDesigns()
     }, [])
     return (
-        <article className="landingPage-container">
+        <main className="landingPage-container">
             <main className="landingPage-mainOne">
                 <article className="landingPage-mainOne-article">
                     <header className="header">#InterumahAja</header>
@@ -220,7 +220,7 @@ const LandingPage: React.FC = () => {
                     </article>
                 </footer>
             </main>
-        </article>
+        </main>
     )
 }
 

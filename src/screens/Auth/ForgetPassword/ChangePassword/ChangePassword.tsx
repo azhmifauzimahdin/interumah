@@ -93,7 +93,7 @@ const ChangePassword: React.FC = () => {
                 <article className="ChangePassword-form">
                     <form onSubmit={changePassword}>
                         <section className="input-group">
-                            <Input type={changePassword1 ? "password" : "text"} name="password" className="form-control" placeholder="Masukan Password Anda" disabled={sending} onFocus={handleOnFocusPassword} onBlur={handleOnBlurPassword} onKeyUp={handleKeyUpPassword} />
+                            <Input type={changePassword1 ? "password" : "text"} name="password" placeholder="Masukan Password Anda" disabled={sending} onFocus={handleOnFocusPassword} onBlur={handleOnBlurPassword} onKeyUp={handleKeyUpPassword} />
                             <div className="input-group-prepend">
                                 <span className="input-group-text" onClick={() => {
                                     setChangePassword1(changeStatus1);
@@ -114,7 +114,7 @@ const ChangePassword: React.FC = () => {
                                 /> : null}
                         </section>
                         <section className="input-group">
-                            <Input type={changePassword2 ? "password" : "text"} name="confirmPassword" className="form-control" placeholder="Konfirmasi Ulang Password" disabled={sending} />
+                            <Input type={changePassword2 ? "password" : "text"} name="confirmPassword" placeholder="Konfirmasi Ulang Password" disabled={sending} />
                             <div className="input-group-prepend">
                                 <span className="input-group-text" onClick={() => {
                                     setChangePassword2(changeStatus2);

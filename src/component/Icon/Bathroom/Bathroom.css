@@ -1,0 +1,9 @@
+.bathroom {
+    width: 5.7vw;
+}
+
+@media screen and (max-width: 920px) {
+    .bathroom {
+        width: 3vw;
+    }
+}

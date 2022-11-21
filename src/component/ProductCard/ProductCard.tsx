@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import Button from "../Button/Button"
-import { IconFavorite, IconLocation, IconPrice } from "../Icon"
+import { IconFavoriteBorder, IconLocation, IconPrice } from "../Icon"
 import "./ProductCard.css"
 
 interface ProductCardProps<T = any> {
@@ -37,7 +37,7 @@ const ProductCard: React.FC<ProductCardProps> = props => {
                                 <span className="icon"><IconPrice /></span>Rp. 10.000.000
                             </section>
                             <section className="productCard-optionProduct">
-                                <section className="btnFavorit"><IconFavorite /></section>
+                                <section className="btnFavorit"><IconFavoriteBorder /></section>
                                 <section className="btnDetail"><Button fontWeight="normal" size="sm" fontSize="sm">Lihat detail</Button></section>
                             </section>
                         </article>

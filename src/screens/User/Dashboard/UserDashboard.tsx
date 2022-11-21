@@ -1,65 +1,134 @@
-import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { Button } from "../../../component"
-import { authService, userService } from "../../../services"
-import { Profile, Users } from "../../../types/User"
+import { imgDesain1, imgDesain2, imgDesain3, imgKategori1, imgKategori2, imgKategori3, imgKategori4, imgKategori5, imgPromo1 } from "../../../assets/dummy"
+import { Button, ImageSlide, ProductCard } from "../../../component"
+import { IconBathroom, IconBedroom, IconStart, IconVisitorRoom, IconWorkspace } from "../../../component/Icon"
+import { DesignService, userService } from "../../../services"
+import { Design } from "../../../types/Design"
+import { Profile } from "../../../types/User"
 import "./UserDashboard.css"
 
 const UserDashboard: React.FC = () => {
     const navigate = useNavigate()
-    const [, setUsers] = useState<Users[]>()
-    const [, setUser] = useState<Profile>()
-    const token = localStorage.getItem("token")
+    const [designsData, setDesignData] = useState<Design[]>([])
+    const [, setProfile] = useState<Profile>()
 
-    const getUsers = async () => {
+    const getProfile = async () => {
         try {
-            const resp = await userService.getUsers()
-            setUsers(resp.data.users)
-            console.log('respuser', resp);
-            // console.log('users', users);
+            const resp = await userService.getProfile(1)
+            setProfile(resp.data.data)
         } catch (error) {
             console.log('error', error)
         }
     }
 
-    const getProfile = async () => {
+    const getAllDesigns = async () => {
         try {
-            const resp = await userService.getProfile(1)
-            setUser(resp.data.data)
+            const response = await DesignService.getAllDesigns()
+            setDesignData(response.data.data)
         } catch (error) {
             console.log('error', error)
         }
     }
 
     useEffect(() => {
-        if (!token) {
-            navigate('/login')
-        }
-        getUsers()
-        getProfile()
-    }, [navigate, token])
-
-    const logout = async () => {
-        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-        localStorage.removeItem('token')
-        localStorage.removeItem('refreshToken')
-        navigate('/login')
-        try {
-            const resp = await authService.logout()
-            console.log("resp", resp)
-            localStorage.removeItem('token')
-            localStorage.removeItem('refreshToken')
-            navigate('/login')
-        } catch (error) {
-            console.log("error", error);
-        }
-    }
+        getAllDesigns()
+        // getProfile()
+    }, [navigate])
 
     return (
-        <main>
-            <h1>Dashboard</h1>
-            <Button onClick={logout}>Logout</Button>
+        <main className="userDashbord-container">
+            <main className="userDashbord-mainOne">
+                <ImageSlide data={[
+                    imgPromo1,
+                    'https://vector41.com/wp-content/uploads/2019/05/arsitek-medan-vector-41-rumah-tropis-medan-adit-alt-1-002.jpg',
+                    'https://4.bp.blogspot.com/-_K_s-xBsAvw/XEcYvZP52UI/AAAAAAAAubA/B8W6jEo6d7M-OzCEaDZ6k4i_jRr9fzIyQCLcBGAs/s1600/Desain%2Brumah%2Bmodern%2B17.jpg'
+                ]} />
+            </main>
+            <main className="userDashbord-mainTwo">
+                <article className="userDashboard-mainTwo-articleOne">
+                    <section className="referensiRuangan">
+                        <header className="header">Referensi Ruangan</header>
+                        <section className="boxIconReferensi">
+                            <section className="iconReferensi">
+                                <section className="icon"><IconVisitorRoom /></section>
+                                <section className="title">Ruang Tamu</section>
+                            </section>
+                            <section className="iconReferensi">
+                                <section className="icon"><IconWorkspace /></section>
+                                <section className="title">Ruang Kerja</section>
+                            </section>
+                            <section className="iconReferensi">
+                                <section className="icon"><IconBedroom /></section>
+                                <section className="title">Kamar Tidur</section>
+                            </section>
+                            <section className="iconReferensi">
+                                <section className="icon"><IconBathroom /></section>
+                                <section className="title">Kamar Mandi</section>
+                            </section>
+                        </section>
+                    </section>
+                    <section className="daftarDesainer">
+                        <section className="boxheader">
+                            <header className="header">Daftar Desainer</header>
+                            <section className="link">Lihat Semua</section>
+                        </section>
+                        <section className="boxIconDesainer">
+                            <section className="iconDesainer">
+                                <img src={imgDesain1} alt="Media Kreasi" />
+                                <section className="deskripsi">
+                                    <span className="content">Media Kreasi <br />
+                                        <IconStart /> 4.7
+                                    </span>
+                                </section>
+                            </section>
+                            <section className="iconDesainer">
+                                <img src={imgDesain2} alt="Pusat Ilmu" />
+                                <section className="deskripsi">
+                                    <span className="content">Pusat Ilmu <br />
+                                        <IconStart /> 4.7
+                                    </span>
+                                </section>
+                            </section>
+                            <section className="iconDesainer">
+                                <img src={imgDesain3} alt="Tirta Dharma" />
+                                <section className="deskripsi">
+                                    <span className="content">Tirta Dharma <br />
+                                        <IconStart /> 4.7
+                                    </span>
+                                </section>
+                            </section>
+                            <section className="iconDesainer">
+                                <img src={imgDesain3} alt="Tirta Dharma" />
+                                <section className="deskripsi">
+                                    <span className="content">Media Kreasi <br />
+                                        <IconStart /> 4.7
+                                    </span>
+                                </section>
+                            </section>
+                        </section>
+                    </section>
+                    <section className="kategori">
+                        <ul>
+                            <li><Button type="secondary"><img src={imgKategori1} alt="kategori" /><span className="detailKategori">Kategori</span></Button></li>
+                            <li><Button type="secondary"><img src={imgKategori2} alt="kategori" /><span className="detailKategori">Peribadatan</span></Button></li>
+                            <li><Button type="secondary"><img src={imgKategori3} alt="kategori" /><span className="detailKategori">Layanan Umum</span></Button></li>
+                            <li><Button type="secondary"><img src={imgKategori4} alt="kategori" /><span className="detailKategori">Sarana Pendidikan</span></Button></li>
+                            <li><Button type="secondary"><img src={imgKategori5} alt="kategori" /><span className="detailKategori">Layanan Kesehatan</span></Button></li>
+                        </ul>
+                    </section>
+                </article>
+            </main>
+            <main className="userDashbord-mainThree">
+                <article className="userDashbord-mainThree-articleOne">
+                    <ProductCard data={designsData} />
+                    <ProductCard data={designsData} />
+                    <ProductCard data={designsData} />
+                </article>
+                <article className="userDashbord-mainThree-articleTwo">
+                    <Button type="colorfull" fontSize="lg">Selengkapnya</Button>
+                </article>
+            </main>
         </main>
     )
 }

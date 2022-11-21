@@ -1,0 +1,13 @@
+.notification-size-md {
+    width: 2vw;
+}
+
+.notification-color-primary {
+    stroke: #B7B7B7;
+}
+
+@media screen and (max-width: 920px) {
+    .notification-size-md {
+        width: 3.6vw;
+    }
+}

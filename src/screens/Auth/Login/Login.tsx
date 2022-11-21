@@ -46,21 +46,21 @@ const Login: React.FC = () => {
         }
     }
 
-    const classNameEmail = errorMessageEmail ? "form-control input-invalid" : "form-control"
-    const classNamePassword = errorMessagePassword ? "form-control input-invalid" : "form-control"
+    const classNameEmail = errorMessageEmail ? "input-invalid" : ""
+    const classNamePassword = errorMessagePassword ? "input-invalid" : ""
 
     return (
         <article className="container">
             <header className="titleLogin">Selamat Datang di <span className="titleBlue">Interumah</span></header>
             <form onSubmit={login}>
                 <section className="form-group">
-                    <Input type="email" name="email" className={classNameEmail} placeholder="Masukan Email Anda" disabled={sending} />
+                    <Input type="email" name="email" inputValid={classNameEmail} placeholder="Masukan Email Anda" disabled={sending} />
                     {errorMessageEmail ? (
                         <ErrorMessage>{errorMessageEmail}</ErrorMessage>
                     ) : null}
                 </section>
                 <section className="input-group">
-                    <Input type={changePassword ? "password" : "text"} name="password" className={classNamePassword} placeholder="Masukan Password Anda" disabled={sending} />
+                    <Input type={changePassword ? "password" : "text"} name="password" inputValid={classNamePassword} placeholder="Masukan Password Anda" disabled={sending} />
                     <div className="input-group-prepend">
                         <span className="input-group-text" onClick={() => {
                             setChangePassword(changeStatus);

@@ -36,7 +36,7 @@ const InputEmail: React.FC = () => {
             <article className="forgetInputPassword-form">
                 <form onSubmit={sendEmail}>
                     <section className="input-group-button">
-                        <Input type="text" name="email" className="prepend-btn" placeholder="Masukan Email Anda" disabled={sending} />
+                        <Input type="text" name="email" placeholder="Masukan Email Anda" inputType="prepend" disabled={sending} />
                         <div className="input-group-prependbutton">
                             <Button button="btnInput" disabled={sending}>Kirim</Button>
                         </div>

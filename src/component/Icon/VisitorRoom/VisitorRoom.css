@@ -1,0 +1,9 @@
+.visitorRoom {
+    width: 6vw;
+}
+
+@media screen and (max-width: 920px) {
+    .visitorRoom {
+        width: 3vw;
+    }
+}

@@ -1,0 +1,9 @@
+.workspace {
+    width: 5.7vw;
+}
+
+@media screen and (max-width: 920px) {
+    .workspace {
+        width: 3vw;
+    }
+}

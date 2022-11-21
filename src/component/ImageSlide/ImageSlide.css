@@ -1,0 +1,73 @@
+.slideshow {
+    position: relative;
+    width: 100%;
+    height: 52.46vh;
+    overflow: hidden;
+    border-radius: 1.4vw;
+}
+
+.mainImg {
+    width: 100%;
+    height: 100%;
+}
+
+.actionsOne {
+    position: absolute;
+    bottom: 3%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    cursor: pointer;
+}
+
+.actionsOne .dotSlide {
+    background: aqua;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0.2vw;
+    padding: 0.4vw;
+}
+
+.actionsOne .dotSlide:hover {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.dotActive {
+    background: red;
+}
+
+.actionsOne .dotSlide:active {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.actionsTwo {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    cursor: pointer;
+}
+
+.actionsTwo .nextPrev {
+    opacity: 0.2;
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    padding: 0.6vw;
+}
+
+.actionsTwo .nextPrev:hover {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.actionsTwo .nextPrev:active {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.8);
+}

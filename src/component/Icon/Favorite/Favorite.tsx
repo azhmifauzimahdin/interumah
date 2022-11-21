@@ -3,13 +3,15 @@ import "./Favorite.css"
 
 export interface FavoriteProps {
     color?: 'primary'
+    size?: 'md'
 }
 const Favorite: React.FC<FavoriteProps> = props => {
     const color = props.color || 'primary'
+    const size = props.size || 'md'
 
     return (
-        <svg className={`favorite favorite-${color}`} width="27" height="25" viewBox="0 0 27 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11.7269 22.8357L11.7262 22.8351C8.28712 19.6447 5.47255 17.033 3.51172 14.5805C1.55695 12.1355 0.5 9.90756 0.5 7.49319C0.5 3.56234 3.50955 0.5 7.32439 0.5C9.48586 0.5 11.5715 1.53188 12.9328 3.16729L13.3171 3.62896L13.7014 3.16729C15.0626 1.53188 17.1483 0.5 19.3098 0.5C23.1246 0.5 26.1341 3.56234 26.1341 7.49319C26.1341 9.90757 25.0772 12.1355 23.1223 14.5823C21.1664 17.0304 18.3612 19.6383 14.9342 22.8244L14.9087 22.8481L14.9076 22.8491L13.3184 24.3179L11.7269 22.8357Z" stroke="#C80707" />
+        <svg className={`favorite favorite-color-${color} favorite-size-${size}`} viewBox="0 0 48 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 44L20.52 40.8349C8.16 29.6371 0 22.2518 0 13.188C0 5.80272 5.808 0 13.2 0C17.376 0 21.384 1.94223 24 5.01144C26.616 1.94223 30.624 0 34.8 0C42.192 0 48 5.80272 48 13.188C48 22.2518 39.84 29.6371 27.48 40.8589L24 44Z" fill="#B7B7B7" />
         </svg>
     )
 }

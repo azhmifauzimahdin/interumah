@@ -1,0 +1,9 @@
+.start {
+    width: 1vw;
+}
+
+@media screen and (max-width: 800px) {
+    .start {
+        width: 3vw;
+    }
+}

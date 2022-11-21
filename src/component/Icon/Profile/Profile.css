@@ -1,0 +1,21 @@
+.Profile {
+    background: #B7B7B7;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.profileImage {
+    width: 100%;
+}
+
+.profile-size-md {
+    width: 3.6vw;
+    height: 3.6vw;
+}
+
+
+@media screen and (max-width: 920px) {
+    .profile-size-md {
+        width: 3.6vw;
+    }
+}

@@ -1,0 +1,9 @@
+.bedroom {
+    width: 5.8vw;
+}
+
+@media screen and (max-width: 920px) {
+    .bedroom {
+        width: 3vw;
+    }
+}

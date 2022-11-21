@@ -1,25 +1,13 @@
-.favorite {
-    width: 1.38vw;
+.favorite-size-md {
+    width: 2.38vw;
 }
 
-.favorite-primary {
-    stroke: #C80707;
+.favorite-color-primary {
+    stroke: #B7B7B7;
 }
 
-@media screen and (max-width: 800px) {
-    .favorite {
+@media screen and (max-width: 920px) {
+    .favorite-size-md {
         width: 3.6vw;
-    }
-}
-
-@media screen and (max-width: 550px) {
-    .favorite {
-        width: 3.6vw;
-    }
-}
-
-@media screen and (max-width: 450px) {
-    .favorite {
-        width: 3.38vw;
     }
 }
