@@ -71,6 +71,17 @@
     margin-bottom: 3.3vh;
 }
 
+.calculateEstimate {
+    position: fixed;
+    bottom: 6%;
+    right: 4%;
+    z-index: 1;
+}
+
+.calculateEstimate .textBtn {
+    margin-left: 10px;
+}
+
 .user-footer {
     width: 100%;
     padding: 4.53vh 10.25vw;

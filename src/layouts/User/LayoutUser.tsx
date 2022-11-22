@@ -3,7 +3,7 @@ import { Outlet, useNavigate } from "react-router-dom"
 import { Logo, LogoFooter } from "../../assets"
 import { imgProfile1 } from "../../assets/dummy"
 import { Button, Input, ProfileHover } from "../../component"
-import { IconAppStore, IconBar, IconChat, IconFacebook, IconFavorite, IconInstagram, IconNotification, IconPlayStore, IconProfile, IconTiktok, IconYoutube } from "../../component/Icon"
+import { IconAppStore, IconBar, IconCalculator, IconChat, IconFacebook, IconFavorite, IconInstagram, IconNotification, IconPlayStore, IconProfile, IconTiktok, IconYoutube } from "../../component/Icon"
 import "./LayoutUser.css"
 
 const LayoutUser: React.FC = () => {
@@ -56,6 +56,7 @@ const LayoutUser: React.FC = () => {
                 </section>
             </nav>
             <main className="user-container">
+                <section className="calculateEstimate" ><Button type="estimate"><IconCalculator /><span className="textBtn">HITUNG ESTIMASI</span></Button></section>
                 <Outlet />
             </main>
             <footer className="user-footer">

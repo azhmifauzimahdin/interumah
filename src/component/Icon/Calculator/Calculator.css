@@ -1,0 +1,9 @@
+.calculator {
+    width: 1.6vw;
+}
+
+@media screen and (max-width: 920px) {
+    .calculator {
+        width: 2vw;
+    }
+}

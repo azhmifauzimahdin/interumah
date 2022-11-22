@@ -96,6 +96,12 @@
 
 }
 
+.btn-estimate {
+    border-radius: 2vw;
+    color: #ffffff;
+    background: #101B94;
+}
+
 .btn-font-sm {
     font-size: 0.83vw;
 }
