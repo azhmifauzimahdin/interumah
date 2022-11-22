@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Outlet, useNavigate } from "react-router-dom"
 import { Logo, LogoFooter } from "../../assets"
 import { imgProfile1 } from "../../assets/dummy"
-import { Button, Input, ProfileHover } from "../../component"
+import { Button, Input, ModalEstimate, ProfileHover } from "../../component"
 import { IconAppStore, IconBar, IconCalculator, IconChat, IconFacebook, IconFavorite, IconInstagram, IconNotification, IconPlayStore, IconProfile, IconTiktok, IconYoutube } from "../../component/Icon"
 import "./LayoutUser.css"
 
@@ -16,7 +16,7 @@ const LayoutUser: React.FC = () => {
         // }
     }, [navigate, token])
 
-    //------ Profile -------
+    //------ Profile Hover -------
     const menuProfile = ['Akun Saya', 'DesainKu', 'Logout']
 
     const [showProfileHover, setShowProfileHover] = useState<boolean>(false)
@@ -24,6 +24,18 @@ const LayoutUser: React.FC = () => {
     const profileHover = () => {
         setShowProfileHover(prevState => !prevState)
     }
+
+    //------ Modal Estimate ------
+    const [showModalEstimate, setShowModalEstimate] = useState<boolean>(false)
+
+    const modalEstimate = () => {
+        setShowModalEstimate(prevState => !prevState)
+    }
+
+    const onStayModalEstimate = (e: any) => {
+        e.stopPropagation()
+    }
+
     return (
         <div className="user-layout">
             <nav className="user-navbar">
@@ -56,7 +68,8 @@ const LayoutUser: React.FC = () => {
                 </section>
             </nav>
             <main className="user-container">
-                <section className="calculateEstimate" ><Button type="estimate"><IconCalculator /><span className="textBtn">HITUNG ESTIMASI</span></Button></section>
+                <section className="calculateEstimate" ><Button type="estimate" onClick={modalEstimate}><IconCalculator /><span className="textBtn">HITUNG ESTIMASI</span></Button></section>
+                <ModalEstimate visible={showModalEstimate} onClose={modalEstimate} onStay={onStayModalEstimate} title="Hitung Estimasi" />
                 <Outlet />
             </main>
             <footer className="user-footer">
