@@ -71,15 +71,33 @@
     margin-bottom: 3.3vh;
 }
 
-.calculateEstimate {
+.user-container .calculateEstimate {
     position: fixed;
     bottom: 6%;
     right: 4%;
     z-index: 1;
 }
 
-.calculateEstimate .textBtn {
+.user-container .calculateEstimate .textBtn {
     margin-left: 10px;
+}
+
+.user-container .articleModal {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user-container .articleModal-aside {
+    width: 38%;
+    border-right: 0.1vw solid gray;
+    box-sizing: border-box;
+    height: 50vh;
+}
+
+.user-container .articleModal-content {
+    width: 62%;
+    height: 50vh;
 }
 
 .user-footer {

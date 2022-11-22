@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Outlet, useNavigate } from "react-router-dom"
 import { Logo, LogoFooter } from "../../assets"
 import { imgProfile1 } from "../../assets/dummy"
-import { Button, Input, ModalEstimate, ProfileHover } from "../../component"
+import { Button, Input, ModalEstimate, NewEstimate, ProfileHover } from "../../component"
 import { IconAppStore, IconBar, IconCalculator, IconChat, IconFacebook, IconFavorite, IconInstagram, IconNotification, IconPlayStore, IconProfile, IconTiktok, IconYoutube } from "../../component/Icon"
 import "./LayoutUser.css"
 
@@ -34,6 +34,13 @@ const LayoutUser: React.FC = () => {
 
     const onStayModalEstimate = (e: any) => {
         e.stopPropagation()
+    }
+
+    //------ Conten Modal Estimate -------
+    const [estimateStatus, setEstimateStatus] = useState<boolean>(false)
+
+    const onEstimateStatus = () => {
+        setEstimateStatus(!estimateStatus)
     }
 
     return (
@@ -69,7 +76,14 @@ const LayoutUser: React.FC = () => {
             </nav>
             <main className="user-container">
                 <section className="calculateEstimate" ><Button type="estimate" onClick={modalEstimate}><IconCalculator /><span className="textBtn">HITUNG ESTIMASI</span></Button></section>
-                <ModalEstimate visible={showModalEstimate} onClose={modalEstimate} onStay={onStayModalEstimate} title="Hitung Estimasi" />
+                <ModalEstimate visible={showModalEstimate} onClose={modalEstimate} onStay={onStayModalEstimate} title="Hitung Estimasi">
+                    {!estimateStatus ? (<NewEstimate onStart={onEstimateStatus} />) :
+                        <main className="articleModal">
+                            <article className="articleModal-aside"></article>
+                            <article className="articleModal-content"></article>
+                        </main>
+                    }
+                </ModalEstimate>
                 <Outlet />
             </main>
             <footer className="user-footer">

@@ -1,0 +1,27 @@
+.newEstimate-box {
+    width: 100%;
+    padding: 0 4.4vw;
+    box-sizing: border-box;
+}
+
+.newEstimate-box-ilustration {
+    width: 38%;
+    margin: 3.3vh auto;
+}
+
+.newEstimate-box-ilustration .imageIlustration {
+    width: 100%;
+}
+
+.newEstimate-box-content {
+    font-size: 1.25vw;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 3.3vh;
+}
+
+.newEstimate-box-button {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 3.3vh;
+}
