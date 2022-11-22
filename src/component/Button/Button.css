@@ -90,6 +90,12 @@
     border-left: none;
 }
 
+.btn-gray:hover {
+    background: #101B94;
+    color: #ffffff;
+
+}
+
 .btn-font-sm {
     font-size: 0.83vw;
 }

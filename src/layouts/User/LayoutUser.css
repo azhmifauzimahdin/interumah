@@ -139,23 +139,6 @@
     color: #ffffff;
 }
 
-.logout {
-    top: 10%;
-    right: 4%;
-    width: 10vw;
-    border: 0.1vw solid #101B94;
-    background: #ffffff;
-    position: absolute;
-    padding: 1vw;
-    border-radius: 2vw;
-    z-index: 1;
-}
-
-.logout .menu {
-    width: 100%;
-    cursor: pointer;
-}
-
 @media (max-width: 920px) {
     .user-navbar {
         height: 8vh;

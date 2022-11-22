@@ -1,42 +1,28 @@
-import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { Outlet, useNavigate } from "react-router-dom"
 import { Logo, LogoFooter } from "../../assets"
 import { imgProfile1 } from "../../assets/dummy"
-import { Button, Input } from "../../component"
+import { Button, Input, ProfileHover } from "../../component"
 import { IconAppStore, IconBar, IconChat, IconFacebook, IconFavorite, IconInstagram, IconNotification, IconPlayStore, IconProfile, IconTiktok, IconYoutube } from "../../component/Icon"
-import { authService } from "../../services"
 import "./LayoutUser.css"
 
 const LayoutUser: React.FC = () => {
-    const [visible, seVisible] = useState<boolean>(false)
     const navigate = useNavigate()
     const token = localStorage.getItem("token")
 
     useEffect(() => {
-        if (!token) {
-            navigate('/login')
-        }
+        // if (!token) {
+        //     navigate('/login')
+        // }
     }, [navigate, token])
 
-    const profile = () => {
-        seVisible(!visible)
-    }
+    //------ Profile -------
+    const menuProfile = ['Akun Saya', 'DesainKu', 'Logout']
 
-    const logout = async () => {
-        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-        localStorage.removeItem('token')
-        localStorage.removeItem('refreshToken')
-        navigate('/login')
-        try {
-            const resp = await authService.logout()
-            console.log("resp", resp)
-            localStorage.removeItem('token')
-            localStorage.removeItem('refreshToken')
-            navigate('/login')
-        } catch (error) {
-            console.log("error", error);
-        }
+    const [showProfileHover, setShowProfileHover] = useState<boolean>(false)
+
+    const profileHover = () => {
+        setShowProfileHover(prevState => !prevState)
     }
     return (
         <div className="user-layout">
@@ -64,12 +50,9 @@ const LayoutUser: React.FC = () => {
                         <li><IconNotification /></li>
                         <li><IconChat number={2} /></li>
                         <li><div className="verticalline"></div></li>
-                        <li onClick={profile}><IconProfile image={imgProfile1} /></li>
+                        <li onClick={profileHover}><IconProfile image={imgProfile1} /></li>
                     </ul>
-                    {visible ? (
-                        <section className="logout">
-                            <section onClick={logout} className="menu">Logout</section>
-                        </section>) : null}
+                    <ProfileHover data={menuProfile} visible={showProfileHover} onClose={profileHover} />
                 </section>
             </nav>
             <main className="user-container">
