@@ -5,3 +5,4 @@ export { default as PasswordCheckEmail } from "./ForgetPassword/CheckEmail/Check
 export { default as ChangePassword } from "./ForgetPassword/ChangePassword/ChangePassword"
 export { default as SuccessPasswordChange } from "./ForgetPassword/SuccessPasswordChange/SuccessPasswordChange"
 export { default as FailedPasswordChange } from "./ForgetPassword/FailedChangePassword/FailedPasswordChange"
+export { default as Logout } from "./Logout/Logout"

@@ -24,7 +24,7 @@ const ProfileHover: React.FC<ProfileHoverProps> = props => {
     }, [props.data])
 
     const coba = (data: string) => {
-        const newData = data.replace(/ /g, '')
+        const newData = data.replace(/ /g, '').toLowerCase()
         navigate(`/${newData}`)
     }
 
