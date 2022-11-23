@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Button, ProductCard } from "../../../component"
+import { Button, DesainerCard } from "../../../component"
 import { IconLamp, IconManArtist } from "../../../component/Icon"
 import { CategoryService, DesignService } from "../../../services"
 import { Category } from "../../../types/Category"
@@ -8,7 +8,7 @@ import "./Search.css"
 
 const UserSearch: React.FC = () => {
     const [categoriesData, setCategoriesData] = useState<Category[]>([])
-    const [designsData, setDesignData] = useState<Design[]>([])
+    const [, setDesignData] = useState<Design[]>([])
     const [, setSpecificDesignData] = useState<SpecificDesign>()
 
     //------ Get All Categories ------
@@ -46,6 +46,42 @@ const UserSearch: React.FC = () => {
         getSpecificDesign(nameOfFunction)
     }
 
+    //------ Data Desainer ------
+    const desainerData = [
+        {
+            id: 1,
+            nama: "PT. Furniture Jaya",
+            proyek: 5,
+            terjual: 3,
+            alamat: "Jl. Praja Muda II, Balikpapan",
+            rating: 4
+        },
+        {
+            id: 1,
+            nama: "PT. Furniture Jaya",
+            proyek: 5,
+            terjual: 3,
+            alamat: "Jl. Praja Muda II, Balikpapan",
+            rating: 4
+        },
+        {
+            id: 1,
+            nama: "PT. Furniture Jaya",
+            proyek: 5,
+            terjual: 3,
+            alamat: "Jl. Praja Muda II, Balikpapan",
+            rating: 4
+        },
+        {
+            id: 1,
+            nama: "PT. Furniture Jaya",
+            proyek: 5,
+            terjual: 3,
+            alamat: "Jl. Praja Muda II, Balikpapan",
+            rating: 4
+        },
+    ]
+
     useEffect(() => {
         getAllCategories()
         getAllDesigns()
@@ -78,7 +114,8 @@ const UserSearch: React.FC = () => {
                         </ul>
                     </section>
                     <section className="userSearch-section-content-product">
-                        <ProductCard data={designsData} />
+                        {/* <ProductCard data={designsData} /> */}
+                        <DesainerCard data={desainerData} />
                     </section>
                 </section>
             </section>

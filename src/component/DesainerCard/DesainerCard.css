@@ -1,0 +1,87 @@
+.desainerCard-box {
+    background: linear-gradient(180deg, #101B94 0%, #060606 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 2.8vh 1vw 3.2vh 2vw;
+    box-sizing: border-box;
+    border-radius: 1.8vw;
+    margin: 1.64vh 1.2vw;
+}
+
+.desainerCard-box-article {
+    width: 9.9vw;
+    margin-right: 0.2vw;
+}
+
+.desainerCard-box-article-company {
+    font-size: 0.83vw;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1.6vh;
+}
+
+.desainerCard-box-article-description {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1.6vh;
+}
+
+.desainerCard-box-article-description-card {
+    width: 40%;
+    padding: 0.8vh 0;
+    margin-right: 0.6vw;
+    border-radius: 0.4vw;
+    font-size: 0.52vw;
+    font-weight: 400;
+    text-align: center;
+}
+
+.desainerCard-box-article-description-card:nth-child(1) {
+    background: #ffffff;
+}
+
+.desainerCard-box-article-description-card:nth-child(2) {
+    background: #05F600;
+}
+
+.desainerCard-box-article-address {
+    font-size: 0.62vw;
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.2vh;
+}
+
+.desainerCard-box-article-address-icon {
+    margin-right: 0.4vw;
+}
+
+.desainerCard-box-article-rating {
+    font-size: 0.62vw;
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+}
+
+.desainerCard-box-article-rating-icon {
+    margin-right: 0.4vw;
+    display: flex;
+    align-items: center;
+}
+
+.desainerCard-box-article-rating-iconStart {
+    margin-left: 0.4vw;
+}
+
+.desainerCard-imgDesainer {
+    margin: 0;
+    width: 5.88vw;
+    height: 12vh;
+}
+
+.desainerCard-imgDesainer img {
+    width: 100%;
+    height: 100%;
+}

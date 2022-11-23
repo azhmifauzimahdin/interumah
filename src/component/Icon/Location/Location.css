@@ -2,6 +2,14 @@
     width: 0.73vw;
 }
 
+.location-color-blue {
+    fill: #101B94;
+}
+
+.location-color-white {
+    fill: #ffffff;
+}
+
 @media screen and (max-width: 920px) {
     .location {
         width: 2vw;

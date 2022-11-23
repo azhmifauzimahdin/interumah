@@ -1,0 +1,9 @@
+.review {
+    width: 0.8vw;
+}
+
+@media screen and (max-width: 920px) {
+    .review {
+        width: 2vw;
+    }
+}

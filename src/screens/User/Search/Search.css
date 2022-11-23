@@ -70,6 +70,7 @@
     color: #101B94;
     margin-right: 2vw;
     border-bottom: 0.2vw solid #ffffff;
+    cursor: pointer;
 }
 
 .userSearch-section-content-button ul li:nth-child(1) {
