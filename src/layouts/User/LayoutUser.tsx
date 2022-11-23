@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { Outlet, useNavigate } from "react-router-dom"
-import { Logo, LogoFooter } from "../../assets"
+import { ImageBackgoundEstimate, Logo, LogoFooter } from "../../assets"
 import { imgProfile1 } from "../../assets/dummy"
-import { Button, EstimateList, Input, ModalEstimate, NewEstimate, ProfileHover } from "../../component"
+import { Button, Estimate, EstimateList, Input, ModalEstimate, NewEstimate, ProfileHover } from "../../component"
 import { IconAppStore, IconBar, IconCalculator, IconChat, IconFacebook, IconFavorite, IconInstagram, IconNotification, IconPlayStore, IconProfile, IconTiktok, IconYoutube } from "../../component/Icon"
 import "./LayoutUser.css"
 
@@ -43,7 +43,7 @@ const LayoutUser: React.FC = () => {
         setEstimateStatus(!estimateStatus)
     }
 
-    //------- Content Modal Estimate
+    //------- Content Modal Estimate List--------
     const dataEstimateList = [
         {
             id: 1,
@@ -58,6 +58,14 @@ const LayoutUser: React.FC = () => {
             data: "Hitung Estimasi 3"
         }
 
+    ]
+    //------- Content Modal Estimate--------
+    const dataEstimate = [
+        {
+            id: 1,
+            message: "Halo! Anda bisa mengetahui estimasi ruangan yang ingin anda buat. Yuk!! Coba hitung sekarang",
+            time: "10.20"
+        },
     ]
 
     return (
@@ -97,7 +105,9 @@ const LayoutUser: React.FC = () => {
                     {!estimateStatus ? (<NewEstimate onStart={onEstimateStatus} />) :
                         <main className="articleModal">
                             <article className="articleModal-aside"><EstimateList data={dataEstimateList} /></article>
-                            <article className="articleModal-content"></article>
+                            <article className="articleModal-content" style={{ backgroundImage: `url(${ImageBackgoundEstimate})`, backgroundRepeat: "no-repeat", backgroundPosition: "center", backgroundSize: "8vw" }}>
+                                <Estimate data={dataEstimate} />
+                            </article>
                         </main>
                     }
                 </ModalEstimate>

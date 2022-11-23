@@ -93,7 +93,7 @@
     width: 40%;
     border-right: 0.1vw solid gray;
     box-sizing: border-box;
-    height: 50vh;
+    max-height: 70vh;
     overflow-y: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
@@ -115,7 +115,9 @@
 
 .user-container .articleModal-content {
     width: 60%;
-    height: 50vh;
+    padding: 0;
+    max-height: 70vh;
+    background: #EBEBEB;
 }
 
 .user-footer {
