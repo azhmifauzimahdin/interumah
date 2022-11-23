@@ -34,13 +34,12 @@
 
 .btnProduct {
     border: none;
-    /* width: 11.71vw; */
     border-radius: 1.56vw;
     cursor: pointer;
 }
 
 .btn-size-sm {
-    height: 5.86vh;
+    height: 5vh;
     padding: 0 1.2vw;
 }
 

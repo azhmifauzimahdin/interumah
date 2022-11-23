@@ -10,11 +10,14 @@ const LayoutUser: React.FC = () => {
     const navigate = useNavigate()
     const token = localStorage.getItem("token")
 
-    useEffect(() => {
-        if (!token) {
-            navigate('/login')
-        }
-    }, [navigate, token])
+    //------ Search ------
+    const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+        // e.preventDefault()
+        const formData = new FormData(e.target as HTMLFormElement)
+        const inputObject = Object.fromEntries(formData)
+        navigate(`/search?keyword=${inputObject.keyword}`)
+        console.log(inputObject);
+    }
 
     //------ Profile Hover -------
     const menuProfile = ['Akun Saya', 'DesainKu', 'Logout']
@@ -68,6 +71,12 @@ const LayoutUser: React.FC = () => {
         },
     ]
 
+    useEffect(() => {
+        if (!token) {
+            navigate('/login')
+        }
+    }, [navigate, token])
+
     return (
         <div className="user-layout">
             <nav className="user-navbar">
@@ -82,12 +91,14 @@ const LayoutUser: React.FC = () => {
                 </label>
                 <section className="menu">
                     <section className="search">
-                        <section className="input-group-button">
-                            <Input type="text" name="email" inputType="search" placeholder="Masukan Email Anda" />
-                            <div className="input-group-prependbutton">
-                                <Button button="btnSearch" type="gray" >Search</Button>
-                            </div>
-                        </section>
+                        <form onSubmit={handleSearch}>
+                            <section className="input-group-button">
+                                <Input type="text" name="keyword" inputType="search" placeholder="Masukan Email Anda" />
+                                <div className="input-group-prependbutton">
+                                    <Button button="btnSearch" type="gray" >Search</Button>
+                                </div>
+                            </section>
+                        </form>
                     </section>
                     <ul>
                         <li><IconFavorite /></li>

@@ -1,0 +1,92 @@
+.userSearch-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.userSearch-aside {
+    width: 22%;
+    padding: 8vh 4vw 8vh 6vw;
+    box-sizing: border-box;
+}
+
+.userSearch-aside-header {
+    font-size: 2.08vw;
+    font-weight: 700;
+    margin-bottom: 3.3vh;
+}
+
+.userSearch-aside-content {
+    width: 100%;
+}
+
+.userSearch-aside-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.userSearch-aside-content ul li {
+    margin-bottom: 3.3vh;
+}
+
+.userSearch-section {
+    width: 78%;
+    padding: 8vh 4vw 8vh 0.4vw;
+    box-sizing: border-box;
+}
+
+.userSearch-section-header {
+    font-size: 2.08vw;
+    font-weight: 700;
+    margin-bottom: 1vh;
+    margin-left: 1vw;
+}
+
+.userSearch-section-keyword {
+    font-size: 1.04vw;
+    font-weight: 400;
+    margin-bottom: 3.3vh;
+    margin-left: 1vw;
+}
+
+.userSearch-section-content {
+    width: 100%;
+}
+
+.userSearch-section-content-button ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin-left: 1vw;
+}
+
+.userSearch-section-content-button ul li {
+    padding: 1vh 0;
+    display: flex;
+    align-items: center;
+    font-size: 1.45vw;
+    font-weight: 700;
+    color: #101B94;
+    margin-right: 2vw;
+    border-bottom: 0.2vw solid #ffffff;
+}
+
+.userSearch-section-content-button ul li:nth-child(1) {
+    border-bottom: 0.2vw solid #101B94;
+}
+
+.userSearch-section-content-button ul li:nth-child(2) {
+    color: #B7B7B7;
+}
+
+.userSearch-section-content-button ul li .text {
+    margin-left: 0.6vw;
+}
+
+.userSearch-section-content-product {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
