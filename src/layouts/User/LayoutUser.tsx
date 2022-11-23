@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Outlet, useNavigate } from "react-router-dom"
 import { Logo, LogoFooter } from "../../assets"
 import { imgProfile1 } from "../../assets/dummy"
-import { Button, Input, ModalEstimate, NewEstimate, ProfileHover } from "../../component"
+import { Button, EstimateList, Input, ModalEstimate, NewEstimate, ProfileHover } from "../../component"
 import { IconAppStore, IconBar, IconCalculator, IconChat, IconFacebook, IconFavorite, IconInstagram, IconNotification, IconPlayStore, IconProfile, IconTiktok, IconYoutube } from "../../component/Icon"
 import "./LayoutUser.css"
 
@@ -11,9 +11,9 @@ const LayoutUser: React.FC = () => {
     const token = localStorage.getItem("token")
 
     useEffect(() => {
-        // if (!token) {
-        //     navigate('/login')
-        // }
+        if (!token) {
+            navigate('/login')
+        }
     }, [navigate, token])
 
     //------ Profile Hover -------
@@ -36,18 +36,35 @@ const LayoutUser: React.FC = () => {
         e.stopPropagation()
     }
 
-    //------ Conten Modal Estimate -------
+    //------ Content Modal New Estimate -------
     const [estimateStatus, setEstimateStatus] = useState<boolean>(false)
 
     const onEstimateStatus = () => {
         setEstimateStatus(!estimateStatus)
     }
 
+    //------- Content Modal Estimate
+    const dataEstimateList = [
+        {
+            id: 1,
+            data: "Hitung Estimasi 1"
+        },
+        {
+            id: 2,
+            data: "Hitung Estimasi 2"
+        },
+        {
+            id: 3,
+            data: "Hitung Estimasi 3"
+        }
+
+    ]
+
     return (
         <div className="user-layout">
             <nav className="user-navbar">
                 <figure className="logo">
-                    <a href="/">
+                    <a href="/dashboard">
                         <img src={Logo} alt="Logo Interumah" />
                     </a>
                 </figure>
@@ -79,7 +96,7 @@ const LayoutUser: React.FC = () => {
                 <ModalEstimate visible={showModalEstimate} onClose={modalEstimate} onStay={onStayModalEstimate} title="Hitung Estimasi">
                     {!estimateStatus ? (<NewEstimate onStart={onEstimateStatus} />) :
                         <main className="articleModal">
-                            <article className="articleModal-aside"></article>
+                            <article className="articleModal-aside"><EstimateList data={dataEstimateList} /></article>
                             <article className="articleModal-content"></article>
                         </main>
                     }

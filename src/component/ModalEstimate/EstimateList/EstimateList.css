@@ -1,0 +1,20 @@
+.estimateList-box {
+    width: 100%;
+    font-size: 1.25vw;
+    font-weight: 700;
+    color: #101B94;
+    display: flex;
+    align-items: center;
+    padding: 3vh 0 3vh 1.4vw;
+    box-sizing: border-box;
+    border-bottom: 0.1vw solid #101B94;
+    cursor: pointer;
+}
+
+.active {
+    background: #EBEBEB;
+}
+
+.estimateList-box-content {
+    margin-left: 0.6vw;
+}

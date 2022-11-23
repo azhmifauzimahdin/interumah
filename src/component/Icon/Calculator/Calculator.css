@@ -2,6 +2,14 @@
     width: 1.6vw;
 }
 
+.calculator-color-white {
+    fill: #ffffff;
+}
+
+.calculator-color-blue {
+    fill: #101B94;
+}
+
 @media screen and (max-width: 920px) {
     .calculator {
         width: 2vw;

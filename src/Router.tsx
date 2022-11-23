@@ -18,7 +18,7 @@ const Router: React.FC = () => {
                     <Route path="/" element={<LandingPage />} />
                 </Route>
                 <Route element={<LayoutUser />} >
-                    <Route path="/dashboard" element={<UserDashboard />} />
+                    <Route path="/dashboard/" element={<UserDashboard />} />
                 </Route>
                 <Route element={<LayoutLogin />} >
                     <Route path="/login" element={<Login />} />

@@ -53,6 +53,7 @@
 
 .user-navbar ul li {
     margin-left: 0;
+    cursor: pointer;
 }
 
 .verticalline {
@@ -89,14 +90,31 @@
 }
 
 .user-container .articleModal-aside {
-    width: 38%;
+    width: 40%;
     border-right: 0.1vw solid gray;
     box-sizing: border-box;
     height: 50vh;
+    overflow-y: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.user-container .articleModal-aside::-webkit-scrollbar {
+    width: 0.2vw;
+}
+
+.user-container .articleModal-aside::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 5px;
+}
+
+.user-container .articleModal-aside::-webkit-scrollbar-track {
+    background: transparent;
 }
 
 .user-container .articleModal-content {
-    width: 62%;
+    width: 60%;
     height: 50vh;
 }
 
