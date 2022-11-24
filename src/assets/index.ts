@@ -11,5 +11,6 @@ export { default as IlustrationPilihDesainmu } from "./Ilustration/IlustrationPi
 export { default as IlustrationKonsultasi } from "./Ilustration/IlustrationKonsultasi.svg"
 export { default as IlustrationWujudkan } from "./Ilustration/IlustrationWujudkan.svg"
 export { default as IlustrationCalculator } from "./Ilustration/IlustrationCalculator.svg"
+export { default as IlustrationFavorite } from "./Ilustration/IlustrationFavorite.svg"
 export { default as ImageOne } from "./img/imageOne.svg"
 export { default as ImageBackgoundEstimate } from "./img/backgroundEstimate.svg"

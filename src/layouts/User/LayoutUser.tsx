@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Outlet, useNavigate } from "react-router-dom"
+import { Link, Outlet, useNavigate } from "react-router-dom"
 import { ImageBackgoundEstimate, Logo, LogoFooter } from "../../assets"
 import { imgProfile1 } from "../../assets/dummy"
 import { Button, Estimate, EstimateList, Input, ModalEstimate, NewEstimate, ProfileHover } from "../../component"
@@ -101,7 +101,7 @@ const LayoutUser: React.FC = () => {
                         </form>
                     </section>
                     <ul>
-                        <li><IconFavorite /></li>
+                        <li><Link to={'/favorite'}><IconFavorite /></Link></li>
                         <li><IconNotification /></li>
                         <li><IconChat number={2} /></li>
                         <li><div className="verticalline"></div></li>
