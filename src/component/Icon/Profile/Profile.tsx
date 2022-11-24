@@ -3,7 +3,7 @@ import "./Profile.css"
 
 export interface ProfileProps {
     image: string
-    size?: 'md'
+    size?: 'sm' | 'md'
 }
 const Profile: React.FC<ProfileProps> = props => {
     const { image } = props

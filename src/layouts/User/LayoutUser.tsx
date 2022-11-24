@@ -3,7 +3,7 @@ import { Link, Outlet, useNavigate } from "react-router-dom"
 import { ImageBackgoundEstimate, Logo, LogoFooter } from "../../assets"
 import { imgProfile1 } from "../../assets/dummy"
 import { Button, Estimate, EstimateList, Input, ModalEstimate, NewEstimate, ProfileHover } from "../../component"
-import { IconAppStore, IconBar, IconCalculator, IconChat, IconFacebook, IconFavorite, IconInstagram, IconNotification, IconPlayStore, IconProfile, IconTiktok, IconYoutube } from "../../component/Icon"
+import { IconAppStore, IconBar, IconCalculator, IconChat, IconFacebook, IconFavorite, IconInstagram, IconNotification, IconPlayStore, IconProfile, IconSearch, IconTiktok, IconYoutube } from "../../component/Icon"
 import "./LayoutUser.css"
 
 const LayoutUser: React.FC = () => {
@@ -95,7 +95,7 @@ const LayoutUser: React.FC = () => {
                             <section className="input-group-button">
                                 <Input type="text" name="keyword" inputType="search" placeholder="Masukan Email Anda" />
                                 <div className="input-group-prependbutton">
-                                    <Button button="btnSearch" type="gray" >Search</Button>
+                                    <Button button="btnSearch" type="gray" ><IconSearch /></Button>
                                 </div>
                             </section>
                         </form>
@@ -103,7 +103,7 @@ const LayoutUser: React.FC = () => {
                     <ul>
                         <li><Link to={'/favorite'}><IconFavorite /></Link></li>
                         <li><IconNotification /></li>
-                        <li><IconChat number={2} /></li>
+                        <li><Link to={'/message'}><IconChat number={2} /></Link></li>
                         <li><div className="verticalline"></div></li>
                         <li onClick={profileHover}><IconProfile image={imgProfile1} /></li>
                     </ul>

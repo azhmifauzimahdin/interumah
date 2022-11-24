@@ -1,0 +1,79 @@
+.messageList-box {
+    padding: 1vh 1.4vw;
+    display: flex;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+
+.active {
+    background: #EBEBEB;
+}
+
+.messageList-box-profile {
+    margin-right: 1vw;
+    display: flex;
+    align-items: center;
+}
+
+.messageList-box-content {
+    width: 70%;
+    font-size: 0.83vw;
+    font-weight: 700;
+    border-bottom: 0.1vw solid #D9D9D9;
+}
+
+.messageList-box-content-user {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    margin: 1vh 0 0.5vh;
+}
+
+.messageList-box-content-user-name {
+    max-width: 60%;
+    overflow: hidden;
+    margin-right: 4%;
+    white-space: nowrap;
+}
+
+.messageList-box-content-user-role {
+    font-size: 0.72vw;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    background: #8DC2FF;
+    color: #0E4380;
+    border-radius: 0.2vw;
+    padding: 0 0.5vw;
+    box-sizing: border-box;
+    margin-top: 0.3vh;
+}
+
+.messageList-box-content-viewMessage {
+    font-size: 0.83vw;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: 1.6vh;
+}
+
+.messageList-box-addition {
+    width: 10%;
+    position: relative;
+    font-size: 0.72vw;
+    font-weight: 400;
+    text-align: end;
+    padding: 1vh;
+    box-sizing: border-box;
+}
+
+.messageList-box-addition-num {
+    background: #101B94;
+    border-radius: 50%;
+    position: absolute;
+    color: #ffffff;
+    padding: 0.06vw 0.32vw;
+    box-sizing: border-box;
+    bottom: 20%;
+    right: 0;
+}
