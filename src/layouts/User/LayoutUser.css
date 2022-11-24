@@ -7,6 +7,9 @@
 }
 
 .user-navbar {
+    position: fixed;
+    top: 0;
+    z-index: 1;
     background: #ffffff;
     display: flex;
     align-items: center;
@@ -69,6 +72,7 @@
 
 .user-container {
     width: 100%;
+    margin-top: 14vh;
     margin-bottom: 3.3vh;
 }
 
