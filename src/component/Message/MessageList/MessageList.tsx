@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { imgProfile1 } from "../../../assets/dummy"
-import Button from "../../Button/Button"
-import { IconProfile, IconSearch } from "../../Icon"
-import Input from "../../Input/Input"
+import { IconProfile } from "../../Icon"
 import "./MessageList.css"
 
 interface MessageListProps<T = any> {
