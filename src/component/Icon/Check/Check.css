@@ -1,0 +1,9 @@
+.check {
+    width: 1vw;
+}
+
+@media screen and (max-width: 800px) {
+    .check {
+        width: 3vw;
+    }
+}

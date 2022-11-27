@@ -23,7 +23,7 @@
 }
 
 .estimate-content {
-    width: 76%;
+    max-width: 76%;
     border-radius: 10px;
     margin-bottom: 1.6vh;
     padding: 1vh 1vw;

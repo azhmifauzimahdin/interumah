@@ -1,0 +1,9 @@
+.sendMessage {
+    width: 1.6vw;
+}
+
+@media screen and (max-width: 800px) {
+    .sendMessage {
+        width: 3vw;
+    }
+}

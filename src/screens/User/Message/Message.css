@@ -1,6 +1,7 @@
 .userMessage-container {
     width: 100%;
-    padding: 7.31vh 14.58vw;
+    padding: 7.31vh 18.58vw;
+    /* padding: 7.31vh 14.58vw; */
     box-sizing: border-box;
 }
 
@@ -15,9 +16,11 @@
 }
 
 .userMessage-messageList {
-    width: 34%;
+    width: 40%;
     height: 100%;
     background: #ffffff;
+    border-right: 0.2vw solid #EBEBEB;
+    box-sizing: border-box;
 }
 
 .userMessage-messageList-header {
@@ -56,6 +59,154 @@
     border-radius: 5px;
 }
 
-.userMessage-boxMessage {
+.userMessage-Message {
+    width: 60%;
+    height: 100%;
+    position: relative;
+}
+
+.userMessage-header {
+    width: 100%;
+    height: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 0 1vw;
+    border-bottom: 0.1vw solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.userMessage-header-userbox {
+    display: flex;
+    padding: 1.8vh;
+}
+
+.userMessage-header-userbox-profile {
+    margin-right: 1vw;
+}
+
+.userMessage-header-userbox-desc {
+    white-space: nowrap;
+}
+
+.userMessage-header-userbox-desc-name {
+    font-size: 1.45vw;
+    font-weight: 700;
+}
+
+.userMessage-header-userbox-desc-view {
+    font-size: 1.04vw;
+    font-weight: 400;
+}
+
+.userMessage-header-menu {
+    margin-right: 1vw;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.userMessage-content {
+    position: relative;
+    max-height: 68%;
     background: #EBEBEB;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.userMessage-content::-webkit-scrollbar {
+    width: 0.4vw;
+}
+
+.userMessage-content::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 5px;
+}
+
+.userMessage-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.userMessage-footer {
+    width: 100%;
+    height: 20%;
+}
+
+.userMessage-footer-recommendation {
+    padding: 1vh 1vw;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.userMessage-footer-recommendation::-webkit-scrollbar {
+    height: 0;
+}
+
+.userMessage-footer-recommendation-btn {
+    margin-right: 1vw;
+    white-space: nowrap;
+}
+
+.userMessage-footer-form {
+    display: flex;
+    align-items: center;
+}
+
+.userMessage-footer-form-input {
+    padding: 1vh 0 1vh 1vw;
+    width: 88%;
+    box-sizing: border-box;
+}
+
+.input-group {
+    position: relative;
+    margin: 0;
+}
+
+.inputMessage {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.8vw 5.4vw;
+    font-size: 1.04vw;
+    border: 0.1vw solid #797979;
+    border-radius: 2vw;
+}
+
+.input-group .emot {
+    position: absolute;
+    top: 50%;
+    left: 1vw;
+    transform: translateY(-45%);
+}
+
+.input-group .plus {
+    position: absolute;
+    top: 50%;
+    right: 1vw;
+    transform: translateY(-45%);
+}
+
+.userMessage-footer-form-send {
+    width: 12%;
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper-sendMessage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3vw;
+    height: 3vw;
+    border-radius: 50%;
+    background: #D9D9D9;
 }

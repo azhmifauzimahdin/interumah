@@ -1,0 +1,30 @@
+.message-content {
+    max-width: 76%;
+    margin: 1.4vh 0;
+    padding: 1vh 1vw;
+    box-sizing: border-box;
+    font-size: 1.14vw;
+    font-weight: 400;
+}
+
+.message-content .time {
+    font-size: 0.83vw;
+    color: #797979;
+    text-align: end;
+}
+
+.message-content:nth-child(odd) {
+    border-radius: 0 1vw 1vw 1vw;
+    float: left;
+    background: #ffffff;
+    margin-right: 26%;
+    margin-left: 2%;
+}
+
+.message-content:nth-child(even) {
+    border-radius: 1vw 0 1vw 1vw;
+    float: right;
+    background: #B6D8FF;
+    margin-left: 26%;
+    margin-right: 2%;
+}

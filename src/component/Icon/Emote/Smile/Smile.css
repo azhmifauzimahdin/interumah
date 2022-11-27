@@ -1,0 +1,9 @@
+.emoteSmile {
+    width: 1.6vw;
+}
+
+@media screen and (max-width: 800px) {
+    .emoteSmile {
+        width: 3vw;
+    }
+}
