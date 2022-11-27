@@ -72,9 +72,9 @@ const LayoutUser: React.FC = () => {
     ]
 
     useEffect(() => {
-        // if (!token) {
-        //     navigate('/login')
-        // }
+        if (!token) {
+            navigate('/login')
+        }
     }, [navigate, token])
 
     return (
