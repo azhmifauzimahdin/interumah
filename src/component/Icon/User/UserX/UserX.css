@@ -1,9 +1,10 @@
-.start {
-    width: 1vw;
+.userX {
+    width: 0.8vw;
+    stroke: #C80707;
 }
 
 @media screen and (max-width: 920px) {
-    .start {
+    .userX {
         width: 3vw;
     }
 }

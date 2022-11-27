@@ -1,9 +1,9 @@
-.start {
-    width: 1vw;
+.userAlt {
+    width: 0.8vw;
 }
 
 @media screen and (max-width: 920px) {
-    .start {
+    .userAlt {
         width: 3vw;
     }
 }

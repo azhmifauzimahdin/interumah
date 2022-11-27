@@ -1,0 +1,244 @@
+.userProfile-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 7.31vh 6vw;
+    box-sizing: border-box;
+}
+
+.userProfile-aside {
+    width: 22%;
+    padding: 2vw;
+    border: 0.2vw solid #101B94;
+    border-radius: 0.4vw;
+    box-sizing: border-box;
+}
+
+.userProfile-aside-profile {
+    margin-bottom: 1vw;
+}
+
+.userProfile-aside-profile-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1vw;
+}
+
+.userProfile-aside-profile-name {
+    font-size: 1.04vw;
+    font-weight: 700;
+    color: #101B94;
+    text-align: center;
+}
+
+.userProfile-aside-profile-changeProfile {
+    text-align: center;
+}
+
+.userProfile-aside-profile-changeProfile .Link {
+    font-size: 0.83vw;
+    font-weight: 700;
+    text-decoration: none;
+    color: #797979;
+}
+
+.userProfile-aside-menu-btn {
+    display: flex;
+    align-items: center;
+    color: #797979;
+    cursor: pointer;
+    background: #F3F7FB;
+    border-radius: 2vw;
+    padding: 0.5vw 1vw;
+    box-sizing: border-box;
+    margin-bottom: 0.6vw;
+}
+
+.userProfile-aside-menu-btnDelete {
+    display: flex;
+    align-items: center;
+    background: #F3F7FB;
+    color: #DB152D;
+    cursor: pointer;
+    border-radius: 2vw;
+    padding: 0.5vw 1vw;
+    box-sizing: border-box;
+    margin-bottom: 0.6vw;
+}
+
+.menuActive {
+    color: #ffffff;
+    background: #152CBF;
+}
+
+.userProfile-aside-menu-btn:hover {
+    background: #152CBF;
+    color: #ffffff;
+}
+
+.userProfile-aside-menu-btn:hover>.hoverIconMenu {
+    fill: #ffffff;
+}
+
+.userProfile-aside-menu-btnDelete:hover {
+    background: #DB152D;
+    color: #ffffff;
+}
+
+.userProfile-aside-menu-btnDelete:hover>.hoverIconUserX {
+    stroke: #ffffff;
+}
+
+.userProfile-aside-menu-btnText {
+    font-size: 0.72vw;
+    font-weight: 400;
+    margin-left: 0.6vw;
+}
+
+.userProfile-aside-menu-btnTextDelete {
+    font-size: 0.72vw;
+    font-weight: 400;
+    margin-left: 0.6vw;
+}
+
+.userProfile-aside-delete {
+    margin-top: 11vw;
+}
+
+.userProfile-content {
+    width: 76%;
+    border: 0.2vw solid #101B94;
+    border-radius: 0.4vw;
+    padding: 1vw 2vw;
+    box-sizing: border-box;
+}
+
+.userProfile-content-header {
+    font-size: 1.56vw;
+    font-weight: 700;
+    color: #101B94;
+    margin-bottom: 0.6vw;
+}
+
+.userProfile-content-desc {
+    font-size: 0.72vw;
+    font-weight: 400;
+    color: #797979;
+}
+
+.userProfile-content-hr {
+    background: #797979;
+    margin-bottom: 1vw;
+}
+
+.userProfile-conten-detail {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.userProfile-conten-detail-desc {
+    width: 40%;
+}
+
+.userProfile-conten-detail-desc-header {
+    font-size: 0.93vw;
+    font-weight: 700;
+    margin-bottom: 0.6vw;
+}
+
+.userProfile-form {
+    display: flex;
+    width: 100%;
+    margin-bottom: 1vw;
+}
+
+.userProfile-form-label {
+    min-width: 30%;
+    max-width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 0.82vw;
+    font-weight: 400;
+    padding: 0 0.8vw;
+    box-sizing: border-box;
+    color: #797979;
+}
+
+.userProfile-form-input {
+    max-width: 55%;
+    min-width: 55%;
+    font-size: 0.82vw;
+    padding: 0.2vw;
+}
+
+.userProfile-form-textArea {
+    min-width: 56%;
+    max-width: 56%;
+    font-size: 0.82vw;
+    height: 5vw;
+}
+
+.userProfile-form-submit {
+    width: 15%;
+    margin-left: 0.2vw;
+    font-size: 0.82vw;
+    font-weight: 700;
+    color: #ffffff;
+    background: #101B94;
+    border: none;
+    border-radius: 0.3vw;
+}
+
+.userProfile-form-submitArea {
+    width: 15%;
+    height: fit-content;
+    padding: 0.4vw 0;
+    margin-left: 0.2vw;
+    font-size: 0.82vw;
+    font-weight: 700;
+    color: #ffffff;
+    background: #101B94;
+    border: none;
+    border-radius: 0.3vw;
+}
+
+.userProfile-conten-detail-image {
+    width: 40%;
+    padding-bottom: 6vw;
+    border-left: 0.1vw solid #797979;
+}
+
+.userProfile-conten-detail-image-btn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.8vw;
+}
+
+.button-selectImage {
+    font-size: 0.83vw;
+    font-weight: 700;
+    background: #ffffff;
+    color: #101B94;
+    padding: 0.6vw 1vw;
+    border: 0.1vw solid #101B94;
+    cursor: pointer;
+}
+
+.button-selectImage:hover {
+    background: #101B94;
+    color: #ffffff;
+}
+
+.userProfile-conten-detail-image-desc {
+    text-align: center;
+    padding: 0 8vw;
+    font-size: 0.72vw;
+    font-weight: 400;
+    color: #797979;
+}
+
+.userProfile-content-footer {
+    float: right;
+}

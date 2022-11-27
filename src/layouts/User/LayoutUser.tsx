@@ -93,7 +93,7 @@ const LayoutUser: React.FC = () => {
                     <section className="search">
                         <form onSubmit={handleSearch}>
                             <section className="input-group-button">
-                                <Input type="text" name="keyword" inputType="search" placeholder="Masukan Email Anda" />
+                                <Input type="text" name="keyword" inputType="search" placeholder="Search" />
                                 <div className="input-group-prependbutton">
                                     <Button button="btnSearch" type="gray" ><IconSearch /></Button>
                                 </div>

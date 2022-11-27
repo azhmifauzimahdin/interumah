@@ -1,0 +1,10 @@
+.clipboardList {
+    width: 0.8vw;
+    fill: #B7B7B7;
+}
+
+@media screen and (max-width: 920px) {
+    .clipboardList {
+        width: 3vw;
+    }
+}

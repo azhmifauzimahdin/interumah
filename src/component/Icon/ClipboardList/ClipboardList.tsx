@@ -1,0 +1,16 @@
+import React from "react"
+import "./ClipboardList.css"
+
+interface ClipboardListProps {
+    className?: string
+}
+const ClipboardList: React.FC<ClipboardListProps> = props => {
+    const { className } = props
+    return (
+        <svg className={`clipboardList ${className}`} viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.8333 2.50016H10.35C10 1.5335 9.08333 0.833496 8 0.833496C6.91667 0.833496 6 1.5335 5.65 2.50016H2.16667C1.25 2.50016 0.5 3.25016 0.5 4.16683V15.8335C0.5 16.7502 1.25 17.5002 2.16667 17.5002H13.8333C14.75 17.5002 15.5 16.7502 15.5 15.8335V4.16683C15.5 3.25016 14.75 2.50016 13.8333 2.50016ZM8 2.50016C8.45833 2.50016 8.83333 2.87516 8.83333 3.3335C8.83333 3.79183 8.45833 4.16683 8 4.16683C7.54167 4.16683 7.16667 3.79183 7.16667 3.3335C7.16667 2.87516 7.54167 2.50016 8 2.50016ZM9.66667 14.1668H3.83333V12.5002H9.66667V14.1668ZM12.1667 10.8335H3.83333V9.16683H12.1667V10.8335ZM12.1667 7.50016H3.83333V5.8335H12.1667V7.50016Z" />
+        </svg>
+    )
+}
+
+export default ClipboardList

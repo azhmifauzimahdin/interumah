@@ -1,9 +1,10 @@
-.start {
-    width: 1vw;
+.lock {
+    width: 0.8vw;
+    fill: #B7B7B7;
 }
 
 @media screen and (max-width: 920px) {
-    .start {
+    .lock {
         width: 3vw;
     }
 }
