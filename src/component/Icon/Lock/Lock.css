@@ -1,5 +1,12 @@
 .lock {
     width: 0.8vw;
+}
+
+.lock-color-white {
+    fill: #ffffff;
+}
+
+.lock-color-gray {
     fill: #B7B7B7;
 }
 

@@ -52,6 +52,7 @@
     padding: 0.5vw 1vw;
     box-sizing: border-box;
     margin-bottom: 0.6vw;
+    text-decoration: none;
 }
 
 .userProfile-aside-menu-btnDelete {

@@ -2,6 +2,14 @@
     width: 0.8vw;
 }
 
+.userAlt-color-white {
+    fill: #ffffff;
+}
+
+.userAlt-color-gray {
+    fill: #B7B7B7;
+}
+
 @media screen and (max-width: 920px) {
     .userAlt {
         width: 3vw;

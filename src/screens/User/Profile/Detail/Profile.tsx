@@ -25,9 +25,9 @@ const UserProfile: React.FC = () => {
                     <section className="userProfile-aside-menu-btn menuActive">
                         <IconUserAlt /><span className="userProfile-aside-menu-btnText">Detail Akun</span>
                     </section>
-                    <section className="userProfile-aside-menu-btn">
-                        <IconLock className="hoverIconMenu" /><span className="userProfile-aside-menu-btnText">Ubah Password</span>
-                    </section>
+                    <Link to="/change_password" className="userProfile-aside-menu-btn">
+                        <IconLock className="hoverIconMenu" color="gray" /><span className="userProfile-aside-menu-btnText">Ubah Password</span>
+                    </Link>
                     <section className="userProfile-aside-menu-btn">
                         <IconClipboardList className="hoverIconMenu" /><span className="userProfile-aside-menu-btnText">PesananKu</span>
                     </section>
