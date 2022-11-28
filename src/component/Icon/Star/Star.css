@@ -1,5 +1,9 @@
-.start {
+.start-size-md {
     width: 1vw;
+}
+
+.start-size-lg {
+    width: 1.6vw;
 }
 
 @media screen and (max-width: 920px) {

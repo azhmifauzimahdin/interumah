@@ -1,13 +1,17 @@
-.location {
-    width: 0.73vw;
-}
-
 .location-color-blue {
     fill: #101B94;
 }
 
 .location-color-white {
     fill: #ffffff;
+}
+
+.location-size-md {
+    width: 0.73vw;
+}
+
+.location-size-lg {
+    width: 1.13vw;
 }
 
 @media screen and (max-width: 920px) {

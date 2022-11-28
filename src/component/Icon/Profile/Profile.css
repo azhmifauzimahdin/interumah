@@ -23,6 +23,10 @@
     height: 4.6vw;
 }
 
+.profile-size-xxl {
+    width: 6.6vw;
+    height: 6.6vw;
+}
 
 @media screen and (max-width: 920px) {
     .profile-size-md {

@@ -3,7 +3,7 @@ import { Link, Outlet, useNavigate } from "react-router-dom"
 import { ImageBackgoundEstimate, Logo, LogoFooter } from "../../assets"
 import { imgProfile1 } from "../../assets/dummy"
 import { Button, Estimate, EstimateList, Input, ModalEstimate, NewEstimate, ProfileHover } from "../../component"
-import { IconAppStore, IconBar, IconCalculator, IconChat, IconFacebook, IconFavorite, IconInstagram, IconNotification, IconPlayStore, IconProfile, IconSearch, IconTiktok, IconYoutube } from "../../component/Icon"
+import { IconAppStore, IconBar, IconCalculator, IconChatNav, IconFacebook, IconFavorite, IconInstagram, IconNotification, IconPlayStore, IconProfile, IconSearch, IconTiktok, IconYoutube } from "../../component/Icon"
 import "./LayoutUser.css"
 
 const LayoutUser: React.FC = () => {
@@ -103,7 +103,7 @@ const LayoutUser: React.FC = () => {
                     <ul>
                         <li><Link to={'/favorite'}><IconFavorite /></Link></li>
                         <li><IconNotification /></li>
-                        <li><Link to={'/message'}><IconChat number={2} /></Link></li>
+                        <li><Link to={'/message'}><IconChatNav number={2} /></Link></li>
                         <li><div className="verticalline"></div></li>
                         <li onClick={profileHover}><IconProfile image={imgProfile1} /></li>
                     </ul>

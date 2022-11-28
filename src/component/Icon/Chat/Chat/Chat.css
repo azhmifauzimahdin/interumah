@@ -1,9 +1,10 @@
-.chat-size-md {
-    width: 2.4vw;
+.chat {
+    width: 2vw;
+    fill: #101B94;
 }
 
 @media screen and (max-width: 920px) {
-    .chat-size-md {
+    .chat {
         width: 3.6vw;
     }
 }

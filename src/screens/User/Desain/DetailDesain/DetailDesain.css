@@ -1,0 +1,166 @@
+.userDetailDesain-container {
+    padding: 7.31vh 14.58vw;
+    box-sizing: border-box;
+}
+
+.userDetailDesain-detail {
+    display: flex;
+    background: #ffffff;
+    overflow: hidden;
+    height: 38vw;
+    border-radius: 6.4vw 6.4vw 6.4vw 0.4vw;
+    box-shadow: 0px 3px 11px rgba(0, 0, 0, 0.25);
+    margin-bottom: 4vw;
+}
+
+.userDetailDesain-detail-figure {
+    width: 47%;
+    height: 100%;
+    border-radius: 6.4vw 0 6.4vw 0.6vw;
+    margin: 0;
+    background: navy;
+    overflow: hidden;
+}
+
+.userDetailDesain-detail-figure img {
+    width: 100%;
+    height: 100%;
+}
+
+.userDetailDesain-detail-content {
+    width: 53%;
+    padding: 2.4vw 2.8vw;
+    box-sizing: border-box;
+}
+
+.userDetailDesain-detail-content-header {
+    font-size: 1.87vw;
+    font-weight: 700;
+    margin-bottom: 0.4vw;
+}
+
+.userDetailDesain-detail-content-price {
+    font-size: 1.87vw;
+    font-weight: 700;
+    display: flex;
+    margin-bottom: 1.6vw;
+}
+
+.sold-box {
+    font-size: 0.93vw;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    margin-left: 1.2vw;
+    background: #DDF4DD;
+    border: 0.1vw solid #6AF43A;
+    border-radius: 1vw;
+    padding: 0 1.6vw;
+    box-sizing: border-box;
+}
+
+.userDetailDesain-detail-content-desc {
+    font-size: 1.45vw;
+    font-weight: 400;
+    margin-bottom: 1vw;
+}
+
+.userDetailDesain-detail-content-descTwo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.4vw;
+    font-size: 1.35vw;
+    font-weight: 400;
+}
+
+.userDetailDesain-detail-content-descTwo .icon-desc {
+    width: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userDetailDesain-detail-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2vw;
+}
+
+.userDetailDesain-detail-footer-btn {
+    width: 45%;
+}
+
+.userDetailDesain-detail-footer-btn .icon-chat {
+    margin-right: 0.9vw;
+}
+
+.userDetailDesain-specification {
+    border-radius: 0.6vw;
+    border: 0.2vw solid #101B94;
+    padding: 2vw 3vw;
+    margin-bottom: 4vw;
+}
+
+.userDetailDesain-specification-header {
+    font-size: 1.87vw;
+    font-weight: 700;
+    margin-bottom: 1vw;
+}
+
+.userDetailDesain-specification-desc {
+    font-size: 1.45vw;
+    font-weight: 400;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1vw;
+}
+
+.title-specification {
+    width: 30%;
+}
+
+.value-specification {
+    width: 70%;
+}
+
+.userDetailDesain-desainer {
+    display: flex;
+    align-items: center;
+    padding: 3vw 2.6vw;
+    border-radius: 1vw;
+    box-shadow: 0px 3px 11px rgba(0, 0, 0, 0.25);
+}
+
+.userDetailDesain-desainer-image {
+    margin: 0;
+}
+
+.userDetailDesain-desainer-desc {
+    flex: 1;
+    padding: 0 4vw;
+}
+
+.userDetailDesain-desainer-desc .company {
+    font-size: 1.87vw;
+    font-weight: 700;
+    margin-bottom: 0.2vw;
+}
+
+.userDetailDesain-desainer-desc .rating {
+    font-size: 1.56vw;
+    font-weight: 400;
+    margin-bottom: 0.1vw;
+}
+
+.userDetailDesain-desainer-desc .rating .ratingText {
+    margin-left: 0.6vw;
+}
+
+.userDetailDesain-desainer-desc .location {
+    font-size: 1.56vw;
+    font-weight: 700;
+}
+
+.userDetailDesain-desainer-btn {
+    width: 20%;
+}

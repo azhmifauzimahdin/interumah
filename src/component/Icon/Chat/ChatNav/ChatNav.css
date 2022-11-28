@@ -1,0 +1,9 @@
+.chatNav-size-md {
+    width: 2.4vw;
+}
+
+@media screen and (max-width: 920px) {
+    .chatNav-size-md {
+        width: 3.6vw;
+    }
+}
