@@ -10,6 +10,7 @@ export { default as IlustrationForgetPasswordCheckEmail } from "./Ilustration/Il
 export { default as IlustrationTemukan } from "./Ilustration/IlustrartionTemukan.svg"
 export { default as IlustrationPilihDesainmu } from "./Ilustration/IlustrationPilihDesainmu.svg"
 export { default as IlustrationKonsultasi } from "./Ilustration/IlustrationKonsultasi.svg"
+export { default as IlustrationOk } from "./Ilustration/IlustrationOk.svg"
 export { default as IlustrationWujudkan } from "./Ilustration/IlustrationWujudkan.svg"
 export { default as IlustrationCalculator } from "./Ilustration/IlustrationCalculator.svg"
 export { default as IlustrationFavorite } from "./Ilustration/IlustrationFavorite.svg"
