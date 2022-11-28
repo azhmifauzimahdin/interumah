@@ -8,6 +8,11 @@
     width: 100%;
 }
 
+.profile-size-xs {
+    width: 2vw;
+    height: 2vw;
+}
+
 .profile-size-sm {
     width: 2.6vw;
     height: 2.6vw;

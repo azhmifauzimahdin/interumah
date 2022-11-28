@@ -8,7 +8,7 @@ import { LayoutLandingPage, LayoutUser } from "./layouts"
 import { LayoutForgetPassword, LayoutLogin, LayoutRegister } from "./layouts/Auth"
 import { ChangePassword, FailedPasswordChange, Login, Logout, PasswordCheckEmail, PasswordInputEmail, Register, SuccessPasswordChange } from "./screens/Auth"
 import LandingPage from "./screens/LandingPage/LandingPage"
-import { UserChangePassword, UserDashboard, UserDetailDesain, UserFavorite, UserMessage, UserProfile, UserSearch } from "./screens/User"
+import { UserChangePassword, UserDashboard, UserDetailDesain, UserFavorite, UserMessage, UserPayment, UserProfile, UserSearch } from "./screens/User"
 
 const Router: React.FC = () => {
     return (
@@ -25,6 +25,7 @@ const Router: React.FC = () => {
                     <Route path="/akunsaya" element={<UserProfile />} />
                     <Route path="/change_password" element={<UserChangePassword />} />
                     <Route path="/detail_desain/" element={<UserDetailDesain />} />
+                    <Route path="/payment/" element={<UserPayment />} />
                 </Route>
                 <Route element={<LayoutLogin />} >
                     <Route path="/login" element={<Login />} />
