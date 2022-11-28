@@ -164,3 +164,27 @@
 .userDetailDesain-desainer-btn {
     width: 20%;
 }
+
+.modalConfirmPayment-title {
+    font-size: 1.45vw;
+    font-weight: 700;
+    margin-bottom: 2vw;
+}
+
+.modalConfirmPayment-ilustration {
+    width: 54%;
+    margin: 0 auto 2vw;
+}
+
+.imgIlustrationConfirmPayment {
+    width: 100%;
+}
+
+.modalConfirmPayment-option {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modalConfirmPayment-option-btn {
+    width: 47%;
+}
