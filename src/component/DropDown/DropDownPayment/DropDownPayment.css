@@ -1,0 +1,90 @@
+.dropdown-payment-container {
+    border: 0.2vw solid #101B94;
+    position: relative;
+    border-radius: 0.8vw;
+    margin-bottom: 1vw;
+}
+
+.dropdown-payment-input {
+    display: flex;
+    align-items: center;
+    margin: 1vw;
+    justify-content: space-between;
+    user-select: none;
+}
+
+.dropdown-payment-tools {
+    background: mediumorchid;
+}
+
+.dropdown-payment-menu {
+    width: 100%;
+    border: 0.2vw solid #101B94;
+    border-radius: 1vw;
+    overflow: auto;
+    top: 110%;
+    box-sizing: border-box;
+    padding: 1vw;
+    padding-bottom: 0;
+    background: #ffffff;
+}
+
+.dropdown-payment-item {
+    border: 0.1vw solid #101B94;
+    padding: 1vw;
+    border-radius: 0.6vw;
+    margin-bottom: 1vw;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-payment-item:hover {
+    background: #9fc3f879;
+    color: #000000;
+}
+
+.dropdown-payment-item-bgimage {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 0.2vw;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-payment-item-bgimage img {
+    width: 100%;
+}
+
+.dropdown-payment-item-desc {
+    padding: 0 1vw;
+    font-size: 1.25vw;
+    font-weight: 700;
+    flex: 1;
+}
+
+.item-desc-name {
+    font-weight: 400;
+}
+
+.item-desc-no {
+    font-size: 1.04vw;
+}
+
+.icondot {
+    width: 1.6vw;
+    height: 1.6vw;
+    border-radius: 50%;
+    padding: 0.1vw;
+    border: 0.12vw solid #101B94;
+}
+
+.selectede {
+    background: #101B94;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}

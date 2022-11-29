@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { IlustrationOk } from "../../../../assets"
 import { imgClassic1, imgProfile1 } from "../../../../assets/dummy"
-import { Button, ModalBlank } from "../../../../component"
+import { Button, DropDownPayment, ModalBlank } from "../../../../component"
 import { IconCloudUpload, IconProfile } from "../../../../component/Icon"
 import "./Payment.css"
 
@@ -20,6 +20,13 @@ const UserPayment: React.FC = () => {
     const navigatePayment = () => {
         navigate('/payment')
     }
+
+    //------ Option Dropdown ------
+    const options = [
+        { value: "bni", bank: "BNI", image: "https://cdn-2.tstatic.net/bangka/foto/bank/images/logo-bni.jpg" },
+        { value: "bca", bank: "BCA", image: "https://i.pinimg.com/originals/0d/a8/41/0da841a2721acd4740f5b5d7d049c0fb.png" },
+        { value: "bri", bank: "BRI", image: "https://i2.wp.com/febi.uinsaid.ac.id/wp-content/uploads/2020/11/Logo-BRI-Bank-Rakyat-Indonesia-PNG-Terbaru.png?fit=1650%2C1408&ssl=1" },
+    ]
     return (
         <>
             <main className="userPayment-container">
@@ -76,6 +83,14 @@ const UserPayment: React.FC = () => {
                     </article>
                     <article className="userPayment-boxOne">
                         <header className="userPayment-header">Metode Pembayaran</header>
+                        <section className="userPayment-desc">Silahkan lakukan pembayaran ke bank yang dipilih dengan nomer rekening dibawah ini!</section>
+                        <section>
+                            <DropDownPayment
+                                option={options}
+                                imageDefault="https://cdn-2.tstatic.net/bangka/foto/bank/images/logo-bni.jpg"
+                                bankDefault="BNI"
+                            />
+                        </section>
                     </article>
                     <article className="userPayment-boxOne">
                         <header className="userPayment-header">Bukti Transfer</header>
