@@ -1,0 +1,71 @@
+.reviewCard-wrapper {
+    background: ghostwhite;
+    border-bottom: 0.2vw solid #D9D9D9;
+    margin-bottom: 2vw;
+}
+
+.reviewCard-profile {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 0.6vw;
+}
+
+.reviewCard-profile .username {
+    font-size: 1.45vw;
+    font-weight: 400;
+    margin-left: 0.8vw;
+}
+
+.reviewCard-start {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.6vw;
+}
+
+.reviewCard-start .date {
+    font-size: 1.25vw;
+    font-weight: 400;
+    margin-left: 0.4vw;
+}
+
+.reviewCard-review {
+    margin-bottom: 1vw;
+}
+
+.reviewCard-wrapperImg {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1.2vw;
+}
+
+.reviewCard-boxImg {
+    width: 4.2vw;
+    height: 4vw;
+    margin-right: 0.6vw;
+    border-radius: 0.4vw;
+    overflow: hidden;
+    background: #D9D9D9;
+    position: relative;
+}
+
+.reviewCard-boxImg img {
+    width: 100%;
+}
+
+.reviewCard-boxImg .other-box {
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 1;
+    font-size: 0.72vw;
+    font-weight: 400;
+    padding: 0.6vw;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+}

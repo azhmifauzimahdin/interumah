@@ -94,14 +94,14 @@
     margin-right: 0.9vw;
 }
 
-.userDetailDesain-specification {
+.userDetailDesain-box {
     border-radius: 0.6vw;
     border: 0.2vw solid #101B94;
     padding: 2vw 3vw;
     margin-bottom: 4vw;
 }
 
-.userDetailDesain-specification-header {
+.userDetailDesain-box-header {
     font-size: 1.87vw;
     font-weight: 700;
     margin-bottom: 1vw;
@@ -128,6 +128,7 @@
     align-items: center;
     padding: 3vw 2.6vw;
     border-radius: 1vw;
+    margin-bottom: 4vw;
     box-shadow: 0px 3px 11px rgba(0, 0, 0, 0.25);
 }
 
@@ -164,6 +165,53 @@
 .userDetailDesain-desainer-btn {
     width: 20%;
 }
+
+.userDetailDesain-box-btnreview {
+    background: #E9F3FF;
+    border: 0.1vw solid #1740E6;
+    border-radius: 0.8vw;
+    padding: 2vw 4vw 1.6vw;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 2vw;
+}
+
+.userDetailDesain-box-review {
+    margin: auto 0;
+    text-align: center;
+}
+
+.userDetailDesain-box-review .text-review {
+    font-size: 1.56vw;
+    font-weight: 400;
+    margin-bottom: 0.4vw;
+}
+
+.userDetailDesain-box-btn {
+    display: flex;
+    flex-wrap: wrap;
+    width: 76%;
+    justify-content: space-between;
+}
+
+.btn-review:hover {
+    background: #101B94;
+    color: #ffffff;
+}
+
+.btn-review {
+    background: #ffffff;
+    border: 0.2vw solid #101B94;
+    border-radius: 0.4vw;
+    padding: 0.4vw 1vw;
+    font-size: 1.04vw;
+    font-weight: 700;
+    width: 30%;
+    margin-bottom: 1vw;
+    cursor: pointer;
+}
+
 
 .modalConfirmPayment-title {
     font-size: 1.45vw;
