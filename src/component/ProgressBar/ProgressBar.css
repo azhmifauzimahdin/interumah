@@ -1,0 +1,21 @@
+.progressBar-box {
+    width: 100%;
+    background-color: #ffffff;
+    border: 0.2vw solid;
+    border-radius: 0.4vw;
+    padding: 0;
+}
+
+.progressBar-content {
+    height: 100%;
+    border-radius: 0.2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progressBar-text {
+    font-size: 1.35vw;
+    font-weight: 700;
+    color: #ffffff;
+}

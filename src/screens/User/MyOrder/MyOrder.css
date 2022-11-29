@@ -1,0 +1,76 @@
+.userOder-container {
+    padding: 7.31vh 14.58vw;
+}
+
+.userOrder-nav {
+    width: 100%;
+    margin-bottom: 2vw;
+}
+
+.userOrder-nav ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.userOrder-nav ul li:hover {
+    background: #101B94;
+    color: #ffffff;
+}
+
+.userOrder-nav ul li:nth-child(1) {
+    border: 0.14vw solid #101B94;
+    border-right: none;
+}
+
+.userOrder-nav ul li:nth-last-child(1) {
+    border: 0.14vw solid #101B94;
+    border-left: none;
+}
+
+.userOrder-nav ul li {
+    border-top: 0.14vw solid #101B94;
+    border-bottom: 0.14vw solid #101B94;
+    width: 25%;
+    font-size: 1.25vw;
+    padding: 1vw;
+    box-sizing: border-box;
+    font-weight: 700;
+    color: #101B94;
+    text-align: center;
+    margin: 0;
+    cursor: pointer;
+}
+
+.userOrder-box {
+    margin-bottom: 2vw;
+}
+
+.userOrder-content {
+    border: 0.2vw solid #101B94;
+    border-radius: 1.4vw;
+    overflow: hidden;
+    margin-bottom: 2vw;
+    padding: 6vw 38%;
+    text-align: center;
+}
+
+.userOrder-content-ilustration {
+    margin: 0 auto;
+}
+
+.userOrder-content-ilustration img {
+    width: 100%;
+}
+
+.userOrder-content-title {
+    font-size: 1.44vw;
+    font-weight: 700;
+}
+
+.userOrder-content-desc {
+    font-size: 1.02vw;
+    font-weight: 400;
+}
