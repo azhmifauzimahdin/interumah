@@ -7,3 +7,4 @@ export { default as UserChangePassword } from "./Profile/ChangePassword/ChangePa
 export { default as UserDetailDesain } from "./Desain/DetailDesain/DetailDesain"
 export { default as UserPayment } from "./Desain/Payment/Payment"
 export { default as UserOrder } from "./MyOrder/MyOrder"
+export { default as UserAddReview } from "./AddReview/AddReview"

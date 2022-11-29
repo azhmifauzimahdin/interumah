@@ -8,7 +8,7 @@ import { LayoutLandingPage, LayoutUserOne, LayoutUserTwo } from "./layouts"
 import { LayoutForgetPassword, LayoutLogin, LayoutRegister } from "./layouts/Auth"
 import { ChangePassword, FailedPasswordChange, Login, Logout, PasswordCheckEmail, PasswordInputEmail, Register, SuccessPasswordChange } from "./screens/Auth"
 import LandingPage from "./screens/LandingPage/LandingPage"
-import { UserChangePassword, UserDashboard, UserDetailDesain, UserFavorite, UserMessage, UserOrder, UserPayment, UserProfile, UserSearch } from "./screens/User"
+import { UserAddReview, UserChangePassword, UserDashboard, UserDetailDesain, UserFavorite, UserMessage, UserOrder, UserPayment, UserProfile, UserSearch } from "./screens/User"
 
 const Router: React.FC = () => {
     return (
@@ -29,6 +29,7 @@ const Router: React.FC = () => {
                 </Route>
                 <Route element={<LayoutUserTwo />} >
                     <Route path="/pembayaran/" element={<UserPayment />} />
+                    <Route path="/penilaian/" element={<UserAddReview />} />
                 </Route>
                 <Route element={<LayoutLogin />} >
                     <Route path="/login" element={<Login />} />

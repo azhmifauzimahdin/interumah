@@ -1,0 +1,10 @@
+.send {
+    width: 1.6vw;
+    stroke: #101B94;
+}
+
+@media screen and (max-width: 920px) {
+    .send {
+        width: 3vw;
+    }
+}

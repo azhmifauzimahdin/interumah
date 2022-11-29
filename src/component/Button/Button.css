@@ -77,6 +77,15 @@
     border: 0.11vw solid #101B94;
 }
 
+.btn-secondary:hover {
+    background: #101B94;
+    color: #ffffff;
+}
+
+.btn-secondary:hover>.iconBtn {
+    stroke: #ffffff;
+}
+
 .btn-colorfull {
     background: linear-gradient(268.97deg, #1D86FF 20.46%, #101B94 71.87%);
     color: #ffffff;
