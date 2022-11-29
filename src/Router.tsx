@@ -4,7 +4,7 @@ import {
     Routes,
     Route
 } from "react-router-dom"
-import { LayoutLandingPage, LayoutUser } from "./layouts"
+import { LayoutLandingPage, LayoutUserOne, LayoutUserTwo } from "./layouts"
 import { LayoutForgetPassword, LayoutLogin, LayoutRegister } from "./layouts/Auth"
 import { ChangePassword, FailedPasswordChange, Login, Logout, PasswordCheckEmail, PasswordInputEmail, Register, SuccessPasswordChange } from "./screens/Auth"
 import LandingPage from "./screens/LandingPage/LandingPage"
@@ -17,7 +17,7 @@ const Router: React.FC = () => {
                 <Route element={<LayoutLandingPage />}>
                     <Route path="/" element={<LandingPage />} />
                 </Route>
-                <Route element={<LayoutUser />} >
+                <Route element={<LayoutUserOne />} >
                     <Route path="/dashboard/" element={<UserDashboard />} />
                     <Route path="/search/" element={<UserSearch />} />
                     <Route path="/favorite" element={<UserFavorite />} />
@@ -25,8 +25,10 @@ const Router: React.FC = () => {
                     <Route path="/akunsaya" element={<UserProfile />} />
                     <Route path="/change_password" element={<UserChangePassword />} />
                     <Route path="/detail_desain/" element={<UserDetailDesain />} />
-                    <Route path="/payment/" element={<UserPayment />} />
                     <Route path="/desainku" element={<UserOrder />} />
+                </Route>
+                <Route element={<LayoutUserTwo />} >
+                    <Route path="/pembayaran/" element={<UserPayment />} />
                 </Route>
                 <Route element={<LayoutLogin />} >
                     <Route path="/login" element={<Login />} />
