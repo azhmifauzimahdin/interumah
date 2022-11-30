@@ -11,12 +11,10 @@ const IconDrop = () => {
 
 interface DropDownPaymentProps<T = any> {
     option: T[]
-    imageDefault: string
-    bankDefault: string
 }
 
 const Dropdown: React.FC<DropDownPaymentProps> = props => {
-    const { option, imageDefault, bankDefault } = props
+    const { option } = props
     const [showMenu, setShowMenu] = useState<boolean>(false)
     const [selectedValue, setSelectedValue] = useState<any>(null)
 
@@ -38,13 +36,11 @@ const Dropdown: React.FC<DropDownPaymentProps> = props => {
         if (selectedValue) {
             return selectedValue.bank
         }
-        return bankDefault
     }
     const getImage = () => {
         if (selectedValue) {
             return selectedValue.image
         }
-        return imageDefault
     }
 
     const onItemClick = (option: any) => {
@@ -62,52 +58,67 @@ const Dropdown: React.FC<DropDownPaymentProps> = props => {
         <>
             <div className="dropdown-payment-container">
                 <div className="dropdown-payment-input" onClick={handleInputClick}>
-                    <section className="dropdown-payment-item-bgimage">
-                        <img src={getImage()} alt="bank" />
-                    </section>
-                    <section className="dropdown-payment-item-desc">
-                        Bank {getBank()}
-                        <section className="item-desc-name">
-                            a.n Interumah Jaya
-                        </section>
-                        <section className="item-desc-no">
-                            3345-431-5123
-                        </section>
-                    </section>
-                    <div className="dropdown-payment-tool">
-                        <IconDrop />
-                    </div>
+                    {selectedValue ?
+                        <>
+                            <section className="dropdown-payment-item-bgimage" >
+                                <img src={getImage()} alt="bank" />
+                            </section>
+                            <section className="dropdown-payment-item-desc">
+                                Bank {getBank()}
+                                <section className="item-desc-name">
+                                    a.n Interumah Jaya
+                                </section>
+                                <section className="item-desc-no">
+                                    3345-431-5123
+                                </section>
+                            </section>
+                            <div className="dropdown-payment-tool">
+                                <IconDrop />
+                            </div>
+                        </>
+                        :
+                        <>
+                            <section className="dropdown-payment-item-desc">
+                                Pilih Metode Pembayaran
+                            </section>
+                            <div className="dropdown-payment-tool">
+                                <IconDrop />
+                            </div>
+                        </>
+                    }
                 </div>
             </div>
-            {showMenu && (
-                <div className="dropdown-payment-menu">
-                    {option?.map((option) => {
-                        return (
-                            <div
-                                key={option.value}
-                                className={`dropdown-payment-item`}
-                                onClick={() => onItemClick(option)}
-                            >
-                                <section className="dropdown-payment-item-bgimage">
-                                    <img src={option.image} alt="bank" />
-                                </section>
-                                <section className="dropdown-payment-item-desc">
-                                    Bank {option.bank}
-                                    <section className="item-desc-name">
-                                        a.n Interumah Jaya
+            {
+                showMenu && (
+                    <div className="dropdown-payment-menu">
+                        {option?.map((option) => {
+                            return (
+                                <div
+                                    key={option.value}
+                                    className={`dropdown-payment-item`}
+                                    onClick={() => onItemClick(option)}
+                                >
+                                    <section className="dropdown-payment-item-bgimage">
+                                        <img src={option.image} alt="bank" />
                                     </section>
-                                    <section className="item-desc-no">
-                                        3345-431-5123
+                                    <section className="dropdown-payment-item-desc">
+                                        Bank {option.bank}
+                                        <section className="item-desc-name">
+                                            a.n Interumah Jaya
+                                        </section>
+                                        <section className="item-desc-no">
+                                            3345-431-5123
+                                        </section>
                                     </section>
-                                </section>
-                                <section className="icondot" >
-                                    <section className={`${isSelected(option) && "selectede"}`} />
-                                </section>
-                            </div>
-                        )
-                    })}
-                </div>
-            )}
+                                    <section className="icondot" >
+                                        <section className={`${isSelected(option) && "selectede"}`} />
+                                    </section>
+                                </div>
+                            )
+                        })}
+                    </div>
+                )
+            }
         </>
     );
 };

@@ -147,12 +147,32 @@
     margin-bottom: 1vw;
 }
 
+.userPayment-uploadImage {
+    width: 100%;
+}
+
 .userPayment-buttonUpload {
-    width: 40%;
+    background: #101B94;
+    padding: 0.6vw 2vw;
+    border-radius: 0.6vw;
+    color: #ffffff;
+    font-size: 0.93vw;
+    font-weight: 700;
+    cursor: pointer;
 }
 
 .icon-cloudUpload {
     margin-right: 0.6vw;
+}
+
+.userPayment-previewImage {
+    width: 40%;
+    overflow: hidden;
+    margin-top: 2vw;
+}
+
+.userPayment-previewImage img {
+    width: 100%;
 }
 
 .modalSuccessfullPayment-title {
@@ -173,4 +193,8 @@
 .modalSuccessfullPayment-btn {
     width: 69%;
     margin: 0 auto;
+}
+
+.coba {
+    display: none;
 }

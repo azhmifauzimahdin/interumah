@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { IlustrationOk } from "../../../../assets"
 import { imgClassic1, imgProfile1 } from "../../../../assets/dummy"
@@ -27,6 +27,33 @@ const UserPayment: React.FC = () => {
         { value: "bca", bank: "BCA", image: "https://i.pinimg.com/originals/0d/a8/41/0da841a2721acd4740f5b5d7d049c0fb.png" },
         { value: "bri", bank: "BRI", image: "https://i2.wp.com/febi.uinsaid.ac.id/wp-content/uploads/2020/11/Logo-BRI-Bank-Rakyat-Indonesia-PNG-Terbaru.png?fit=1650%2C1408&ssl=1" },
     ]
+
+    //------ Image Preview -------
+    const [selectedFile, setSelectedFile] = useState()
+    const [preview, setPreview] = useState<string>('')
+
+    useEffect(() => {
+        if (!selectedFile) {
+            setPreview('')
+            return
+        }
+
+        const objectUrl = URL.createObjectURL(selectedFile)
+        setPreview(objectUrl)
+
+        return () => URL.revokeObjectURL(objectUrl)
+    }, [selectedFile])
+
+    const onSelectFile = (e: any) => {
+        if (!e.target.files || e.target.files.length === 0) {
+            setSelectedFile(undefined)
+            return
+        }
+
+        setSelectedFile(e.target.files[0])
+    }
+
+
     return (
         <>
             <main className="userPayment-container">
@@ -87,8 +114,6 @@ const UserPayment: React.FC = () => {
                         <section>
                             <DropDownPayment
                                 option={options}
-                                imageDefault="https://cdn-2.tstatic.net/bangka/foto/bank/images/logo-bni.jpg"
-                                bankDefault="BNI"
                             />
                         </section>
                     </article>
@@ -97,8 +122,14 @@ const UserPayment: React.FC = () => {
                         <section className="userPayment-desc" >
                             Setelah melakukan transfer, Silahkan unggah bukti transfer untuk melanjutkan proses pembayaran
                         </section>
-                        <section className="userPayment-buttonUpload">
-                            <Button size="sm"><IconCloudUpload className="icon-cloudUpload" />Unggah Bukti Transfer</Button>
+                        <section className="userPayment-uploadImage">
+                            <label className="userPayment-buttonUpload">
+                                <IconCloudUpload className="icon-cloudUpload" />Unggah Bukti Transfer
+                                <input type='file' onChange={onSelectFile} className="coba" name="image" accept="image/*" />
+                            </label>
+                            <section className="userPayment-previewImage">
+                                {selectedFile && <img src={preview} alt="preview" />}
+                            </section>
                         </section>
                     </article>
                 </article>
