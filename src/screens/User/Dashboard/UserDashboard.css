@@ -26,7 +26,7 @@
 }
 
 .userDashboard-mainTwo-articleOne .referensiRuangan {
-    width: 54%;
+    width: 50%;
 }
 
 .userDashboard-mainTwo-articleOne .referensiRuangan .header {
@@ -40,13 +40,26 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 }
 
-.userDashboard-mainTwo-articleOne .referensiRuangan .boxIconReferensi .iconReferensi {
+.userDashboard-mainTwo-articleOne .referensiRuangan .boxIconReferensi::-webkit-scrollbar {
+    height: 0px;
+}
+
+.iconReferensi:nth-child(1) {
+    margin-left: 0;
+}
+
+.iconReferensi {
     text-align: center;
-    width: 25%;
+    margin: 0 1.2vw;
     font-size: 1.14vw;
+    cursor: pointer;
+    white-space: nowrap;
     font-weight: 400;
 }
 
@@ -97,18 +110,24 @@
     height: 0px;
 }
 
+.userDashboard-mainTwo-articleOne .daftarDesainer .boxIconDesainer .iconDesainer:hover {
+    transform: scale(1.05);
+}
+
 .userDashboard-mainTwo-articleOne .daftarDesainer .boxIconDesainer .iconDesainer {
     font-size: 1.14vw;
     font-weight: 400;
     flex-shrink: 0;
     margin: 1vh 1vw;
     width: 7.4vw;
+    cursor: pointer;
     height: 16.4vh;
     background: gray;
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     overflow: hidden;
     position: relative;
+    transition: all 0.3s ease;
 }
 
 .userDashboard-mainTwo-articleOne .daftarDesainer .boxIconDesainer .iconDesainer:nth-child(1) {
@@ -135,6 +154,7 @@
     display: flex;
     align-items: flex-end;
     background: linear-gradient(1.84deg, rgba(0, 0, 0, 0.8) 33.77%, rgba(255, 255, 255, 0) 91.97%);
+    transition: all 0.3s ease;
 }
 
 .userDashboard-mainTwo-articleOne .daftarDesainer .boxIconDesainer .content {

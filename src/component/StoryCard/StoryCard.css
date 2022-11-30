@@ -1,6 +1,12 @@
 .storyCard {
     width: 100%;
     text-align: start;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.storyCard:hover {
+    transform: scale(1.05);
 }
 
 .storyCard-imgStory {

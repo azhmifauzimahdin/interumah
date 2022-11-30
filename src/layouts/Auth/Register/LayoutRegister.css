@@ -7,6 +7,7 @@
     top: 0;
     background: #ffffff;
     display: flex;
+    z-index: 1;
     height: 11vh;
     width: 100%;
     align-items: center;

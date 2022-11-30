@@ -6,6 +6,11 @@
     border-radius: 0.93vw;
     text-align: start;
     padding-bottom: 1.38vh;
+    transition: all 0.3s ease;
+}
+
+.productCard:hover {
+    transform: scale(1.05);
 }
 
 .productCard-imgProduct {

@@ -66,6 +66,26 @@ const UserDashboard: React.FC = () => {
                                 <section className="icon"><IconBathroom /></section>
                                 <section className="title">Kamar Mandi</section>
                             </section>
+                            <section className="iconReferensi">
+                                <section className="icon"><IconBathroom /></section>
+                                <section className="title">Kamar Mandi</section>
+                            </section>
+                            <section className="iconReferensi">
+                                <section className="icon"><IconBathroom /></section>
+                                <section className="title">Kamar Mandi</section>
+                            </section>
+                            <section className="iconReferensi">
+                                <section className="icon"><IconBathroom /></section>
+                                <section className="title">Kamar Mandi</section>
+                            </section>
+                            <section className="iconReferensi">
+                                <section className="icon"><IconBathroom /></section>
+                                <section className="title">Kamar Mandi</section>
+                            </section>
+                            <section className="iconReferensi">
+                                <section className="icon"><IconBathroom /></section>
+                                <section className="title">Kamar Mandi</section>
+                            </section>
                         </section>
                     </section>
                     <section className="daftarDesainer">
