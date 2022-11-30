@@ -1,9 +1,17 @@
-.start-size-md {
+.star-size-md {
     width: 1vw;
 }
 
-.start-size-lg {
+.star-size-lg {
     width: 1.6vw;
+}
+
+.star-color-yellow {
+    fill: #FDD848;
+}
+
+.star-color-white {
+    fill: #ffffff;
 }
 
 @media screen and (max-width: 920px) {

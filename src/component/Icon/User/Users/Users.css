@@ -1,0 +1,9 @@
+.users {
+    width: 1.8vw;
+}
+
+@media screen and (max-width: 920px) {
+    .users {
+        width: 2vw;
+    }
+}

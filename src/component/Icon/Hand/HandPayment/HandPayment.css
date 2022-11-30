@@ -1,0 +1,9 @@
+.handPayment {
+    width: 1.8vw;
+}
+
+@media screen and (max-width: 920px) {
+    .handPayment {
+        width: 2vw;
+    }
+}

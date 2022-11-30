@@ -6,7 +6,7 @@ export interface ButtonProps {
     onClick?: React.MouseEventHandler<HTMLButtonElement>
     button?: 'btn' | 'btnInput' | 'btnSearch' | 'btnProduct'
     fontSize?: 'sm' | 'md' | 'lg'
-    type?: 'primary' | 'secondary' | 'colorfull' | 'gray' | 'estimate'
+    type?: 'primary' | 'secondary' | 'colorfull' | 'gray' | 'estimate' | 'green'
     size?: 'sm' | 'md' | 'lg'
     fontWeight?: 'normal' | 'bold'
     className?: string

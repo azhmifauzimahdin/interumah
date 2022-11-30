@@ -2,26 +2,11 @@ import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { IlustrationAtmMachine } from "../../../../assets"
 import { imgDetailDesain1, imgProfile1 } from "../../../../assets/dummy"
-import { Button, ModalBlank, ReviewCard } from "../../../../component"
+import { Button, ModalBlank, ReviewBox } from "../../../../component"
 import { IconChat, IconLocation, IconProfile, IconStart } from "../../../../component/Icon"
 import "./DetailDesain.css"
 
 const UserDetailDesain: React.FC = () => {
-    //------ Data Review ------
-    const dataReview = [
-        {
-            image: imgProfile1,
-            name: "User351",
-            date: "22/05/2022",
-            review: "Desain sangat sesuai dengan gambar, hasilnya memuaskan, meskipun agak sedikit mahal tapi hasil tidak menghianati."
-        },
-        {
-            image: imgProfile1,
-            name: "User351",
-            date: "22/05/2022",
-            review: "Desain sangat sesuai dengan gambar, hasilnya memuaskan, meskipun agak sedikit mahal tapi hasil tidak menghianati."
-        },
-    ]
     //------ Modal Confirm Payment-------
     const navigate = useNavigate()
     const [showModal, setShowModal] = useState<boolean>(false)
@@ -82,27 +67,8 @@ const UserDetailDesain: React.FC = () => {
                         <Button>Kunjungi</Button>
                     </section>
                 </article>
-                <article className="userDetailDesain-box">
-                    <header className="userDetailDesain-box-header">Ulasan Customer</header>
-                    <section className="userDetailDesain-box-btnreview">
-                        <section className="userDetailDesain-box-review">
-                            <section className="text-review">4.9 (5 Ulasan) </section>
-                            <IconStart size="lg" />
-                            <IconStart size="lg" />
-                            <IconStart size="lg" />
-                            <IconStart size="lg" />
-                            <IconStart size="lg" />
-                        </section>
-                        <section className="userDetailDesain-box-btn">
-                            <button className="btn-review">Semua</button>
-                            <button className="btn-review">Bintang 5 (2)</button>
-                            <button className="btn-review">Bintang 4 (2)</button>
-                            <button className="btn-review">Bintang 3 (1)</button>
-                            <button className="btn-review">Bintang 2 (0)</button>
-                            <button className="btn-review">Bintang 1 (0)</button>
-                        </section>
-                    </section>
-                    <ReviewCard data={dataReview} />
+                <article className="userDetailDesain-boxReview">
+                    <ReviewBox />
                 </article>
             </main>
             <ModalBlank

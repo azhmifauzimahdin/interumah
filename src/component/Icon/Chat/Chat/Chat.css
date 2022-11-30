@@ -1,6 +1,17 @@
-.chat {
+.chat-size-sm {
+    width: 1.4vw;
+}
+
+.chat-size-md {
     width: 2vw;
+}
+
+.chat-color-blue {
     fill: #101B94;
+}
+
+.chat-color-white {
+    fill: #ffffff;
 }
 
 @media screen and (max-width: 920px) {

@@ -1,7 +1,7 @@
 .btn {
     width: 100%;
     border: none;
-    border-radius: 1vw;
+    border-radius: 0.8vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,6 +106,15 @@
     border-radius: 2vw;
     color: #ffffff;
     background: #101B94;
+}
+
+.btn-green {
+    background: #08FD21;
+    color: #ffffff;
+}
+
+.btn-green:hover {
+    background: #48B954;
 }
 
 .btn-font-sm {

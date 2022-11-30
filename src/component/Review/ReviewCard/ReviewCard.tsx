@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
-import { imgClassic1, imgClassic2, imgClassic3 } from "../../assets/dummy"
-import { IconProfile, IconStart } from "../Icon"
+import { imgClassic1, imgClassic2, imgClassic3 } from "../../../assets/dummy"
+import { IconProfile, IconStart } from "../../Icon"
 import "./ReviewCard.css"
 
 interface ReviewCardProps<T = any> {

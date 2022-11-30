@@ -1,0 +1,144 @@
+.userDesainer-container {
+    padding: 7.31vh 12.58vw;
+}
+
+.userDesainer-boxOne {
+    margin: 0 1vw;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    background: linear-gradient(180deg, #101B94 0%, #060606 100%);
+    border-radius: 2vw 2vw 0 0;
+    padding: 2.6vw 2.6vw;
+}
+
+.userDesainer-profile {
+    width: 8vw;
+    height: 8vw;
+    border-radius: 1.8vw;
+    margin: 0;
+    overflow: hidden;
+    background: #EBEBEB;
+}
+
+.userDesainer-profile img {
+    width: 100%;
+}
+
+.userDesainer-boxDetail {
+    width: 30%;
+    font-size: 1.25vw;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.userDesainer-detail {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.3vw;
+}
+
+.detail-text {
+    margin-left: 1vw;
+}
+
+.userDesainer-btn-chat {
+    width: 12%;
+}
+
+.userDesainer-boxTwo {
+    margin: 0 1vw;
+    display: flex;
+    align-items: center;
+    overflow: auto;
+}
+
+.userDesainer-menuDetail {
+    font-size: 1.25vw;
+    font-weight: 700;
+    padding: 0 2vw;
+    display: flex;
+    align-items: center;
+    height: 4vw;
+    cursor: pointer;
+    border-top: 0.2vw solid #101B94;
+    border-bottom: 0.2vw solid #101B94;
+}
+
+.userDesainer-menuDetail:nth-child(1) {
+    border-left: 0.2vw solid #101B94;
+}
+
+.userDesainer-menuDetail:hover {
+    margin: 0;
+    background: #101B94;
+    color: #ffffff;
+}
+
+.userDesainer-boxTwoAdd {
+    flex: 1;
+    height: 4vw;
+    border: 0.2vw solid #101B94;
+    border-left: none;
+}
+
+.userDesainer-poster {
+    margin: 1.6vw 1vw 2vw;
+    height: 14vw;
+    overflow: hidden;
+    background: #ebebeb;
+    position: relative;
+}
+
+.userDesainer-poster img {
+    width: 100%;
+}
+
+.userDesainer-poster-text {
+    font-size: 4.4vw;
+    font-weight: 700;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    font-family: 'Script MT Bold';
+    justify-content: center;
+    position: absolute;
+    color: #15DBB7;
+    top: 0;
+}
+
+.userDesainer-boxThree {
+    border: 0.2vw solid #101B94;
+    padding: 2vw;
+    padding-bottom: 0;
+    border-radius: 1.4vw;
+    margin: 0 1vw 2vw;
+    margin-bottom: 2vw;
+}
+
+.userDesainer-title-about {
+    font-size: 1.87vw;
+    font-weight: 700;
+    margin-bottom: 1vw;
+}
+
+.userDesainer-desc-about {
+    width: 60%;
+    padding-left: 2vw;
+    font-size: 1.45vw;
+    font-weight: 400;
+    margin-bottom: 2vw;
+}
+
+.userDesainer-boxDesain {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2vw;
+}
+
+.userDesainer-reviewBox {
+    margin: 0 1vw;
+}
