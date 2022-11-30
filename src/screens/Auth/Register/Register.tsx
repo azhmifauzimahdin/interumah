@@ -98,7 +98,7 @@ const Register: React.FC = () => {
                             <ErrorMessage>{errorMessageEmail}</ErrorMessage>
                         ) : null}
                     </section>
-                    <section className="input-group">
+                    <section className="input-group-register">
                         <Input type={changePassword1 ? "password" : "text"} name="password" inputValid={classNamePassword} placeholder="Masukan Password Anda" disabled={sending} onFocus={handleOnFocusPassword} onBlur={handleOnBlurPassword} onKeyUp={handleKeyUpPassword} />
                         <div className="input-group-prepend">
                             <span className="input-group-text" onClick={() => {
@@ -119,7 +119,7 @@ const Register: React.FC = () => {
                                 minCharacterFlag={checks.minCharacterCheck ? "validStrength" : "invalidStrength"}
                             /> : null}
                     </section>
-                    <section className="input-group">
+                    <section className="input-group-register">
                         <Input type={changePassword2 ? "password" : "text"} name="confirmPassword" inputValid={classNamePassword} placeholder="Konfirmasi Ulang Password" disabled={sending} />
                         <div className="input-group-prepend">
                             <span className="input-group-text" onClick={() => {

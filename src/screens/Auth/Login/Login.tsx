@@ -59,7 +59,7 @@ const Login: React.FC = () => {
                         <ErrorMessage>{errorMessageEmail}</ErrorMessage>
                     ) : null}
                 </section>
-                <section className="input-group">
+                <section className="input-group-login">
                     <Input type={changePassword ? "password" : "text"} name="password" inputValid={classNamePassword} placeholder="Masukan Password Anda" disabled={sending} />
                     <div className="input-group-prepend">
                         <span className="input-group-text" onClick={() => {

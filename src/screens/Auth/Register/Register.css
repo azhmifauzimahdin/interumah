@@ -27,6 +27,12 @@
     vertical-align: middle;
 }
 
+.input-group-register {
+    width: 100%;
+    position: relative;
+    margin-bottom: 3.3vh;
+}
+
 /* Modal */
 .modalRegisterSuccess-title {
     font-size: 1.45vw;

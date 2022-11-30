@@ -3,21 +3,23 @@
 }
 
 .landingPage-navbar {
+    position: fixed;
+    top: 0;
     background: #ffffff;
     display: flex;
-    height: 14vh;
+    height: 11vh;
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    padding: 0.4vh 7vw 0 2.7vw;
+    padding: 0 6vw 0 4vw;
     flex-wrap: wrap;
     box-sizing: border-box;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
 }
 
 .landingPage-navbar .logo {
     width: 15vw;
-    height: 7vh;
-    margin-bottom: 4vh;
+    margin: 0;
 }
 
 .landingPage-navbar .logo img {
@@ -25,6 +27,7 @@
 }
 
 .landingPage-navbar ul {
+    margin: 0;
     align-items: center;
     display: flex;
     flex-wrap: wrap;
@@ -54,6 +57,7 @@
 }
 
 .landingPage-container {
+    margin-top: 11vh;
     width: 100%;
 }
 
