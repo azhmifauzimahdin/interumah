@@ -19,3 +19,4 @@ export { default as DropDownPayment } from "./DropDown/DropDownPayment/DropDownP
 export { default as OrderCard } from "./OrderCard/OrderCard"
 export { default as ProgressBar } from "./ProgressBar/ProgressBar"
 export { default as ReviewBox } from "./Review/ReviewBox/ReviewBox"
+export { default as NotificationCard } from "./Notification/NofiticationCard/NotificationCard"

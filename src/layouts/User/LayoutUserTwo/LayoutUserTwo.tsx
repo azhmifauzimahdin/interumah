@@ -2,13 +2,20 @@ import React, { useEffect, useState } from "react"
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom"
 import { ImageBackgoundEstimate, Logo, LogoFooter } from "../../../assets"
 import { imgProfile1 } from "../../../assets/dummy"
-import { Button, Estimate, EstimateList, ModalEstimate, NewEstimate, ProfileHover } from "../../../component"
+import { Button, Estimate, EstimateList, ModalEstimate, NewEstimate, NotificationCard, ProfileHover } from "../../../component"
 import { IconAppStore, IconBar, IconCalculator, IconChatNav, IconFacebook, IconFavorite, IconInstagram, IconNotification, IconPlayStore, IconProfile, IconTiktok, IconYoutube } from "../../../component/Icon"
 import "./LayoutUserTwo.css"
 
 const LayoutUserOne: React.FC = () => {
     const navigate = useNavigate()
     const token = localStorage.getItem("token")
+
+    //------ Show Notification -------
+    const [showNotification, setShowNotification] = useState<boolean>(false)
+
+    const Notification = () => {
+        setShowNotification(prevState => !prevState)
+    }
 
     //------ Profile Hover -------
     const menuProfile = ['Akun Saya', 'DesainKu', 'Logout']
@@ -89,12 +96,13 @@ const LayoutUserOne: React.FC = () => {
                     </section>
                     <ul>
                         <li><Link to={'/favorite'}><IconFavorite /></Link></li>
-                        <li><IconNotification /></li>
+                        <li onClick={Notification}><IconNotification /></li>
                         <li><Link to={'/message'}><IconChatNav number={2} /></Link></li>
                         <li><div className="verticalline"></div></li>
                         <li onClick={profileHover}><IconProfile image={imgProfile1} /></li>
                     </ul>
                     <ProfileHover data={menuProfile} visible={showProfileHover} onClose={profileHover} />
+                    <NotificationCard visible={showNotification} onClose={Notification} />
                 </section>
             </nav>
             <main className="user-container">

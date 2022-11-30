@@ -1,0 +1,55 @@
+.notification-box {
+    padding: 1vw;
+    display: flex;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+
+.active {
+    background: #B8D8FE;
+}
+
+.active:hover {
+    background: #D3D5D7
+}
+
+.notification-boxImage {
+    margin: 0;
+    width: 4vw;
+    height: 4vw;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background: #101B94;
+    color: #ffffff;
+    font-size: 0.62vw;
+    font-weight: 400;
+}
+
+.notification-desc {
+    flex: 1;
+    font-size: 0.83vw;
+    font-weight: 400;
+    padding: 0 1vw;
+}
+
+.notification-desc-title {
+    margin-bottom: 0.4vw;
+}
+
+.notification-desc-content {
+    color: #797979;
+    margin-bottom: 0.4vw;
+}
+
+.notification-desc-date {
+    display: flex;
+    align-items: center;
+    font-size: 0.72vw;
+    font-weight: 400;
+    color: #797979;
+}
+
+.iconClock {
+    margin-right: 0.2vw;
+}

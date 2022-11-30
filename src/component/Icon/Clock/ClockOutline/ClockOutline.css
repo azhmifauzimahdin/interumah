@@ -1,0 +1,9 @@
+.clockOutline {
+    width: 0.8vw;
+}
+
+@media screen and (max-width: 920px) {
+    .clockOutline {
+        width: 2vw;
+    }
+}
