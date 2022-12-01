@@ -25,7 +25,7 @@ const Router: React.FC = () => {
                     <Route path="/akunsaya" element={<UserProfile />} />
                     <Route path="/change_password" element={<UserChangePassword />} />
                     <Route path="/detail_desain/" element={<UserDetailDesain />} />
-                    <Route path="/desainku" element={<UserOrder />} />
+                    <Route path="/pesanan" element={<UserOrder />} />
                     <Route path="/desainer" element={<UserDesainer />} />
                 </Route>
                 <Route element={<LayoutUserTwo />} >

@@ -18,7 +18,7 @@ const UserPayment: React.FC = () => {
         e.stopPropagation()
     }
     const navigatePayment = () => {
-        navigate('/payment')
+        navigate('/desainku')
     }
 
     //------ Option Dropdown ------
