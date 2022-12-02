@@ -1,0 +1,10 @@
+.database {
+    width: 2.5vw;
+    fill: #000;
+}
+
+@media screen and (max-width: 920px) {
+    .database {
+        width: 2vw;
+    }
+}

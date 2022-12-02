@@ -1,0 +1,9 @@
+.menu {
+    width: 1.8vw;
+}
+
+@media screen and (max-width: 920px) {
+    .menu {
+        width: 2vw;
+    }
+}

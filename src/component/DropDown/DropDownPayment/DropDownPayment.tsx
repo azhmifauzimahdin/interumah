@@ -60,7 +60,7 @@ const Dropdown: React.FC<DropDownPaymentProps> = props => {
                 <div className="dropdown-payment-input" onClick={handleInputClick}>
                     {selectedValue ?
                         <>
-                            <section className="dropdown-payment-item-bgimage" >
+                            <section className="dropdown-payment-item-bgimage">
                                 <img src={getImage()} alt="bank" />
                             </section>
                             <section className="dropdown-payment-item-desc">
@@ -72,7 +72,7 @@ const Dropdown: React.FC<DropDownPaymentProps> = props => {
                                     3345-431-5123
                                 </section>
                             </section>
-                            <div className="dropdown-payment-tool">
+                            <div className="dropdown-payment-tool" style={{ transform: showMenu ? "rotateX(180deg)" : "rotateX(0)" }}>
                                 <IconDrop />
                             </div>
                         </>
@@ -81,7 +81,7 @@ const Dropdown: React.FC<DropDownPaymentProps> = props => {
                             <section className="dropdown-payment-item-desc">
                                 Pilih Metode Pembayaran
                             </section>
-                            <div className="dropdown-payment-tool">
+                            <div className="dropdown-payment-tool" style={{ transform: showMenu ? "rotateX(180deg)" : "rotateX(0)" }}>
                                 <IconDrop />
                             </div>
                         </>

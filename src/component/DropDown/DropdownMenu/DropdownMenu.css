@@ -1,0 +1,120 @@
+.dropdownMenu-maincourse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    border-radius: 0.4vw;
+    padding: 0.5vw 0.8vw 0.5vw 0.4vw;
+    margin-bottom: 0.4vw;
+    gap: 0.6vw;
+    text-decoration: none;
+    min-height: 2.6vw;
+    cursor: pointer;
+    color: #000;
+}
+
+.activeDrop {
+    background: #101B94;
+    color: #fff;
+}
+
+.activeDrop>.dropdownMenu-maincourse-menu .dropdownMenu-maincourse-iconmenu .IconMenu,
+.activeDrop>.dropdownMenu-maincourse-tool .iconDownArrow {
+    fill: #fff;
+}
+
+.dropdownMenu-maincourse:hover {
+    background: #101B94;
+    color: #fff;
+}
+
+.dropdownMenu-maincourse:hover>.dropdownMenu-maincourse-menu .dropdownMenu-maincourse-iconmenu .IconMenu,
+.dropdownMenu-maincourse:hover>.dropdownMenu-maincourse-tool .iconDownArrow {
+    fill: #fff;
+}
+
+
+.dropdownMenu-maincourse-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    gap: 0.6vw;
+}
+
+.activeMenu {
+    background: #101B94;
+    color: #ffffff;
+}
+
+.dropdownMenu-maincourse-iconmenu {
+    min-width: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 3vw;
+}
+
+.dropdownMenu-maincourse-name {
+    font-size: 1.25vw;
+    font-weight: 700;
+    height: fit-content;
+}
+
+.dropdownMenu-maincourse-tool {
+    transition: all 0.5s ease;
+}
+
+.dropdownMenu-listoption {
+    width: 96%;
+    margin-left: 4%;
+    box-sizing: border-box;
+    transition: all 1s ease;
+}
+
+.dropdownMenu-option {
+    padding: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6vw;
+    padding: 0.8vw 1vw;
+    margin-bottom: 0.6vw;
+    border-radius: 0.4vw;
+}
+
+.dropdownMenu-option:hover {
+    background: #B7B7B7;
+}
+
+.activeOption {
+    background: #B7B7B7;
+}
+
+.activeOption>.dropdownMenu-point .fillPoint {
+    background: #101B94;
+}
+
+.dropdownMenu-point {
+    width: 1.2vw;
+    height: 1.2vw;
+    justify-content: center;
+    padding: 0.14vw;
+    border: 0.14vw solid #101B94;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.fillPoint {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.dropdownMenu-name {
+    font-size: 1.25vw;
+    font-weight: 700;
+    color: #000;
+}

@@ -1,5 +1,17 @@
-.downArrow {
+.downArrow-size-sm {
+    width: 1.2vw;
+}
+
+.downArrow-size-md {
     width: 1.8vw;
+}
+
+.downArrow-color-gray {
+    fill: #B7B7B7;
+}
+
+.downArrow-color-black {
+    fill: #000;
 }
 
 @media screen and (max-width: 920px) {

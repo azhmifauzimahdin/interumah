@@ -1,0 +1,10 @@
+.print {
+    width: 2.6vw;
+    fill: #000;
+}
+
+@media screen and (max-width: 920px) {
+    .print {
+        width: 2vw;
+    }
+}
