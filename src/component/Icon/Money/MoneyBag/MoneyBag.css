@@ -1,0 +1,9 @@
+.moneyBag {
+    width: 2.8vw;
+}
+
+@media screen and (max-width: 920px) {
+    .moneyBag {
+        width: 2vw;
+    }
+}

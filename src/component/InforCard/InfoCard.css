@@ -1,0 +1,55 @@
+.infoCard-box {
+    position: relative;
+    width: 17%;
+    padding: 1vw 1.4vw;
+    box-sizing: border-box;
+    height: 10vw;
+    color: #fff;
+    overflow: hidden;
+    margin-right: 2vw;
+    border-radius: 1.4vw;
+    background: linear-gradient(180deg, #101B94 0%, #060606 100%);
+    transition: all 0.4s ease;
+
+}
+
+.infoCard-box:hover {
+    transform: scale(1.1);
+}
+
+.infoCard-box:hover>.infoCard-icon {
+    transform: translate(-10%, 10%);
+    padding: 0;
+}
+
+.infoCard-desc {
+    position: absolute;
+    bottom: 1vw;
+}
+
+.infoCard-amount {
+    font-size: 1.45vw;
+    font-weight: 700;
+    margin-bottom: 0.2vw;
+}
+
+.infoCard-label {
+    font-size: 1.25vw;
+    font-weight: 700;
+}
+
+.infoCard-icon {
+    position: absolute;
+    top: -2vw;
+    right: -2.2vw;
+    display: flex;
+    padding-top: 1.4vw;
+    padding-right: 1.4vw;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    width: 7vw;
+    height: 7vw;
+    border-radius: 50%;
+    transition: all 0.4s ease;
+}

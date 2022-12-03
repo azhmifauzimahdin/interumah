@@ -97,7 +97,6 @@ const LayoutAdmin: React.FC = () => {
                     <nav className="layoutAdmin-header"></nav>
                     <article className="layoutAdmin-article">
                         <Outlet />
-                        aa
                     </article>
                 </main>
             </main>

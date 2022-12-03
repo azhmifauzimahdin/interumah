@@ -1,0 +1,9 @@
+.userFriends {
+    width: 2.8vw;
+}
+
+@media screen and (max-width: 920px) {
+    .userFriends {
+        width: 2vw;
+    }
+}

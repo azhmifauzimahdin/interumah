@@ -39,7 +39,7 @@ const DropdownMenu: React.FC<DropdownProps> = props => {
                     : null}
             </NavLink>
             {showOption && (
-                <section className="dropdownMenu-listoption" style={{ height: showOption ? "100%" : "0px", display: isOpen ? "block" : "none" }}>
+                <section className="dropdownMenu-listoption">
                     {option ? option.map((data, index) => {
                         return (
                             <NavLink to={data.path} key={index} className={({ isActive }) => isActive ? 'dropdownMenu-option activeOption' : 'dropdownMenu-option'} >
@@ -47,8 +47,8 @@ const DropdownMenu: React.FC<DropdownProps> = props => {
                                 <section className="dropdownMenu-name">{data.name}</section>
                             </NavLink>
                         )
-                    })
-                        : null}
+                    }) : null
+                    }
                 </section>
             )}
         </>

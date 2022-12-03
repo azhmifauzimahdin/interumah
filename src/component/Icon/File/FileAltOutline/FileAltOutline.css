@@ -1,0 +1,9 @@
+.fileAltOutline {
+    width: 2.8vw;
+}
+
+@media screen and (max-width: 920px) {
+    .fileAltOutline {
+        width: 2vw;
+    }
+}

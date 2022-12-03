@@ -1,0 +1,9 @@
+.penNib {
+    width: 2.8vw;
+}
+
+@media screen and (max-width: 920px) {
+    .penNib {
+        width: 2vw;
+    }
+}

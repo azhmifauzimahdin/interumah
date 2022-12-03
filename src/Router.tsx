@@ -7,7 +7,7 @@ import {
 import { LayoutAdmin, LayoutLandingPage, LayoutUserOne, LayoutUserTwo } from "./layouts"
 import { LayoutForgetPassword, LayoutLogin, LayoutRegister } from "./layouts/Auth"
 import { AdminLaporan, AdminPengaturan } from "./screens/Admin"
-import AdminDashboard from "./screens/Admin/AdminDashboar"
+import AdminDashboard from "./screens/Admin/Dashboard/AdminDashboar"
 import { ChangePassword, FailedPasswordChange, Login, Logout, PasswordCheckEmail, PasswordInputEmail, Register, SuccessPasswordChange } from "./screens/Auth"
 import LandingPage from "./screens/LandingPage/LandingPage"
 import { UserAddReview, UserChangePassword, UserDashboard, UserDesainer, UserDetailDesain, UserFavorite, UserMessage, UserOrder, UserPayment, UserProfile, UserSearch } from "./screens/User"
