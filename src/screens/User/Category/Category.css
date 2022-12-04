@@ -1,0 +1,37 @@
+.userCategory-container {
+    padding: 3.6vw 14.58vw 0;
+}
+
+.userCategory-rekomendation-wrapper {
+    border: 0.1vw solid #797979;
+    border-radius: 1vw;
+    margin-top: 3vw;
+    padding: 2vw 1.4vw;
+    margin-bottom: 3vw;
+}
+
+.userCategory-rekomendation-title {
+    font-size: 2.08vw;
+    font-weight: 700;
+    margin-bottom: 1vw;
+    padding: 0 0.6vw;
+}
+
+.userCategory-rekomendation-card {
+    display: flex;
+    overflow-x: scroll;
+}
+
+.userCategory-rekomendation-card::-webkit-scrollbar {
+    height: 0;
+}
+
+.userCategory-desain-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.userCategory-containerDesainer {
+    padding: 0 13.4vw;
+}

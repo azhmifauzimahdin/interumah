@@ -10,7 +10,7 @@ import { AdminLaporan, AdminPengaturan } from "./screens/Admin"
 import AdminDashboard from "./screens/Admin/Dashboard/AdminDashboar"
 import { ChangePassword, FailedPasswordChange, Login, Logout, PasswordCheckEmail, PasswordInputEmail, Register, SuccessPasswordChange } from "./screens/Auth"
 import LandingPage from "./screens/LandingPage/LandingPage"
-import { UserAddReview, UserChangePassword, UserDashboard, UserDesainer, UserDetailDesain, UserFavorite, UserMessage, UserOrder, UserPayment, UserProfile, UserSearch } from "./screens/User"
+import { UserAddReview, UserCategory, UserChangePassword, UserDashboard, UserDesainer, UserDetailDesain, UserFavorite, UserMessage, UserOrder, UserPayment, UserProfile, UserSearch } from "./screens/User"
 
 const Router: React.FC = () => {
     return (
@@ -45,6 +45,7 @@ const Router: React.FC = () => {
                     <Route path="/detail_desain/" element={<UserDetailDesain />} />
                     <Route path="/pesanan" element={<UserOrder />} />
                     <Route path="/desainer" element={<UserDesainer />} />
+                    <Route path="/kategori" element={<UserCategory />} />
                 </Route>
                 <Route element={<LayoutUserTwo />} >
                     <Route path="/pembayaran/" element={<UserPayment />} />

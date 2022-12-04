@@ -1,0 +1,44 @@
+.posterCategory-poster-wrapper {
+    position: relative;
+    margin: 0;
+    padding: 2vw 2.6vw;
+    box-sizing: border-box;
+    width: 100%;
+    height: 23vw;
+    border-radius: 1.2vw;
+    overflow: hidden;
+    background: linear-gradient(275.82deg, #71FB7F 42.73%, #2135EB 106.74%);
+}
+
+.posterCategory-poster-text {
+    font-size: 2.08vw;
+    width: 40%;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1vw;
+}
+
+.posterCategory-poster-ilustration {
+    width: 26%;
+}
+
+.posterCategory-poster-ilustration img {
+    width: 100%;
+}
+
+.posterCategory-poster-image {
+    background: gray;
+    width: 46%;
+    height: 150%;
+    position: absolute;
+    right: 0;
+    top: -28%;
+    border-radius: 50% 0 0 50%;
+    padding: 9% 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.posterCategory-poster-image img {
+    width: 100%;
+}

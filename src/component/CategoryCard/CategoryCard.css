@@ -1,0 +1,49 @@
+.categoryCard-wrapper {
+    min-width: 12vw;
+    min-height: 9vw;
+    border-radius: 1vw;
+    background: gray;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    margin: 0.6vw;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.categoryCard-wrapper:hover {
+    transform: scale(1.06);
+}
+
+.categoryCard-wrapper img {
+    width: 100%;
+    height: 100%;
+}
+
+.categoryCard-content {
+    background: linear-gradient(359.99deg, #000000 6.14%, rgba(217, 217, 217, 0) 50.17%);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 1vw;
+    box-sizing: border-box;
+}
+
+.categoryCard-content-wrapper {
+    width: 100%;
+}
+
+.categoryCard-content-title {
+    width: 100%;
+    font-size: 0.93vw;
+    font-weight: 700;
+}
+
+.categoryCard-content-company {
+    width: 100%;
+    font-size: 0.83vw;
+    font-weight: 700;
+}

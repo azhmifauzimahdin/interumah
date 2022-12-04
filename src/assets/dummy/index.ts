@@ -1,3 +1,8 @@
+export { default as imgCategory1 } from "./imgCategory1.png"
+export { default as imgCategory2 } from "./imgCategory2.png"
+export { default as imgCategory3 } from "./imgCategory3.png"
+export { default as imgCategory4 } from "./imgCategory4.png"
+export { default as imgCategory5 } from "./imgCategory5.png"
 export { default as imgClassic1 } from "./imgClassic1.png"
 export { default as imgClassic2 } from "./imgClassic2.png"
 export { default as imgClassic3 } from "./imgClassic3.png"

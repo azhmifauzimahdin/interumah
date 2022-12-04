@@ -13,6 +13,7 @@ const UserDashboard: React.FC = () => {
     const [designsData, setDesignData] = useState<Design[]>([])
     const [, setProfile] = useState<Profile>()
 
+    //----- Get Profile -----
     const getProfile = async () => {
         try {
             const resp = await userService.getProfile(1)
@@ -22,6 +23,7 @@ const UserDashboard: React.FC = () => {
         }
     }
 
+    //------ Get All Design ------
     const getAllDesigns = async () => {
         try {
             const response = await DesignService.getAllDesigns()
@@ -29,6 +31,11 @@ const UserDashboard: React.FC = () => {
         } catch (error) {
             console.log('error', error)
         }
+    }
+
+    //---- Handle Category ------
+    const handleCategory = () => {
+        navigate('/kategori')
     }
 
     useEffect(() => {
@@ -50,39 +57,39 @@ const UserDashboard: React.FC = () => {
                     <section className="referensiRuangan">
                         <header className="header">Referensi Ruangan</header>
                         <section className="boxIconReferensi">
-                            <section className="iconReferensi">
+                            <section className="iconReferensi" onClick={handleCategory}>
                                 <section className="icon"><IconVisitorRoom /></section>
                                 <section className="title">Ruang Tamu</section>
                             </section>
-                            <section className="iconReferensi">
+                            <section className="iconReferensi" onClick={handleCategory}>
                                 <section className="icon"><IconWorkspace /></section>
                                 <section className="title">Ruang Kerja</section>
                             </section>
-                            <section className="iconReferensi">
+                            <section className="iconReferensi" onClick={handleCategory}>
                                 <section className="icon"><IconBedroom /></section>
                                 <section className="title">Kamar Tidur</section>
                             </section>
-                            <section className="iconReferensi">
+                            <section className="iconReferensi" onClick={handleCategory}>
                                 <section className="icon"><IconBathroom /></section>
                                 <section className="title">Kamar Mandi</section>
                             </section>
-                            <section className="iconReferensi">
+                            <section className="iconReferensi" onClick={handleCategory}>
                                 <section className="icon"><IconBathroom /></section>
                                 <section className="title">Kamar Mandi</section>
                             </section>
-                            <section className="iconReferensi">
+                            <section className="iconReferensi" onClick={handleCategory}>
                                 <section className="icon"><IconBathroom /></section>
                                 <section className="title">Kamar Mandi</section>
                             </section>
-                            <section className="iconReferensi">
+                            <section className="iconReferensi" onClick={handleCategory}>
                                 <section className="icon"><IconBathroom /></section>
                                 <section className="title">Kamar Mandi</section>
                             </section>
-                            <section className="iconReferensi">
+                            <section className="iconReferensi" onClick={handleCategory}>
                                 <section className="icon"><IconBathroom /></section>
                                 <section className="title">Kamar Mandi</section>
                             </section>
-                            <section className="iconReferensi">
+                            <section className="iconReferensi" onClick={handleCategory}>
                                 <section className="icon"><IconBathroom /></section>
                                 <section className="title">Kamar Mandi</section>
                             </section>

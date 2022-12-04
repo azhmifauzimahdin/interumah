@@ -16,5 +16,6 @@ export { default as IlustrationWujudkan } from "./Ilustration/IlustrationWujudka
 export { default as IlustrationCalculator } from "./Ilustration/IlustrationCalculator.svg"
 export { default as IlustrationFavorite } from "./Ilustration/IlustrationFavorite.svg"
 export { default as IlustrationResume } from "./Ilustration/IlustrationResume.svg"
+export { default as IlustrationDiscusion } from "./Ilustration/IlustrationDiscusion.svg"
 export { default as ImageOne } from "./img/imageOne.svg"
 export { default as ImageBackgoundEstimate } from "./img/backgroundEstimate.svg"

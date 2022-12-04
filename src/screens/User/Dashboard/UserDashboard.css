@@ -4,7 +4,7 @@
 
 .userDashbord-mainOne {
     width: 100%;
-    padding: 7.31vh 14.58vw;
+    padding: 3.6vw 14.58vw;
     box-sizing: border-box;
 }
 
@@ -32,7 +32,7 @@
 .userDashboard-mainTwo-articleOne .referensiRuangan .header {
     font-size: 2.08vw;
     font-weight: 700;
-    margin-bottom: 5.6vh;
+    margin-bottom: 1vw;
 }
 
 .userDashboard-mainTwo-articleOne .referensiRuangan .boxIconReferensi {
@@ -44,6 +44,7 @@
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    padding: 1vw 0.2vw;
 }
 
 .userDashboard-mainTwo-articleOne .referensiRuangan .boxIconReferensi::-webkit-scrollbar {
@@ -61,6 +62,11 @@
     cursor: pointer;
     white-space: nowrap;
     font-weight: 400;
+    transition: transform 0.4s ease-in-out;
+}
+
+.iconReferensi:hover {
+    transform: scale(1.1);
 }
 
 .userDashboard-mainTwo-articleOne .referensiRuangan .boxIconReferensi .iconReferensi .icon {
@@ -80,7 +86,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-bottom: 1.7vh;
+    margin-bottom: 0.6vw;
 }
 
 .userDashboard-mainTwo-articleOne .daftarDesainer .boxheader .header {
@@ -104,6 +110,7 @@
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    padding: 0 0.2vw;
 }
 
 .userDashboard-mainTwo-articleOne .daftarDesainer .boxIconDesainer::-webkit-scrollbar {
@@ -165,7 +172,7 @@
 
 .userDashboard-mainTwo-articleOne .kategori {
     width: 100%;
-    margin-top: 3.3vh;
+    margin-top: 1vw;
 }
 
 .userDashboard-mainTwo-articleOne .kategori ul {
