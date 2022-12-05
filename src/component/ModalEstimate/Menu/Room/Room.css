@@ -1,0 +1,45 @@
+.room {
+    width: 100%;
+}
+
+.room-title {
+    font-size: 0.82vw;
+    font-weight: 400;
+    margin-bottom: 0.6vw;
+}
+
+label {
+    font-size: 0.72vw;
+    font-weight: 700;
+}
+
+.room-radioWrapper {
+    display: flex;
+}
+
+.room-radioWrapper-One {
+    width: 50%;
+}
+
+.room-radioWrapper-Two {
+    flex: 1;
+}
+
+.room-radiobox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.2vw;
+}
+
+.room-select {
+    font-size: 0.72vw;
+    font-weight: 700;
+    width: 90%;
+    margin: 0 5%;
+    box-sizing: border-box;
+}
+
+.room-button {
+    width: 100%;
+    margin-top: 1vw;
+}
