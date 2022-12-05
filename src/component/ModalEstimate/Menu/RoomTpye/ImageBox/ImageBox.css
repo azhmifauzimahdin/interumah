@@ -1,0 +1,32 @@
+.imageBox {
+    min-width: 7vw;
+    height: 7.2vw;
+    margin: 0 1vw 0.4vw 0;
+    border-radius: 0.8vw;
+    overflow: hidden;
+    box-shadow: 2px 4px 12px -1px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.imageBox-img {
+    width: 100%;
+    height: 70%;
+    margin: 0;
+    overflow: hidden;
+    background: mediumaquamarine;
+}
+
+.imageBox-img img {
+    width: 100%;
+}
+
+.imageBox-title {
+    height: 30%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 0.63vw;
+    font-weight: 700;
+    padding: 0.2vw;
+    box-sizing: border-box;
+}
