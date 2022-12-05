@@ -1,0 +1,35 @@
+.roomSpecifications-title {
+    font-size: 0.83vw;
+    font-weight: 700;
+    text-align: center;
+}
+
+.roomSpecifications-label {
+    font-size: 0.72vw;
+    font-weight: 400;
+}
+
+.roomSpecifications-input {
+    width: 100%;
+    box-sizing: border-box;
+    height: 1.8vw;
+    border-radius: 0.6vw;
+    border: 0.1vw solid;
+    font-size: 0.72vw;
+    font-weight: 400;
+    padding: 0 0.6vw;
+}
+
+.roomSpecifications-button {
+    margin-top: 1vw;
+}
+
+input[type=number] {
+    appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+}

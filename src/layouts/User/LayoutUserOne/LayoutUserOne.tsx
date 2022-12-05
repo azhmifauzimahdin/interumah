@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Link, Outlet, useNavigate } from "react-router-dom"
 import { ImageBackgoundEstimate, Logo, LogoFooter } from "../../../assets"
 import { imgProfile1 } from "../../../assets/dummy"
-import { Button, Estimate, EstimateList, EstimateRoomType, Input, ModalEstimate, NewEstimate, NotificationCard, ProfileHover } from "../../../component"
+import { Button, Estimate, EstimateList, EstimateRoomSpecifications, EstimateRoomType, Input, ModalEstimate, NewEstimate, NotificationCard, ProfileHover } from "../../../component"
 import { IconAdd, IconAppStore, IconBar, IconCalculator, IconChatNav, IconFacebook, IconFavorite, IconInstagram, IconNotification, IconPlayStore, IconProfile, IconSearch, IconTiktok, IconYoutube } from "../../../component/Icon"
 import "./LayoutUserOne.css"
 
@@ -78,6 +78,11 @@ const LayoutUserOne: React.FC = () => {
         },
     ]
 
+    const [showMenuEstimate, setShowMenuEstimate] = useState<boolean>(false)
+    const cobaya = () => {
+        setShowMenuEstimate(!showMenuEstimate)
+    }
+
     useEffect(() => {
         if (!token) {
             navigate('/login')
@@ -134,8 +139,11 @@ const LayoutUserOne: React.FC = () => {
                             <article className="articleModal-content" style={{ backgroundImage: `url(${ImageBackgoundEstimate})`, backgroundRepeat: "no-repeat", backgroundPosition: "center", backgroundSize: "8vw" }}>
                                 <Estimate data={dataEstimate} />
                                 <section className="estimate-menu">
-                                    <section className="line-menuEstimate" />
-                                    <EstimateRoomType />
+                                    <section className="line-menuEstimate" onClick={cobaya} />
+                                    {/* <EstimateRoomType /> */}
+                                    {showMenuEstimate ?
+                                        <EstimateRoomSpecifications /> : null
+                                    }
                                 </section>
                             </article>
                         </main>
