@@ -54,3 +54,4 @@ export { default as IconFileAltOutline } from "./File/FileAltOutline/FileAltOutl
 export { default as IconPenNib } from "./PenNib/PenNib"
 export { default as IconMoneyBag } from "./Money/MoneyBag/MoneyBag"
 export { default as IconUserFriends } from "./User/UserFriends/UserFriend"
+export { default as IconAdd } from "./Add/Add"

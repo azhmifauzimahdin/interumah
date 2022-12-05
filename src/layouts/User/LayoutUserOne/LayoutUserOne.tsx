@@ -3,7 +3,7 @@ import { Link, Outlet, useNavigate } from "react-router-dom"
 import { ImageBackgoundEstimate, Logo, LogoFooter } from "../../../assets"
 import { imgProfile1 } from "../../../assets/dummy"
 import { Button, Estimate, EstimateList, Input, ModalEstimate, NewEstimate, NotificationCard, ProfileHover } from "../../../component"
-import { IconAppStore, IconBar, IconCalculator, IconChatNav, IconFacebook, IconFavorite, IconInstagram, IconNotification, IconPlayStore, IconProfile, IconSearch, IconTiktok, IconYoutube } from "../../../component/Icon"
+import { IconAdd, IconAppStore, IconBar, IconCalculator, IconChatNav, IconFacebook, IconFavorite, IconInstagram, IconNotification, IconPlayStore, IconProfile, IconSearch, IconTiktok, IconYoutube } from "../../../component/Icon"
 import "./LayoutUserOne.css"
 
 const LayoutUserOne: React.FC = () => {
@@ -66,7 +66,7 @@ const LayoutUserOne: React.FC = () => {
         {
             id: 3,
             data: "Hitung Estimasi 3"
-        }
+        },
 
     ]
     //------- Content Modal Estimate--------
@@ -123,7 +123,14 @@ const LayoutUserOne: React.FC = () => {
                 <ModalEstimate visible={showModalEstimate} onClose={modalEstimate} onStay={onStayModalEstimate} title="Hitung Estimasi">
                     {!estimateStatus ? (<NewEstimate onStart={onEstimateStatus} />) :
                         <main className="articleModal">
-                            <article className="articleModal-aside"><EstimateList data={dataEstimateList} /></article>
+                            <article className="articleModal-asideBox">
+                                <article className="articleModal-aside">
+                                    <EstimateList data={dataEstimateList} />
+                                </article>
+                                <section className="articleModal-aside-btn">
+                                    <IconAdd />
+                                </section>
+                            </article>
                             <article className="articleModal-content" style={{ backgroundImage: `url(${ImageBackgoundEstimate})`, backgroundRepeat: "no-repeat", backgroundPosition: "center", backgroundSize: "8vw" }}>
                                 <Estimate data={dataEstimate} />
                             </article>

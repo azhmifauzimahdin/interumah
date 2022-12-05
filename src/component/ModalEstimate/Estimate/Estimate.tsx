@@ -25,6 +25,7 @@ const Estimate: React.FC<EstimatePrpos> = props => {
                     )
                 }) : null}
             </article>
+            <article className="estimate-"></article>
         </main>
     )
 }

@@ -1,0 +1,13 @@
+.add {
+    width: 2.6vw;
+    fill: #000;
+    cursor: pointer;
+    background: #fff;
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 920px) {
+    .add {
+        width: 2vw;
+    }
+}
