@@ -82,12 +82,6 @@ const LayoutAdmin: React.FC = () => {
                         <DropDownMenu onClick={checkOpen} isOpen={isOpen} basePath="admin/transaksi" menu="Data Transaksi" icon={<IconShoppingBasket className="IconMenu" />} option={optionDataTransaksi} />
                         <DropDownMenu onClick={checkOpen} isOpen={isOpen} basePath="admin/laporan" menu="Laporan" icon={<IconPrint className="IconMenu" />} option={optionLaporan} />
                         <DropDownMenu onClick={checkOpen} isOpen={isOpen} basePath="admin/pengaturan" menu="Pengaturan" icon={<IconSetting className="IconMenu" />} option={optionSetting} />
-                        {/* {menuItem.length > 0 ? menuItem.map((item, index) => (
-                            <NavLink to={item.path} key={index} className={({ isActive }) => isActive ? 'layoutAdmin-link activeMenu' : 'layoutAdmin-link'}>
-                                <section className="layoutAdmin-iconMenu" style={{ width: isOpen ? "20%" : "100%" }}>{item.icon}</section>
-                                <section className="layoutAdmin-nameMenu" style={{ display: isOpen ? "block" : "none" }}>{item.name}</section>
-                            </NavLink>
-                        )) : null} */}
                     </section>
                     <section className="layoutAdmin-bars" onClick={toggle} >
                         <IconMenu />

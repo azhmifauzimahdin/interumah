@@ -20,10 +20,6 @@
     color: #fff;
 }
 
-.activeDrop>.dropdownMenu-maincourse-menu .dropdownMenu-maincourse-iconmenu {
-    width: 100%;
-}
-
 .activeDrop>.dropdownMenu-maincourse-menu .dropdownMenu-maincourse-iconmenu .IconMenu,
 .activeDrop>.dropdownMenu-maincourse-tool .iconDownArrow {
     fill: #fff;

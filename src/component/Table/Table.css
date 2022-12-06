@@ -1,0 +1,78 @@
+.table-wrapper {
+    width: 100%;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin-bottom: 1.2vw;
+}
+
+.table-searchWrapper {
+    width: 40%;
+}
+
+.btnsearch {
+    padding: 0 0.8vw;
+    margin: 0;
+    height: 5.5vh;
+    border: 0.12vw solid #101B94;
+    box-sizing: border-box;
+    border-left: none;
+    border-radius: 0 0.6vw 0.6vw 0;
+    cursor: pointer;
+}
+
+.inputSearch {
+    flex: 1;
+    border: 0.12vw solid #101B94;
+    border-right: none;
+    border-radius: 0.6vw 0px 0px 0.6vw;
+}
+
+.table-addWrapper {
+    width: fit-content;
+}
+
+.table {
+    width: 100%;
+    border: 2px solid #101B94;
+    border-radius: 1vw;
+    overflow: hidden;
+}
+
+thead tr {
+    background: #1D86FF;
+}
+
+thead tr td {
+    border-bottom: 2px solid #101B94;
+    font-size: 1.66vw;
+    font-weight: 700;
+    color: #fff;
+}
+
+.table-navigation {
+    width: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1vw;
+    padding: 0 0.2vw;
+    border: 2px solid #101B94;
+    border-radius: 1.8vw;
+    overflow: hidden;
+}
+
+.btn-pagination {
+    font-size: 0.72vw;
+    font-weight: 700;
+    border: none;
+    background: none;
+    padding: 0.6vw 0.6vw;
+    cursor: pointer;
+}
+
+.primary {
+    background: #1D86FF;
+}

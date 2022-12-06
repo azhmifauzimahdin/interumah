@@ -23,8 +23,6 @@ const DropdownMenu: React.FC<DropdownProps> = props => {
         setshowOption(!showOption)
     }
 
-    console.log("showOption", showOption)
-
     return (
         <>
             <NavLink to={basePath} onClick={handleInputClick} className={({ isActive }) => isActive ? 'dropdownMenu-maincourse activeDrop' : 'dropdownMenu-maincourse'} style={{ justifyContent: isOpen ? "space-between" : "center" }} >
@@ -42,7 +40,7 @@ const DropdownMenu: React.FC<DropdownProps> = props => {
                 <section className="dropdownMenu-listoption">
                     {option ? option.map((data, index) => {
                         return (
-                            <NavLink to={data.path} key={index} className={({ isActive }) => isActive ? 'dropdownMenu-option activeOption' : 'dropdownMenu-option'} >
+                            <NavLink to={data.path} key={index} className={({ isActive }) => isActive ? 'dropdownMenu-option activeOption' : 'dropdownMenu-option'} style={{ display: isOpen ? "flex" : "none" }} >
                                 <section className="dropdownMenu-point"><section className="fillPoint" /></section>
                                 <section className="dropdownMenu-name">{data.name}</section>
                             </NavLink>

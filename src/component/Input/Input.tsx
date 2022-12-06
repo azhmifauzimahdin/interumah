@@ -12,10 +12,11 @@ export interface InputProps {
     onFocus?: () => void
     onBlur?: () => void
     onKeyUp?: (e: any) => void
+    onChange?: () => void
 }
 
 const Input: React.FC<InputProps> = props => {
-    const { type, name, inputType, placeholder, disabled, onFocus, onBlur, onKeyUp } = props
+    const { type, name, inputType, placeholder, disabled, onFocus, onBlur, onKeyUp, onChange } = props
     const inputValid = props.inputValid || ''
     const size = props.size || 'md'
 

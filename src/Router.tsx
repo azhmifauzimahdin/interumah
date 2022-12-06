@@ -6,7 +6,7 @@ import {
 } from "react-router-dom"
 import { LayoutAdmin, LayoutLandingPage, LayoutUserOne, LayoutUserTwo } from "./layouts"
 import { LayoutForgetPassword, LayoutLogin, LayoutRegister } from "./layouts/Auth"
-import { AdminLaporan, AdminPengaturan } from "./screens/Admin"
+import { AdminLaporan, AdminMasterData, AdminPengaturan } from "./screens/Admin"
 import AdminDashboard from "./screens/Admin/Dashboard/AdminDashboar"
 import { ChangePassword, FailedPasswordChange, Login, Logout, PasswordCheckEmail, PasswordInputEmail, Register, SuccessPasswordChange } from "./screens/Auth"
 import LandingPage from "./screens/LandingPage/LandingPage"
@@ -22,7 +22,7 @@ const Router: React.FC = () => {
                 <Route element={<LayoutAdmin />}>
                     <Route path="/admin/dashboard" element={<AdminDashboard />} />
 
-                    <Route path="/admin/data/admin" element={<AdminDashboard />} />
+                    <Route path="/admin/data/admin" element={<AdminMasterData />} />
                     <Route path="/admin/data/desainer" element={<AdminDashboard />} />
                     <Route path="/admin/data/user" element={<AdminDashboard />} />
                     <Route path="/admin/data/produk" element={<AdminDashboard />} />
