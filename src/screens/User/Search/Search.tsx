@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
-import { Button, DesainerCard } from "../../../component"
+import { useSearchParams } from "react-router-dom"
+import { Button, DesainerCard, ProductCard } from "../../../component"
 import { IconLamp, IconManArtist } from "../../../component/Icon"
 import { CategoryService, DesignService } from "../../../services"
 import { Category } from "../../../types/Category"
@@ -8,8 +9,12 @@ import "./Search.css"
 
 const UserSearch: React.FC = () => {
     const [categoriesData, setCategoriesData] = useState<Category[]>([])
-    const [, setDesignData] = useState<Design[]>([])
+    const [designData, setDesignData] = useState<Design[]>([])
     const [, setSpecificDesignData] = useState<SpecificDesign>()
+
+    //------ Get Keyword ------
+    let [searchParams] = useSearchParams()
+    const keyword = searchParams.get("keyword")
 
     //------ Get All Categories ------
     const getAllCategories = async () => {
@@ -57,7 +62,7 @@ const UserSearch: React.FC = () => {
             rating: 4
         },
         {
-            id: 1,
+            id: 2,
             nama: "PT. Furniture Jaya",
             proyek: 5,
             terjual: 3,
@@ -65,7 +70,7 @@ const UserSearch: React.FC = () => {
             rating: 4
         },
         {
-            id: 1,
+            id: 3,
             nama: "PT. Furniture Jaya",
             proyek: 5,
             terjual: 3,
@@ -73,7 +78,7 @@ const UserSearch: React.FC = () => {
             rating: 4
         },
         {
-            id: 1,
+            id: 4,
             nama: "PT. Furniture Jaya",
             proyek: 5,
             terjual: 3,
@@ -81,6 +86,24 @@ const UserSearch: React.FC = () => {
             rating: 4
         },
     ]
+
+    //------ Menu Data ------
+    const menuData = [
+        {
+            icon: <IconLamp className="iconMenuSearch" />,
+            title: "Produk Desain"
+        },
+        {
+            icon: <IconManArtist className="iconMenuSearch" />,
+            title: "Desainer"
+        }
+    ]
+
+    //------ Content Search ------
+    const [menu, setMenu] = useState<number>(0)
+    const cek = (index: number) => {
+        setMenu(index)
+    }
 
     useEffect(() => {
         getAllCategories()
@@ -104,18 +127,21 @@ const UserSearch: React.FC = () => {
                     Hasil Pencarian
                 </header>
                 <section className="userSearch-section-keyword">
-                    Menampilkan hasil untuk pencarian “Furniture Kamar Tidur”
+                    Menampilkan hasil untuk pencarian “{keyword}”
                 </section>
                 <section className="userSearch-section-content">
                     <section className="userSearch-section-content-button">
                         <ul>
-                            <li><IconLamp /><span className="text">Produk Desain</span></li>
-                            <li><IconManArtist /><span className="text">Desainer</span></li>
+                            {menuData.length > 0 && menuData.map((data, index) => {
+                                const className = index === menu ? "menuSearch activeMenuSearch" : "menuSearch"
+                                return (
+                                    <li key={index} onClick={() => cek(index)} className={className}>{data.icon}<span className="text">{data.title}</span></li>
+                                )
+                            })}
                         </ul>
                     </section>
                     <section className="userSearch-section-content-product">
-                        {/* <ProductCard data={designsData} /> */}
-                        <DesainerCard data={desainerData} />
+                        {menu === 0 ? <ProductCard data={designData} /> : <DesainerCard data={desainerData} />}
                     </section>
                 </section>
             </section>

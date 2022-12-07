@@ -3,25 +3,13 @@ import { useNavigate } from "react-router-dom"
 import { imgDesain1, imgDesain2, imgDesain3, imgKategori1, imgKategori2, imgKategori3, imgKategori4, imgKategori5, imgPromo1 } from "../../../assets/dummy"
 import { Button, ImageSlide, ProductCard } from "../../../component"
 import { IconBathroom, IconBedroom, IconStart, IconVisitorRoom, IconWorkspace } from "../../../component/Icon"
-import { DesignService, userService } from "../../../services"
+import { DesignService } from "../../../services"
 import { Design } from "../../../types/Design"
-import { Profile } from "../../../types/User"
 import "./UserDashboard.css"
 
 const UserDashboard: React.FC = () => {
     const navigate = useNavigate()
     const [designsData, setDesignData] = useState<Design[]>([])
-    const [, setProfile] = useState<Profile>()
-
-    //----- Get Profile -----
-    const getProfile = async () => {
-        try {
-            const resp = await userService.getProfile(1)
-            setProfile(resp.data.data)
-        } catch (error) {
-            console.log('error', error)
-        }
-    }
 
     //------ Get All Design ------
     const getAllDesigns = async () => {
@@ -44,7 +32,6 @@ const UserDashboard: React.FC = () => {
 
     useEffect(() => {
         getAllDesigns()
-        // getProfile()
     }, [navigate])
 
     return (

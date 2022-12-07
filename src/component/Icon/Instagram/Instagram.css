@@ -1,5 +1,10 @@
 .instagram {
     width: 1.82vw;
+    transition: all 0.3s ease;
+}
+
+.instagram:hover {
+    transform: scale(1.2);
 }
 
 @media screen and (max-width:800px) {

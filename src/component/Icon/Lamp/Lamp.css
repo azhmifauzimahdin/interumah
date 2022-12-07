@@ -1,5 +1,6 @@
 .lamp {
-    width: 1.8vw;
+    width: 1.6vw;
+    fill: #101B94;
 }
 
 @media screen and (max-width: 920px) {

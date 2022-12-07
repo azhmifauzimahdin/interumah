@@ -1,9 +1,19 @@
 .favoriteBorder-size-md {
     width: 1.38vw;
+    overflow: hidden;
 }
 
 .favoriteBorder-color-primary {
+    fill: white;
     stroke: #C80707;
+}
+
+.favoriteBorder-active-primary {
+    fill: #C80707;
+}
+
+.favoriteBorder-color-primary:hover {
+    fill: #C80707;
 }
 
 @media screen and (max-width: 920px) {

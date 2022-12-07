@@ -1,5 +1,7 @@
 .manArtist {
     width: 1.8vw;
+    fill: #B7B7B7;
+    stroke: #B7B7B7;
 }
 
 @media screen and (max-width: 920px) {

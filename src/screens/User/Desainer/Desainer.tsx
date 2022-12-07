@@ -19,6 +19,13 @@ const UserDesainer: React.FC = () => {
         }
     }
 
+    //------ Menu Designer ------
+    const [menu, setMenu] = useState<number>(0)
+    const menuDesigner = ["Halaman Utama", "Tentang Desainer", "Proyek", "Ulasan"]
+    const cekMenu = (index: number) => {
+        setMenu(index)
+    }
+
     useEffect(() => {
         getAllDesigns()
     }, [])
@@ -44,38 +51,76 @@ const UserDesainer: React.FC = () => {
                 </section>
             </article>
             <article className="userDesainer-boxTwo">
-                <section className="userDesainer-menuDetail">Halaman Utama</section>
-                <section className="userDesainer-menuDetail">Tentang Desainer</section>
-                <section className="userDesainer-menuDetail">Proyek</section>
-                <section className="userDesainer-menuDetail">Ulasan</section>
-                <section className="userDesainer-boxTwoAdd" />
+                {menuDesigner.map((data, index) => {
+                    const classNameMenu = index === menu ? "userDesainer-menuDetail menuDetailActive" : "userDesainer-menuDetail"
+                    return (
+                        <section className={classNameMenu} onClick={() => cekMenu(index)}>{data}</section>
+                    )
+                })}
             </article>
-            <figure className="userDesainer-poster">
-                <img src={imgPoster1} alt="poster" />
-                <section className="userDesainer-poster-text">
-                    PT. Furniture Masa Depan
-                </section>
-            </figure>
-            <article className="userDesainer-boxThree">
-                <header className="userDesainer-title-about">
-                    Tentang Desainer
-                </header>
-                <section className="userDesainer-desc-about">
-                    Furniture rumah merupakan desainer ahli dibidang interior rumah. Banyak jenis desain interior yang telah dikerjakan, mulai dari perusahaan, rumah pribadi, sampai tempat pelanan umum.
-                </section>
-                <header className="userDesainer-title-about">
-                    Tentang Desainer
-                </header>
-                <section className="userDesainer-desc-about">
-                    Jl. Raya jatiwaringin, RT 4 RW 5, Cipinang Melayu, Bontang, Balikpapan Timur, Kalimantan Timur
-                </section>
-            </article>
-            <article className="userDesainer-boxDesain">
-                <ProductCard data={designsData} />
-            </article>
-            <article className="userDesainer-reviewBox">
-                <ReviewBox />
-            </article>
+
+            {menu === 0 &&
+                <>
+                    <figure className="userDesainer-poster">
+                        <img src={imgPoster1} alt="poster" />
+                        <section className="userDesainer-poster-text">
+                            PT. Furniture Masa Depan
+                        </section>
+                    </figure>
+                    <article className="userDesainer-boxThree">
+                        <header className="userDesainer-title-about">
+                            Tentang Desainer
+                        </header>
+                        <section className="userDesainer-desc-about">
+                            Furniture rumah merupakan desainer ahli dibidang interior rumah. Banyak jenis desain interior yang telah dikerjakan, mulai dari perusahaan, rumah pribadi, sampai tempat pelanan umum.
+                        </section>
+                        <header className="userDesainer-title-about">
+                            Tentang Desainer
+                        </header>
+                        <section className="userDesainer-desc-about">
+                            Jl. Raya jatiwaringin, RT 4 RW 5, Cipinang Melayu, Bontang, Balikpapan Timur, Kalimantan Timur
+                        </section>
+                    </article>
+                    <article className="userDesainer-boxDesain">
+                        <ProductCard data={designsData} />
+                    </article>
+                    <article className="userDesainer-reviewBox">
+                        <ReviewBox />
+                    </article>
+                </>
+            }
+            {menu === 1 &&
+                <>
+                    <article className="userDesainer-boxThree">
+                        <header className="userDesainer-title-about">
+                            Tentang Desainer
+                        </header>
+                        <section className="userDesainer-desc-about">
+                            Furniture rumah merupakan desainer ahli dibidang interior rumah. Banyak jenis desain interior yang telah dikerjakan, mulai dari perusahaan, rumah pribadi, sampai tempat pelanan umum.
+                        </section>
+                        <header className="userDesainer-title-about">
+                            Tentang Desainer
+                        </header>
+                        <section className="userDesainer-desc-about">
+                            Jl. Raya jatiwaringin, RT 4 RW 5, Cipinang Melayu, Bontang, Balikpapan Timur, Kalimantan Timur
+                        </section>
+                    </article>
+                </>
+            }
+            {menu === 2 &&
+                <>
+                    <article className="userDesainer-boxDesain">
+                        <ProductCard data={designsData} />
+                    </article>
+                </>
+            }
+            {menu === 3 &&
+                <>
+                    <article className="userDesainer-reviewBox">
+                        <ReviewBox />
+                    </article>
+                </>
+            }
         </main>
     )
 }

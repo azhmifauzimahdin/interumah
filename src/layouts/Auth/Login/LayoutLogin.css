@@ -11,7 +11,7 @@
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    padding: 0 7vw 0 4vw;
+    padding: 0 6vw 0 4vw;
     flex-wrap: wrap;
     box-sizing: border-box;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
@@ -44,10 +44,26 @@
     text-decoration: none;
     border-radius: 5px;
     transition: all 0.3s ease;
+    position: relative;
 }
 
-.login-navbar ul li a:hover {
-    color: #111;
+.login-navbar ul li a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    border-radius: 4px;
+    background-color: #101B94;
+    bottom: -10%;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+}
+
+.login-navbar ul li a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
 }
 
 .login-navbar .menu-btn i,

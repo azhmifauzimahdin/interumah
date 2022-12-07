@@ -1,5 +1,10 @@
 .youtube {
     width: 2.03vw;
+    transition: all 0.3s ease;
+}
+
+.youtube:hover {
+    transform: scale(1.2);
 }
 
 @media screen and (max-width: 800px) {

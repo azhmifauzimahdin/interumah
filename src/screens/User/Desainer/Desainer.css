@@ -50,24 +50,20 @@
 .userDesainer-boxTwo {
     margin: 0 1vw;
     display: flex;
-    align-items: center;
-    overflow: auto;
+    border: 2px solid #101B94;
+    margin-bottom: 2vw;
 }
 
 .userDesainer-menuDetail {
     font-size: 1.25vw;
     font-weight: 700;
-    padding: 0 2vw;
+    padding: 1vw 2vw;
     display: flex;
     align-items: center;
-    height: 4vw;
+    /* height: 4vw; */
     cursor: pointer;
-    border-top: 0.2vw solid #101B94;
-    border-bottom: 0.2vw solid #101B94;
-}
-
-.userDesainer-menuDetail:nth-child(1) {
-    border-left: 0.2vw solid #101B94;
+    /* border-top: 0.2vw solid #101B94;
+    border-bottom: 0.2vw solid #101B94; */
 }
 
 .userDesainer-menuDetail:hover {
@@ -76,11 +72,9 @@
     color: #ffffff;
 }
 
-.userDesainer-boxTwoAdd {
-    flex: 1;
-    height: 4vw;
-    border: 0.2vw solid #101B94;
-    border-left: none;
+.menuDetailActive {
+    background: #101B94;
+    color: #ffffff;
 }
 
 .userDesainer-poster {

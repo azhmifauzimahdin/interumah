@@ -1,11 +1,20 @@
 import React from "react"
-import { Outlet } from "react-router-dom"
+import { Outlet, useNavigate } from "react-router-dom"
 import { IlustrationLogin, Logo } from "../../../assets/index"
 import { IconBar } from "../../../component/Icon"
 import { Button } from "../../../component/index"
 import './LayoutLogin.css'
 
 const LayoutLogin: React.FC = () => {
+    const navigate = useNavigate()
+    // ------- Navigate --------
+    const navigateLogin = () => {
+        navigate('/login')
+    }
+
+    const navigateRegister = () => {
+        navigate('/register')
+    }
     return (
         <div className="login-layout">
             <nav className="login-navbar">
@@ -24,8 +33,8 @@ const LayoutLogin: React.FC = () => {
                     <li><a href="/">Blog</a></li>
                     <li><a href="/">Perusahaan</a></li>
                     <li><a href="/">Bantuan</a></li>
-                    <li><a href="/login"><Button type="primary" size="sm">Masuk</Button></a></li>
-                    <li><a href="/register"><Button type="secondary" size="sm">Daftar</Button></a></li>
+                    <li><Button type="primary" size="sm" onClick={navigateLogin}>Masuk</Button></li>
+                    <li><Button type="secondary" size="sm" onClick={navigateRegister}>Daftar</Button></li>
                 </ul>
             </nav>
             <main className="login-container">
