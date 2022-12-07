@@ -27,3 +27,5 @@ export { default as NotificationCard } from "./Notification/NofiticationCard/Not
 export { default as InfoCard } from "./InfoCard/InfoCard"
 export { default as PosterCategory } from "./Poster/PosterCategory/PosterCategory"
 export { default as CategoruCard } from "./CategoryCard/CategoryCard"
+export { default as CategoryMenu } from "./CategoryMenu/CategoryMenu"
+export { default as StarRating } from "./StarRating/StarRating"

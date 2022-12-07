@@ -11,6 +11,7 @@ import AdminDashboard from "./screens/Admin/Dashboard/AdminDashboar"
 import { ChangePassword, FailedPasswordChange, Login, Logout, PasswordCheckEmail, PasswordInputEmail, Register, SuccessPasswordChange } from "./screens/Auth"
 import LandingPage from "./screens/LandingPage/LandingPage"
 import { UserAddReview, UserCategory, UserChangePassword, UserDashboard, UserDesainer, UserDetailDesain, UserFavorite, UserMessage, UserOrder, UserPayment, UserProfile, UserSearch } from "./screens/User"
+import UserAllCategories from "./screens/User/AllCategories/AllCategories"
 
 const Router: React.FC = () => {
     return (
@@ -46,6 +47,7 @@ const Router: React.FC = () => {
                     <Route path="/pesanan" element={<UserOrder />} />
                     <Route path="/desainer" element={<UserDesainer />} />
                     <Route path="/kategori" element={<UserCategory />} />
+                    <Route path="/semua_kategori" element={<UserAllCategories />} />
                 </Route>
                 <Route element={<LayoutUserTwo />} >
                     <Route path="/pembayaran/" element={<UserPayment />} />

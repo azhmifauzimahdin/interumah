@@ -38,6 +38,10 @@ const UserDashboard: React.FC = () => {
         navigate('/kategori')
     }
 
+    const handleAllCategory = () => {
+        navigate('/semua_kategori')
+    }
+
     useEffect(() => {
         getAllDesigns()
         // getProfile()
@@ -137,7 +141,7 @@ const UserDashboard: React.FC = () => {
                     </section>
                     <section className="kategori">
                         <ul>
-                            <li><Button type="secondary"><img src={imgKategori1} alt="kategori" /><span className="detailKategori">Kategori</span></Button></li>
+                            <li onClick={handleAllCategory}><Button type="secondary"><img src={imgKategori1} alt="kategori" /><span className="detailKategori">Kategori</span></Button></li>
                             <li><Button type="secondary"><img src={imgKategori2} alt="kategori" /><span className="detailKategori">Peribadatan</span></Button></li>
                             <li><Button type="secondary"><img src={imgKategori3} alt="kategori" /><span className="detailKategori">Layanan Umum</span></Button></li>
                             <li><Button type="secondary"><img src={imgKategori4} alt="kategori" /><span className="detailKategori">Sarana Pendidikan</span></Button></li>

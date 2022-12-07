@@ -1,0 +1,26 @@
+.rating {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.on>.star {
+    fill: #FDD848;
+}
+
+.off>.star {
+    fill: #ccc;
+}
+
+.star-desc {
+    margin-top: 0.4vw;
+}
+
+.star-value {
+    font-size: 0.83vw;
+    font-weight: 700;
+    color: #FDD848;
+    text-align: center;
+}

@@ -12,10 +12,11 @@ export interface ButtonProps {
     className?: string
     disabled?: boolean
     name?: any
+    style?: React.CSSProperties
 }
 
 const Button: React.FC<ButtonProps> = props => {
-    const { name, className } = props
+    const { name, className, style } = props
     const button = props.button || 'btn'
     const fontSize = props.fontSize || 'md'
     const type = props.type || 'primary'
@@ -29,6 +30,7 @@ const Button: React.FC<ButtonProps> = props => {
             onClick={props.onClick}
             disabled={props.disabled}
             name={name}
+            style={style}
         >
             {props.children}
         </button>

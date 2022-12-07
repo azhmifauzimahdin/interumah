@@ -1,10 +1,30 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { imgClassic1, imgProfile1 } from "../../../assets/dummy"
-import { Button } from "../../../component"
-import { IconCloudUpload, IconProfile, IconSend, IconSendMessage, IconStart } from "../../../component/Icon"
+import { Button, StarRating } from "../../../component"
+import { IconCloudUpload, IconProfile, IconSend } from "../../../component/Icon"
 import "./AddReview.css"
 
 const AddReview: React.FC = () => {
+    const [imagesDesign, setImagesDesign] = useState([] as any);
+    const [imageURLSDesign, setImageURLsDesign] = useState([]);
+    const [imagesDesigner, setImagesDesigner] = useState([] as any);
+    const [imageURLSDesigner, setImageURLsDesigner] = useState([]);
+
+    useEffect(() => {
+        const newImageUrlsDesign: any = []
+        imagesDesign.forEach((image: any) => newImageUrlsDesign.push(URL.createObjectURL(image)))
+        setImageURLsDesign(newImageUrlsDesign)
+        const newImageUrlsDesigner: any = []
+        imagesDesigner.forEach((image: any) => newImageUrlsDesigner.push(URL.createObjectURL(image)))
+        setImageURLsDesigner(newImageUrlsDesigner)
+    }, [imagesDesign, imagesDesigner]);
+
+    function onImageChangeDesign(e: any) {
+        setImagesDesign([...e.target.files])
+    }
+    function onImageChangeDesigner(e: any) {
+        setImagesDesigner([...e.target.files])
+    }
     return (
         <main className="userAddReview-wrapper">
             <header className="userAddReview-header">Detail Pesanan</header>
@@ -38,31 +58,37 @@ const AddReview: React.FC = () => {
                 <section className="userAddReview-content">
                     <section className="userAddReview-content-box">
                         <section className="userAddReview-content-start">
-                            <IconStart size="lg" />
-                            <IconStart size="lg" />
-                            <IconStart size="lg" />
-                            <IconStart size="lg" />
-                            <IconStart size="lg" />
-                        </section>
-                        <section className="userAddReview-content-value">
-                            Amazing
+                            <StarRating />
                         </section>
                         <textarea className="userAddReview-textArea" placeholder="Tambahkan deskripsi terkait penilain produk....." />
-                        <Button><IconCloudUpload className="iconBtn" />Tambahkan Foto atau video</Button>
+                        <label className="userAddReview-buttonUpload">
+                            <IconCloudUpload className="icon-cloudUpload" />Tambahkan Foto atau Video
+                            <input type="file" multiple accept="image/*" onChange={onImageChangeDesign} style={{ display: "none" }} />
+                        </label>
+                        <section className="userAddReview-imgWrapper">
+                            {imageURLSDesign.map((imageSrc) => (
+                                <section className="userAddReview-imgBox">
+                                    <img src={imageSrc} alt="not fount" className="" />
+                                </section>
+                            ))}
+                        </section>
                     </section>
                     <section className="userAddReview-content-box">
                         <section className="userAddReview-content-start">
-                            <IconStart size="lg" />
-                            <IconStart size="lg" />
-                            <IconStart size="lg" />
-                            <IconStart size="lg" />
-                            <IconStart size="lg" />
-                        </section>
-                        <section className="userAddReview-content-value">
-                            Amazing
+                            <StarRating />
                         </section>
                         <textarea className="userAddReview-textArea" placeholder="Tambahkan deskripsi terkait penilain produk....." />
-                        <Button><IconCloudUpload className="iconBtn" />Tambahkan Foto atau video</Button>
+                        <label className="userAddReview-buttonUpload">
+                            <IconCloudUpload className="icon-cloudUpload" />Tambahkan Foto atau Video
+                            <input type="file" multiple accept="image/*" onChange={onImageChangeDesigner} style={{ display: "none" }} />
+                        </label>
+                        <section className="userAddReview-imgWrapper">
+                            {imageURLSDesigner.map((imageSrc) => (
+                                <section className="userAddReview-imgBox">
+                                    <img src={imageSrc} alt="not fount" className="" />
+                                </section>
+                            ))}
+                        </section>
                     </section>
                 </section>
                 <section className="userAddReview-btn">
