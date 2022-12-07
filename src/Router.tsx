@@ -43,7 +43,7 @@ const Router: React.FC = () => {
                     <Route path="/message" element={<UserMessage />} />
                     <Route path="/akunsaya" element={<UserProfile />} />
                     <Route path="/change_password" element={<UserChangePassword />} />
-                    <Route path="/detail_desain/" element={<UserDetailDesain />} />
+                    <Route path="/detail_desain" element={<UserDetailDesain />} />
                     <Route path="/pesanan" element={<UserOrder />} />
                     <Route path="/desainer" element={<UserDesainer />} />
                     <Route path="/kategori" element={<UserCategory />} />

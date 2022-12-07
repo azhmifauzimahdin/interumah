@@ -24,7 +24,12 @@ const StarRating: React.FC = () => {
                 })}
             </section>
             <section className="star-desc">
-                {rating === 5 ? <section className="star-value">Amazing</section> : <section>---------</section>}
+                {rating === 5 && <section className="star-value">Amazing</section>}
+                {rating === 4 && <section className="star-value">Very Good</section>}
+                {rating === 3 && <section className="star-value">Good</section>}
+                {rating === 2 && <section className="star-value">Dissapoint</section>}
+                {rating === 1 && <section className="star-value">Bad</section>}
+                {rating === 0 && <section className="star-value">------------------------</section>}
             </section>
         </>
     )

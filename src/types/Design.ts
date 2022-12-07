@@ -1,33 +1,38 @@
+export interface Designer {
+    id: number;
+    name: string;
+    email: string;
+    imageUrl: string;
+}
+
 export interface Design {
     id: number;
-    userId: number;
     categoryId: number;
     title: string;
     description: string;
     area: number;
     imageUrl: string;
+    budgetPlan?: any;
+    designer: Designer;
 }
 
-export interface PageDesign {
+export interface Page {
     size: number;
 }
 
 export interface ResponseDesign {
     code: number;
     data: Design[];
-    page: PageDesign;
+    page: Page;
 }
 
-export interface SpecificDesign {
-    userId: number;
-    categoryId: number;
-    title: string;
-    description: string;
-    area: number;
-    imageUrl: string;
-}
-
-export interface ResponseSpecificDesign {
+export interface ResponseGetDesignByID {
     code: number;
-    data: SpecificDesign;
+    data: Design;
 }
+
+// export interface ResponseGetDesignByID {
+//     code: number;
+//     data: Design[];
+//     page: Page;
+// }

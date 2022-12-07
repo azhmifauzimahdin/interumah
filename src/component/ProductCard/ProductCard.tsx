@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import Button from "../Button/Button"
 import { IconFavoriteBorder, IconLocation, IconPrice } from "../Icon"
 import "./ProductCard.css"
@@ -8,10 +9,15 @@ interface ProductCardProps<T = any> {
 }
 
 const ProductCard: React.FC<ProductCardProps> = props => {
+    const navigate = useNavigate()
     const [designData, setDesignData] = useState<any[]>([])
 
     const initiateDesign = (data: any[]) => {
         setDesignData(data)
+    }
+
+    const detailDesign = (id: any) => {
+        navigate(`/detail_desain?desain=${id}`)
     }
 
     useEffect(() => {
@@ -29,7 +35,7 @@ const ProductCard: React.FC<ProductCardProps> = props => {
                         </figure>
                         <article className="productCard-article">
                             <header className="productCard-title">{data.title}</header>
-                            <section className="productCard-company">PT. Media Kreasi Abadi</section>
+                            <section className="productCard-company">{data.designer.name}</section>
                             <section className="productCard-address">
                                 <span className="icon"><IconLocation /></span>Balikpapan, Indonesia
                             </section>
@@ -38,7 +44,7 @@ const ProductCard: React.FC<ProductCardProps> = props => {
                             </section>
                             <section className="productCard-optionProduct">
                                 <section className="btnFavorit"><IconFavoriteBorder /></section>
-                                <section className="btnDetail"><Button fontWeight="normal" size="sm" fontSize="sm">Lihat detail</Button></section>
+                                <section className="btnDetail"><Button fontWeight="normal" size="sm" fontSize="sm" onClick={() => detailDesign(data.id)}>Lihat detail</Button></section>
                             </section>
                         </article>
                     </article>

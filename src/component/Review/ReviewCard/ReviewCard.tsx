@@ -20,9 +20,9 @@ const ReviewCard: React.FC<ReviewCardProps> = props => {
 
     return (
         <>
-            {reviewData.length > 0 ? reviewData.map(data => {
+            {reviewData.length > 0 ? reviewData.map((data, index) => {
                 return (
-                    <article className="reviewCard-wrapper">
+                    <article className="reviewCard-wrapper" key={index}>
                         <section className="reviewCard-profile">
                             <IconProfile image={data.image} size="sm" />
                             <span className="username">{data.name}</span>

@@ -4,13 +4,12 @@ import { Button, DesainerCard, ProductCard } from "../../../component"
 import { IconLamp, IconManArtist } from "../../../component/Icon"
 import { CategoryService, DesignService } from "../../../services"
 import { Category } from "../../../types/Category"
-import { Design, SpecificDesign } from "../../../types/Design"
+import { Design } from "../../../types/Design"
 import "./Search.css"
 
 const UserSearch: React.FC = () => {
     const [categoriesData, setCategoriesData] = useState<Category[]>([])
     const [designData, setDesignData] = useState<Design[]>([])
-    const [, setSpecificDesignData] = useState<SpecificDesign>()
 
     //------ Get Keyword ------
     let [searchParams] = useSearchParams()
@@ -36,19 +35,9 @@ const UserSearch: React.FC = () => {
             console.log('error', error)
         }
     }
-    //------ Get Specific Design ------
-    const getSpecificDesign = async (id: number) => {
-        try {
-            const response = await DesignService.getSpecificDesigns(id)
-            setSpecificDesignData(response.data.data)
-        } catch (error) {
-            console.log('error', error)
-        }
-    }
 
     const handleButtonCategory = (e: any) => {
         let nameOfFunction = e.target.name
-        getSpecificDesign(nameOfFunction)
     }
 
     //------ Data Desainer ------

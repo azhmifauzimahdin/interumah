@@ -136,6 +136,10 @@
     margin: 0;
 }
 
+.btn:hover>.icon-chat {
+    fill: #fff;
+}
+
 .userDetailDesain-desainer-desc {
     flex: 1;
     padding: 0 4vw;

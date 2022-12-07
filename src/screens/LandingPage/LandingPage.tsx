@@ -5,14 +5,16 @@ import { Button, ProductCard, StoryCard } from "../../component"
 import { IconAppStore, IconFacebook, IconInstagram, IconPlayStore, IconTiktok, IconYoutube } from "../../component/Icon"
 import { CategoryService, DesignService } from "../../services"
 import { Category } from "../../types/Category"
-import { Design, SpecificDesign } from "../../types/Design"
+import { Design } from "../../types/Design"
 import "./LandingPage.css"
 
 const LandingPage: React.FC = () => {
     const [categoriesData, setCategoriesData] = useState<Category[]>([])
     const [designsData, setDesignData] = useState<Design[]>([])
-    const [, setSpecificDesignData] = useState<SpecificDesign>()
+    const [, setSpecificDesignData] = useState<Design[]>([])
+    console.log('designsData', designsData);
 
+    //------ Get All Categories -------
     const getAllCategories = async () => {
         try {
             const response = await CategoryService.getAllCategories()
@@ -22,6 +24,7 @@ const LandingPage: React.FC = () => {
         }
     }
 
+    //------ Get All Design ------
     const getAllDesigns = async () => {
         try {
             const response = await DesignService.getAllDesigns()
@@ -31,20 +34,19 @@ const LandingPage: React.FC = () => {
         }
     }
 
-    const getSpecificDesign = async (id: number) => {
-        try {
-            const response = await DesignService.getSpecificDesigns(id)
-            setSpecificDesignData(response.data.data)
-        } catch (error) {
-            console.log('error', error)
-        }
-    }
+    //------ Handle Button Category ------
+    const [menu, setMenu] = useState<number>(0)
+    const [menuBtn, setMenuBtn] = useState<boolean>(true)
 
+    const handleButtonAllCategory = () => {
+        setMenuBtn(true)
+        setMenu(0)
+    }
     const handleButtonCategory = (e: any) => {
-        let nameOfFunction = e.target.name
-        getSpecificDesign(nameOfFunction)
+        let nameOfFunction = parseInt(e.target.name)
+        setMenuBtn(false)
+        setMenu(nameOfFunction)
     }
-
     useEffect(() => {
         getAllCategories()
         getAllDesigns()
@@ -107,10 +109,13 @@ const LandingPage: React.FC = () => {
                     <header className="header">Produk Interumah</header>
                     <nav className="ProductMenu">
                         <ul>
-                            <li><Button size="sm" button="btnProduct">Semua Kategori</Button></li>
-                            {categoriesData.length > 0 ? categoriesData.map(data => (
-                                <li key={data.id}><Button size="sm" button="btnProduct" type="secondary" name={data.id} onClick={handleButtonCategory}>{data.name}</Button></li>
-                            )) : null}
+                            <li><Button size="sm" button="btnProduct" type={menuBtn ? "primary" : "secondary"} onClick={handleButtonAllCategory}>Semua Kategori</Button></li>
+                            {categoriesData.length > 0 ? categoriesData.map(data => {
+                                const typeBtn = data.id === menu ? "primary" : "secondary"
+                                return (
+                                    <li key={data.id}><Button size="sm" button="btnProduct" type={typeBtn} name={data.id} onClick={handleButtonCategory}>{data.name}</Button></li>
+                                )
+                            }) : null}
                         </ul>
                     </nav>
                 </article>

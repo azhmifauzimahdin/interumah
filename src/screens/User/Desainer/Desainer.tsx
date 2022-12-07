@@ -54,7 +54,7 @@ const UserDesainer: React.FC = () => {
                 {menuDesigner.map((data, index) => {
                     const classNameMenu = index === menu ? "userDesainer-menuDetail menuDetailActive" : "userDesainer-menuDetail"
                     return (
-                        <section className={classNameMenu} onClick={() => cekMenu(index)}>{data}</section>
+                        <section className={classNameMenu} onClick={() => cekMenu(index)} key={index}>{data}</section>
                     )
                 })}
             </article>
