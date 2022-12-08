@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react"
 import { imgDesainer1 } from "../../assets/dummy"
 import { IconLocation, IconReview, IconStart } from "../Icon"
-import "./DesainerCard.css"
+import "./DesignerCard.css"
 
-interface DesainerCardProps<T = any> {
+interface DesignerCardProps<T = any> {
     data: T[]
 }
 
-const DesainerCard: React.FC<DesainerCardProps> = props => {
+const DesignerCard: React.FC<DesignerCardProps> = props => {
     const [dataDesainer, setDataDesainer] = useState<any[]>([])
 
     const initiateDesign = (data: any[]) => {
@@ -25,17 +25,17 @@ const DesainerCard: React.FC<DesainerCardProps> = props => {
                 return (
                     <article className="desainerCard-box" key={data.id}>
                         <article className="desainerCard-box-article">
-                            <header className="desainerCard-box-article-company">{data.nama}</header>
+                            <header className="desainerCard-box-article-company">{data.name === null ? "Designer Name" : data.name}</header>
                             <section className="desainerCard-box-article-description">
-                                <section className="desainerCard-box-article-description-card">{data.proyek} Proyek</section>
-                                <section className="desainerCard-box-article-description-card">{data.terjual} Terjual</section>
+                                <section className="desainerCard-box-article-description-card">5 Proyek</section>
+                                <section className="desainerCard-box-article-description-card">3 Terjual</section>
                             </section>
                             <section className="desainerCard-box-article-address">
-                                <span className="desainerCard-box-article-address-icon"><IconLocation color="white" /></span>{data.alamat}
+                                <span className="desainerCard-box-article-address-icon"><IconLocation color="white" /></span>Jl. Praja Muda II, Balikpapan
                             </section>
                             <section className="desainerCard-box-article-rating">
                                 <span className="desainerCard-box-article-rating-icon"><IconReview /></span>
-                                {data.rating}
+                                4.0
                                 <span className="desainerCard-box-article-rating-iconStart">
                                     <IconStart />
                                     <IconStart />
@@ -45,8 +45,7 @@ const DesainerCard: React.FC<DesainerCardProps> = props => {
                             </section>
                         </article>
                         <figure className="desainerCard-imgDesainer">
-                            <img src={imgDesainer1} alt="desainer" />
-                            {/* <img src={`http://${data.imageUrl}`} alt="Classic" /> */}
+                            <img src={`http://${data.imageUrl}`} alt="Profile Designer" />
                         </figure>
                     </article>
                 )
@@ -56,4 +55,4 @@ const DesainerCard: React.FC<DesainerCardProps> = props => {
     )
 }
 
-export default DesainerCard
+export default DesignerCard

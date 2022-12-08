@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
 import { IlustrationFavorite } from "../../../assets"
-import { Button, DesainerCard, ProductCard } from "../../../component"
+import { Button, DesignerCard, ProductCard } from "../../../component"
 import { IconLamp, IconManArtist } from "../../../component/Icon"
-import { CategoryService, DesignService } from "../../../services"
+import { CategoryService, DesignerService, DesignService } from "../../../services"
 import { Category } from "../../../types/Category"
-import { Design } from "../../../types/Design"
+import { Design, Designer } from "../../../types/Design"
 import "./Search.css"
 
 const UserSearch: React.FC = () => {
     const [categoriesData, setCategoriesData] = useState<Category[]>([])
     const [designData, setDesignData] = useState<Design[]>([])
+    const [designerData, setDesignerData] = useState<Designer[]>([])
 
     //------ Get Keyword ------
     let [searchParams] = useSearchParams()
@@ -29,45 +30,6 @@ const UserSearch: React.FC = () => {
     const handleButtonCategory = (e: any) => {
         // let nameOfFunction = e.target.name
     }
-
-    //------ Get All Designer -------
-
-
-    //------ Data Desainer ------
-    const desainerData = [
-        {
-            id: 1,
-            nama: "PT. Furniture Jaya",
-            proyek: 5,
-            terjual: 3,
-            alamat: "Jl. Praja Muda II, Balikpapan",
-            rating: 4
-        },
-        {
-            id: 2,
-            nama: "PT. Furniture Jaya",
-            proyek: 5,
-            terjual: 3,
-            alamat: "Jl. Praja Muda II, Balikpapan",
-            rating: 4
-        },
-        {
-            id: 3,
-            nama: "PT. Furniture Jaya",
-            proyek: 5,
-            terjual: 3,
-            alamat: "Jl. Praja Muda II, Balikpapan",
-            rating: 4
-        },
-        {
-            id: 4,
-            nama: "PT. Furniture Jaya",
-            proyek: 5,
-            terjual: 3,
-            alamat: "Jl. Praja Muda II, Balikpapan",
-            rating: 4
-        },
-    ]
 
     //------ Menu Data ------
     const menuData = [
@@ -88,9 +50,15 @@ const UserSearch: React.FC = () => {
     }
 
     useEffect(() => {
-        DesignService.searchDesignByTitle(keyword as string).then(response => setDesignData(response.data.data)).catch(error => console.log("error", error))
+        DesignService.searchDesignByTitle(keyword as string)
+            .then(response => setDesignData(response.data.data))
+            .catch(error => console.log("error", error))
+
+        DesignerService.getAllDesigner()
+            .then(response => setDesignerData(response.data.data))
+            .catch(error => console.log("error", error))
         getAllCategories()
-    }, [])
+    }, [keyword])
     return (
         <main className="userSearch-container">
             <aside className="userSearch-aside">
@@ -140,7 +108,7 @@ const UserSearch: React.FC = () => {
                             </>
                             :
                             <>
-                                <DesainerCard data={desainerData} />
+                                <DesignerCard data={designerData} />
                             </>
                         }
                     </section>

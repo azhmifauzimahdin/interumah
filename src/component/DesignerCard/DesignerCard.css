@@ -65,6 +65,15 @@
     align-items: center;
 }
 
+.rating-value {
+    font-size: 0.62vw;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    background: red;
+    width: fit-content;
+}
+
 .desainerCard-box-article-rating-icon {
     margin-right: 0.4vw;
     display: flex;
@@ -78,7 +87,10 @@
 .desainerCard-imgDesainer {
     margin: 0;
     width: 5.88vw;
-    height: 12vh;
+    height: 6vw;
+    border-radius: 1vw;
+    overflow: hidden;
+    background: gray;
 }
 
 .desainerCard-imgDesainer img {
