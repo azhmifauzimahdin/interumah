@@ -1,3 +1,5 @@
+import { Design } from "./Design";
+
 export interface Users {
     id: number;
     name: string;
@@ -8,17 +10,19 @@ export interface UsersResponse {
     users: Users[];
 }
 
-export interface Profile {
-    name: string,
-    phone: string,
-    age: string,
-    address: string,
-    job: string,
-    email: string,
-    role: string
+export interface User {
+    name: string;
+    email: string;
+    imageUrl: string;
+    phone: string;
+    age: number;
+    address: string;
+    job: string;
+    isDesigner: boolean;
+    designs: Design[];
 }
 
-export interface ProfileResponse {
-    code: number,
-    data: Profile
+export interface UserResponse {
+    code: number;
+    data: User;
 }

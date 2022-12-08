@@ -33,6 +33,11 @@ const UserDashboard: React.FC = () => {
         navigate('/semua_kategori')
     }
 
+    //------- Handle Designer ------
+    const handlerDesigner = (id: number) => {
+        navigate(`/desainer?id=${id}`)
+    }
+
     useEffect(() => {
         getAllDesigns()
 
@@ -78,7 +83,7 @@ const UserDashboard: React.FC = () => {
                         <section className="boxIconDesainer">
                             {designerData.length > 0 ? designerData.map(data => {
                                 return (
-                                    <section className="iconDesainer" key={data.id}>
+                                    <section className="iconDesainer" key={data.id} onClick={() => handlerDesigner(data.id)}>
                                         <img src={`http://${data.imageUrl}`} alt="Media Kreasi" />
                                         <section className="deskripsi">
                                             <span className="content">{data.name}<br />

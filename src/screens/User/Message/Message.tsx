@@ -1,87 +1,15 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { ImageBackgoundEstimate } from "../../../assets"
 import { imgProfile1 } from "../../../assets/dummy"
-import { Button, Input, Message, MessageList, MessageMenu, ProfileHover } from "../../../component"
+import { Button, Input, Message, MessageList, MessageMenu } from "../../../component"
 import { IconPointThree, IconProfile, IconRoundPlus, IconSearch, IconSendMessage } from "../../../component/Icon"
 import { EmoteSmile } from "../../../component/Icon/Emote"
+import { DesignerService } from "../../../services"
+import { Designer } from "../../../types/Design"
 import "./Message.css"
 
 const UserMessage: React.FC = () => {
-    //------- Message List --------
-    const dataMessageList = [
-        {
-            id: 1,
-            name: "Ilham Agustian Mubarak",
-            role: "Desainer",
-            message: "Untuk desain anda masih dalam progress peng...",
-            date: "11/05",
-            read: 2
-        },
-        {
-            id: 2,
-            name: "Ilham Agustian Mubarak",
-            role: "Desainer",
-            message: "Untuk desain anda masih dalam progress peng...",
-            date: "11/05",
-            read: 1
-        },
-        {
-            id: 3,
-            name: "Ilham Agustian Mubarak",
-            role: "Desainer",
-            message: "Untuk desain anda masih dalam progress peng...",
-            date: "11/05",
-            read: 2
-        },
-        {
-            id: 4,
-            name: "Ilham Agustian Mubarak",
-            role: "Desainer",
-            message: "Untuk desain anda masih dalam progress peng...",
-            date: "11/05",
-            read: 3
-        },
-        {
-            id: 5,
-            name: "Ilham Agustian Mubarak",
-            role: "Desainer",
-            message: "Untuk desain anda masih dalam progress peng...",
-            date: "11/05",
-            read: 0
-        },
-        {
-            id: 6,
-            name: "Ilham Agustian Mubarak",
-            role: "Desainer",
-            message: "Untuk desain anda masih dalam progress peng...",
-            date: "11/05",
-            read: 0
-        },
-        {
-            id: 7,
-            name: "Ilham Agustian Mubarak",
-            role: "Desainer",
-            message: "Untuk desain anda masih dalam progress peng...",
-            date: "11/05",
-            read: 0
-        },
-        {
-            id: 8,
-            name: "Ilham Agustian Mubarak",
-            role: "Desainer",
-            message: "Untuk desain anda masih dalam progress peng...",
-            date: "11/05",
-            read: 0
-        },
-        {
-            id: 9,
-            name: "Ilham Agustian Mubarak",
-            role: "Desainer",
-            message: "Untuk desain anda masih dalam progress peng...",
-            date: "11/05",
-            read: 0
-        },
-    ]
+    const [designerData, setDesignerData] = useState<Designer[]>([])
 
     //------- Message ------
     const dataMessage = [
@@ -151,6 +79,13 @@ const UserMessage: React.FC = () => {
         setShowMessageMenu(prevState => !prevState)
         console.log('masuk');
     }
+
+    useEffect(() => {
+        //------ Get All Designer ------
+        DesignerService.getAllDesigner()
+            .then(response => setDesignerData(response.data.data))
+            .catch(error => console.log("error", error))
+    })
     return (
         <main className="userMessage-container">
             <section className="userMessage-boxMessage">
@@ -159,7 +94,7 @@ const UserMessage: React.FC = () => {
                         <header className="userMessage-messageList-header-title">Pesan</header>
                         <section className="userMessage-messageList-header-search">
                             <section className="input-group-button">
-                                <Input type="text" name="keyword" inputType="search" size="sm" placeholder="Masukan Email Anda" />
+                                <Input type="text" name="keyword" inputType="search" size="sm" placeholder="Cari pesan disini..." />
                                 <div className="input-group-prependbutton">
                                     <button className="btnsearchmessage"><IconSearch size="sm" /></button>
                                 </div>
@@ -167,7 +102,7 @@ const UserMessage: React.FC = () => {
                         </section>
                     </article>
                     <article className="userMessage-messageList-content">
-                        <MessageList data={dataMessageList} />
+                        <MessageList data={designerData} />
                     </article>
                 </section>
                 <section className="userMessage-Message">

@@ -37,10 +37,10 @@ const ProductCard: React.FC<ProductCardProps> = props => {
                             <header className="productCard-title">{data.title}</header>
                             <section className="productCard-company">{data.designer.name}</section>
                             <section className="productCard-address">
-                                <span className="icon"><IconLocation /></span>Balikpapan, Indonesia
+                                <span className="icon"><IconLocation /></span>{data.location}
                             </section>
                             <section className="productCard-price">
-                                <span className="icon"><IconPrice /></span>Rp. 10.000.000
+                                <span className="icon"><IconPrice /></span>{data.price}
                             </section>
                             <section className="productCard-optionProduct">
                                 <section className="btnFavorit"><IconFavoriteBorder /></section>

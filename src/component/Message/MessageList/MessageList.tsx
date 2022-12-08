@@ -47,15 +47,15 @@ const MessageList: React.FC<MessageListProps> = props => {
                         </section>
                         <section className="messageList-box-content">
                             <section className="messageList-box-content-user">
-                                <section className="messageList-box-content-user-name">{data.name}</section>
-                                <section className="messageList-box-content-user-role">{data.role}</section>
+                                <section className="messageList-box-content-user-name">{data.name !== null ? data.name : "Username"}</section>
+                                <section className="messageList-box-content-user-role">desainer</section>
                             </section>
                             <section className="messageList-box-content-viewMessage">
-                                {data.message}
+                                Untuk desain anda masih dalam progress pengerjaan
                             </section>
                         </section>
                         <section className="messageList-box-addition">
-                            {data.date}
+                            10/05
                             {data.read > 0 ?
                                 (<section className="messageList-box-addition-num">{data.read}</section>) : null
                             }

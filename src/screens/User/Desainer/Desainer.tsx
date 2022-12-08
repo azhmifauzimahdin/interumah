@@ -1,23 +1,19 @@
 import React, { useEffect, useState } from "react"
-import { imgPoster1, imgProfile2 } from "../../../assets/dummy"
+import { Navigate, useNavigate, useSearchParams } from "react-router-dom"
+import { imgPoster1 } from "../../../assets/dummy"
 import { Button, ProductCard, ReviewBox } from "../../../component"
 import { IconChat, IconFolderOutline, IconHandPayment, IconHomeCityOutline, IconLocation, IconStart, IconUsers } from "../../../component/Icon"
-import { DesignService } from "../../../services"
-import { Design } from "../../../types/Design"
+import { userService } from "../../../services"
+import { User } from "../../../types/User"
 import "./Desainer.css"
 
 const UserDesainer: React.FC = () => {
-    const [designsData, setDesignData] = useState<Design[]>([])
+    const navigate = useNavigate()
+    const [designerData, setDesignerData] = useState<User>()
 
-    //------ Get All Design ------
-    const getAllDesigns = async () => {
-        try {
-            const response = await DesignService.getAllDesigns()
-            setDesignData(response.data.data)
-        } catch (error) {
-            console.log('error', error)
-        }
-    }
+    //------ Get Keyword ------
+    let [searchParams] = useSearchParams()
+    const id = parseInt(searchParams.get("id") as string)
 
     //------ Menu Designer ------
     const [menu, setMenu] = useState<number>(0)
@@ -26,19 +22,36 @@ const UserDesainer: React.FC = () => {
         setMenu(index)
     }
 
+    //------ Initiate design ------
+    const design = designerData?.designs.map(data => {
+        let properties = {
+            ...data,
+            designer: designerData
+        }
+        return properties
+    })
+
+    //------ Handle Chat -------
+    const handleChat = () => {
+        navigate('/message')
+    }
+
     useEffect(() => {
-        getAllDesigns()
-    }, [])
+        //------ Get Designer By ID------
+        userService.getUserByID(id)
+            .then(response => setDesignerData(response.data.data))
+            .catch(error => console.log("error", error))
+    }, [id])
 
     return (
         <main className="userDesainer-container">
             <article className="userDesainer-boxOne">
                 <figure className="userDesainer-profile">
-                    <img src={imgProfile2} alt="Desainer" />
+                    <img src={`http://${designerData?.imageUrl}`} alt="Desainer" />
                 </figure>
                 <section className="userDesainer-boxDetail">
-                    <section className="userDesainer-detail"><IconHomeCityOutline /><span className="detail-text">PT. Furniture Masa Depan</span></section>
-                    <section className="userDesainer-detail"><IconLocation color="white" size="lg" /><span className="detail-text">Jl. Praja Muda II, Balikpapan</span></section>
+                    <section className="userDesainer-detail"><IconHomeCityOutline /><span className="detail-text">{designerData?.name}</span></section>
+                    <section className="userDesainer-detail"><IconLocation color="white" size="lg" /><span className="detail-text">{designerData?.address}</span></section>
                     <section className="userDesainer-detail"><IconUsers /><span className="detail-text">Bergabung sejak juli 2022</span></section>
                 </section>
                 <section className="userDesainer-boxDetail">
@@ -47,7 +60,7 @@ const UserDesainer: React.FC = () => {
                     <section className="userDesainer-detail"><IconStart size="lg" color="white" /><span className="detail-text">4.9 Penilaian (5 Ulasan)</span></section>
                 </section>
                 <section className="userDesainer-btn-chat">
-                    <Button size="sm" type="green"><IconChat color="white" size="sm" /><span className="detail-text">Chat</span></Button>
+                    <Button size="sm" type="green"><IconChat color="white" size="sm" /><span className="detail-text" onClick={handleChat}>Chat</span></Button>
                 </section>
             </article>
             <article className="userDesainer-boxTwo">
@@ -64,7 +77,7 @@ const UserDesainer: React.FC = () => {
                     <figure className="userDesainer-poster">
                         <img src={imgPoster1} alt="poster" />
                         <section className="userDesainer-poster-text">
-                            PT. Furniture Masa Depan
+                            {designerData?.name}
                         </section>
                     </figure>
                     <article className="userDesainer-boxThree">
@@ -78,11 +91,13 @@ const UserDesainer: React.FC = () => {
                             Tentang Desainer
                         </header>
                         <section className="userDesainer-desc-about">
-                            Jl. Raya jatiwaringin, RT 4 RW 5, Cipinang Melayu, Bontang, Balikpapan Timur, Kalimantan Timur
+                            {designerData?.address}
                         </section>
                     </article>
                     <article className="userDesainer-boxDesain">
-                        <ProductCard data={designsData} />
+                        {design !== undefined &&
+                            <ProductCard data={design} />
+                        }
                     </article>
                     <article className="userDesainer-reviewBox">
                         <ReviewBox />
@@ -102,7 +117,7 @@ const UserDesainer: React.FC = () => {
                             Tentang Desainer
                         </header>
                         <section className="userDesainer-desc-about">
-                            Jl. Raya jatiwaringin, RT 4 RW 5, Cipinang Melayu, Bontang, Balikpapan Timur, Kalimantan Timur
+                            {designerData?.address}
                         </section>
                     </article>
                 </>
@@ -110,7 +125,9 @@ const UserDesainer: React.FC = () => {
             {menu === 2 &&
                 <>
                     <article className="userDesainer-boxDesain">
-                        <ProductCard data={designsData} />
+                        {design !== undefined &&
+                            <ProductCard data={design} />
+                        }
                     </article>
                 </>
             }
