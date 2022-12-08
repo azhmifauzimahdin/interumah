@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
+import { IlustrationFavorite } from "../../../assets"
 import { Button, DesainerCard, ProductCard } from "../../../component"
 import { IconLamp, IconManArtist } from "../../../component/Icon"
 import { CategoryService, DesignService } from "../../../services"
@@ -25,20 +26,12 @@ const UserSearch: React.FC = () => {
         }
     }
 
-
-    //------ Get All Design ------
-    const getAllDesigns = async () => {
-        try {
-            const response = await DesignService.getAllDesigns()
-            setDesignData(response.data.data)
-        } catch (error) {
-            console.log('error', error)
-        }
-    }
-
     const handleButtonCategory = (e: any) => {
-        let nameOfFunction = e.target.name
+        // let nameOfFunction = e.target.name
     }
+
+    //------ Get All Designer -------
+
 
     //------ Data Desainer ------
     const desainerData = [
@@ -95,8 +88,8 @@ const UserSearch: React.FC = () => {
     }
 
     useEffect(() => {
+        DesignService.searchDesignByTitle(keyword as string).then(response => setDesignData(response.data.data)).catch(error => console.log("error", error))
         getAllCategories()
-        getAllDesigns()
     }, [])
     return (
         <main className="userSearch-container">
@@ -130,7 +123,26 @@ const UserSearch: React.FC = () => {
                         </ul>
                     </section>
                     <section className="userSearch-section-content-product">
-                        {menu === 0 ? <ProductCard data={designData} /> : <DesainerCard data={desainerData} />}
+                        {menu === 0 ?
+                            <>
+                                {designData.length > 0 ?
+                                    <ProductCard data={designData} />
+                                    :
+                                    <article className="userSearch-empytyBox">
+                                        <figure className="userSearch-empyty-ilustration">
+                                            <img src={IlustrationFavorite} alt="Ilustration" />
+                                        </figure>
+                                        <section className="userSearch-empyty-desc">
+                                            Desain yang kamu cari tidak ada
+                                        </section>
+                                    </article>
+                                }
+                            </>
+                            :
+                            <>
+                                <DesainerCard data={desainerData} />
+                            </>
+                        }
                     </section>
                 </section>
             </section>

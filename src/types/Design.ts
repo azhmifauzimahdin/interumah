@@ -31,8 +31,8 @@ export interface ResponseGetDesignByID {
     data: Design;
 }
 
-// export interface ResponseGetDesignByID {
-//     code: number;
-//     data: Design[];
-//     page: Page;
-// }
+export interface ResponseSearchDesignByTitle {
+    code: number;
+    data: Design[];
+    page: Page;
+}
