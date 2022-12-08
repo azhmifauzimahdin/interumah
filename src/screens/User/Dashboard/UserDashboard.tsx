@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { imgDesain1, imgDesain2, imgDesain3, imgKategori1, imgKategori2, imgKategori3, imgKategori4, imgKategori5, imgPromo1 } from "../../../assets/dummy"
+import { imgKategori1, imgKategori2, imgKategori3, imgKategori4, imgKategori5, imgPromo1 } from "../../../assets/dummy"
 import { Button, ImageSlide, ProductCard } from "../../../component"
-import { IconBathroom, IconBedroom, IconStart, IconVisitorRoom, IconWorkspace } from "../../../component/Icon"
-import { DesignService } from "../../../services"
-import { Design } from "../../../types/Design"
+import { IconStart, IconVisitorRoom } from "../../../component/Icon"
+import { CategoryService, DesignerService, DesignService } from "../../../services"
+import { Category } from "../../../types/Category"
+import { Design, Designer } from "../../../types/Design"
 import "./UserDashboard.css"
 
 const UserDashboard: React.FC = () => {
     const navigate = useNavigate()
     const [designsData, setDesignData] = useState<Design[]>([])
+    const [designerData, setDesignerData] = useState<Designer[]>([])
+    const [categoriesData, setCategoriesData] = useState<Category[]>([])
 
     //------ Get All Design ------
     const getAllDesigns = async () => {
@@ -22,8 +25,8 @@ const UserDashboard: React.FC = () => {
     }
 
     //---- Handle Category ------
-    const handleCategory = () => {
-        navigate('/kategori')
+    const handleCategory = (id: number) => {
+        navigate(`/kategori?id=${id}`)
     }
 
     const handleAllCategory = () => {
@@ -32,6 +35,15 @@ const UserDashboard: React.FC = () => {
 
     useEffect(() => {
         getAllDesigns()
+
+        //------ Get All Categories ------
+        CategoryService.getAllCategories()
+            .then(response => setCategoriesData(response.data.data.categories))
+            .catch(error => console.log("error", error))
+        //------ Get All Designer ------
+        DesignerService.getAllDesigner()
+            .then(response => setDesignerData(response.data.data))
+            .catch(error => console.log("error", error))
     }, [navigate])
 
     return (
@@ -48,42 +60,14 @@ const UserDashboard: React.FC = () => {
                     <section className="referensiRuangan">
                         <header className="header">Referensi Ruangan</header>
                         <section className="boxIconReferensi">
-                            <section className="iconReferensi" onClick={handleCategory}>
-                                <section className="icon"><IconVisitorRoom /></section>
-                                <section className="title">Ruang Tamu</section>
-                            </section>
-                            <section className="iconReferensi" onClick={handleCategory}>
-                                <section className="icon"><IconWorkspace /></section>
-                                <section className="title">Ruang Kerja</section>
-                            </section>
-                            <section className="iconReferensi" onClick={handleCategory}>
-                                <section className="icon"><IconBedroom /></section>
-                                <section className="title">Kamar Tidur</section>
-                            </section>
-                            <section className="iconReferensi" onClick={handleCategory}>
-                                <section className="icon"><IconBathroom /></section>
-                                <section className="title">Kamar Mandi</section>
-                            </section>
-                            <section className="iconReferensi" onClick={handleCategory}>
-                                <section className="icon"><IconBathroom /></section>
-                                <section className="title">Kamar Mandi</section>
-                            </section>
-                            <section className="iconReferensi" onClick={handleCategory}>
-                                <section className="icon"><IconBathroom /></section>
-                                <section className="title">Kamar Mandi</section>
-                            </section>
-                            <section className="iconReferensi" onClick={handleCategory}>
-                                <section className="icon"><IconBathroom /></section>
-                                <section className="title">Kamar Mandi</section>
-                            </section>
-                            <section className="iconReferensi" onClick={handleCategory}>
-                                <section className="icon"><IconBathroom /></section>
-                                <section className="title">Kamar Mandi</section>
-                            </section>
-                            <section className="iconReferensi" onClick={handleCategory}>
-                                <section className="icon"><IconBathroom /></section>
-                                <section className="title">Kamar Mandi</section>
-                            </section>
+                            {categoriesData.length > 0 ? categoriesData.map(data => {
+                                return (
+                                    <section className="iconReferensi" key={data.id} onClick={() => handleCategory(data.id)}>
+                                        <section className="icon"><IconVisitorRoom /></section>
+                                        <section className="title">{data.name}</section>
+                                    </section>
+                                )
+                            }) : null}
                         </section>
                     </section>
                     <section className="daftarDesainer">
@@ -92,38 +76,18 @@ const UserDashboard: React.FC = () => {
                             <section className="link">Lihat Semua</section>
                         </section>
                         <section className="boxIconDesainer">
-                            <section className="iconDesainer">
-                                <img src={imgDesain1} alt="Media Kreasi" />
-                                <section className="deskripsi">
-                                    <span className="content">Media Kreasi <br />
-                                        <IconStart /> 4.7
-                                    </span>
-                                </section>
-                            </section>
-                            <section className="iconDesainer">
-                                <img src={imgDesain2} alt="Pusat Ilmu" />
-                                <section className="deskripsi">
-                                    <span className="content">Pusat Ilmu <br />
-                                        <IconStart /> 4.7
-                                    </span>
-                                </section>
-                            </section>
-                            <section className="iconDesainer">
-                                <img src={imgDesain3} alt="Tirta Dharma" />
-                                <section className="deskripsi">
-                                    <span className="content">Tirta Dharma <br />
-                                        <IconStart /> 4.7
-                                    </span>
-                                </section>
-                            </section>
-                            <section className="iconDesainer">
-                                <img src={imgDesain3} alt="Tirta Dharma" />
-                                <section className="deskripsi">
-                                    <span className="content">Media Kreasi <br />
-                                        <IconStart /> 4.7
-                                    </span>
-                                </section>
-                            </section>
+                            {designerData.length > 0 ? designerData.map(data => {
+                                return (
+                                    <section className="iconDesainer" key={data.id}>
+                                        <img src={`http://${data.imageUrl}`} alt="Media Kreasi" />
+                                        <section className="deskripsi">
+                                            <span className="content">{data.name}<br />
+                                                <IconStart /> 4.7
+                                            </span>
+                                        </section>
+                                    </section>
+                                )
+                            }) : null}
                         </section>
                     </section>
                     <section className="kategori">
@@ -140,12 +104,10 @@ const UserDashboard: React.FC = () => {
             <main className="userDashbord-mainThree">
                 <article className="userDashbord-mainThree-articleOne">
                     <ProductCard data={designsData} />
-                    <ProductCard data={designsData} />
-                    <ProductCard data={designsData} />
                 </article>
-                <article className="userDashbord-mainThree-articleTwo">
+                {/* <article className="userDashbord-mainThree-articleTwo">
                     <Button type="colorfull" fontSize="lg">Selengkapnya</Button>
-                </article>
+                </article> */}
             </main>
         </main>
     )

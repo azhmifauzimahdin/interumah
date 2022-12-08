@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { useSearchParams } from "react-router-dom"
 import { imgCategory2, imgCategory3, imgCategory4, imgCategory5 } from "../../../assets/dummy"
 import { CategoruCard, PosterCategory, ProductCard } from "../../../component"
 import { DesignService } from "../../../services"
@@ -8,19 +9,17 @@ import "./Category.css"
 const UserCategory: React.FC = () => {
     const [designsData, setDesignData] = useState<Design[]>([])
 
-    //------ Get All Design ------
-    const getAllDesigns = async () => {
-        try {
-            const response = await DesignService.getAllDesigns()
-            setDesignData(response.data.data)
-        } catch (error) {
-            console.log('error', error)
-        }
-    }
+    //------ Get Parametes ------
+    let [searchParams] = useSearchParams()
+    const idCategory = parseInt(searchParams.get("id") as string)
 
     useEffect(() => {
-        getAllDesigns()
-    }, [])
+        //------ Get Design by ID Category ------
+        DesignService.getDesignByIDCategory(idCategory)
+            .then(response => setDesignData(response.data.data))
+            .catch(error => console.log("error", error))
+
+    }, [idCategory])
 
     const categoryData = [
         {
@@ -57,7 +56,7 @@ const UserCategory: React.FC = () => {
     return (
         <>
             <main className="userCategory-container">
-                <PosterCategory />
+                <PosterCategory data={designsData} />
                 <section className="userCategory-rekomendation-wrapper">
                     <section className="userCategory-rekomendation-title">Rekomendasi Untuk Anda</section>
                     <section className="userCategory-rekomendation-card">

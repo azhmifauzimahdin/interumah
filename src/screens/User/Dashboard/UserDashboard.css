@@ -61,7 +61,7 @@
     font-size: 1.14vw;
     cursor: pointer;
     white-space: nowrap;
-    font-weight: 400;
+    font-weight: 700;
     transition: transform 0.4s ease-in-out;
 }
 
@@ -156,14 +156,12 @@
     overflow: hidden;
     position: relative;
     transition: all 0.3s ease;
-}
-
-.userDashboard-mainTwo-articleOne .daftarDesainer .boxIconDesainer .iconDesainer:nth-child(1) {
     margin: 1vh 1vw 1vh 0;
 }
 
-.userDashboard-mainTwo-articleOne .daftarDesainer .boxIconDesainer .iconDesainer:nth-last-child(1) {
-    margin: 1vh 0 1vh 1vw;
+.userDashboard-mainTwo-articleOne .daftarDesainer .boxIconDesainer .iconDesainer img {
+    width: 100%;
+    height: 100%;
 }
 
 .userDashboard-mainTwo-articleOne .daftarDesainer .boxIconDesainer .iconDesainer .icon img {
