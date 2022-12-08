@@ -97,7 +97,7 @@ const LayoutUserOne: React.FC = () => {
                     <ul>
                         <li><Link to={'/favorite'}><IconFavorite /></Link></li>
                         <li onClick={Notification}><IconNotification /></li>
-                        <li><Link to={'/message'}><IconChatNav number={2} /></Link></li>
+                        <li><Link to={'/message'}><IconChatNav number={0} /></Link></li>
                         <li><div className="verticalline"></div></li>
                         <li onClick={profileHover}><IconProfile image={imgProfile1} /></li>
                     </ul>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import { imgDesainer1 } from "../../assets/dummy"
 import { IconLocation, IconReview, IconStart } from "../Icon"
 import "./DesignerCard.css"
 
