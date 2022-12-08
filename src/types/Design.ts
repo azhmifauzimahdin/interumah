@@ -30,9 +30,3 @@ export interface ResponseGetDesignByID {
     code: number;
     data: Design;
 }
-
-export interface ResponseSearchDesignByTitle {
-    code: number;
-    data: Design[];
-    page: Page;
-}

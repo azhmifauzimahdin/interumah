@@ -11,8 +11,6 @@ import "./LandingPage.css"
 const LandingPage: React.FC = () => {
     const [categoriesData, setCategoriesData] = useState<Category[]>([])
     const [designsData, setDesignData] = useState<Design[]>([])
-    const [, setSpecificDesignData] = useState<Design[]>([])
-    console.log('designsData', designsData);
 
     //------ Get All Categories -------
     const getAllCategories = async () => {
@@ -34,6 +32,16 @@ const LandingPage: React.FC = () => {
         }
     }
 
+    //------ Get Design by ID Category ------
+    const getDesignByIdCategory = async (id: number) => {
+        try {
+            const response = await DesignService.getDesignByIDCategory(id)
+            setDesignData(response.data.data)
+        } catch (error) {
+            console.log("error", error)
+        }
+    }
+
     //------ Handle Button Category ------
     const [menu, setMenu] = useState<number>(0)
     const [menuBtn, setMenuBtn] = useState<boolean>(true)
@@ -41,12 +49,15 @@ const LandingPage: React.FC = () => {
     const handleButtonAllCategory = () => {
         setMenuBtn(true)
         setMenu(0)
+        getAllDesigns()
     }
     const handleButtonCategory = (e: any) => {
-        let nameOfFunction = parseInt(e.target.name)
+        let idCategory = parseInt(e.target.name)
         setMenuBtn(false)
-        setMenu(nameOfFunction)
+        setMenu(idCategory)
+        getDesignByIdCategory(idCategory)
     }
+
     useEffect(() => {
         getAllCategories()
         getAllDesigns()
@@ -120,11 +131,11 @@ const LandingPage: React.FC = () => {
                     </nav>
                 </article>
                 <article className="landingPage-mainThree-articleTwo">
-                    <ProductCard data={designsData} />
+                    {designsData.length > 0 ? <ProductCard data={designsData} /> : null}
                 </article>
-                <article className="landingPage-mainThree-articleThree">
+                {/* <article className="landingPage-mainThree-articleThree">
                     <Button type="colorfull" fontSize="lg">Selengkapnya</Button>
-                </article>
+                </article> */}
             </main>
             <main className="landingPage-mainFour">
                 <header className="landingPage-mainFour-header">Interumah Selalu Punya Cerita</header>
