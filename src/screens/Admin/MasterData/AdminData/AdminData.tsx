@@ -2,7 +2,7 @@ import React from "react"
 import Table, { TableColumn } from "../../../../component/Table/Table"
 import "./AdminData.css"
 
-const AdminMasterData: React.FC = () => {
+const AdminDataAdmin: React.FC = () => {
     const data = [
         {
             IDAdmin: "IT32423",
@@ -118,4 +118,4 @@ const AdminMasterData: React.FC = () => {
     )
 }
 
-export default AdminMasterData
+export default AdminDataAdmin

@@ -6,7 +6,7 @@ import {
 } from "react-router-dom"
 import { LayoutAdmin, LayoutLandingPage, LayoutUserOne, LayoutUserTwo } from "./layouts"
 import { LayoutForgetPassword, LayoutLogin, LayoutRegister } from "./layouts/Auth"
-import { AdminLaporan, AdminMasterData, AdminPengaturan } from "./screens/Admin"
+import { AdminChangePassword, AdminDataAdmin, AdminDataDesigner, AdminDataOrder, AdminDataProduct, AdminDataTransfer, AdminDataUser, AdminFinancialReport, AdminLogout } from "./screens/Admin"
 import AdminDashboard from "./screens/Admin/Dashboard/AdminDashboar"
 import { ChangePassword, FailedPasswordChange, Login, Logout, PasswordCheckEmail, PasswordInputEmail, Register, SuccessPasswordChange } from "./screens/Auth"
 import LandingPage from "./screens/LandingPage/LandingPage"
@@ -23,18 +23,18 @@ const Router: React.FC = () => {
                 <Route element={<LayoutAdmin />}>
                     <Route path="/admin/dashboard" element={<AdminDashboard />} />
 
-                    <Route path="/admin/data/admin" element={<AdminMasterData />} />
-                    <Route path="/admin/data/desainer" element={<AdminDashboard />} />
-                    <Route path="/admin/data/user" element={<AdminDashboard />} />
-                    <Route path="/admin/data/produk" element={<AdminDashboard />} />
+                    <Route path="/admin/data/admin" element={<AdminDataAdmin />} />
+                    <Route path="/admin/data/desainer" element={<AdminDataDesigner />} />
+                    <Route path="/admin/data/user" element={<AdminDataUser />} />
+                    <Route path="/admin/data/produk" element={<AdminDataProduct />} />
 
-                    <Route path="/admin/transaksi/pesanan" element={<AdminPengaturan />} />
-                    <Route path="/admin/transaksi/transfer" element={<AdminPengaturan />} />
+                    <Route path="/admin/transaksi/pesanan" element={<AdminDataOrder />} />
+                    <Route path="/admin/transaksi/transfer" element={<AdminDataTransfer />} />
 
-                    <Route path="/admin/laporan/keuangan" element={<AdminLaporan />} />
+                    <Route path="/admin/laporan/keuangan" element={<AdminFinancialReport />} />
 
-                    <Route path="/admin/pengaturan/ganti_password" element={<AdminPengaturan />} />
-                    <Route path="/admin/pengaturan/logout" element={<AdminPengaturan />} />
+                    <Route path="/admin/pengaturan/ganti_password" element={<AdminChangePassword />} />
+                    <Route path="/admin/pengaturan/logout" element={<AdminLogout />} />
                 </Route>
                 <Route element={<LayoutUserOne />} >
                     <Route path="/dashboard/" element={<UserDashboard />} />
