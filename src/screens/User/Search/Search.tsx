@@ -50,11 +50,13 @@ const UserSearch: React.FC = () => {
     }
 
     useEffect(() => {
+        //------ Search Design By Title ------
         DesignService.searchDesignByTitle(keyword as string)
             .then(response => setDesignData(response.data.data))
             .catch(error => console.log("error", error))
 
-        DesignerService.getAllDesigner()
+        //------ Serach Design By Name ------
+        DesignerService.searchDesignerByName(keyword as string)
             .then(response => setDesignerData(response.data.data))
             .catch(error => console.log("error", error))
         getAllCategories()
@@ -108,7 +110,18 @@ const UserSearch: React.FC = () => {
                             </>
                             :
                             <>
-                                <DesignerCard data={designerData} />
+                                {designerData.length > 0 ?
+                                    <DesignerCard data={designerData} />
+                                    :
+                                    <article className="userSearch-empytyBox">
+                                        <figure className="userSearch-empyty-ilustration">
+                                            <img src={IlustrationFavorite} alt="Ilustration" />
+                                        </figure>
+                                        <section className="userSearch-empyty-desc">
+                                            Desainer yang kamu cari tidak ada
+                                        </section>
+                                    </article>
+                                }
                             </>
                         }
                     </section>
