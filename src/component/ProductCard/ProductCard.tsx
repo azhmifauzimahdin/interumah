@@ -31,16 +31,16 @@ const ProductCard: React.FC<ProductCardProps> = props => {
                 return (
                     <article className="productCard" key={data.id}>
                         <figure className="productCard-imgProduct">
-                            <img src={`http://${data.imageUrl}`} alt="Classic" />
+                            <img src={`http://${data.imageUrl || data.design.imageUrl}`} alt="Classic" />
                         </figure>
                         <article className="productCard-article">
-                            <header className="productCard-title">{data.title}</header>
-                            <section className="productCard-company">{data.designer.name}</section>
+                            <header className="productCard-title">{data.title || data.design.title}</header>
+                            <section className="productCard-company">{data?.design?.designerName || data.designer.name}</section>
                             <section className="productCard-address">
-                                <span className="icon"><IconLocation /></span>{data.location}
+                                <span className="icon"><IconLocation /></span>{data.location || data.design.price}
                             </section>
                             <section className="productCard-price">
-                                <span className="icon"><IconPrice /></span>{data.price}
+                                <span className="icon"><IconPrice /></span>{data.price || data.design.price}
                             </section>
                             <section className="productCard-optionProduct">
                                 <section className="btnFavorit"><IconFavoriteBorder /></section>
