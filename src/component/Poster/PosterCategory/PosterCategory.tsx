@@ -1,34 +1,33 @@
 import React, { useEffect, useState } from "react"
 import { IlustrationDiscusion } from "../../../assets"
-import { imgCategory1 } from "../../../assets/dummy"
 import "./PosterCategory.css"
 
 interface PosterCategoryProps<T = any> {
-    data: T[]
+    data: T
 }
 const PosterCateogory: React.FC<PosterCategoryProps> = props => {
-    const [designData, setDesignData] = useState<any[]>([])
+    const [categoryData, setCategoryData] = useState<any[]>([])
 
-    const initiateDesign = (data: any[]) => {
-        setDesignData(data)
+    const initiateCategory = (data: any) => {
+        setCategoryData(data)
     }
+
     useEffect(() => {
-        if (props.data.length === 0) return
-        initiateDesign([...props.data])
+        initiateCategory([props.data])
     }, [props.data])
     return (
         <>
-            {designData.length > 0 ? designData.map(data => {
+            {categoryData.length > 0 ? categoryData.map(data => {
                 return (
                     <figure className="posterCategory-poster-wrapper" key={data.id}>
                         <section className="posterCategory-poster-text">
-                            {data.title} memiliki peran penting untuk anda
+                            {data.description}
                         </section>
                         <section className="posterCategory-poster-ilustration">
                             <img src={IlustrationDiscusion} alt="" />
                         </section>
                         <section className="posterCategory-poster-image">
-                            <img src={imgCategory1} alt="category" />
+                            <img src={`http://${data.background}`} alt="category" />
                         </section>
                     </figure>
                 )

@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
 import { imgCategory2, imgCategory3, imgCategory4, imgCategory5 } from "../../../assets/dummy"
 import { CategoruCard, PosterCategory, ProductCard } from "../../../component"
-import { DesignService } from "../../../services"
+import { CategoryService, DesignService } from "../../../services"
+import { Category } from "../../../types/Category"
 import { Design } from "../../../types/Design"
 import "./Category.css"
 
 const UserCategory: React.FC = () => {
+    const [categoryData, setCategoryData] = useState<Category>()
     const [designsData, setDesignData] = useState<Design[]>([])
 
     //------ Get Parametes ------
@@ -14,6 +16,11 @@ const UserCategory: React.FC = () => {
     const idCategory = parseInt(searchParams.get("id") as string)
 
     useEffect(() => {
+        //------ Get Category by ID Category ------
+        CategoryService.getCategoryByID(idCategory)
+            .then(response => setCategoryData(response.data.data))
+            .catch(error => console.log("error", error))
+
         //------ Get Design by ID Category ------
         DesignService.getDesignByIDCategory(idCategory)
             .then(response => setDesignData(response.data.data))
@@ -21,7 +28,8 @@ const UserCategory: React.FC = () => {
 
     }, [idCategory])
 
-    const categoryData = [
+    //------ Recommendation data ------
+    const categoriesData = [
         {
             img: imgCategory2,
             title: "Dapur F30 Minimalis",
@@ -56,16 +64,17 @@ const UserCategory: React.FC = () => {
     return (
         <>
             <main className="userCategory-container">
-                <PosterCategory data={designsData} />
+                {categoryData !== undefined &&
+                    <PosterCategory data={categoryData} />
+                }
                 <section className="userCategory-rekomendation-wrapper">
                     <section className="userCategory-rekomendation-title">Rekomendasi Untuk Anda</section>
                     <section className="userCategory-rekomendation-card">
-                        <CategoruCard data={categoryData} />
+                        <CategoruCard data={categoriesData} />
                     </section>
                 </section>
             </main>
             <main className="userCategory-containerDesainer">
-
                 <section className="userCategory-desain-wrapper">
                     <ProductCard data={designsData} />
                 </section>

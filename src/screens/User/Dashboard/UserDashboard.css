@@ -70,6 +70,11 @@
 }
 
 .userDashboard-mainTwo-articleOne .referensiRuangan .boxIconReferensi .iconReferensi .icon {
+    width: 5vw;
+    margin: 0 auto;
+}
+
+.userDashboard-mainTwo-articleOne .referensiRuangan .boxIconReferensi .iconReferensi .icon img {
     width: 100%;
 }
 

@@ -68,7 +68,9 @@ const UserDashboard: React.FC = () => {
                             {categoriesData.length > 0 ? categoriesData.map(data => {
                                 return (
                                     <section className="iconReferensi" key={data.id} onClick={() => handleCategory(data.id)}>
-                                        <section className="icon"><IconVisitorRoom /></section>
+                                        <section className="icon">
+                                            <img src={`http://${data.icon}`} alt="icon" />
+                                        </section>
                                         <section className="title">{data.name}</section>
                                     </section>
                                 )
