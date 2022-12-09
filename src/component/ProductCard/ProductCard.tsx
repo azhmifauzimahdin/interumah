@@ -26,7 +26,7 @@ const ProductCard: React.FC<ProductCardProps> = props => {
     // ------ Handle Click Favorite ------
     const handleFavorite = async (id: number) => {
         try {
-            await FavoriteService.deleteFavoriteDesign(id)
+            await FavoriteService.FavoriteDesign(id)
             window.location.reload()
         } catch (error) {
             console.log("error", error)
@@ -56,7 +56,7 @@ const ProductCard: React.FC<ProductCardProps> = props => {
                                 <span className="icon"><IconPrice /></span>{data.price || data.design.price}
                             </section>
                             <section className="productCard-optionProduct">
-                                <section className="btnFavorit"><IconFavoriteBorder onClick={() => handleFavorite(data.design.id)} /></section>
+                                <section className="btnFavorit"><IconFavoriteBorder onClick={() => handleFavorite(data?.design?.id || data.id)} /></section>
                                 <section className="btnDetail"><Button fontWeight="normal" size="sm" fontSize="sm" onClick={() => detailDesign(data.id)}>Lihat detail</Button></section>
                             </section>
                         </article>
