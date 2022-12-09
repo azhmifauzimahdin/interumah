@@ -15,3 +15,8 @@ export interface ResponseFavorite {
     code: number;
     data: Favorite[];
 }
+
+export interface ResponseDeleteFavorite {
+    code: number;
+    message: string;
+}
