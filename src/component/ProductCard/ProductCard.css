@@ -98,6 +98,26 @@
     width: 10.88vw;
 }
 
+.modalProductCard-title {
+    font-size: 1.45vw;
+    font-weight: 700;
+    margin-bottom: 2vw;
+}
+
+.modalProductCard-ilustration {
+    width: 50%;
+    margin: 0 auto 2vw;
+}
+
+.imgIlustrationProductCard {
+    width: 100%;
+}
+
+.modalProductCard-btn {
+    width: 69%;
+    margin: 0 auto;
+}
+
 @media screen and (max-width: 920px) {
     .productCard {
         width: 46%;

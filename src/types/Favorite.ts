@@ -3,6 +3,9 @@ export interface DesignFavorite {
     userId: number;
     categoryId: number;
     title: string;
+    price: string;
+    location: string;
+    designerName: string;
     imageUrl: string;
 }
 
@@ -16,7 +19,7 @@ export interface ResponseFavorite {
     data: Favorite[];
 }
 
-export interface ResponseDeleteFavorite {
+export interface ResponseAddDeleteFavorite {
     code: number;
     message: string;
 }

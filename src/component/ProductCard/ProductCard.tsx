@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { IlustrationOk } from "../../assets"
 import { FavoriteService } from "../../services"
+import { Favorite } from "../../types/Favorite"
 import Button from "../Button/Button"
 import { IconFavoriteBorder, IconLocation, IconPrice } from "../Icon"
+import ModalBlank from "../ModalBlank/ModalBlank"
 import "./ProductCard.css"
 
 interface ProductCardProps<T = any> {
@@ -12,6 +15,10 @@ interface ProductCardProps<T = any> {
 const ProductCard: React.FC<ProductCardProps> = props => {
     const navigate = useNavigate()
     const [designData, setDesignData] = useState<any[]>([])
+    const [, setDesignFavorite] = useState<Favorite[]>([])
+
+    //------ Get token ------
+    const token = localStorage.getItem("token")
 
     // ------- Inititate Design ------
     const initiateDesign = (data: any[]) => {
@@ -20,29 +27,57 @@ const ProductCard: React.FC<ProductCardProps> = props => {
 
     // ------- Handle Navigate Detail Design -------
     const detailDesign = (id: any) => {
-        navigate(`/detail_desain?desain=${id}`)
+        if (!token) {
+            toggleModal()
+        } else {
+            navigate(`/detail_desain?desain=${id}`)
+        }
     }
 
     // ------ Handle Click Favorite ------
     const handleFavorite = async (id: number) => {
-        try {
-            await FavoriteService.FavoriteDesign(id)
-            window.location.reload()
-        } catch (error) {
-            console.log("error", error)
+        if (!token) {
+            toggleModal()
+        } else {
+            try {
+                await FavoriteService.FavoriteDesign(id)
+                window.location.reload()
+            } catch (error) {
+                console.log("error", error)
+            }
         }
+    }
+
+    //------ Modal Successfull Payment-------
+    const [showModal, setShowModal] = useState<boolean>(false)
+
+    const toggleModal = () => {
+        setShowModal(prevState => !prevState)
+    }
+    const onStayModal = (e: any) => {
+        e.stopPropagation()
+    }
+    const navigateLogin = () => {
+        navigate('/login')
     }
 
     useEffect(() => {
         if (props.data.length === 0) return
         initiateDesign([...props.data])
+
+        //------ Get favorite designs ------
+        FavoriteService.getAllDesignFavorite()
+            .then(response => {
+                setDesignFavorite(response.data.data)
+            })
+            .catch(error => console.log("error", error))
     }, [props.data])
 
     return (
         <>
             {designData.length > 0 ? designData.map(data => {
                 return (
-                    <article className="productCard" key={data.id}>
+                    <article className="productCard" key={data?.design?.id || data.id}>
                         <figure className="productCard-imgProduct">
                             <img src={`http://${data.imageUrl || data.design.imageUrl}`} alt="Classic" />
                         </figure>
@@ -50,13 +85,13 @@ const ProductCard: React.FC<ProductCardProps> = props => {
                             <header className="productCard-title">{data.title || data.design.title}</header>
                             <section className="productCard-company">{data?.design?.designerName || data.designer.name}</section>
                             <section className="productCard-address">
-                                <span className="icon"><IconLocation /></span>{data.location || data.design.price}
+                                <span className="icon"><IconLocation /></span>{data.location || data.design.location} {data?.design?.id || data.id}
                             </section>
                             <section className="productCard-price">
                                 <span className="icon"><IconPrice /></span>{data.price || data.design.price}
                             </section>
                             <section className="productCard-optionProduct">
-                                <section className="btnFavorit"><IconFavoriteBorder onClick={() => handleFavorite(data?.design?.id || data.id)} /></section>
+                                <section className="btnFavorit"><IconFavoriteBorder onClick={() => handleFavorite(data?.design?.id || data.id)} active={false} /></section>
                                 <section className="btnDetail"><Button fontWeight="normal" size="sm" fontSize="sm" onClick={() => detailDesign(data.id)}>Lihat detail</Button></section>
                             </section>
                         </article>
@@ -64,6 +99,22 @@ const ProductCard: React.FC<ProductCardProps> = props => {
                 )
             }) : null
             }
+            <ModalBlank
+                visible={showModal}
+                onClose={toggleModal}
+                OnStay={onStayModal}
+            >
+                <section className="modalProductCard-title">
+                    Anda Harus login terlebih dahulu
+                </section>
+                <section className="modalProductCard-ilustration">
+                    <img src={IlustrationOk} alt="Ilustration Successfull Payment" className="imgIlustrationProductCard" />
+                </section>
+                <section className="modalProductCard-btn">
+                    <Button onClick={navigateLogin}>Login</Button>
+                </section>
+
+            </ModalBlank>
         </>
     )
 }
