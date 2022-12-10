@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { IlustrationFavorite } from "../../../assets"
 import { Button, ProductCard } from "../../../component"
 import { CategoryService, DesignService, FavoriteService } from "../../../services"
@@ -8,6 +9,7 @@ import { Favorite } from "../../../types/Favorite"
 import './Favorite.css'
 
 const UserFavorite: React.FC = () => {
+    const navigate = useNavigate()
     const [designFavorite, setDesignFavorite] = useState<Favorite[]>([])
     const [designsData, setDesignsData] = useState<Design[]>([])
     const [categoriesData, setCategoriesData] = useState<Category[]>([])
@@ -20,6 +22,11 @@ const UserFavorite: React.FC = () => {
         } catch (error) {
             console.log('error', error)
         }
+    }
+
+    //------- Navigate Dashboard -------
+    const navigateDashboard = () => {
+        navigate('/dashboard')
     }
 
     useEffect(() => {
@@ -67,7 +74,7 @@ const UserFavorite: React.FC = () => {
                             </section>
                         </section>
                         <section className="userFavorite-button">
-                            <Button>Temukan Desainmu</Button>
+                            <Button onClick={navigateDashboard}>Temukan Desainmu</Button>
                         </section>
                     </article>
                 }

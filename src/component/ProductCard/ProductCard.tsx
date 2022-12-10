@@ -15,7 +15,8 @@ interface ProductCardProps<T = any> {
 const ProductCard: React.FC<ProductCardProps> = props => {
     const navigate = useNavigate()
     const [designData, setDesignData] = useState<any[]>([])
-    const [, setDesignFavorite] = useState<Favorite[]>([])
+    const [designFavorite, setDesignFavorite] = useState<Favorite[]>([])
+    const [, setId] = useState<any[]>([])
 
     //------ Get token ------
     const token = localStorage.getItem("token")
@@ -65,13 +66,21 @@ const ProductCard: React.FC<ProductCardProps> = props => {
         if (props.data.length === 0) return
         initiateDesign([...props.data])
 
-        //------ Get favorite designs ------
+        // ------ Get favorite designs ------
         FavoriteService.getAllDesignFavorite()
             .then(response => {
                 setDesignFavorite(response.data.data)
             })
             .catch(error => console.log("error", error))
     }, [props.data])
+
+    useEffect(() => {
+        setId(designFavorite.map(data => {
+            return (
+                data.design.id
+            )
+        }))
+    }, [designFavorite])
 
     return (
         <>
@@ -85,7 +94,7 @@ const ProductCard: React.FC<ProductCardProps> = props => {
                             <header className="productCard-title">{data.title || data.design.title}</header>
                             <section className="productCard-company">{data?.design?.designerName || data.designer.name}</section>
                             <section className="productCard-address">
-                                <span className="icon"><IconLocation /></span>{data.location || data.design.location} {data?.design?.id || data.id}
+                                <span className="icon"><IconLocation /></span>{data.location || data.design.location}
                             </section>
                             <section className="productCard-price">
                                 <span className="icon"><IconPrice /></span>{data.price || data.design.price}

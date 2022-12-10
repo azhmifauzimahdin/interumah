@@ -26,3 +26,18 @@ export interface UserResponse {
     code: number;
     data: User;
 }
+export interface Profile {
+    name?: any;
+    email: string;
+    imageUrl: string;
+    phone?: any;
+    age?: any;
+    address?: any;
+    job?: any;
+    isDesigner: boolean;
+}
+
+export interface ResponseProfile {
+    code: number;
+    data: Profile;
+}
