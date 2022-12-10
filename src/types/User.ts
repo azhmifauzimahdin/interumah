@@ -41,3 +41,16 @@ export interface ResponseProfile {
     code: number;
     data: Profile;
 }
+
+export interface RequestUpdataProfile {
+    name: string;
+    age: string;
+    phone: string;
+    address: string;
+    job: string;
+}
+
+export interface ResponseUpdateProfile {
+    code: number;
+    message: string;
+}

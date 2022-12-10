@@ -49,7 +49,7 @@ const ProductCard: React.FC<ProductCardProps> = props => {
         }
     }
 
-    //------ Modal Successfull Payment-------
+    //------ Modal Message Login-------
     const [showModal, setShowModal] = useState<boolean>(false)
 
     const toggleModal = () => {

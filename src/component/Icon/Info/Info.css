@@ -1,12 +1,16 @@
-.info {
+.info-size-sm {
+    width: 0.73vw;
+}
+
+.info-size-md {
     width: 0.93vw;
 }
 
-.info-primary {
+.info-color-primary {
     fill: #1E1E1F
 }
 
-.info-danger {
+.info-color-danger {
     fill: #FF6C6C;
 }
 
