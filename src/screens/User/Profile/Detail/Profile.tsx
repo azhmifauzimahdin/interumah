@@ -50,7 +50,6 @@ const UserProfile: React.FC = () => {
         try {
             const formData = new FormData(e.target as HTMLFormElement)
             let inputObject = Object.fromEntries(formData)
-            console.log('inputObject', inputObject)
 
             await ProfileService.updateProfile(inputObject as any as RequestUpdataProfile)
             setSending(false)
@@ -62,7 +61,6 @@ const UserProfile: React.FC = () => {
             setErrorMessageJob('')
         } catch (error: any) {
             setSending(false)
-            console.log("error", error)
             setErrorMessageName(error.response.data.errors.name)
             setErrorMessageAge(error.response.data.errors.age)
             setErrorMessagePhone(error.response.data.errors.phone)

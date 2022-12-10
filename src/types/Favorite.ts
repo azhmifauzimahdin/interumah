@@ -10,7 +10,7 @@ export interface DesignFavorite {
 }
 
 export interface Favorite {
-    id: number;
+    favoriteId: number;
     design: DesignFavorite;
 }
 
