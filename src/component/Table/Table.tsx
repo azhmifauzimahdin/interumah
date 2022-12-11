@@ -6,6 +6,7 @@ import Button from "../Button/Button"
 export interface TableColumn<T = any> {
     title: string,
     dataIndex?: keyof T,
+    dataIndex1?: keyof T,
     render?: (data: T) => void
     sort?: keyof T
 }
@@ -49,7 +50,6 @@ const Table: React.FC<TableProps> = props => {
     const search = (seacrhText: string) => {
         const result = searching(props.data, seacrhText)
         initiateTable(result)
-        console.log("result", result)
     }
 
     const sort = (direction: "asc" | "desc" | "reset", property: any) => {
@@ -70,20 +70,20 @@ const Table: React.FC<TableProps> = props => {
                 {!props.hideSearch ? (
                     <section className="table-searchWrapper">
                         <section className="input-group-button">
-                            <input type="text" name="keyword" className="inputSearch" placeholder="Masukan Email Anda" onChange={e => setTableSearch(e.target.value)} />
+                            <input type="text" name="keyword" className="inputSearch" placeholder="Cari berdasarkan nama" onChange={e => setTableSearch(e.target.value)} />
                             <div className="input-group-prependbutton">
                                 <button className="btnsearch" onClick={() => search(tableSeacrh)}><IconSearch size="sm" /></button>
                             </div>
                         </section>
                     </section>
                 ) : null}
-                {!props.hideAdd ? (
+                {props.hideAdd ? (
                     <section className="table-addWrapper">
                         <Button size="sm">{props.textBtn}</Button>
                     </section>
                 ) : null}
             </section>
-            <table className="table" border={0} cellSpacing="0" cellPadding={12}>
+            <table className="table" border={0} cellSpacing="0" cellPadding={2}>
                 <thead>
                     <tr>
                         {props.columns.map((column, index) => {
@@ -107,7 +107,12 @@ const Table: React.FC<TableProps> = props => {
                         return (
                             <tr key={index} style={{ background: index % 2 === 0 ? '#D9D9D9' : '#fff' }}>
                                 {props.columns.map((column, index) => {
-                                    let renderedContent = column.dataIndex ? d[column.dataIndex] : null
+                                    var renderedContent
+                                    if (column.dataIndex1) {
+                                        renderedContent = column.dataIndex ? d[column.dataIndex][column.dataIndex1 as any] : null
+                                    } else {
+                                        renderedContent = column.dataIndex ? d[column.dataIndex] : null
+                                    }
                                     if (column.render) {
                                         renderedContent = column.render(d)
                                     }

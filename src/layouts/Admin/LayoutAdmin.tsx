@@ -64,7 +64,7 @@ const LayoutAdmin: React.FC = () => {
     return (
         <>
             <main className="layoutAdmin-container">
-                <article className="layoutAdmin-sidebar" style={{ width: isOpen ? "22vw" : "6vw" }}>
+                <article className="layoutAdmin-sidebar" style={{ width: isOpen ? "20vw" : "6vw" }}>
                     <section className="layoutAdmin-topSection" style={{ justifyContent: isOpen ? "start" : "center" }}>
                         <section className="layoutAdmin-logo">
                             {isOpen ? <img src={Logo} alt="logo" /> : <img src={LogoNoText} alt="logo" />}
@@ -77,7 +77,7 @@ const LayoutAdmin: React.FC = () => {
                         <section className="layoutAdmin-nameAdmin" style={{ display: isOpen ? "flex" : "none" }}>Admin 1</section>
                     </section>
                     <section className="layoutAdmin-listMenu">
-                        <DropDownMenu onClick={checkOpen} isOpen={isOpen} basePath="admin/dashboard" menu="Dashboad" icon={<IconHome className="IconMenu" />} />
+                        <DropDownMenu onClick={checkOpen} isOpen={isOpen} basePath="admin/dashboard" menu="Dashboard" icon={<IconHome className="IconMenu" />} />
                         <DropDownMenu onClick={checkOpen} isOpen={isOpen} basePath="admin/data" menu="Master Data" icon={<IconDatabase className="IconMenu" />} option={optionMasterData} />
                         <DropDownMenu onClick={checkOpen} isOpen={isOpen} basePath="admin/transaksi" menu="Data Transaksi" icon={<IconShoppingBasket className="IconMenu" />} option={optionDataTransaksi} />
                         <DropDownMenu onClick={checkOpen} isOpen={isOpen} basePath="admin/laporan" menu="Laporan" icon={<IconPrint className="IconMenu" />} option={optionLaporan} />
@@ -87,8 +87,8 @@ const LayoutAdmin: React.FC = () => {
                         <IconMenu />
                     </section>
                 </article>
-                <main className="layoutAdmin-content">
-                    <nav className="layoutAdmin-header"></nav>
+                <main className="layoutAdmin-content" style={{ marginLeft: isOpen ? "20vw" : "6vw" }}>
+                    <nav className="layoutAdmin-header" />
                     <article className="layoutAdmin-article">
                         <Outlet />
                     </article>

@@ -27,6 +27,7 @@
 .inputSearch {
     flex: 1;
     border: 0.12vw solid #101B94;
+    padding: 0 1vw;
     border-right: none;
     border-radius: 0.6vw 0px 0px 0.6vw;
 }
@@ -51,6 +52,11 @@ thead tr td {
     font-size: 1.66vw;
     font-weight: 700;
     color: #fff;
+    padding-left: 0.6vw;
+}
+
+tbody tr td {
+    padding-left: 0.6vw;
 }
 
 .table-navigation {
