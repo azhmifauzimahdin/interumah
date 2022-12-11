@@ -2,6 +2,7 @@
     border: 0.2vw solid #101B94;
     border-radius: 1.4vw;
     overflow: hidden;
+    margin-bottom: 2vw;
 }
 
 .orderCard-header {
@@ -49,7 +50,6 @@
     border: 0.1vw solid #797979;
     color: #797979;
     background: #E0E0E0;
-
 }
 
 .orderCard-content {

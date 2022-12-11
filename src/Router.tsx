@@ -44,14 +44,14 @@ const Router: React.FC = () => {
                     <Route path="/akunsaya" element={<UserProfile />} />
                     <Route path="/change_password" element={<UserChangePassword />} />
                     <Route path="/detail_desain" element={<UserDetailDesain />} />
-                    <Route path="/pesanan" element={<UserOrder />} />
+                    <Route path="/pesananku" element={<UserOrder />} />
                     <Route path="/desainer" element={<UserDesainer />} />
                     <Route path="/kategori" element={<UserCategory />} />
                     <Route path="/semua_kategori" element={<UserAllCategories />} />
                 </Route>
                 <Route element={<LayoutUserTwo />} >
-                    <Route path="/pembayaran/" element={<UserPayment />} />
-                    <Route path="/penilaian/" element={<UserAddReview />} />
+                    <Route path="/pembayaran" element={<UserPayment />} />
+                    <Route path="/penilaian" element={<UserAddReview />} />
                 </Route>
                 <Route element={<LayoutLogin />} >
                     <Route path="/login" element={<Login />} />

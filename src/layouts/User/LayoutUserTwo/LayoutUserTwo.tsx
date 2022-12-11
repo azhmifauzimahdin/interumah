@@ -22,7 +22,7 @@ const LayoutUserOne: React.FC = () => {
     }
 
     //------ Profile Hover -------
-    const menuProfile = ['Akun Saya', 'DesainKu', 'Logout']
+    const menuProfile = ['Akun Saya', 'PesananKu', 'Logout']
 
     const [showProfileHover, setShowProfileHover] = useState<boolean>(false)
 
