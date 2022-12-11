@@ -11,7 +11,6 @@ const UserOrder: React.FC = () => {
         OrderService.getAllOrderHistory()
             .then(response => setDesignOrder(response.data.data))
             .catch(error => console.log('error', error))
-        console.log('designOrder', designOrder)
     })
 
     return (

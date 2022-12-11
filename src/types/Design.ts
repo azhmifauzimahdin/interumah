@@ -12,6 +12,8 @@ export interface Design {
     description: string;
     area: number;
     imageUrl: string;
+    price: string;
+    location: string;
     budgetPlan?: any;
     designer: Designer;
 }

@@ -37,7 +37,7 @@ const UserDetailDesain: React.FC = () => {
         try {
             const request = { designId: id }
             await OrderService.orderDesign(request)
-            navigate('/pembayaran')
+            navigate(`/pembayaran?id=${id}`)
         } catch (error) {
             console.log('error', error)
         }
@@ -61,13 +61,13 @@ const UserDetailDesain: React.FC = () => {
                     <section className="userDetailDesain-detail-content">
                         <header className="userDetailDesain-detail-content-header">{designData?.title}</header>
                         <section className="userDetailDesain-detail-content-price">
-                            Rp. 10.000.000
+                            Rp. {designData?.price}
                             <section className="sold-box">5 Terjual</section>
                         </section>
                         <section className="userDetailDesain-detail-content-desc">
                             {designData?.description}
                         </section>
-                        <section className="userDetailDesain-detail-content-descTwo"><span className="icon-desc"><IconLocation size="lg" /></span>Balikpapan, Indonesia</section>
+                        <section className="userDetailDesain-detail-content-descTwo"><span className="icon-desc"><IconLocation size="lg" /></span>{designData?.location}</section>
                         <section className="userDetailDesain-detail-content-descTwo"><span className="icon-desc"><IconStart size="lg" /></span>4.9 (5 Ulasan)</section>
                         <section className="userDetailDesain-detail-footer">
                             <section className="userDetailDesain-detail-footer-btn"><Button type="secondary" className="btn"><IconChat className="icon-chat" />Hubungi</Button></section>
