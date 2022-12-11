@@ -47,7 +47,6 @@ const AdminDataProduct: React.FC = () => {
             .catch(error => console.log('error', error))
 
     }, [])
-    console.log('designsdata', designsdata);
 
     return (
         <main className="adminDataProduct-wrapper">

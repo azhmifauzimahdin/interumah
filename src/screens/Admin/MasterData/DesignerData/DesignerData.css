@@ -1,0 +1,27 @@
+.adminDataDesigner-wrapper {
+    padding: 1vw 2.6vw;
+}
+
+.adminDataDesigner-header {
+    font-size: 2.08vw;
+    font-weight: 700;
+    margin-bottom: 1.2vw;
+}
+
+.admin-btn {
+    padding: 0.2vw 0.6vw;
+    box-sizing: border-box;
+    border-radius: 0.2vw;
+    margin-right: 0.6vw;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.admin-btn-edit {
+    background: #1740E6;
+}
+
+.admin-btn-delete {
+    background: #DB152D;
+}
