@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams } from "react-router-dom"
 import { IlustrationAtmMachine } from "../../../../assets"
 import { Button, ModalBlank, ReviewBox } from "../../../../component"
 import { IconChat, IconLocation, IconProfile, IconStart } from "../../../../component/Icon"
-import { DesignService } from "../../../../services"
+import { DesignService, OrderService } from "../../../../services"
 import { Design } from "../../../../types/Design"
 import "./DetailDesain.css"
 
@@ -14,7 +14,7 @@ const UserDetailDesain: React.FC = () => {
 
     //------ Get Params ------
     let [searchParams] = useSearchParams()
-    const desain = searchParams.get("desain")
+    const desain = parseInt(searchParams.get("desain") as string)
 
     //------ Get Spesicif Design ------
     const getSpecificDesign = async (id: any) => {
@@ -33,8 +33,14 @@ const UserDetailDesain: React.FC = () => {
     const onStayModal = (e: any) => {
         e.stopPropagation()
     }
-    const navigatePayment = () => {
-        navigate('/pembayaran')
+    const orderDesign = async (id: any) => {
+        try {
+            const request = { designId: id }
+            await OrderService.orderDesign(request)
+            navigate('/pembayaran')
+        } catch (error) {
+            console.log('error', error)
+        }
     }
 
     //------ Navigate Detail Designer ------
@@ -110,7 +116,7 @@ const UserDetailDesain: React.FC = () => {
                 </section>
                 <section className="modalConfirmPayment-option">
                     <section className="modalConfirmPayment-option-btn"><Button type="secondary" onClick={toggleModal}>Batal</Button></section>
-                    <section className="modalConfirmPayment-option-btn"><Button onClick={navigatePayment}>Bayar</Button></section>
+                    <section className="modalConfirmPayment-option-btn"><Button onClick={() => orderDesign(desain)}>Bayar</Button></section>
                 </section>
 
             </ModalBlank>

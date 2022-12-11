@@ -55,16 +55,8 @@ export interface RequestUpdateEmail {
     email: string;
 }
 
-export interface imageProfile {
-    lastModified: string;
-    lastModifiedDate: string;
-    name: string;
-    size: number;
-    type: string;
-    webkitRelative: string;
-}
 export interface RequestUpdateImageProfile {
-    image: imageProfile;
+    image: string;
 }
 export interface ResponseUpdateProfile {
     code: number;
