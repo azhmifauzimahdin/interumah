@@ -1,14 +1,35 @@
 import React, { useEffect, useState } from "react"
-import { imgClassic1, imgProfile1 } from "../../../assets/dummy"
+import { useNavigate, useSearchParams } from "react-router-dom"
 import { Button, StarRating } from "../../../component"
 import { IconCloudUpload, IconProfile, IconSend } from "../../../component/Icon"
+import { DesignService } from "../../../services"
+import { Design } from "../../../types/Design"
 import "./AddReview.css"
 
 const AddReview: React.FC = () => {
-    const [imagesDesign, setImagesDesign] = useState([] as any);
-    const [imageURLSDesign, setImageURLsDesign] = useState([]);
-    const [imagesDesigner, setImagesDesigner] = useState([] as any);
-    const [imageURLSDesigner, setImageURLsDesigner] = useState([]);
+    const navigate = useNavigate()
+    const [imagesDesign, setImagesDesign] = useState([] as any)
+    const [imageURLSDesign, setImageURLsDesign] = useState([])
+    const [imagesDesigner, setImagesDesigner] = useState([] as any)
+    const [imageURLSDesigner, setImageURLsDesigner] = useState([])
+    const [designData, setDesignData] = useState<Design>()
+
+
+    //------ Get param ------
+    let [searchParams] = useSearchParams()
+    const id = parseInt(searchParams.get("id") as string)
+
+    //------ Get Design By ID -------
+    useEffect(() => {
+        DesignService.getDesignByID(id)
+            .then(response => setDesignData(response.data.data))
+            .catch(error => console.log('error', error))
+    }, [id])
+
+    //------ Navigate Detail Design -------
+    const navigateDetailDesign = (id: number) => {
+        navigate(`/detail_desain?desain=${id}`)
+    }
 
     useEffect(() => {
         const newImageUrlsDesign: any = []
@@ -31,23 +52,23 @@ const AddReview: React.FC = () => {
             <section className="userAddReview-box">
                 <section className="detail-header">
                     <section className="detail-company">
-                        <IconProfile size="xs" image={imgProfile1} /><span className="text">Sejahter Jaya Gr.</span>
+                        <IconProfile size="xs" image={`http://${designData?.designer.imageUrl}`} /><span className="text">{designData?.designer.name}</span>
                     </section>
-                    <section className="detail-show">
+                    <section className="detail-show" onClick={() => navigateDetailDesign(designData?.id as number)}>
                         Lihat Detail
                     </section>
                 </section>
                 <section className="detail-content">
                     <figure className="detail-image">
-                        <img src={imgClassic1} alt="desain" />
+                        <img src={`http://${designData?.imageUrl}`} alt="desain" />
                     </figure>
                     <section className="detail-desc">
-                        Kamar Tidur Modern Estetik
+                        {designData?.title}
                         <section className="detail-desc-size">Ukuran 3 x 9 meter</section>
                     </section>
                 </section>
                 <section className="detail-footer">
-                    Total Harga:<span className="detail-footer-price"> Rp.10.000.000</span>
+                    Total Harga:<span className="detail-footer-price"> Rp. {designData?.price}</span>
                 </section>
             </section>
             <section className="userAddReview-boxOne">

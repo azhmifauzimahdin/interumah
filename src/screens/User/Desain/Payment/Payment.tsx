@@ -19,9 +19,7 @@ const UserPayment: React.FC = () => {
         DesignService.getDesignByID(id)
             .then(response => setDesignData(response.data.data))
             .catch(error => console.log('error', error))
-
-        console.log("designData", designData)
-    })
+    }, [id])
 
     //------ Navigate Detail Design -------
     const navigateDetailDesign = (id: number) => {
