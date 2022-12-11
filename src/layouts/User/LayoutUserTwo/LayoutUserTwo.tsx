@@ -4,11 +4,15 @@ import { ImageBackgoundEstimate, Logo, LogoFooter } from "../../../assets"
 import { imgProfile1 } from "../../../assets/dummy"
 import { Button, Estimate, EstimateList, ModalEstimate, NewEstimate, NotificationCard, ProfileHover } from "../../../component"
 import { IconAppStore, IconBar, IconCalculator, IconChatNav, IconFacebook, IconFavorite, IconInstagram, IconNotification, IconPlayStore, IconProfile, IconTiktok, IconYoutube } from "../../../component/Icon"
+import { ProfileService } from "../../../services"
+import { Profile } from "../../../types/User"
 import "./LayoutUserTwo.css"
 
 const LayoutUserOne: React.FC = () => {
     const navigate = useNavigate()
     const token = localStorage.getItem("token")
+    const [profile, setProfile] = useState<Profile>()
+
 
     //------ Show Notification -------
     const [showNotification, setShowNotification] = useState<boolean>(false)
@@ -73,6 +77,10 @@ const LayoutUserOne: React.FC = () => {
         if (!token) {
             navigate('/login')
         }
+        //------Get Profile Loged------
+        ProfileService.getProfile()
+            .then(response => setProfile(response.data.data))
+            .catch(error => console.log("error", error))
     }, [navigate, token])
 
     const location = useLocation()
@@ -99,7 +107,7 @@ const LayoutUserOne: React.FC = () => {
                         <li onClick={Notification}><IconNotification /></li>
                         <li><Link to={'/message'}><IconChatNav number={0} /></Link></li>
                         <li><div className="verticalline"></div></li>
-                        <li onClick={profileHover}><IconProfile image={imgProfile1} /></li>
+                        <li onClick={profileHover}><IconProfile image={`http://${profile?.imageUrl}`} /></li>
                     </ul>
                     <ProfileHover data={menuProfile} visible={showProfileHover} onClose={profileHover} />
                     <NotificationCard visible={showNotification} onClose={Notification} />

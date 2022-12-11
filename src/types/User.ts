@@ -50,13 +50,25 @@ export interface RequestUpdataProfile {
     job: string;
 }
 
-export interface ResponseUpdateProfile {
-    code: number;
-    message: string;
-}
 
 export interface RequestUpdateEmail {
     email: string;
+}
+
+export interface imageProfile {
+    lastModified: string;
+    lastModifiedDate: string;
+    name: string;
+    size: number;
+    type: string;
+    webkitRelative: string;
+}
+export interface RequestUpdateImageProfile {
+    image: imageProfile;
+}
+export interface ResponseUpdateProfile {
+    code: number;
+    message: string;
 }
 
 export interface RequestChangePassword {

@@ -4,7 +4,7 @@ import { IlustrationOk } from "../../../../assets"
 import { Button, ErrorMessage, ModalBlank } from "../../../../component"
 import { IconClipboardList, IconLock, IconProfile, IconUserAlt, IconUserX } from "../../../../component/Icon"
 import { ProfileService } from "../../../../services"
-import { Profile, RequestUpdataProfile, RequestUpdateEmail } from "../../../../types/User"
+import { Profile, RequestUpdataProfile, RequestUpdateEmail, RequestUpdateImageProfile } from "../../../../types/User"
 import "./Profile.css"
 
 const UserProfile: React.FC = () => {
@@ -17,6 +17,7 @@ const UserProfile: React.FC = () => {
     const [errorMessagePhone, setErrorMessagePhone] = useState<string>('')
     const [errorMessageAddress, setErrorMessageAddress] = useState<string>('')
     const [errorMessageJob, setErrorMessageJob] = useState<string>('')
+    // const defaultImage = profile?.imageUrl.substr(profile.imageUrl.lastIndexOf('/') + 1)
 
 
     //------ handle input image -------
@@ -52,8 +53,10 @@ const UserProfile: React.FC = () => {
             const formData = new FormData(e.target as HTMLFormElement)
             let inputObject = Object.fromEntries(formData)
 
+            console.log('inputObject', inputObject)
             await ProfileService.updateEmail(inputObject as any as RequestUpdateEmail)
             await ProfileService.updateProfile(inputObject as any as RequestUpdataProfile)
+            await ProfileService.updateImageProfil(inputObject as any as RequestUpdateImageProfile)
 
             setSending(false)
             toggleModal()
@@ -64,6 +67,7 @@ const UserProfile: React.FC = () => {
             setErrorMessageJob('')
         } catch (error: any) {
             setSending(false)
+            console.log('error', error.response.data)
             setErrorMessageName(error.response.data.errors.name)
             setErrorMessageEmail(error.response.data.errors.email)
             setErrorMessageAge(error.response.data.errors.age)
@@ -199,7 +203,7 @@ const UserProfile: React.FC = () => {
                                 <section className="userProfile-content-btnimage">
                                     <label className="button-selectImage">
                                         Pilih Gambar
-                                        <input type='file' onChange={onSelectFile} className="coba" accept="image/*" />
+                                        <input type='file' onChange={onSelectFile} name="image" className="coba" accept="image/*" />
                                     </label>
                                 </section>
                                 <section className="userProfile-conten-detail-image-desc">
