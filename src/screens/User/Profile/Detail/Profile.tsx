@@ -4,7 +4,7 @@ import { IlustrationOk } from "../../../../assets"
 import { Button, ErrorMessage, ModalBlank } from "../../../../component"
 import { IconClipboardList, IconLock, IconProfile, IconUserAlt, IconUserX } from "../../../../component/Icon"
 import { ProfileService } from "../../../../services"
-import { Profile, RequestUpdataProfile } from "../../../../types/User"
+import { Profile, RequestUpdataProfile, RequestUpdateEmail } from "../../../../types/User"
 import "./Profile.css"
 
 const UserProfile: React.FC = () => {
@@ -12,6 +12,7 @@ const UserProfile: React.FC = () => {
     const [profile, setProfile] = useState<Profile>()
     const [sending, setSending] = useState<boolean>(false)
     const [errorMessageName, setErrorMessageName] = useState<string>('')
+    const [errorMessageEmail, setErrorMessageEmail] = useState<string>('')
     const [errorMessageAge, setErrorMessageAge] = useState<string>('')
     const [errorMessagePhone, setErrorMessagePhone] = useState<string>('')
     const [errorMessageAddress, setErrorMessageAddress] = useState<string>('')
@@ -43,7 +44,7 @@ const UserProfile: React.FC = () => {
         setSelectedFile(e.target.files[0])
     }
 
-    //------Upadate Profile ------
+    //------Update Profile ------
     const updateProfile = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setSending(true)
@@ -51,7 +52,9 @@ const UserProfile: React.FC = () => {
             const formData = new FormData(e.target as HTMLFormElement)
             let inputObject = Object.fromEntries(formData)
 
+            await ProfileService.updateEmail(inputObject as any as RequestUpdateEmail)
             await ProfileService.updateProfile(inputObject as any as RequestUpdataProfile)
+
             setSending(false)
             toggleModal()
             setErrorMessageName('')
@@ -62,11 +65,13 @@ const UserProfile: React.FC = () => {
         } catch (error: any) {
             setSending(false)
             setErrorMessageName(error.response.data.errors.name)
+            setErrorMessageEmail(error.response.data.errors.email)
             setErrorMessageAge(error.response.data.errors.age)
             setErrorMessagePhone(error.response.data.errors.phone)
             setErrorMessageAddress(error.response.data.errors.address)
             setErrorMessageJob(error.response.data.errors.job)
         }
+
     }
 
     //------ Modal Update Success-------
@@ -139,8 +144,12 @@ const UserProfile: React.FC = () => {
                                 <section className="userProfile-form">
                                     <section className="userProfile-form-label">Email</section>
                                     <section className="userProfile-form-inputBox">
-                                        <input type="text" defaultValue={profile?.email} className="userProfile-form-input" disabled />
+                                        <input type="text" defaultValue={profile?.email} name="email" className="userProfile-form-input" />
+                                        {errorMessageEmail ? (
+                                            <ErrorMessage size="sm">{errorMessageEmail}</ErrorMessage>
+                                        ) : null}
                                     </section>
+                                    {/* <button className="userProfile-form-submit">Ubah</button> */}
                                 </section>
                                 <section className="userProfile-form">
                                     <section className="userProfile-form-label">Nomor HP</section>
@@ -177,7 +186,6 @@ const UserProfile: React.FC = () => {
                                             <ErrorMessage size="sm">{errorMessageAddress}</ErrorMessage>
                                         ) : null}
                                     </section>
-                                    {/* <button className="userProfile-form-submitArea">Ubah</button> */}
                                 </section>
                             </section>
                             <section className="userProfile-conten-detail-image">

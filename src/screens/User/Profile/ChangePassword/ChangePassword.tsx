@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
-import { Link, useLocation } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { IlustrationOk } from "../../../../assets"
-import { imgProfile1 } from "../../../../assets/dummy"
 import { Button, ErrorMessage, ModalBlank, PWDRequisite } from "../../../../component"
 import { IconClipboardList, IconLock, IconProfile, IconUserAlt, IconUserX, IconVisibility, IconVisibilityOff } from "../../../../component/Icon"
 import { ProfileService } from "../../../../services"
@@ -9,7 +8,7 @@ import { Profile, RequestChangePassword } from "../../../../types/User"
 import "./ChangePassword.css"
 
 const UserChangePassword: React.FC = () => {
-    const location = useLocation()
+    // const location = useLocation()
     const [changePassword1, setChangePassword1] = useState(true)
     const [changePassword2, setChangePassword2] = useState(true)
     const changeStatus1 = changePassword1 === true ? false : true

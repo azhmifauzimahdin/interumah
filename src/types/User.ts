@@ -55,6 +55,10 @@ export interface ResponseUpdateProfile {
     message: string;
 }
 
+export interface RequestUpdateEmail {
+    email: string;
+}
+
 export interface RequestChangePassword {
     password: string;
     confirmPassword: string;
