@@ -1,8 +1,5 @@
 import axios from "axios"
 
-// export const httpRequest = axios.create({
-//     baseURL: 'https://mka-team-f-dev.herokuapp.com'
-// })
 export const httpRequest = axios.create({
     baseURL: 'http://103.250.10.102'
 })
@@ -19,7 +16,7 @@ httpRequest.interceptors.request.use(config => {
     }
     if (authToken) {
         config.headers = {
-            'Authorization': `Bearer ${authToken}`
+            'Authorization': `Bearer ${authToken}`,
         }
     }
     return config

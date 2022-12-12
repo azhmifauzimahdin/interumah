@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Link, Outlet, useNavigate } from "react-router-dom"
 import { ImageBackgoundEstimate, Logo, LogoFooter } from "../../../assets"
-import { imgProfile1 } from "../../../assets/dummy"
 import { Button, Estimate, EstimateList, EstimateRoom, Input, ModalEstimate, NewEstimate, NotificationCard, ProfileHover } from "../../../component"
 import { IconAdd, IconAppStore, IconBar, IconCalculator, IconChatNav, IconFacebook, IconFavorite, IconInstagram, IconNotification, IconPlayStore, IconProfile, IconSearch, IconTiktok, IconYoutube } from "../../../component/Icon"
 import { ProfileService } from "../../../services"
@@ -94,7 +93,7 @@ const LayoutUserOne: React.FC = () => {
         ProfileService.getProfile()
             .then(response => setProfile(response.data.data))
             .catch(error => console.log("error", error))
-    }, [navigate, token])
+    }, [navigate, token, profile])
 
     return (
         <div className="user-layout">

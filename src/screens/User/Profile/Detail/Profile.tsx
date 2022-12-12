@@ -1,10 +1,11 @@
+import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { IlustrationOk } from "../../../../assets"
 import { Button, ErrorMessage, ModalBlank } from "../../../../component"
 import { IconClipboardList, IconLock, IconProfile, IconUserAlt, IconUserX } from "../../../../component/Icon"
 import { ProfileService } from "../../../../services"
-import { Profile, RequestUpdataProfile, RequestUpdateEmail, RequestUpdateImageProfile } from "../../../../types/User"
+import { Profile, RequestUpdataProfile, RequestUpdateEmail } from "../../../../types/User"
 import "./Profile.css"
 
 const UserProfile: React.FC = () => {
@@ -17,8 +18,7 @@ const UserProfile: React.FC = () => {
     const [errorMessagePhone, setErrorMessagePhone] = useState<string>('')
     const [errorMessageAddress, setErrorMessageAddress] = useState<string>('')
     const [errorMessageJob, setErrorMessageJob] = useState<string>('')
-    // const defaultImage = profile?.imageUrl.substr(profile.imageUrl.lastIndexOf('/') + 1)
-
+    const defaultImage = profile?.imageUrl.substr(profile.imageUrl.lastIndexOf('/') + 1)
 
     //------ handle input image -------
     const [selectedFile, setSelectedFile] = useState()
@@ -56,7 +56,11 @@ const UserProfile: React.FC = () => {
             console.log('inputObject', inputObject)
             await ProfileService.updateEmail(inputObject as any as RequestUpdateEmail)
             await ProfileService.updateProfile(inputObject as any as RequestUpdataProfile)
-            await ProfileService.updateImageProfil(inputObject as any as RequestUpdateImageProfile)
+            await axios.put('http://103.250.10.102/users/image', inputObject, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                }
+            })
 
             setSending(false)
             toggleModal()

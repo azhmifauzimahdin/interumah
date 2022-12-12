@@ -55,9 +55,6 @@ export interface RequestUpdateEmail {
     email: string;
 }
 
-export interface RequestUpdateImageProfile {
-    image: string;
-}
 export interface ResponseUpdateProfile {
     code: number;
     message: string;
