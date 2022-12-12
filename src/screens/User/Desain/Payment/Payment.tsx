@@ -58,7 +58,7 @@ const UserPayment: React.FC = () => {
             const files = e.currentTarget.files
             formData.append('files', files)
 
-            await OrderService.uploadReceipt(26, formData)
+            await OrderService.uploadReceipt(idOrder, formData)
             setSending(false)
             toggleModal()
         } catch (error) {
