@@ -285,3 +285,8 @@
 .imgIlustrationProfile {
     width: 100%;
 }
+
+.userProfile-btn-uploadImage {
+    width: 50%;
+    margin: 1vw auto;
+}

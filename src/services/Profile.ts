@@ -15,11 +15,7 @@ export const updateEmail = async (request: RequestUpdateEmail): Promise<AxiosRes
 }
 
 export const updateImageProfil = async (request: any): Promise<AxiosResponse<ResponseUpdateProfile>> => {
-    return await httpRequest.put('/users/image', request, {
-        headers: {
-            "Content-Type": "multipart/form-data",
-        }
-    })
+    return await httpRequest.put('/users/image', request)
 }
 export const changePasswordProfile = async (request: RequestChangePassword): Promise<AxiosResponse<ResponseUpdateProfile>> => {
     return await httpRequest.put('/users/password', request)

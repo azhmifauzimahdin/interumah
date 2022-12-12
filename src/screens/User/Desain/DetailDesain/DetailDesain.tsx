@@ -12,7 +12,7 @@ const UserDetailDesain: React.FC = () => {
     const navigate = useNavigate()
     const [showModal, setShowModal] = useState<boolean>(false)
     const [designData, setDesignData] = useState<Design>()
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0)
 
     //------ Get Params ------
     let [searchParams] = useSearchParams()

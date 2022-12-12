@@ -48,18 +48,19 @@ const UserPayment: React.FC = () => {
         setSending(true)
         e.preventDefault()
         try {
-            const request = { designId: idDesain }
-            const formData = new FormData(e.target as any)
-            // const inputObject = Object.fromEntries(formData)
+            // const request = { designId: idDesain }
+            const formData = new FormData(e.currentTarget)
+            const files = e.currentTarget.files
+            formData.append('files', files)
 
-            const response = await OrderService.orderDesign(request)
+            // const response = await OrderService.orderDesign(request)
             // const response1 = await axios.post(`http://103.250.10.102/orders/${response.data.data.id}/receipts`, formData, {
             // const response1 = await axios.post(`http://103.250.10.102/orders/21/receipts`, formData, {
             //     headers: {
             //         "Content-Type": "multipart/form-data",
             //     }
             // })
-            await OrderService.uploadReceipt(response.data.data.id, formData)
+            await OrderService.uploadReceipt(26, formData)
             setSending(false)
             toggleModal()
         } catch (error) {

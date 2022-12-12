@@ -1,4 +1,3 @@
-import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { IlustrationOk } from "../../../../assets"
@@ -13,6 +12,7 @@ const UserProfile: React.FC = () => {
     const location = useLocation()
     const [profile, setProfile] = useState<Profile>()
     const [sending, setSending] = useState<boolean>(false)
+    const [sendingImage, setSendingImage] = useState<boolean>(false)
     const [errorMessageName, setErrorMessageName] = useState<string>('')
     const [errorMessageEmail, setErrorMessageEmail] = useState<string>('')
     const [errorMessageAge, setErrorMessageAge] = useState<string>('')
@@ -45,20 +45,16 @@ const UserProfile: React.FC = () => {
         setSelectedFile(e.target.files[0])
     }
 
-    //------Update Profile ------
+    //------ Update Profile ------
     const updateProfile = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setSending(true)
         try {
             const formData = new FormData(e.target as HTMLFormElement)
             let inputObject = Object.fromEntries(formData)
+
             await ProfileService.updateEmail(inputObject as any as RequestUpdateEmail)
             await ProfileService.updateProfile(inputObject as any as RequestUpdataProfile)
-            await axios.put('http://103.250.10.102/users/image', inputObject, {
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                }
-            })
 
             setSending(false)
             toggleModal()
@@ -75,6 +71,25 @@ const UserProfile: React.FC = () => {
             setErrorMessagePhone(error.response.data.errors.phone)
             setErrorMessageAddress(error.response.data.errors.address)
             setErrorMessageJob(error.response.data.errors.job)
+        }
+
+    }
+
+    //------ Update Image Profile ------
+    const updateImageProfile = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        setSendingImage(true)
+        try {
+            const formData = new FormData(e.currentTarget)
+            const files = e.currentTarget.files
+            formData.append('files', files)
+            await ProfileService.updateImageProfil(formData)
+
+            setSendingImage(false)
+            toggleModal()
+        } catch (error: any) {
+            setSendingImage(false)
+            console.log("error", error)
         }
 
     }
@@ -129,12 +144,12 @@ const UserProfile: React.FC = () => {
                     </article>
                 </aside>
                 <article className="userProfile-content">
-                    <form onSubmit={updateProfile}>
-                        <header className="userProfile-content-header">Detail Akun</header>
-                        <section className="userProfile-content-desc" >Kelola informasi profil Anda, untuk mengotrol, melindungi dan mengamankan akun pribadi Anda.</section>
-                        <hr className="userProfile-content-hr" />
-                        <section className="userProfile-conten-detail">
-                            <section className="userProfile-conten-detail-desc">
+                    <header className="userProfile-content-header">Detail Akun</header>
+                    <section className="userProfile-content-desc" >Kelola informasi profil Anda, untuk mengotrol, melindungi dan mengamankan akun pribadi Anda.</section>
+                    <hr className="userProfile-content-hr" />
+                    <section className="userProfile-conten-detail">
+                        <section className="userProfile-conten-detail-desc">
+                            <form onSubmit={updateProfile}>
                                 <header className="userProfile-conten-detail-desc-header">Info Profil</header>
                                 <section className="userProfile-form">
                                     <section className="userProfile-form-label">Nama</section>
@@ -192,15 +207,20 @@ const UserProfile: React.FC = () => {
                                         ) : null}
                                     </section>
                                 </section>
-                            </section>
-                            <section className="userProfile-conten-detail-image">
-                                <section className="userProfile-aside-profile-image" >
-                                    {selectedFile ?
-                                        <IconProfile image={preview} />
-                                        :
-                                        <IconProfile image={`http://${profile?.imageUrl}`} />
-                                    }
+                                <section className="userProfile-content-footer">
+                                    <Button fontSize="sm" size="sm" disabled={sending}>Simpan</Button>
                                 </section>
+                            </form>
+                        </section>
+                        <section className="userProfile-conten-detail-image">
+                            <section className="userProfile-aside-profile-image" >
+                                {selectedFile ?
+                                    <IconProfile image={preview} />
+                                    :
+                                    <IconProfile image={`http://${profile?.imageUrl}`} />
+                                }
+                            </section>
+                            <form onSubmit={updateImageProfile}>
                                 <section className="userProfile-content-btnimage">
                                     <label className="button-selectImage">
                                         Pilih Gambar
@@ -210,12 +230,13 @@ const UserProfile: React.FC = () => {
                                 <section className="userProfile-conten-detail-image-desc">
                                     Ukuran Gambar : maks 2MB Format Gamabr : JPEG. PNG
                                 </section>
-                            </section>
+                                <section className="userProfile-btn-uploadImage">
+                                    <Button fontSize="sm" size="sm" disabled={sendingImage}>Simpan</Button>
+                                </section>
+                            </form>
                         </section>
-                        <section className="userProfile-content-footer">
-                            <Button fontSize="sm" size="sm" disabled={sending}>Simpan</Button>
-                        </section>
-                    </form>
+                    </section>
+                    {/* </form> */}
                 </article>
             </main>
             <ModalBlank
