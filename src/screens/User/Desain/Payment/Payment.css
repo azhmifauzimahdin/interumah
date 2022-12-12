@@ -133,6 +133,12 @@
     color: #08FD21;
 }
 
+.summary-content-valueWarning {
+    width: 50%;
+    text-align: end;
+    color: #FD6F08;
+}
+
 .userPayment-button {
     margin-top: 1vw;
 }

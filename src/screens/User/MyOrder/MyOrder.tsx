@@ -6,7 +6,6 @@ import { DesignOrder } from "../../../types/Order"
 import "./MyOrder.css"
 
 const UserOrder: React.FC = () => {
-    window.scrollTo(0, 0)
     const [designOrder, setDesignOrder] = useState<DesignOrder[]>([])
     useEffect(() => {
         OrderService.getAllOrderHistory()

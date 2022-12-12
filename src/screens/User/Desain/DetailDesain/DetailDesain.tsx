@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
-import { IlustrationAtmMachine } from "../../../../assets"
+import { IlustrationAtmMachine, IlustrationOk } from "../../../../assets"
 import { Button, ModalBlank, ReviewBox } from "../../../../component"
 import { IconChat, IconLocation, IconProfile, IconStart } from "../../../../component/Icon"
-import { BudgetService, DesignService } from "../../../../services"
+import { BudgetService, DesignService, OrderService } from "../../../../services"
 import { BudgetPlan } from "../../../../types/Budget"
 import { Design } from "../../../../types/Design"
 import "./DetailDesain.css"
@@ -11,6 +11,7 @@ import "./DetailDesain.css"
 const UserDetailDesain: React.FC = () => {
     const navigate = useNavigate()
     const [showModal, setShowModal] = useState<boolean>(false)
+    const [showModalTwo, setShowModalTwo] = useState<boolean>(false)
     const [designData, setDesignData] = useState<Design>()
     window.scrollTo(0, 0)
 
@@ -34,7 +35,7 @@ const UserDetailDesain: React.FC = () => {
         }
     }
 
-    //------ Modal Confirm Payment ------
+    //------ Modal Confirm Order ------
     const toggleModal = () => {
         setShowModal(prevState => !prevState)
     }
@@ -42,8 +43,25 @@ const UserDetailDesain: React.FC = () => {
         e.stopPropagation()
     }
     const orderDesign = async (id: any) => {
-        navigate(`/pembayaran?idDesign=${id}`)
+        try {
+            const request = { designId: desain }
+            await OrderService.orderDesign(request)
+            toggleModalTwo()
+        } catch (error) {
+            console.log("error", error)
+        }
     }
+    //------ Modal Suceess Order ------
+    const toggleModalTwo = () => {
+        setShowModalTwo(prevState => !prevState)
+    }
+    const onStayModalTwo = (e: any) => {
+        e.stopPropagation()
+    }
+    const navigeteMyOrder = (e: any) => {
+        navigate('/pesananku')
+    }
+
 
     //------ Navigate Detail Designer ------
     const navigateDesigner = (id: any) => {
@@ -131,14 +149,31 @@ const UserDetailDesain: React.FC = () => {
                 OnStay={onStayModal}
             >
                 <section className="modalConfirmPayment-title">
-                    Ingin Melanjutkan ke Pembayaran?
+                    {/* Ingin Melanjutkan ke Pembayaran? */}
+                    Ingin Melanjutkan Pesanan?
                 </section>
                 <section className="modalConfirmPayment-ilustration">
                     <img src={IlustrationAtmMachine} alt="Ilustration Register Success" className="imgIlustrationConfirmPayment" />
                 </section>
                 <section className="modalConfirmPayment-option">
                     <section className="modalConfirmPayment-option-btn"><Button type="secondary" onClick={toggleModal}>Batal</Button></section>
-                    <section className="modalConfirmPayment-option-btn"><Button onClick={() => orderDesign(desain)}>Bayar</Button></section>
+                    <section className="modalConfirmPayment-option-btn"><Button onClick={() => orderDesign(desain)}>Lanjut</Button></section>
+                </section>
+
+            </ModalBlank>
+            <ModalBlank
+                visible={showModalTwo}
+                onClose={toggleModalTwo}
+                OnStay={onStayModalTwo}
+            >
+                <section className="modalSuccessfullPayment-title">
+                    Pesanan berhasil dibuat!
+                </section>
+                <section className="modalSuccessfullPayment-ilustration">
+                    <img src={IlustrationOk} alt="Ilustration Successfull Payment" className="imgIlustrationSuccessfullPayment" />
+                </section>
+                <section className="modalSuccessfullPayment-btn">
+                    <Button onClick={navigeteMyOrder}>Lihat Status Pesanan</Button>
                 </section>
 
             </ModalBlank>

@@ -54,18 +54,10 @@ const UserPayment: React.FC = () => {
         setSending(true)
         e.preventDefault()
         try {
-            // const request = { designId: idDesain }
             const formData = new FormData(e.currentTarget)
             const files = e.currentTarget.files
             formData.append('files', files)
 
-            // const response = await OrderService.orderDesign(request)
-            // const response1 = await axios.post(`http://103.250.10.102/orders/${response.data.data.id}/receipts`, formData, {
-            // const response1 = await axios.post(`http://103.250.10.102/orders/21/receipts`, formData, {
-            //     headers: {
-            //         "Content-Type": "multipart/form-data",
-            //     }
-            // })
             await OrderService.uploadReceipt(26, formData)
             setSending(false)
             toggleModal()
@@ -173,8 +165,8 @@ const UserPayment: React.FC = () => {
                                     <section className="summary-content-key">
                                         Bukti Transfer
                                     </section>
-                                    <section className="summary-content-valueSucces">
-                                        Sudah
+                                    <section className={orderData?.receipts && orderData.receipts.length > 0 ? "summary-content-valueSucces" : "summary-content-valueWarning"}>
+                                        {orderData?.receipts && orderData.receipts.length > 0 ? "Sudah" : "Belum"}
                                     </section>
                                 </section>
                             </section>
