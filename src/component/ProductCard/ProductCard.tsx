@@ -74,6 +74,12 @@ const ProductCard: React.FC<ProductCardProps> = props => {
             .catch(error => console.log("error", error))
     }, [props.data])
 
+    //------- currency format -------
+    const formatter = new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+    })
+
     useEffect(() => {
         setId(designFavorite.map(data => {
             return (
@@ -97,11 +103,11 @@ const ProductCard: React.FC<ProductCardProps> = props => {
                                 <span className="icon"><IconLocation /></span>{data.location || data.design.location}
                             </section>
                             <section className="productCard-price">
-                                <span className="icon"><IconPrice /></span>{data.price || data.design.price}
+                                <span className="icon"><IconPrice /></span>{formatter.format(data.price || data.design.price)}
                             </section>
                             <section className="productCard-optionProduct">
                                 <section className="btnFavorit"><IconFavoriteBorder onClick={() => handleFavorite(data?.design?.id || data.id)} active={false} /></section>
-                                <section className="btnDetail"><Button fontWeight="normal" size="sm" fontSize="sm" onClick={() => detailDesign(data.id)}>Lihat detail</Button></section>
+                                <section className="btnDetail"><Button fontWeight="normal" size="sm" fontSize="sm" onClick={() => detailDesign(data?.design?.id || data.id)}>Lihat detail</Button></section>
                             </section>
                         </article>
                     </article>

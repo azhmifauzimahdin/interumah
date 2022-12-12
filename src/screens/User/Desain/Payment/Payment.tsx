@@ -19,6 +19,12 @@ const UserPayment: React.FC = () => {
     const idOrder = parseInt(searchParams.get("id") as string)
     const idDesain = parseInt(searchParams.get("idDesign") as string)
 
+    //------- currency format -------
+    const formatter = new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+    })
+
     //------ Get Order By ID -------
     useEffect(() => {
         if (idOrder) {
@@ -147,7 +153,7 @@ const UserPayment: React.FC = () => {
                                     </section>
                                 </section>
                                 <section className="detail-footer">
-                                    Total Harga:<span className="detail-footer-price"> Rp {designData?.price}</span>
+                                    Total Harga:<span className="detail-footer-price"> {formatter.format(designData?.price as any)}</span>
                                 </section>
                             </section>
                         </article>
@@ -162,7 +168,7 @@ const UserPayment: React.FC = () => {
                                         Harga <br />Ukuran <br />Pembayaran
                                     </section>
                                     <section className="summary-content-value">
-                                        10.000.000 <br />3 x 9 Meter <br />Bank BNI
+                                        {formatter.format(designData?.price as any)} <br />3 x 9 Meter <br />Bank BNI
                                     </section>
                                     <section className="summary-content-key">
                                         Bukti Transfer

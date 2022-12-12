@@ -13,6 +13,12 @@ const OrderCard: React.FC<OrderCardProps> = props => {
     const navigate = useNavigate()
     const [designData, setDesignData] = useState<any[]>([])
 
+    //------- currency format -------
+    const formatter = new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+    })
+
     // ------- Inititate Design Order ------
     const initiateDesign = (data: any[]) => {
         setDesignData(data)
@@ -55,7 +61,7 @@ const OrderCard: React.FC<OrderCardProps> = props => {
                             </section>
                         </section>
                         <section className="orderCard-price">
-                            Total Harga:<span className="orderCard-price-text"> Rp.10.000.000</span>
+                            Total Harga:<span className="orderCard-price-text">{formatter.format(data.price)}</span>
                         </section>
                         <section className="orderCard-add">
                             <section className="orderCard-add-text">

@@ -18,6 +18,12 @@ const UserDetailDesain: React.FC = () => {
     let [searchParams] = useSearchParams()
     const desain = parseInt(searchParams.get("desain") as string)
 
+    //------- currency format -------
+    const formatter = new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+    })
+
     //------ Get Spesicif Design ------
     const getSpecificDesign = async (id: any) => {
         try {
@@ -63,7 +69,7 @@ const UserDetailDesain: React.FC = () => {
                     <section className="userDetailDesain-detail-content">
                         <header className="userDetailDesain-detail-content-header">{designData?.title}</header>
                         <section className="userDetailDesain-detail-content-price">
-                            Rp. {designData?.price}
+                            {designData?.price && formatter.format(parseInt(designData?.price))}
                             <section className="sold-box">5 Terjual {desain}</section>
                         </section>
                         <section className="userDetailDesain-detail-content-desc">
