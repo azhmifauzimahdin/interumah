@@ -9,6 +9,7 @@ import { Favorite } from "../../../types/Favorite"
 import './Favorite.css'
 
 const UserFavorite: React.FC = () => {
+    window.scrollTo(0, 0)
     const navigate = useNavigate()
     const [designFavorite, setDesignFavorite] = useState<Favorite[]>([])
     const [designsData, setDesignsData] = useState<Design[]>([])

@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom"
 import './Register.css'
 
 const Register: React.FC = () => {
+    window.scrollTo(0, 0)
     const navigate = useNavigate()
     const [changePassword1, setChangePassword1] = useState(true)
     const [changePassword2, setChangePassword2] = useState(true)

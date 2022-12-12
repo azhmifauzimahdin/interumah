@@ -9,6 +9,7 @@ import { Design, Designer } from "../../../types/Design"
 import "./Search.css"
 
 const UserSearch: React.FC = () => {
+    window.scrollTo(0, 0)
     const [categoriesData, setCategoriesData] = useState<Category[]>([])
     const [designData, setDesignData] = useState<Design[]>([])
     const [designerData, setDesignerData] = useState<Designer[]>([])

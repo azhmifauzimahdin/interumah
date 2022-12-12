@@ -9,6 +9,7 @@ import { Design } from "../../types/Design"
 import "./LandingPage.css"
 
 const LandingPage: React.FC = () => {
+    window.scrollTo(0, 0)
     const [categoriesData, setCategoriesData] = useState<Category[]>([])
     const [designsData, setDesignData] = useState<Design[]>([])
 

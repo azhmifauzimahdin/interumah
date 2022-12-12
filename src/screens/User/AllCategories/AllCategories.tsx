@@ -3,6 +3,7 @@ import { CategoryMenu } from "../../../component"
 import "./AllCategories.css"
 
 const UserAllCategories: React.FC = () => {
+    window.scrollTo(0, 0)
     const menuCategoryOne = [
         {
             title: "Ruang Tunggu PDAM"

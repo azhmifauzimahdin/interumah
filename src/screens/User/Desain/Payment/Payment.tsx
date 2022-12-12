@@ -9,6 +9,7 @@ import { OrderData } from "../../../../types/Order"
 import "./Payment.css"
 
 const UserPayment: React.FC = () => {
+    window.scrollTo(0, 0)
     const [orderData, setOrderData] = useState<OrderData>()
     const [designData, setDesignData] = useState<Design>()
     const [sending, setSending] = useState<boolean>(false)

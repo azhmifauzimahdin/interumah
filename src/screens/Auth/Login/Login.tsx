@@ -8,6 +8,7 @@ import { LoginRequest } from "../../../types/Login"
 import './Login.css'
 
 const Login: React.FC = () => {
+    window.scrollTo(0, 0)
     const navigate = useNavigate()
     const [changePassword, setChangePassword] = useState(true)
     const [errorMessageEmail, setErrorMessageEmail] = useState<string>('')

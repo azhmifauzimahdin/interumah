@@ -9,6 +9,7 @@ import { Designer } from "../../../types/Design"
 import "./Message.css"
 
 const UserMessage: React.FC = () => {
+    window.scrollTo(0, 0)
     const [designerData, setDesignerData] = useState<Designer[]>([])
 
     //------- Message ------

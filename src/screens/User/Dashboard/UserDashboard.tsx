@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { imgKategori1, imgKategori2, imgKategori3, imgKategori4, imgKategori5, imgPromo1 } from "../../../assets/dummy"
 import { Button, ImageSlide, ProductCard } from "../../../component"
-import { IconStart, IconVisitorRoom } from "../../../component/Icon"
+import { IconStart } from "../../../component/Icon"
 import { CategoryService, DesignerService, DesignService } from "../../../services"
 import { Category } from "../../../types/Category"
 import { Design, Designer } from "../../../types/Design"
 import "./UserDashboard.css"
 
 const UserDashboard: React.FC = () => {
+    window.scrollTo(0, 0)
     const navigate = useNavigate()
     const [designsData, setDesignData] = useState<Design[]>([])
     const [designerData, setDesignerData] = useState<Designer[]>([])

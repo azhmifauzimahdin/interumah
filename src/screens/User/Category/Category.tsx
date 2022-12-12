@@ -8,6 +8,7 @@ import { Design } from "../../../types/Design"
 import "./Category.css"
 
 const UserCategory: React.FC = () => {
+    window.scrollTo(0, 0)
     const [categoryData, setCategoryData] = useState<Category>()
     const [designsData, setDesignData] = useState<Design[]>([])
 

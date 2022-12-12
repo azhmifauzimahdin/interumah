@@ -12,6 +12,7 @@ const UserDetailDesain: React.FC = () => {
     const navigate = useNavigate()
     const [showModal, setShowModal] = useState<boolean>(false)
     const [designData, setDesignData] = useState<Design>()
+    window.scrollTo(0, 0);
 
     //------ Get Params ------
     let [searchParams] = useSearchParams()
@@ -52,7 +53,6 @@ const UserDetailDesain: React.FC = () => {
             .catch(error => console.log('error', error))
 
     }, [desain])
-    console.log("budgetPlan", budgetPlan)
     return (
         <>
             <main className="userDetailDesain-container">

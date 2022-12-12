@@ -8,6 +8,7 @@ import { Profile, RequestChangePassword } from "../../../../types/User"
 import "./ChangePassword.css"
 
 const UserChangePassword: React.FC = () => {
+    window.scrollTo(0, 0)
     // const location = useLocation()
     const [changePassword1, setChangePassword1] = useState(true)
     const [changePassword2, setChangePassword2] = useState(true)

@@ -9,6 +9,7 @@ import { Profile, RequestUpdataProfile, RequestUpdateEmail } from "../../../../t
 import "./Profile.css"
 
 const UserProfile: React.FC = () => {
+    window.scrollTo(0, 0)
     const location = useLocation()
     const [profile, setProfile] = useState<Profile>()
     const [sending, setSending] = useState<boolean>(false)

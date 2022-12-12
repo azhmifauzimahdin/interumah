@@ -7,6 +7,7 @@ import { Design } from "../../../types/Design"
 import "./AddReview.css"
 
 const AddReview: React.FC = () => {
+    window.scrollTo(0, 0)
     const navigate = useNavigate()
     const [imagesDesign, setImagesDesign] = useState([] as any)
     const [imageURLSDesign, setImageURLsDesign] = useState([])

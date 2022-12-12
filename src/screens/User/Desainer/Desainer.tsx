@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Navigate, useNavigate, useSearchParams } from "react-router-dom"
+import { useNavigate, useSearchParams } from "react-router-dom"
 import { imgPoster1 } from "../../../assets/dummy"
 import { Button, ProductCard, ReviewBox } from "../../../component"
 import { IconChat, IconFolderOutline, IconHandPayment, IconHomeCityOutline, IconLocation, IconStart, IconUsers } from "../../../component/Icon"
@@ -8,6 +8,7 @@ import { User } from "../../../types/User"
 import "./Desainer.css"
 
 const UserDesainer: React.FC = () => {
+    window.scrollTo(0, 0)
     const navigate = useNavigate()
     const [designerData, setDesignerData] = useState<User>()
 
