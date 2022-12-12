@@ -30,7 +30,6 @@ const Login: React.FC = () => {
 
             const response = await AdminService.loginAdmin(inputObject as any as RequestLoginAdmin)
             localStorage.setItem('authToken', response.data.data.accessToken)
-            console.log('reponse', response);
 
             navigate('/admin/dashboard')
             setSending(false)

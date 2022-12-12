@@ -1,6 +1,6 @@
 .infoCard-box {
     position: relative;
-    width: 17%;
+    min-width: 17%;
     padding: 1vw 1.4vw;
     box-sizing: border-box;
     height: 10vw;

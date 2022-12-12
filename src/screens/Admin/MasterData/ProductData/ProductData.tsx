@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import Table, { TableColumn } from "../../../../component/Table/Table"
-import { DesignService } from "../../../../services"
-import { Design } from "../../../../types/Design"
+import { AdminService } from "../../../../services"
+import { Design } from "../../../../types/Admin"
 import "./ProductData.css"
 
 const AdminDataProduct: React.FC = () => {
@@ -42,10 +42,11 @@ const AdminDataProduct: React.FC = () => {
     ]
 
     useEffect(() => {
-        DesignService.getAllDesigns()
+        AdminService.getAllDesign()
             .then(response => setDesignsData(response.data.data))
             .catch(error => console.log('error', error))
 
+        console.log('design', designsdata)
     }, [])
 
     return (

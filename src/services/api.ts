@@ -19,7 +19,7 @@ httpRequest.interceptors.request.use(config => {
     }
     if (authToken) {
         config.headers = {
-            'authToken': `Bearee ${appToken}`
+            'Authorization': `Bearer ${authToken}`
         }
     }
     return config

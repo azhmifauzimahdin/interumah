@@ -1,8 +1,22 @@
 .adminDashboard {
-    padding: 2.6vw;
+    padding: 2vw 2.6vw;
 }
 
 .adminDashboard-amountBox {
     display: flex;
-    flex-wrap: wrap;
+    overflow-x: auto;
+    padding: 0.6vw 0;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.adminDashboard-amountBox::-webkit-scrollbar {
+    height: 0px;
+}
+
+.adminDashboard-header {
+    font-size: 2.08vw;
+    font-weight: 700;
+    margin: 1.2vw 0;
 }
