@@ -1,5 +1,5 @@
 export interface LogoutRequest {
-    refreshToken?: string
+    refreshToken: string
 }
 
 export interface LogoutResponse {

@@ -6,7 +6,7 @@ import {
 } from "react-router-dom"
 import { LayoutAdmin, LayoutLandingPage, LayoutUserOne, LayoutUserTwo } from "./layouts"
 import { LayoutForgetPassword, LayoutLogin, LayoutRegister } from "./layouts/Auth"
-import { AdminChangePassword, AdminDataAdmin, AdminDataDesigner, AdminDataOrder, AdminDataProduct, AdminDataTransfer, AdminDataUser, AdminFinancialReport, AdminLogout } from "./screens/Admin"
+import { AdminChangePassword, AdminDataAdmin, AdminDataDesigner, AdminDataOrder, AdminDataProduct, AdminDataTransfer, AdminDataUser, AdminFinancialReport, AdminLogin, AdminLogout } from "./screens/Admin"
 import AdminDashboard from "./screens/Admin/Dashboard/AdminDashboar"
 import { ChangePassword, FailedPasswordChange, Login, Logout, PasswordCheckEmail, PasswordInputEmail, Register, SuccessPasswordChange } from "./screens/Auth"
 import LandingPage from "./screens/LandingPage/LandingPage"
@@ -55,6 +55,7 @@ const Router: React.FC = () => {
                 </Route>
                 <Route element={<LayoutLogin />} >
                     <Route path="/login" element={<Login />} />
+                    <Route path="/admin/login" element={<AdminLogin />} />
                 </Route>
                 <Route element={<LayoutRegister />} >
                     <Route path="/register" element={<Register />} />
