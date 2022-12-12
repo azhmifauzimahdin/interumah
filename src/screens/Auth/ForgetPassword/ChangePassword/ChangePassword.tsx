@@ -92,7 +92,7 @@ const ChangePassword: React.FC = () => {
                 <header className="titleChangePassword">Buat Password Baru Anda!</header>
                 <article className="ChangePassword-form">
                     <form onSubmit={changePassword}>
-                        <section className="input-group">
+                        <section className="input-group-changePassword">
                             <Input type={changePassword1 ? "password" : "text"} name="password" placeholder="Masukan Password Anda" disabled={sending} onFocus={handleOnFocusPassword} onBlur={handleOnBlurPassword} onKeyUp={handleKeyUpPassword} />
                             <div className="input-group-prepend">
                                 <span className="input-group-text" onClick={() => {
@@ -113,7 +113,7 @@ const ChangePassword: React.FC = () => {
                                     minCharacterFlag={checks.minCharacterCheck ? "validStrength" : "invalidStrength"}
                                 /> : null}
                         </section>
-                        <section className="input-group">
+                        <section className="input-group-changePassword">
                             <Input type={changePassword2 ? "password" : "text"} name="confirmPassword" placeholder="Konfirmasi Ulang Password" disabled={sending} />
                             <div className="input-group-prepend">
                                 <span className="input-group-text" onClick={() => {
