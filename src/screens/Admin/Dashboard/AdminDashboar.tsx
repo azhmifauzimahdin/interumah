@@ -106,7 +106,9 @@ const AdminDashboard: React.FC = () => {
                 <InfoCard data={InfoData} />
             </article>
             <header className="adminDashboard-header">Laporan Transaksi</header>
-            <Table data={orderData} columns={columns} hideAdd={false} />
+            <section className="adminDashboard-table">
+                <Table data={orderData} columns={columns} hideAdd={false} />
+            </section>
         </main>
     )
 }

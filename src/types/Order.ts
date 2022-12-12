@@ -3,9 +3,14 @@ export interface RequestOrderDesign {
     designId: number;
 }
 
+export interface DataOrder {
+    id: number;
+}
+
 export interface ResponseOrderDesign {
     code: number;
     message: string;
+    data: DataOrder;
 }
 
 //------- Get All Order -------
@@ -48,4 +53,10 @@ export interface OrderData {
 export interface ResponseGetOrderById {
     code: number;
     data: OrderData;
+}
+
+//------- Upload Receipt ------
+export interface ResponseUploadReceipt {
+    code: number;
+    message: string;
 }

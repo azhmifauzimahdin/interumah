@@ -177,11 +177,12 @@
     font-size: 0.82vw;
     padding: 0.4vw;
     box-sizing: border-box;
+    border-radius: 0.2vw;
+    border: 1px solid #000000;
 }
 
 .userProfile-form-input:disabled {
-    border-radius: 0.2vw;
-    border: 1px solid;
+    border: 1px solid #B7B7B7;
 }
 
 .userProfile-form-textArea {
@@ -190,6 +191,12 @@
     box-sizing: border-box;
     font-size: 0.82vw;
     height: 5vw;
+    border-radius: 0.2vw;
+    border: 1px solid #000000;
+}
+
+.userProfile-form-textArea:disabled {
+    border: 1px solid #B7B7B7;
 }
 
 .userProfile-form-submit {

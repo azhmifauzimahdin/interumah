@@ -51,7 +51,7 @@ const OrderCard: React.FC<OrderCardProps> = props => {
                             </figure>
                             <section className="orderCard-desc">
                                 {data.design.title}
-                                {/* <section className="orderCard-desc-size">Ukuran 3 x 9 meter</section> */}
+                                <section className="orderCard-desc-size">Ukuran 3 x 9 meter</section>
                             </section>
                         </section>
                         <section className="orderCard-price">

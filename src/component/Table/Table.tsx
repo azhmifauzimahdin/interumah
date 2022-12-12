@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import "./Table.css"
-import { IconSearch } from "../Icon"
+// import { IconSearch } from "../Icon"
 import Button from "../Button/Button"
 
 export interface TableColumn<T = any> {
@@ -31,7 +31,7 @@ const Table: React.FC<TableProps> = props => {
     const [tableData, setTableData] = useState<any[][]>([])
     const [tableCurrentPage, setTableCurrentPage] = useState<number>(1)
     const [tablePerPage,] = useState<number>(5)
-    const [tableSeacrh, setTableSearch] = useState<string>('')
+    // const [tableSeacrh, setTableSearch] = useState<string>('')
 
     const initiateTable = (data: any[]) => {
         const baseData = data
@@ -70,10 +70,11 @@ const Table: React.FC<TableProps> = props => {
                 {!props.hideSearch ? (
                     <section className="table-searchWrapper">
                         <section className="input-group-button">
-                            <input type="text" name="keyword" className="inputSearch" placeholder="Cari berdasarkan nama" onChange={e => setTableSearch(e.target.value)} />
+                            <input type="text" onChange={e => search(e.target.value)} className="inputSearchOne" placeholder="Cari data" />
+                            {/* <input type="text" name="keyword" className="inputSearch" placeholder="Cari berdasarkan nama" onChange={e => setTableSearch(e.target.value)} />
                             <div className="input-group-prependbutton">
                                 <button className="btnsearch" onClick={() => search(tableSeacrh)}><IconSearch size="sm" /></button>
-                            </div>
+                            </div> */}
                         </section>
                     </section>
                 ) : null}

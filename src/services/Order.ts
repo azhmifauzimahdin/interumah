@@ -1,5 +1,5 @@
 import { AxiosResponse } from "axios";
-import { RequestOrderDesign, ResponseGetAllOrderHistory, ResponseGetOrderById, ResponseOrderDesign } from "../types/Order";
+import { RequestOrderDesign, ResponseGetAllOrderHistory, ResponseGetOrderById, ResponseOrderDesign, ResponseUploadReceipt } from "../types/Order";
 import { httpRequest } from "./api";
 
 export const orderDesign = async (request: RequestOrderDesign): Promise<AxiosResponse<ResponseOrderDesign>> => {
@@ -11,4 +11,8 @@ export const getAllOrderHistory = async (): Promise<AxiosResponse<ResponseGetAll
 
 export const getOrderByID = async (id: number): Promise<AxiosResponse<ResponseGetOrderById>> => {
     return await httpRequest.get(`/orders/${id}`)
+}
+
+export const uploadReceipt = async (id: number, request: any): Promise<AxiosResponse<ResponseUploadReceipt>> => {
+    return await httpRequest.post(`/orders/${id}/receipts`, request)
 }

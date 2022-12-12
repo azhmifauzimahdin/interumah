@@ -24,6 +24,14 @@
     cursor: pointer;
 }
 
+.inputSearchOne {
+    flex: 1;
+    border: 0.12vw solid #101B94;
+    height: 2vw;
+    padding: 0.2vw 1vw;
+    border-radius: 0.6vw;
+}
+
 .inputSearch {
     flex: 1;
     border: 0.12vw solid #101B94;

@@ -70,7 +70,6 @@ const UserProfile: React.FC = () => {
             setErrorMessageJob('')
         } catch (error: any) {
             setSending(false)
-            console.log('error', error.response.data)
             setErrorMessageName(error.response.data.errors.name)
             setErrorMessageEmail(error.response.data.errors.email)
             setErrorMessageAge(error.response.data.errors.age)
@@ -151,7 +150,7 @@ const UserProfile: React.FC = () => {
                                 <section className="userProfile-form">
                                     <section className="userProfile-form-label">Email</section>
                                     <section className="userProfile-form-inputBox">
-                                        <input type="text" defaultValue={profile?.email} name="email" className="userProfile-form-input" />
+                                        <input type="text" defaultValue={profile?.email} name="email" className="userProfile-form-input" disabled={sending} />
                                         {errorMessageEmail ? (
                                             <ErrorMessage size="sm">{errorMessageEmail}</ErrorMessage>
                                         ) : null}
@@ -215,7 +214,7 @@ const UserProfile: React.FC = () => {
                             </section>
                         </section>
                         <section className="userProfile-content-footer">
-                            <Button fontSize="sm" size="sm" >Simpan</Button>
+                            <Button fontSize="sm" size="sm" disabled={sending}>Simpan</Button>
                         </section>
                     </form>
                 </article>
