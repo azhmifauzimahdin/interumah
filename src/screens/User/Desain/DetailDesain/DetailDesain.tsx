@@ -34,13 +34,7 @@ const UserDetailDesain: React.FC = () => {
         e.stopPropagation()
     }
     const orderDesign = async (id: any) => {
-        try {
-            const request = { designId: id }
-            await OrderService.orderDesign(request)
-            navigate(`/pembayaran?id=${id}`)
-        } catch (error) {
-            console.log('error', error)
-        }
+        navigate(`/pembayaran?idDesign=${id}`)
     }
 
     //------ Navigate Detail Designer ------
@@ -62,7 +56,7 @@ const UserDetailDesain: React.FC = () => {
                         <header className="userDetailDesain-detail-content-header">{designData?.title}</header>
                         <section className="userDetailDesain-detail-content-price">
                             Rp. {designData?.price}
-                            <section className="sold-box">5 Terjual</section>
+                            <section className="sold-box">5 Terjual {desain}</section>
                         </section>
                         <section className="userDetailDesain-detail-content-desc">
                             {designData?.description}

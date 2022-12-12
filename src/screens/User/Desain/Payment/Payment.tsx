@@ -1,4 +1,3 @@
-import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { IlustrationOk } from "../../../../assets"
@@ -17,36 +16,49 @@ const UserPayment: React.FC = () => {
     //------ Get Params -------
     let [searchParams] = useSearchParams()
     const idOrder = parseInt(searchParams.get("id") as string)
+    const idDesain = parseInt(searchParams.get("idDesign") as string)
 
     //------ Get Order By ID -------
     useEffect(() => {
-        OrderService.getOrderByID(idOrder)
-            .then(response => setOrderData(response.data.data))
-            .catch(error => console.log('error', error))
+        if (idOrder) {
+            OrderService.getOrderByID(idOrder)
+                .then(response => setOrderData(response.data.data))
+                .catch(error => console.log('error', error))
+        }
 
     }, [idOrder])
 
     //------ Get Design By ID ------
     useEffect(() => {
+        if (idDesain) {
+            DesignService.getDesignByID(idDesain as number)
+                .then(response => setDesignData(response.data.data))
+                .catch(error => console.log('error', error))
+        }
         if (orderData?.design.id) {
             DesignService.getDesignByID(orderData?.design.id as number)
                 .then(response => setDesignData(response.data.data))
                 .catch(error => console.log('error', error))
         }
-    }, [orderData?.design.id])
+    }, [idDesain, orderData?.design.id])
 
     //------ Upload Receipt ------
     const uploadReceipt = async (e: React.FormEvent<HTMLFormElement>) => {
         setSending(true)
+        e.preventDefault()
         try {
-            e.preventDefault()
-            const formData = new FormData(e.target as HTMLFormElement)
-            const inputObject = Object.fromEntries(formData)
-            await axios.post(`http://103.250.10.102/orders/${idOrder}/receipts`, inputObject, {
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                }
-            })
+            const request = { designId: idDesain }
+            const formData = new FormData(e.target as any)
+            // const inputObject = Object.fromEntries(formData)
+
+            const response = await OrderService.orderDesign(request)
+            // const response1 = await axios.post(`http://103.250.10.102/orders/${response.data.data.id}/receipts`, formData, {
+            // const response1 = await axios.post(`http://103.250.10.102/orders/21/receipts`, formData, {
+            //     headers: {
+            //         "Content-Type": "multipart/form-data",
+            //     }
+            // })
+            await OrderService.uploadReceipt(response.data.data.id, formData)
             setSending(false)
             toggleModal()
         } catch (error) {

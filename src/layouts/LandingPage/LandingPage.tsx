@@ -30,7 +30,7 @@ const LayoutLandingPage: React.FC = () => {
                 <ul>
                     <li><a href="/">Beranda</a></li>
                     <li><a href="/">Produk</a></li>
-                    <li><a href="/">Blog</a></li>
+                    {/* <li><a href="/">Blog</a></li> */}
                     <li><a href="/">Perusahaan</a></li>
                     <li><a href="/">Bantuan</a></li>
                     <li><Button type="primary" size="sm" onClick={navigateLogin}>Masuk</Button></li>

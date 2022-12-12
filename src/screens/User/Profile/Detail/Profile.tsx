@@ -51,8 +51,6 @@ const UserProfile: React.FC = () => {
         try {
             const formData = new FormData(e.target as HTMLFormElement)
             let inputObject = Object.fromEntries(formData)
-
-            console.log('inputObject', inputObject)
             await ProfileService.updateEmail(inputObject as any as RequestUpdateEmail)
             await ProfileService.updateProfile(inputObject as any as RequestUpdataProfile)
             await axios.put('http://103.250.10.102/users/image', inputObject, {
