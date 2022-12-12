@@ -1,3 +1,4 @@
+//------ Order Design ------
 export interface RequestOrderDesign {
     designId: number;
 }
@@ -7,7 +8,9 @@ export interface ResponseOrderDesign {
     message: string;
 }
 
-interface Design {
+//------- Get All Order -------
+
+export interface Design {
     id: number;
     categoryId: number;
     title: string;
@@ -23,4 +26,26 @@ export interface DesignOrder {
 export interface ResponseGetAllOrderHistory {
     code: number;
     data: DesignOrder[];
+}
+
+//------- Get Order By ID --------
+
+export interface Designer {
+    id: number;
+    name: string;
+    imageUrl: string;
+}
+
+export interface OrderData {
+    id: number;
+    price: number;
+    status: string;
+    design: Design;
+    designer: Designer;
+    receipts: any[];
+}
+
+export interface ResponseGetOrderById {
+    code: number;
+    data: OrderData;
 }

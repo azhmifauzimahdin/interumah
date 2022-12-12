@@ -1,25 +1,59 @@
+import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { IlustrationOk } from "../../../../assets"
 import { Button, DropDownPayment, ModalBlank } from "../../../../component"
 import { IconCloudUpload, IconProfile } from "../../../../component/Icon"
-import { DesignService } from "../../../../services"
+import { DesignService, OrderService } from "../../../../services"
 import { Design } from "../../../../types/Design"
+import { OrderData } from "../../../../types/Order"
 import "./Payment.css"
 
 const UserPayment: React.FC = () => {
+    const [orderData, setOrderData] = useState<OrderData>()
     const [designData, setDesignData] = useState<Design>()
+    const [sending, setSending] = useState<boolean>(false)
 
     //------ Get Params -------
     let [searchParams] = useSearchParams()
-    const id = parseInt(searchParams.get("id") as string)
+    const idOrder = parseInt(searchParams.get("id") as string)
 
-    //------ Get Design By ID -------
+    //------ Get Order By ID -------
     useEffect(() => {
-        DesignService.getDesignByID(id)
-            .then(response => setDesignData(response.data.data))
+        OrderService.getOrderByID(idOrder)
+            .then(response => setOrderData(response.data.data))
             .catch(error => console.log('error', error))
-    }, [id])
+
+    }, [idOrder])
+
+    //------ Get Design By ID ------
+    useEffect(() => {
+        if (orderData?.design.id) {
+            DesignService.getDesignByID(orderData?.design.id as number)
+                .then(response => setDesignData(response.data.data))
+                .catch(error => console.log('error', error))
+        }
+    }, [orderData?.design.id])
+
+    //------ Upload Receipt ------
+    const uploadReceipt = async (e: React.FormEvent<HTMLFormElement>) => {
+        setSending(true)
+        try {
+            e.preventDefault()
+            const formData = new FormData(e.target as HTMLFormElement)
+            const inputObject = Object.fromEntries(formData)
+            await axios.post(`http://103.250.10.102/orders/${idOrder}/receipts`, inputObject, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                }
+            })
+            setSending(false)
+            toggleModal()
+        } catch (error) {
+            setSending(false)
+            console.log('error', error)
+        }
+    }
 
     //------ Navigate Detail Design -------
     const navigateDetailDesign = (id: number) => {
@@ -37,7 +71,7 @@ const UserPayment: React.FC = () => {
         e.stopPropagation()
     }
     const navigatePayment = () => {
-        navigate('/pesanan')
+        navigate('/pesananku')
     }
 
     //------ Option Dropdown ------
@@ -76,82 +110,84 @@ const UserPayment: React.FC = () => {
     return (
         <>
             <main className="userPayment-container">
-                <article className="userPayment-wrapper">
-                    <article className="userPayment-boxOne">
-                        <header className="userPayment-header">Detail Pesanan</header>
-                        <section className="userPayment-content">
-                            <section className="detail-header">
-                                <section className="detail-company">
-                                    <IconProfile size="xs" image={`http://${designData?.designer.imageUrl}`} /><span className="text">{designData?.designer.name}</span>
+                <form onSubmit={uploadReceipt}>
+                    <article className="userPayment-wrapper">
+                        <article className="userPayment-boxOne">
+                            <header className="userPayment-header">Detail Pesanan</header>
+                            <section className="userPayment-content">
+                                <section className="detail-header">
+                                    <section className="detail-company">
+                                        <IconProfile size="xs" image={`http://${designData?.designer.imageUrl}`} /><span className="text">{designData?.designer.name}</span>
+                                    </section>
+                                    <section className="detail-show" onClick={() => navigateDetailDesign(designData?.id as number)}>
+                                        Lihat Detail
+                                    </section>
                                 </section>
-                                <section className="detail-show" onClick={() => navigateDetailDesign(designData?.id as number)}>
-                                    Lihat Detail
+                                <section className="detail-content">
+                                    <figure className="detail-image">
+                                        <img src={`http://${designData?.imageUrl}`} alt="desain" />
+                                    </figure>
+                                    <section className="detail-desc">
+                                        {designData?.title}
+                                        <section className="detail-desc-size">Ukuran 3 x 9 meter</section>
+                                    </section>
+                                </section>
+                                <section className="detail-footer">
+                                    Total Harga:<span className="detail-footer-price"> Rp {designData?.price}</span>
                                 </section>
                             </section>
-                            <section className="detail-content">
-                                <figure className="detail-image">
-                                    <img src={`http://${designData?.imageUrl}`} alt="desain" />
-                                </figure>
-                                <section className="detail-desc">
-                                    {designData?.title}
-                                    <section className="detail-desc-size">Ukuran 3 x 9 meter</section>
+                        </article>
+                        <article className="userPayment-boxTwo">
+                            <header className="userPayment-header">Ringkasan Pesanan</header>
+                            <section className="userPayment-content">
+                                <section className="summary-header">
+                                    Kamar Tidur Modern Estetik
+                                </section>
+                                <section className="summary-content">
+                                    <section className="summary-content-key">
+                                        Harga <br />Ukuran <br />Pembayaran
+                                    </section>
+                                    <section className="summary-content-value">
+                                        10.000.000 <br />3 x 9 Meter <br />Bank BNI
+                                    </section>
+                                    <section className="summary-content-key">
+                                        Bukti Transfer
+                                    </section>
+                                    <section className="summary-content-valueSucces">
+                                        Sudah
+                                    </section>
                                 </section>
                             </section>
-                            <section className="detail-footer">
-                                Total Harga:<span className="detail-footer-price"> Rp {designData?.price}</span>
+                            <section className="userPayment-button">
+                                <Button disabled={sending}>Lakukan Pembayaran</Button>
                             </section>
-                        </section>
+                        </article>
+                        <article className="userPayment-boxOne">
+                            <header className="userPayment-header">Metode Pembayaran</header>
+                            <section className="userPayment-desc">Silahkan lakukan pembayaran ke bank yang dipilih dengan nomer rekening dibawah ini!</section>
+                            <section>
+                                <DropDownPayment
+                                    option={options}
+                                />
+                            </section>
+                        </article>
+                        <article className="userPayment-boxOne">
+                            <header className="userPayment-header">Bukti Transfer</header>
+                            <section className="userPayment-desc" >
+                                Setelah melakukan transfer, Silahkan unggah bukti transfer untuk melanjutkan proses pembayaran
+                            </section>
+                            <section className="userPayment-uploadImage">
+                                <label className="userPayment-buttonUpload">
+                                    <IconCloudUpload className="icon-cloudUpload" />Unggah Bukti Transfer
+                                    <input type='file' onChange={onSelectFile} className="coba" name="image" accept="image/*" />
+                                </label>
+                                <section className="userPayment-previewImage">
+                                    {selectedFile && <img src={preview} alt="preview" />}
+                                </section>
+                            </section>
+                        </article>
                     </article>
-                    <article className="userPayment-boxTwo">
-                        <header className="userPayment-header">Ringkasan Pesanan</header>
-                        <section className="userPayment-content">
-                            <section className="summary-header">
-                                Kamar Tidur Modern Estetik
-                            </section>
-                            <section className="summary-content">
-                                <section className="summary-content-key">
-                                    Harga <br />Ukuran <br />Pembayaran
-                                </section>
-                                <section className="summary-content-value">
-                                    10.000.000 <br />3 x 9 Meter <br />Bank BNI
-                                </section>
-                                <section className="summary-content-key">
-                                    Bukti Transfer
-                                </section>
-                                <section className="summary-content-valueSucces">
-                                    Sudah
-                                </section>
-                            </section>
-                        </section>
-                        <section className="userPayment-button">
-                            <Button onClick={toggleModal}>Lakukan Pembayaran</Button>
-                        </section>
-                    </article>
-                    <article className="userPayment-boxOne">
-                        <header className="userPayment-header">Metode Pembayaran</header>
-                        <section className="userPayment-desc">Silahkan lakukan pembayaran ke bank yang dipilih dengan nomer rekening dibawah ini!</section>
-                        <section>
-                            <DropDownPayment
-                                option={options}
-                            />
-                        </section>
-                    </article>
-                    <article className="userPayment-boxOne">
-                        <header className="userPayment-header">Bukti Transfer</header>
-                        <section className="userPayment-desc" >
-                            Setelah melakukan transfer, Silahkan unggah bukti transfer untuk melanjutkan proses pembayaran
-                        </section>
-                        <section className="userPayment-uploadImage">
-                            <label className="userPayment-buttonUpload">
-                                <IconCloudUpload className="icon-cloudUpload" />Unggah Bukti Transfer
-                                <input type='file' onChange={onSelectFile} className="coba" name="image" accept="image/*" />
-                            </label>
-                            <section className="userPayment-previewImage">
-                                {selectedFile && <img src={preview} alt="preview" />}
-                            </section>
-                        </section>
-                    </article>
-                </article>
+                </form>
             </main>
             <ModalBlank
                 visible={showModal}

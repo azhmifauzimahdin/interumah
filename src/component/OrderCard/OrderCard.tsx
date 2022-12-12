@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
-import { Navigate, useNavigate } from "react-router-dom"
-import { imgClassic1, imgProfile1 } from "../../assets/dummy"
+import { useNavigate } from "react-router-dom"
+import { imgProfile1 } from "../../assets/dummy"
 import Button from "../Button/Button"
 import { IconProfile } from "../Icon"
 import ProgressBar from "../ProgressBar/ProgressBar"
@@ -70,7 +70,7 @@ const OrderCard: React.FC<OrderCardProps> = props => {
                                 Segera lakukan pembayaran, pesanan akan otomatis hilang jika melebihi 2 hari setelah pemesanan
                             </section>
                             <section className="orderCard-add-btn">
-                                <Button onClick={() => handlePayment(data.design.id)}>Lakukan Pembayaran</Button>
+                                <Button onClick={() => handlePayment(data.id)}>Lakukan Pembayaran</Button>
                             </section>
                         </section>
                         <section className="orderCard-progress">

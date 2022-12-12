@@ -18,7 +18,6 @@ const UserProfile: React.FC = () => {
     const [errorMessagePhone, setErrorMessagePhone] = useState<string>('')
     const [errorMessageAddress, setErrorMessageAddress] = useState<string>('')
     const [errorMessageJob, setErrorMessageJob] = useState<string>('')
-    const defaultImage = profile?.imageUrl.substr(profile.imageUrl.lastIndexOf('/') + 1)
 
     //------ handle input image -------
     const [selectedFile, setSelectedFile] = useState()
