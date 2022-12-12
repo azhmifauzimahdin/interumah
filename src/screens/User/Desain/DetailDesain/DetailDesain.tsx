@@ -3,7 +3,8 @@ import { useNavigate, useSearchParams } from "react-router-dom"
 import { IlustrationAtmMachine } from "../../../../assets"
 import { Button, ModalBlank, ReviewBox } from "../../../../component"
 import { IconChat, IconLocation, IconProfile, IconStart } from "../../../../component/Icon"
-import { DesignService, OrderService } from "../../../../services"
+import { BudgetService, DesignService } from "../../../../services"
+import { BudgetPlan } from "../../../../types/Budget"
 import { Design } from "../../../../types/Design"
 import "./DetailDesain.css"
 
@@ -42,9 +43,16 @@ const UserDetailDesain: React.FC = () => {
         navigate(`/desainer?id=${id}`)
     }
 
+    const [budgetPlan, setBudget] = useState<BudgetPlan>()
     useEffect(() => {
         getSpecificDesign(desain)
+        //------- Get Budget Plan By ID -------
+        BudgetService.getBudgetPlanByID(desain)
+            .then(response => setBudget(response.data.data))
+            .catch(error => console.log('error', error))
+
     }, [desain])
+    console.log("budgetPlan", budgetPlan)
     return (
         <>
             <main className="userDetailDesain-container">
@@ -72,22 +80,36 @@ const UserDetailDesain: React.FC = () => {
                 <article className="userDetailDesain-box">
                     <header className="userDetailDesain-box-header">Spesifikasi Desain</header>
                     <section className="userDetailDesain-specification-desc">
-                        <section className="title-specification">Panjang Ruangan</section><section className="value-specification">: 5 meter</section>
-                        <section className="title-specification">Lebar Ruangan</section><section className="value-specification">: 3 meter</section>
-                        <section className="title-specification">Tinggi Ruangan</section><section className="value-specification">: 4 meter</section>
-                        <section className="title-specification">Model Ruangan</section><section className="value-specification">: Classic But Estetik</section>
+                        <section className="header-specification">Persiapan</section>
+                        {budgetPlan?.persiapan.map((data, index) => {
+                            return (
+                                <section className="wrapper-specification" key={index}>
+                                    <section className="title-specification">{data.name}</section><section className="value-specification">: {data.volume} M</section>
+                                    <section className="title-specification" /><section className="value-specification">: Rp. {data.cost} /Meter</section>
+                                </section>
+                            )
+                        })}
+                        <section className="header-specification">Pondasi</section>
+                        {budgetPlan?.pondasi.map((data, index) => {
+                            return (
+                                <section className="wrapper-specification" key={index}>
+                                    <section className="title-specification">{data.name}</section><section className="value-specification">: {data.volume} M</section>
+                                    <section className="title-specification" /><section className="value-specification">: Rp. {data.cost} /Meter</section>
+                                </section>
+                            )
+                        })}
                     </section>
-                    <section className="userDetailDesain-specification-desc">
+                    {/* <section className="userDetailDesain-specification-desc">
                         Deskripsi :<br />
                         {designData?.description}
-                    </section>
+                    </section> */}
                 </article>
                 <article className="userDetailDesain-desainer">
                     <figure className="userDetailDesain-desainer-image"><IconProfile size="xxl" image={`http://${designData?.designer.imageUrl}`} /></figure>
                     <section className="userDetailDesain-desainer-desc">
                         <section className="company">{designData?.designer.name}</section>
                         <section className="rating"><IconStart size="lg" /><span className="ratingText" >4.9  (5 Ulasan)</span></section>
-                        <section className="location">Balikpapan Timur</section>
+                        <section className="location">{designData?.location}</section>
                     </section>
                     <section className="userDetailDesain-desainer-btn">
                         <Button onClick={() => navigateDesigner(designData?.designer.id)}>Kunjungi</Button>
