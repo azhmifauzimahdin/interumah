@@ -34,6 +34,11 @@ const OrderCard: React.FC<OrderCardProps> = props => {
         navigate(`/pembayaran?id=${id}`)
     }
 
+    //------- Handle Contact ------
+    const handleContact = () => {
+        navigate('/message')
+    }
+
     useEffect(() => {
         if (props.data.length === 0) return
         initiateDesign([...props.data])
@@ -47,8 +52,8 @@ const OrderCard: React.FC<OrderCardProps> = props => {
                             <section className="orderCard-company">
                                 <IconProfile size="xs" image={imgProfile1} /><span className="text">Sejahter Jaya Gr.</span>
                             </section>
-                            <section className="orderCard-status success-state">
-                                Selesai
+                            <section className={data.status === "Perlu Dibayar" ? "orderCard-status payment-state" : data.status === "Selesai" ? "orderCard-status success-state" : "orderCard-status processed-state"}>
+                                {data.status}
                             </section>
                         </section>
                         <section className="orderCard-content">
@@ -71,12 +76,22 @@ const OrderCard: React.FC<OrderCardProps> = props => {
                                 <Button onClick={() => handleReview(data.design.id)}>Beri Penilaian</Button>
                             </section>
                         </section>
+                        {data.status !== "Selesai" &&
+                            <section className="orderCard-add">
+                                <section className="orderCard-add-text">
+                                    Segera lakukan pembayaran, pesanan akan otomatis hilang jika melebihi 2 hari setelah pemesanan
+                                </section>
+                                <section className="orderCard-add-btn">
+                                    <Button onClick={() => handlePayment(data.id)}>Lakukan Pembayaran</Button>
+                                </section>
+                            </section>
+                        }
                         <section className="orderCard-add">
                             <section className="orderCard-add-text">
-                                Segera lakukan pembayaran, pesanan akan otomatis hilang jika melebihi 2 hari setelah pemesanan
+                                Konsultasikan pemesanan dengan cara menghubungi desainer
                             </section>
                             <section className="orderCard-add-btn">
-                                <Button onClick={() => handlePayment(data.id)}>Lakukan Pembayaran</Button>
+                                <Button onClick={handleContact}>Hubungi Desainer</Button>
                             </section>
                         </section>
                         <section className="orderCard-progress">

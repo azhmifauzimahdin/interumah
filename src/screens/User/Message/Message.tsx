@@ -9,7 +9,6 @@ import { Designer } from "../../../types/Design"
 import "./Message.css"
 
 const UserMessage: React.FC = () => {
-    window.scrollTo(0, 0)
     const [designerData, setDesignerData] = useState<Designer[]>([])
 
     //------- Message ------
@@ -38,22 +37,7 @@ const UserMessage: React.FC = () => {
             id: 5,
             message: "Untuk bahannya memakai apa pak?",
             time: "10.23"
-        },
-        {
-            id: 6,
-            message: "Untuk bahannya memakai apa pak?",
-            time: "10.23"
-        },
-        {
-            id: 7,
-            message: "Untuk bahannya memakai apa pak?",
-            time: "10.23"
-        },
-        {
-            id: 8,
-            message: "Untuk bahannya memakai apa pak?",
-            time: "10.23"
-        },
+        }
     ]
 
     //------ Message recommendation ------

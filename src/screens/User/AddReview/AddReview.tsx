@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { Button, StarRating } from "../../../component"
 import { IconCloudUpload, IconProfile, IconSend } from "../../../component/Icon"
-import { DesignService } from "../../../services"
+import { DesignService, ReviewService } from "../../../services"
 import { Design } from "../../../types/Design"
+import { RequestAddReview } from "../../../types/Review"
 import "./AddReview.css"
 
 const AddReview: React.FC = () => {
@@ -30,6 +31,20 @@ const AddReview: React.FC = () => {
     //------ Navigate Detail Design -------
     const navigateDetailDesign = (id: number) => {
         navigate(`/detail_desain?desain=${id}`)
+    }
+
+    //------ Review Design ------
+    const reviewDesign = async (e: React.FormEvent<HTMLFormElement>) => {
+        try {
+            e.preventDefault()
+            const formData = new FormData(e.target as HTMLFormElement)
+            const inputObject = Object.fromEntries(formData)
+            console.log("inputObject", inputObject)
+            // await ReviewService.addReview(id, inputObject as any as RequestAddReview)
+            // navigate('/pesananku')
+        } catch (error) {
+
+        }
     }
 
     useEffect(() => {
@@ -73,49 +88,51 @@ const AddReview: React.FC = () => {
                 </section>
             </section>
             <section className="userAddReview-boxOne">
-                <section className="userAddReview-headerbox">
-                    <section className="userAddReview-headerbox-title">Kualitas Desain</section>
-                    <section className="userAddReview-headerbox-title">Kualitas Desainer</section>
-                </section>
-                <section className="userAddReview-content">
-                    <section className="userAddReview-content-box">
-                        <section className="userAddReview-content-start">
-                            <StarRating />
+                <form onSubmit={reviewDesign}>
+                    <section className="userAddReview-headerbox">
+                        <section className="userAddReview-headerbox-title">Kualitas Desain</section>
+                        <section className="userAddReview-headerbox-title">Kualitas Desainer</section>
+                    </section>
+                    <section className="userAddReview-content">
+                        <section className="userAddReview-content-box">
+                            <section className="userAddReview-content-start">
+                                <StarRating />
+                            </section>
+                            <textarea className="userAddReview-textArea" placeholder="Tambahkan deskripsi terkait penilain produk....." name="comments" />
+                            <label className="userAddReview-buttonUpload">
+                                <IconCloudUpload className="icon-cloudUpload" />Tambahkan Foto atau Video
+                                <input type="file" multiple accept="image/*" onChange={onImageChangeDesign} style={{ display: "none" }} />
+                            </label>
+                            <section className="userAddReview-imgWrapper">
+                                {imageURLSDesign.map((imageSrc) => (
+                                    <section className="userAddReview-imgBox">
+                                        <img src={imageSrc} alt="not fount" className="" />
+                                    </section>
+                                ))}
+                            </section>
                         </section>
-                        <textarea className="userAddReview-textArea" placeholder="Tambahkan deskripsi terkait penilain produk....." />
-                        <label className="userAddReview-buttonUpload">
-                            <IconCloudUpload className="icon-cloudUpload" />Tambahkan Foto atau Video
-                            <input type="file" multiple accept="image/*" onChange={onImageChangeDesign} style={{ display: "none" }} />
-                        </label>
-                        <section className="userAddReview-imgWrapper">
-                            {imageURLSDesign.map((imageSrc) => (
-                                <section className="userAddReview-imgBox">
-                                    <img src={imageSrc} alt="not fount" className="" />
-                                </section>
-                            ))}
+                        <section className="userAddReview-content-box">
+                            <section className="userAddReview-content-start">
+                                <StarRating />
+                            </section>
+                            <textarea className="userAddReview-textArea" placeholder="Tambahkan deskripsi terkait penilain produk....." name="comments" />
+                            <label className="userAddReview-buttonUpload">
+                                <IconCloudUpload className="icon-cloudUpload" />Tambahkan Foto atau Video
+                                <input type="file" multiple accept="image/*" onChange={onImageChangeDesigner} style={{ display: "none" }} />
+                            </label>
+                            <section className="userAddReview-imgWrapper">
+                                {imageURLSDesigner.map((imageSrc) => (
+                                    <section className="userAddReview-imgBox">
+                                        <img src={imageSrc} alt="not fount" className="" />
+                                    </section>
+                                ))}
+                            </section>
                         </section>
                     </section>
-                    <section className="userAddReview-content-box">
-                        <section className="userAddReview-content-start">
-                            <StarRating />
-                        </section>
-                        <textarea className="userAddReview-textArea" placeholder="Tambahkan deskripsi terkait penilain produk....." />
-                        <label className="userAddReview-buttonUpload">
-                            <IconCloudUpload className="icon-cloudUpload" />Tambahkan Foto atau Video
-                            <input type="file" multiple accept="image/*" onChange={onImageChangeDesigner} style={{ display: "none" }} />
-                        </label>
-                        <section className="userAddReview-imgWrapper">
-                            {imageURLSDesigner.map((imageSrc) => (
-                                <section className="userAddReview-imgBox">
-                                    <img src={imageSrc} alt="not fount" className="" />
-                                </section>
-                            ))}
-                        </section>
+                    <section className="userAddReview-btn">
+                        <Button type="secondary"><IconSend className="iconBtn" />KIRIM PENILAIAN</Button>
                     </section>
-                </section>
-                <section className="userAddReview-btn">
-                    <Button type="secondary"><IconSend className="iconBtn" />KIRIM PENILAIAN</Button>
-                </section>
+                </form>
             </section>
         </main>
     )
