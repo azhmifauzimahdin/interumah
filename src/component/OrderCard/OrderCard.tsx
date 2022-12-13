@@ -94,9 +94,9 @@ const OrderCard: React.FC<OrderCardProps> = props => {
                                 <Button onClick={handleContact}>Hubungi Desainer</Button>
                             </section>
                         </section>
-                        <section className="orderCard-progress">
+                        {/* <section className="orderCard-progress">
                             <ProgressBar bgColor="#101B94" progress='70' height={40} />
-                        </section>
+                        </section> */}
                     </section>
                 )
             }) : null}
