@@ -1,10 +1,21 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { IconStart } from "../Icon";
 import "./StarRating.css"
 
-const StarRating: React.FC = () => {
-    const [rating, setRating] = useState(0);
-    const [hover, setHover] = useState(0);
+interface StarRatingProps {
+    rate: (arg: number) => void
+}
+const StarRating: React.FC<StarRatingProps> = props => {
+    const { rate } = props
+
+    const [rating, setRating] = useState(0)
+    const [hover, setHover] = useState(0)
+
+    useEffect(() => {
+        rate(rating)
+    }, [rate, rating])
+
+
     return (
         <>
             <section className="star-rating">

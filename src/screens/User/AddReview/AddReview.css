@@ -191,3 +191,24 @@
 .iconBtn {
     margin-right: 0.4vw;
 }
+
+/* Modal */
+.modalAddReview-title {
+    font-size: 1.45vw;
+    font-weight: 700;
+    margin-bottom: 2vw;
+}
+
+.modalAddReview-ilustration {
+    width: 50%;
+    margin: 0 auto 2vw;
+}
+
+.imgIlustrationAddReview {
+    width: 100%;
+}
+
+.modalAddReview-btn {
+    width: 69%;
+    margin: 0 auto;
+}

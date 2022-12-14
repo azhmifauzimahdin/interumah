@@ -70,6 +70,7 @@
     width: 96%;
     margin-left: 4%;
     box-sizing: border-box;
+    transition: all 0.5s ease;
 }
 
 .dropdownMenu-option {

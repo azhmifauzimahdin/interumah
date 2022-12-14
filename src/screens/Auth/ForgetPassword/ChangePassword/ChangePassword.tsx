@@ -38,9 +38,6 @@ const ChangePassword: React.FC = () => {
                 email: email,
                 token: token
             }
-
-            console.log('objectChangePassword', objectChangePassword);
-
             await ResetPasswordService.ChangePasswordPost(objectChangePassword as any as ChangePasswordData)
             setSending(false)
             navigate('/success_password_change')
