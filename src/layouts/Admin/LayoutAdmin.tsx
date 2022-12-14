@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { Outlet } from "react-router-dom"
+import React, { useEffect, useState } from "react"
+import { Outlet, useNavigate } from "react-router-dom"
 import { Logo, LogoNoText } from "../../assets"
 import { imgProfile1 } from "../../assets/dummy"
 import { DropDownMenu } from "../../component"
@@ -7,6 +7,8 @@ import { IconDatabase, IconHome, IconMenu, IconPrint, IconProfile, IconSetting, 
 import "./LayoutAdmin.css"
 
 const LayoutAdmin: React.FC = () => {
+    const navigate = useNavigate()
+    const token = localStorage.getItem("authToken")
     const [isOpen, setIsOpen] = useState<boolean>(true)
     const toggle = () => setIsOpen(!isOpen)
 
@@ -60,6 +62,12 @@ const LayoutAdmin: React.FC = () => {
     const checkOpen = () => {
         if (!isOpen) setIsOpen(!isOpen)
     }
+
+    useEffect(() => {
+        if (!token) {
+            navigate('/admin/login')
+        }
+    }, [navigate, token])
 
     return (
         <>

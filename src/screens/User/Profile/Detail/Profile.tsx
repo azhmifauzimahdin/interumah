@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { IlustrationOk } from "../../../../assets"
-import { Button, ErrorMessage, ModalBlank } from "../../../../component"
+import { Button, ErrorMessage, LoadingScreen, ModalBlank } from "../../../../component"
 import { IconClipboardList, IconLock, IconProfile, IconUserAlt, IconUserX } from "../../../../component/Icon"
 import { ProfileService } from "../../../../services"
 import { Profile, RequestUpdataProfile, RequestUpdateEmail } from "../../../../types/User"
@@ -11,6 +11,7 @@ const UserProfile: React.FC = () => {
     const location = useLocation()
     const [profile, setProfile] = useState<Profile>()
     const [sending, setSending] = useState<boolean>(false)
+    const [loading, setLoading] = useState<boolean>(false)
     const [sendingImage, setSendingImage] = useState<boolean>(false)
     const [errorMessageName, setErrorMessageName] = useState<string>('')
     const [errorMessageEmail, setErrorMessageEmail] = useState<string>('')
@@ -48,6 +49,7 @@ const UserProfile: React.FC = () => {
     const updateProfile = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setSending(true)
+        setLoading(true)
         try {
             const formData = new FormData(e.target as HTMLFormElement)
             let inputObject = Object.fromEntries(formData)
@@ -56,6 +58,7 @@ const UserProfile: React.FC = () => {
             await ProfileService.updateProfile(inputObject as any as RequestUpdataProfile)
 
             setSending(false)
+            setLoading(false)
             toggleModal()
             setErrorMessageName('')
             setErrorMessageAge('')
@@ -64,6 +67,7 @@ const UserProfile: React.FC = () => {
             setErrorMessageJob('')
         } catch (error: any) {
             setSending(false)
+            setLoading(false)
             setErrorMessageName(error.response.data.errors.name)
             setErrorMessageEmail(error.response.data.errors.email)
             setErrorMessageAge(error.response.data.errors.age)
@@ -78,6 +82,7 @@ const UserProfile: React.FC = () => {
     const updateImageProfile = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setSendingImage(true)
+        setLoading(true)
         try {
             const formData = new FormData(e.currentTarget)
             const files = e.currentTarget.files
@@ -85,9 +90,11 @@ const UserProfile: React.FC = () => {
             await ProfileService.updateImageProfil(formData)
 
             setSendingImage(false)
+            setLoading(false)
             toggleModal()
         } catch (error: any) {
             setSendingImage(false)
+            setLoading(false)
             console.log("error", error)
         }
 
@@ -235,8 +242,8 @@ const UserProfile: React.FC = () => {
                             </form>
                         </section>
                     </section>
-                    {/* </form> */}
                 </article>
+                {loading && <LoadingScreen />}
             </main>
             <ModalBlank
                 visible={showModal}

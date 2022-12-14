@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
 import { IlustrationFavorite } from "../../../assets"
-import { Button, DesignerCard, ProductCard } from "../../../component"
+import { Button, DesignerCard, LoadingScreen, ProductCard } from "../../../component"
 import { IconLamp, IconManArtist } from "../../../component/Icon"
 import { CategoryService, DesignerService, DesignService } from "../../../services"
 import { Category } from "../../../types/Category"
@@ -10,6 +10,7 @@ import "./Search.css"
 
 const UserSearch: React.FC = () => {
     window.scrollTo(0, 0)
+    const [loading, setLoading] = useState<boolean>(false)
     const [categoriesData, setCategoriesData] = useState<Category[]>([])
     const [designData, setDesignData] = useState<Design[]>([])
     const [designerData, setDesignerData] = useState<Designer[]>([])
@@ -20,11 +21,14 @@ const UserSearch: React.FC = () => {
 
     //------ Get All Categories ------
     const getAllCategories = async () => {
+        setLoading(true)
         try {
             const response = await CategoryService.getAllCategories()
             setCategoriesData(response.data.data.categories)
+            setLoading(false)
         } catch (error) {
             console.log('error', error)
+            setLoading(false)
         }
     }
 
@@ -51,15 +55,29 @@ const UserSearch: React.FC = () => {
     }
 
     useEffect(() => {
+        setLoading(true)
         //------ Search Design By Title ------
         DesignService.searchDesignByTitle(keyword as string)
-            .then(response => setDesignData(response.data.data))
-            .catch(error => console.log("error", error))
+            .then(response => {
+                setDesignData(response.data.data)
+                setLoading(false)
+            })
+            .catch(error => {
+                console.log("error", error)
+                setLoading(false)
+            })
 
+        setLoading(true)
         //------ Serach Design By Name ------
         DesignerService.searchDesignerByName(keyword as string)
-            .then(response => setDesignerData(response.data.data))
-            .catch(error => console.log("error", error))
+            .then(response => {
+                setDesignerData(response.data.data)
+                setLoading(false)
+            })
+            .catch(error => {
+                console.log("error", error)
+                setLoading(false)
+            })
         getAllCategories()
     }, [keyword])
     return (
@@ -128,6 +146,7 @@ const UserSearch: React.FC = () => {
                     </section>
                 </section>
             </section>
+            {loading && <LoadingScreen />}
         </main>
     )
 }

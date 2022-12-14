@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom"
 import { imgProfile1 } from "../../assets/dummy"
 import Button from "../Button/Button"
 import { IconProfile } from "../Icon"
-import ProgressBar from "../ProgressBar/ProgressBar"
 import "./OrderCard.css"
 
 interface OrderCardProps<T = any> {
@@ -43,6 +42,7 @@ const OrderCard: React.FC<OrderCardProps> = props => {
         if (props.data.length === 0) return
         initiateDesign([...props.data])
     }, [props.data])
+
     return (
         <>
             {designData.length > 0 ? designData.map(data => {
@@ -73,7 +73,7 @@ const OrderCard: React.FC<OrderCardProps> = props => {
                                 Berikan penilaian untuk desain yang telah anda pesan. Ini akan membantu desainer untuk berkembang.
                             </section>
                             <section className="orderCard-add-btn">
-                                <Button onClick={() => handleReview(data.design.id)}>Beri Penilaian</Button>
+                                <Button onClick={() => handleReview(data.id)}>Beri Penilaian </Button>
                             </section>
                         </section>
                         {data.status !== "Selesai" &&

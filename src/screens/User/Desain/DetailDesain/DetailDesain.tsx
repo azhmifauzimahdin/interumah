@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { IlustrationAtmMachine, IlustrationOk } from "../../../../assets"
-import { Button, ModalBlank, ReviewBox } from "../../../../component"
+import { Button, LoadingScreen, ModalBlank, ReviewBox } from "../../../../component"
 import { IconChat, IconLocation, IconProfile, IconStart } from "../../../../component/Icon"
 import { BudgetService, DesignService, OrderService } from "../../../../services"
 import { BudgetPlan } from "../../../../types/Budget"
@@ -10,6 +10,7 @@ import "./DetailDesain.css"
 
 const UserDetailDesain: React.FC = () => {
     const navigate = useNavigate()
+    const [loading, setLoading] = useState<boolean>(true)
     const [showModal, setShowModal] = useState<boolean>(false)
     const [showModalTwo, setShowModalTwo] = useState<boolean>(false)
     const [designData, setDesignData] = useState<Design>()
@@ -73,8 +74,14 @@ const UserDetailDesain: React.FC = () => {
         getSpecificDesign(desain)
         //------- Get Budget Plan By ID -------
         BudgetService.getBudgetPlanByID(desain)
-            .then(response => setBudget(response.data.data))
-            .catch(error => console.log('error', error))
+            .then(response => {
+                setBudget(response.data.data)
+                setLoading(false)
+            })
+            .catch(error => {
+                console.log('error', error)
+                setLoading(false)
+            })
 
     }, [desain])
     return (
@@ -142,6 +149,7 @@ const UserDetailDesain: React.FC = () => {
                 <article className="userDetailDesain-boxReview">
                     <ReviewBox />
                 </article>
+                {loading && <LoadingScreen />}
             </main>
             <ModalBlank
                 visible={showModal}

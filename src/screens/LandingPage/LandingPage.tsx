@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { IlustrationKonsultasi, IlustrationPilihDesainmu, IlustrationTemukan, IlustrationWujudkan, ImageOne, LogoFooter } from "../../assets"
 import { imgStory1, imgStory2, imgStory3, imgStory4, imgStory5 } from "../../assets/dummy"
-import { Button, ProductCard, StoryCard } from "../../component"
+import { Button, LoadingScreen, ProductCard, StoryCard } from "../../component"
 import { IconAppStore, IconFacebook, IconInstagram, IconPlayStore, IconTiktok, IconYoutube } from "../../component/Icon"
 import { CategoryService, DesignService } from "../../services"
 import { Category } from "../../types/Category"
@@ -9,9 +9,9 @@ import { Design } from "../../types/Design"
 import "./LandingPage.css"
 
 const LandingPage: React.FC = () => {
-    window.scrollTo(0, 0)
     const [categoriesData, setCategoriesData] = useState<Category[]>([])
     const [designsData, setDesignData] = useState<Design[]>([])
+    const [loading, setLoading] = useState<boolean>(true)
 
     //------ Get All Categories -------
     const getAllCategories = async () => {
@@ -28,8 +28,10 @@ const LandingPage: React.FC = () => {
         try {
             const response = await DesignService.getAllDesigns()
             setDesignData(response.data.data)
+            setLoading(false)
         } catch (error) {
             console.log('error', error)
+            setLoading(false)
         }
     }
 
@@ -237,6 +239,7 @@ const LandingPage: React.FC = () => {
                     </article>
                 </footer>
             </main>
+            {loading && <LoadingScreen />}
         </main>
     )
 }

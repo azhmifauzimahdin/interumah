@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { InfoCard } from "../../../component"
+import { InfoCard, LoadingScreen } from "../../../component"
 import { IconFileAltOutline, IconMoneyBag, IconPenNib, IconUserFriends } from "../../../component/Icon"
 import Table, { TableColumn } from "../../../component/Table/Table"
 import { AdminService } from "../../../services"
@@ -8,6 +8,7 @@ import { DataDashboard, Order } from "../../../types/Admin"
 import "./AdminDashboard.css"
 
 const AdminDashboard: React.FC = () => {
+    const [loading, setLoading] = useState<boolean>(true)
     const [dashboarData, setDashboardData] = useState<DataDashboard>()
     const [orderData, setOrderData] = useState<Order[]>([])
 
@@ -19,10 +20,15 @@ const AdminDashboard: React.FC = () => {
 
         //------ Get Order Data -------
         AdminService.getAllOrder()
-            .then(response => setOrderData(response.data.data))
-            .catch(error => console.log('error', error))
+            .then(response => {
+                setOrderData(response.data.data)
+                setLoading(false)
+            })
+            .catch(error => {
+                console.log('error', error)
+                setLoading(false)
+            })
     }, [])
-    console.log('orderData', orderData)
 
     //------- Information Card ------
     const InfoData = [
@@ -109,6 +115,7 @@ const AdminDashboard: React.FC = () => {
             <section className="adminDashboard-table">
                 <Table data={orderData} columns={columns} hideAdd={false} />
             </section>
+            {loading && <LoadingScreen />}
         </main>
     )
 }

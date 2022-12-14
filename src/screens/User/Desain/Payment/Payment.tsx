@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { IlustrationOk } from "../../../../assets"
-import { Button, DropDownPayment, ModalBlank } from "../../../../component"
+import { Button, DropDownPayment, LoadingScreen, ModalBlank } from "../../../../component"
 import { IconCloudUpload, IconProfile } from "../../../../component/Icon"
 import { DesignService, OrderService } from "../../../../services"
 import { Design } from "../../../../types/Design"
@@ -10,6 +10,7 @@ import "./Payment.css"
 
 const UserPayment: React.FC = () => {
     window.scrollTo(0, 0)
+    const [loading, setLoading] = useState<boolean>(true)
     const [orderData, setOrderData] = useState<OrderData>()
     const [designData, setDesignData] = useState<Design>()
     const [sending, setSending] = useState<boolean>(false)
@@ -39,19 +40,32 @@ const UserPayment: React.FC = () => {
     useEffect(() => {
         if (idDesain) {
             DesignService.getDesignByID(idDesain as number)
-                .then(response => setDesignData(response.data.data))
-                .catch(error => console.log('error', error))
+                .then(response => {
+                    setDesignData(response.data.data)
+                    setLoading(false)
+                })
+                .catch(error => {
+                    console.log('error', error)
+                    setLoading(false)
+                })
         }
         if (orderData?.design.id) {
             DesignService.getDesignByID(orderData?.design.id as number)
-                .then(response => setDesignData(response.data.data))
-                .catch(error => console.log('error', error))
+                .then(response => {
+                    setDesignData(response.data.data)
+                    setLoading(false)
+                })
+                .catch(error => {
+                    console.log('error', error)
+                    setLoading(false)
+                })
         }
     }, [idDesain, orderData?.design.id])
 
     //------ Upload Receipt ------
     const uploadReceipt = async (e: React.FormEvent<HTMLFormElement>) => {
         setSending(true)
+        setLoading(true)
         e.preventDefault()
         try {
             const formData = new FormData(e.currentTarget)
@@ -60,9 +74,11 @@ const UserPayment: React.FC = () => {
 
             await OrderService.uploadReceipt(idOrder, formData)
             setSending(false)
+            setLoading(false)
             toggleModal()
         } catch (error) {
             setSending(false)
+            setLoading(false)
             console.log('error', error)
         }
     }
@@ -200,6 +216,7 @@ const UserPayment: React.FC = () => {
                         </article>
                     </article>
                 </form>
+                {loading && <LoadingScreen />}
             </main>
             <ModalBlank
                 visible={showModal}

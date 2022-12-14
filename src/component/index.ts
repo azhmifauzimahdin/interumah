@@ -29,3 +29,4 @@ export { default as PosterCategory } from "./Poster/PosterCategory/PosterCategor
 export { default as CategoruCard } from "./CategoryCard/CategoryCard"
 export { default as CategoryMenu } from "./CategoryMenu/CategoryMenu"
 export { default as StarRating } from "./StarRating/StarRating"
+export { default as LoadingScreen } from "./LoadingScreen/LoadingScreen"

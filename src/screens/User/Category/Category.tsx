@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
 import { imgCategory2, imgCategory3, imgCategory4, imgCategory5 } from "../../../assets/dummy"
-import { CategoruCard, PosterCategory, ProductCard } from "../../../component"
+import { CategoruCard, LoadingScreen, PosterCategory, ProductCard } from "../../../component"
 import { CategoryService, DesignService } from "../../../services"
 import { Category } from "../../../types/Category"
 import { Design } from "../../../types/Design"
@@ -9,6 +9,7 @@ import "./Category.css"
 
 const UserCategory: React.FC = () => {
     window.scrollTo(0, 0)
+    const [loading, setLoading] = useState<boolean>(true)
     const [categoryData, setCategoryData] = useState<Category>()
     const [designsData, setDesignData] = useState<Design[]>([])
 
@@ -24,8 +25,14 @@ const UserCategory: React.FC = () => {
 
         //------ Get Design by ID Category ------
         DesignService.getDesignByIDCategory(idCategory)
-            .then(response => setDesignData(response.data.data))
-            .catch(error => console.log("error", error))
+            .then(response => {
+                setDesignData(response.data.data)
+                setLoading(false)
+            })
+            .catch(error => {
+                console.log("error", error)
+                setLoading(false)
+            })
 
     }, [idCategory])
 
@@ -80,6 +87,7 @@ const UserCategory: React.FC = () => {
                     <ProductCard data={designsData} />
                 </section>
             </main>
+            {loading && <LoadingScreen />}
         </>
     )
 }

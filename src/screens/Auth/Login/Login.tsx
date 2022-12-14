@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Google } from "../../../assets"
-import { Button, ErrorMessage, Input } from "../../../component"
+import { Button, ErrorMessage, Input, LoadingScreen } from "../../../component"
 import { IconVisibility, IconVisibilityOff } from "../../../component/Icon"
 import { authService } from "../../../services"
 import { LoginRequest } from "../../../types/Login"
@@ -14,10 +14,12 @@ const Login: React.FC = () => {
     const [errorMessageEmail, setErrorMessageEmail] = useState<string>('')
     const [errorMessagePassword, setErrorMessagePassword] = useState<string>('')
     const [sending, setSending] = useState<boolean>(false)
+    const [loading, setLoading] = useState<boolean>(false)
     const changeStatus = changePassword === true ? false : true
 
     const login = async (e: React.FormEvent<HTMLFormElement>) => {
         setSending(true)
+        setLoading(true)
         setErrorMessageEmail('')
         setErrorMessagePassword('')
         try {
@@ -32,8 +34,10 @@ const Login: React.FC = () => {
 
             navigate('/dashboard')
             setSending(false)
+            setLoading(false)
         } catch (error: any) {
             setSending(false)
+            setLoading(false)
             if (error.response.data.message === "BAD_REQUEST") {
                 setErrorMessageEmail(error.response.data.errors.email)
                 setErrorMessagePassword(error.response.data.errors.password)
@@ -89,6 +93,7 @@ const Login: React.FC = () => {
             <section className="linktoRegister">
                 <span>Belum punya akun? <a href="/register">Daftar</a></span>
             </section>
+            {loading && <LoadingScreen />}
         </article>
     )
 }

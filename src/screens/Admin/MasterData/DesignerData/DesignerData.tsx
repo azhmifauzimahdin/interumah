@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react"
+import { LoadingScreen } from "../../../../component"
 import Table, { TableColumn } from "../../../../component/Table/Table"
 import { AdminService } from "../../../../services"
 import { Designer } from "../../../../types/Admin"
 import "./DesignerData.css"
 
 const AdminDataDesigner: React.FC = () => {
+    const [loading, setLoading] = useState<boolean>(true)
     const [designerData, setDesignerData] = useState<Designer[]>([])
     //------- Column Table Product -------
     const columns: TableColumn[] = [
@@ -48,13 +50,20 @@ const AdminDataDesigner: React.FC = () => {
 
     useEffect(() => {
         AdminService.getAllDesigner()
-            .then(response => setDesignerData(response.data.data))
-            .catch(error => console.log("error", error))
+            .then(response => {
+                setDesignerData(response.data.data)
+                setLoading(false)
+            })
+            .catch(error => {
+                console.log("error", error)
+                setLoading(false)
+            })
     }, [])
     return (
         <main className="adminDataDesigner-wrapper">
             <header className="adminDataDesigner-header">Data Desainer</header>
             <Table data={designerData} columns={columns} hideAdd={false} />
+            {loading && <LoadingScreen />}
         </main>
     )
 }

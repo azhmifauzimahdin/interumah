@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from "react"
 import { IlustrationResume } from "../../../assets"
-import { OrderCard } from "../../../component"
+import { LoadingScreen, OrderCard } from "../../../component"
 import { OrderService } from "../../../services"
 import { DesignOrder } from "../../../types/Order"
 import "./MyOrder.css"
 
 const UserOrder: React.FC = () => {
+    const [loading, setLoading] = useState<boolean>(true)
     const [designOrder, setDesignOrder] = useState<DesignOrder[]>([])
     useEffect(() => {
         OrderService.getAllOrderHistory()
-            .then(response => setDesignOrder(response.data.data))
-            .catch(error => console.log('error', error))
+            .then(response => {
+                setDesignOrder(response.data.data)
+                setLoading(false)
+            })
+            .catch(error => {
+                console.log('error', error)
+                setLoading(false)
+            })
     })
 
     return (
@@ -41,6 +48,7 @@ const UserOrder: React.FC = () => {
                     </article>
                 }
             </article>
+            {loading && <LoadingScreen />}
         </main>
     )
 }

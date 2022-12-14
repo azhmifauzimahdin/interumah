@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { Button, ErrorMessage, Input } from "../../../component"
+import { Button, ErrorMessage, Input, LoadingScreen } from "../../../component"
 import { IconVisibility, IconVisibilityOff } from "../../../component/Icon"
 import { AdminService } from "../../../services"
 import { RequestLoginAdmin } from "../../../types/Admin"
@@ -8,6 +8,7 @@ import './Login.css'
 
 const Login: React.FC = () => {
     const navigate = useNavigate()
+    const [loading, setLoading] = useState<boolean>(false)
     const [changePassword, setChangePassword] = useState(true)
     const [errorMessagePassword, setErrorMessagePassword] = useState<string>('')
     const [sending, setSending] = useState<boolean>(false)
@@ -21,6 +22,7 @@ const Login: React.FC = () => {
 
     const login = async (e: React.FormEvent<HTMLFormElement>) => {
         setSending(true)
+        setLoading(true)
         setErrorMessagePassword('')
         try {
             e.preventDefault()
@@ -33,8 +35,10 @@ const Login: React.FC = () => {
 
             navigate('/admin/dashboard')
             setSending(false)
+            setLoading(false)
         } catch (error: any) {
             setSending(false)
+            setLoading(false)
             setErrorMessagePassword(error.response.data.errors.password)
         }
     }
@@ -68,6 +72,7 @@ const Login: React.FC = () => {
                     <Button type="primary" disabled={sending}>Masuk</Button>
                 </section>
             </form>
+            {loading && <LoadingScreen />}
         </article>
     )
 }

@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
-import { Button, StarRating } from "../../../component"
+import { Button, LoadingScreen, StarRating } from "../../../component"
 import { IconCloudUpload, IconProfile, IconSend } from "../../../component/Icon"
-import { DesignService, ReviewService } from "../../../services"
+import { DesignService, OrderService, ReviewService } from "../../../services"
 import { Design } from "../../../types/Design"
+import { OrderData } from "../../../types/Order"
 import { RequestAddReview } from "../../../types/Review"
 import "./AddReview.css"
 
 const AddReview: React.FC = () => {
     window.scrollTo(0, 0)
     const navigate = useNavigate()
+    const [loading, setLoading] = useState<boolean>(false)
     const [imagesDesign, setImagesDesign] = useState([] as any)
     const [imageURLSDesign, setImageURLsDesign] = useState([])
     const [imagesDesigner, setImagesDesigner] = useState([] as any)
     const [imageURLSDesigner, setImageURLsDesigner] = useState([])
+    const [orderData, setOrderData] = useState<OrderData>()
     const [designData, setDesignData] = useState<Design>()
 
 
@@ -21,12 +24,29 @@ const AddReview: React.FC = () => {
     let [searchParams] = useSearchParams()
     const id = parseInt(searchParams.get("id") as string)
 
-    //------ Get Design By ID -------
+    //------ Get Order By ID -------
     useEffect(() => {
-        DesignService.getDesignByID(id)
-            .then(response => setDesignData(response.data.data))
+        setLoading(true)
+        OrderService.getOrderByID(id)
+            .then(response => setOrderData(response.data.data))
             .catch(error => console.log('error', error))
     }, [id])
+
+
+    // //------ Get Design By ID -------
+    useEffect(() => {
+        if (orderData?.design.id) {
+            DesignService.getDesignByID(orderData?.design.id)
+                .then(response => {
+                    setDesignData(response.data.data)
+                    setLoading(false)
+                })
+                .catch(error => {
+                    console.log('error', error)
+                    setLoading(false)
+                })
+        }
+    }, [orderData?.design.id])
 
     //------ Navigate Detail Design -------
     const navigateDetailDesign = (id: number) => {
@@ -63,7 +83,7 @@ const AddReview: React.FC = () => {
         setImagesDesigner([...e.target.files])
     }
     return (
-        <main className="userAddReview-wrapper">
+        <main className="userAddReview-wrapper" >
             <header className="userAddReview-header">Detail Pesanan</header>
             <section className="userAddReview-box">
                 <section className="detail-header">
@@ -134,7 +154,8 @@ const AddReview: React.FC = () => {
                     </section>
                 </form>
             </section>
-        </main>
+            {loading && <LoadingScreen />}
+        </main >
     )
 }
 

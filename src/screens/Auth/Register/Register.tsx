@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Button, ErrorMessage, Input, ModalBlank, PWDRequisite } from "../../../component"
+import { Button, ErrorMessage, Input, LoadingScreen, ModalBlank, PWDRequisite } from "../../../component"
 import { authService } from "../../../services"
 import { RegisterRequest } from "../../../types/Register"
 import { IconVisibility, IconVisibilityOff } from "../../../component/Icon"
@@ -19,6 +19,7 @@ const Register: React.FC = () => {
     const [errorMessageEmail, setErrorMessageEmail] = useState<string>('')
     const [errorMessagePassword, setErrorMessagePassword] = useState<string>('')
     const [sending, setSending] = useState<boolean>(false)
+    const [loading, setLoading] = useState<boolean>(false)
     const [pwdRequiste, setPWDRequiste] = useState(false)
     const [checks, setChecks] = useState({
         lowercaseCheck: false,
@@ -31,6 +32,7 @@ const Register: React.FC = () => {
     const register = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setSending(true)
+        setLoading(true)
         setErrorMessageEmail('')
         setErrorMessagePassword('')
         try {
@@ -39,11 +41,13 @@ const Register: React.FC = () => {
 
             await authService.register(inputObject as any as RegisterRequest)
             setSending(false)
+            setLoading(false)
             toggleModal()
             const resetForm = e.target as HTMLFormElement
             resetForm.reset()
         } catch (error: any) {
             setSending(false)
+            setLoading(false)
             setErrorMessageEmail(error.response.data.errors.email)
             setErrorMessagePassword(error.response.data.errors.password)
         }
@@ -142,6 +146,7 @@ const Register: React.FC = () => {
                         <span>Sudah punya akun? <a href="/login">Masuk</a></span>
                     </section>
                 </form>
+                {loading && <LoadingScreen />}
             </article>
             <ModalBlank
                 visible={showModal}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { imgKategori1, imgKategori2, imgKategori3, imgKategori4, imgKategori5, imgPromo1 } from "../../../assets/dummy"
-import { Button, ImageSlide, ProductCard } from "../../../component"
+import { Button, ImageSlide, LoadingScreen, ProductCard } from "../../../component"
 import { IconStart } from "../../../component/Icon"
 import { CategoryService, DesignerService, DesignService } from "../../../services"
 import { Category } from "../../../types/Category"
@@ -9,8 +9,8 @@ import { Design, Designer } from "../../../types/Design"
 import "./UserDashboard.css"
 
 const UserDashboard: React.FC = () => {
-    window.scrollTo(0, 0)
     const navigate = useNavigate()
+    const [loading, setLoading] = useState<boolean>(true)
     const [designsData, setDesignData] = useState<Design[]>([])
     const [designerData, setDesignerData] = useState<Designer[]>([])
     const [categoriesData, setCategoriesData] = useState<Category[]>([])
@@ -48,8 +48,14 @@ const UserDashboard: React.FC = () => {
             .catch(error => console.log("error", error))
         //------ Get All Designer ------
         DesignerService.getAllDesigner()
-            .then(response => setDesignerData(response.data.data))
-            .catch(error => console.log("error", error))
+            .then(response => {
+                setDesignerData(response.data.data)
+                setLoading(false)
+            })
+            .catch(error => {
+                console.log("error", error)
+                setLoading(false)
+            })
     }, [navigate])
 
     return (
@@ -117,6 +123,7 @@ const UserDashboard: React.FC = () => {
                     <Button type="colorfull" fontSize="lg">Selengkapnya</Button>
                 </article> */}
             </main>
+            {loading && <LoadingScreen />}
         </main>
     )
 }
