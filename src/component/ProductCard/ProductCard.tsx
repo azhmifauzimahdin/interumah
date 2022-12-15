@@ -16,7 +16,6 @@ const ProductCard: React.FC<ProductCardProps> = props => {
     const navigate = useNavigate()
     const [designData, setDesignData] = useState<any[]>([])
     const [designFavorite, setDesignFavorite] = useState<Favorite[]>([])
-    const [, setId] = useState<any[]>([])
 
     //------ Get token ------
     const token = localStorage.getItem("token")
@@ -67,12 +66,12 @@ const ProductCard: React.FC<ProductCardProps> = props => {
         initiateDesign([...props.data])
 
         // ------ Get favorite designs ------
-        FavoriteService.getAllDesignFavorite()
-            .then(response => {
-                setDesignFavorite(response.data.data)
-            })
-            .catch(error => console.log("error", error))
-    }, [props.data])
+        if (token) {
+            FavoriteService.getAllDesignFavorite()
+                .then(response => setDesignFavorite(response.data.data))
+                .catch(error => console.log("error", error))
+        }
+    }, [props.data, token])
 
     //------- currency format -------
     const formatter = new Intl.NumberFormat('id-ID', {
@@ -80,17 +79,12 @@ const ProductCard: React.FC<ProductCardProps> = props => {
         currency: 'IDR',
     })
 
-    useEffect(() => {
-        setId(designFavorite.map(data => {
-            return (
-                data.design.id
-            )
-        }))
-    }, [designFavorite])
 
     return (
         <>
             {designData.length > 0 ? designData.map(data => {
+                let fav: boolean = false
+                designFavorite.map(favorite => favorite.design.id === data.id || data?.design?.id ? fav = true : null)
                 return (
                     <article className="productCard" key={data?.design?.id || data.id}>
                         <figure className="productCard-imgProduct">
@@ -106,7 +100,7 @@ const ProductCard: React.FC<ProductCardProps> = props => {
                                 <span className="icon"><IconPrice /></span>{formatter.format(data.price || data.design.price)}
                             </section>
                             <section className="productCard-optionProduct">
-                                <section className="btnFavorit"><IconFavoriteBorder onClick={() => handleFavorite(data?.design?.id || data.id)} active={false} /></section>
+                                <section className="btnFavorit"><IconFavoriteBorder onClick={() => handleFavorite(data?.design?.id || data.id)} active={fav} /></section>
                                 <section className="btnDetail"><Button fontWeight="normal" size="sm" fontSize="sm" onClick={() => detailDesign(data?.design?.id || data.id)}>Lihat detail</Button></section>
                             </section>
                         </article>
