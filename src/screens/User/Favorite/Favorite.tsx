@@ -14,7 +14,7 @@ const UserFavorite: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(false)
     const [designFavorite, setDesignFavorite] = useState<Favorite[]>([])
     const [designsData, setDesignsData] = useState<Design[]>([])
-    const [categoriesData, setCategoriesData] = useState<Category[]>([])
+    const [, setCategoriesData] = useState<Category[]>([])
 
     //------- Navigate Dashboard -------
     const navigateDashboard = () => {
@@ -58,10 +58,10 @@ const UserFavorite: React.FC = () => {
                     <article className="userFavorite-boxFavorite">
                         <section className="userFavorite-menuCategory">
                             <ul>
-                                <li><Button size="sm" button="btnProduct">Semua Kategori</Button></li>
+                                {/* <li><Button size="sm" button="btnProduct">Semua Kategori</Button></li>
                                 {categoriesData.length > 0 ? categoriesData.map(data => (
                                     <li key={data.id}><Button size="sm" button="btnProduct" type="secondary" name={data.id}>{data.name}</Button></li>
-                                )) : null}
+                                )) : null} */}
                             </ul>
                         </section>
                         <section className="userFavorite-FavoriteList">

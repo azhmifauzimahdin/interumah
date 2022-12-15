@@ -11,7 +11,7 @@ const Profile: React.FC<ProfileProps> = props => {
 
     return (
         <div className={`Profile profile-size-${size}`}>
-            <img src={image} alt="profile" className="profileImage" />
+            {image && <img src={image} alt="profile" className="profileImage" />}
         </div>
 
     )
