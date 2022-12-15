@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
-import { LoginRequest, LoginResponse } from "../types/Login";
-import { LogoutResponse } from "../types/Logout";
+import { LoginRequest, LoginResponse, ResponseRefreshAccessToken } from "../types/Login";
+import { LogoutRequest, LogoutResponse } from "../types/Logout";
 import { RegisterRequest, RegisterResponse } from "../types/Register";
 import { httpRequest } from "./api";
 
@@ -12,6 +12,15 @@ export const login = async (request: LoginRequest): Promise<AxiosResponse<LoginR
     return await httpRequest.post('/auth', request)
 }
 
-export const logout = async (): Promise<AxiosResponse<LogoutResponse>> => {
-    return await httpRequest.delete('/auth')
+export const refreshAccessToken = async (request: string): Promise<AxiosResponse<ResponseRefreshAccessToken>> => {
+    return await httpRequest.put('/auth', { refreshToken: request })
+}
+
+export const logout = async (request: LogoutRequest): Promise<AxiosResponse<LogoutResponse>> => {
+    const config = {
+        data: {
+            refreshToken: request
+        }
+    }
+    return await httpRequest.delete('/auth', config)
 }

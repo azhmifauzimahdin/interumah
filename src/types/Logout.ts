@@ -4,5 +4,5 @@ export interface LogoutRequest {
 
 export interface LogoutResponse {
     code: number;
-    data: string;
+    message: string;
 }

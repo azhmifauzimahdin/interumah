@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { IlustrationFavorite } from "../../../assets"
-import { Button, ProductCard } from "../../../component"
+import { Button, LoadingScreen, ProductCard } from "../../../component"
 import { CategoryService, DesignService, FavoriteService } from "../../../services"
 import { Category } from "../../../types/Category"
 import { Design } from "../../../types/Design"
@@ -11,9 +11,15 @@ import './Favorite.css'
 const UserFavorite: React.FC = () => {
     window.scrollTo(0, 0)
     const navigate = useNavigate()
+    const [loading, setLoading] = useState<boolean>(false)
     const [designFavorite, setDesignFavorite] = useState<Favorite[]>([])
     const [designsData, setDesignsData] = useState<Design[]>([])
     const [categoriesData, setCategoriesData] = useState<Category[]>([])
+
+    //------- Navigate Dashboard -------
+    const navigateDashboard = () => {
+        navigate('/dashboard')
+    }
 
     //------ Get All Design ------
     const getAllDesigns = async () => {
@@ -24,13 +30,8 @@ const UserFavorite: React.FC = () => {
             console.log('error', error)
         }
     }
-
-    //------- Navigate Dashboard -------
-    const navigateDashboard = () => {
-        navigate('/dashboard')
-    }
-
     useEffect(() => {
+        setLoading(true)
         //------ Get favorite designs ------
         FavoriteService.getAllDesignFavorite()
             .then(response => {
@@ -40,8 +41,14 @@ const UserFavorite: React.FC = () => {
 
         //------ Get All Categories ------
         CategoryService.getAllCategories()
-            .then(response => setCategoriesData(response.data.data.categories))
-            .catch(error => console.log("error", error))
+            .then(response => {
+                setCategoriesData(response.data.data.categories)
+                setLoading(false)
+            })
+            .catch(error => {
+                console.log("error", error)
+                setLoading(false)
+            })
         getAllDesigns()
     }, [])
     return (
@@ -91,6 +98,8 @@ const UserFavorite: React.FC = () => {
                 </section> */}
                 </main>
             }
+            {loading && <LoadingScreen />}
+
         </>
     )
 }

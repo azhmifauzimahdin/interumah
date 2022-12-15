@@ -1,29 +1,36 @@
 import axios from "axios"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { LoadingScreen } from "../../../component"
 import { authService } from "../../../services"
 
 const Logout: React.FC = () => {
     const navigate = useNavigate()
+    const [loading, setLoading] = useState<boolean>(false)
     const token = localStorage.getItem("token")
+    const refreshToken = localStorage.getItem("refreshToken")
 
     useEffect(() => {
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-        localStorage.removeItem('token')
-        localStorage.removeItem('refreshToken')
-        // authService.logout()
-        //     .then(resp => {
-        //         localStorage.removeItem('token')
-        //         localStorage.removeItem('refreshToken')
-        //         navigate('/login')
-        //     })
-        //     .catch(error => {
-        //         console.log('error', error)
-        //     })
-        navigate('/login')
-    }, [navigate, token])
+        setLoading(true)
+        authService.logout(refreshToken as any)
+            .then(response => {
+                console.log(response.data)
+                localStorage.removeItem('token')
+                localStorage.removeItem('refreshToken')
+                setLoading(false)
+                navigate('/login')
+            })
+            .catch(error => {
+                console.log('error', error)
+                setLoading(false)
+            })
+    }, [navigate, refreshToken, token])
 
-    return <></>
+    return (
+        <>
+            {loading && <LoadingScreen />}
+        </>)
 }
 
 export default Logout
