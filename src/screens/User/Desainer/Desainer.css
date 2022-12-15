@@ -60,10 +60,7 @@
     padding: 1vw 2vw;
     display: flex;
     align-items: center;
-    /* height: 4vw; */
     cursor: pointer;
-    /* border-top: 0.2vw solid #101B94;
-    border-bottom: 0.2vw solid #101B94; */
 }
 
 .userDesainer-menuDetail:hover {

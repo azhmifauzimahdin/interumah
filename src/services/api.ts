@@ -25,10 +25,10 @@ httpRequest.interceptors.response.use(response => {
     return response
 }, async error => {
     const originalRequest = error.config
-    if (error.response.status === 403 && !originalRequest._retry) {
+    if (error.response.status === 403) {
 
-        originalRequest._retry = true;
         const refreshToken = localStorage.getItem("refreshToken")
+        console.log("refreshToken", refreshToken)
         await authService.refreshAccessToken(refreshToken as string)
             .then(response => {
                 console.log("response api", response.data)

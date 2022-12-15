@@ -3,45 +3,30 @@
 }
 
 .userOrder-nav {
-    width: 100%;
+    display: flex;
+    border: 2px solid #101B94;
     margin-bottom: 2vw;
 }
 
-.userOrder-nav ul {
-    width: 100%;
-    list-style: none;
+.userOrder-menuDetail {
+    width: 20%;
+    font-size: 1.25vw;
+    font-weight: 700;
+    padding: 1vw 2vw;
     display: flex;
-    margin: 0;
-    padding: 0;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
-.userOrder-nav ul li:hover {
+.userOrder-menuDetail:hover {
     background: #101B94;
     color: #ffffff;
 }
 
-.userOrder-nav ul li:nth-child(1) {
-    border: 0.14vw solid #101B94;
-    border-right: none;
-}
-
-.userOrder-nav ul li:nth-last-child(1) {
-    border: 0.14vw solid #101B94;
-    border-left: none;
-}
-
-.userOrder-nav ul li {
-    border-top: 0.14vw solid #101B94;
-    border-bottom: 0.14vw solid #101B94;
-    width: 25%;
-    font-size: 1.25vw;
-    padding: 1vw;
-    box-sizing: border-box;
-    font-weight: 700;
-    color: #101B94;
-    text-align: center;
-    margin: 0;
-    cursor: pointer;
+.menuDetailActive {
+    background: #101B94;
+    color: #ffffff;
 }
 
 .userOrder-box {
