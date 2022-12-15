@@ -1,0 +1,15 @@
+.rating {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.on>.star {
+    fill: #FDD848;
+}
+
+.off>.star {
+    fill: #ccc;
+}

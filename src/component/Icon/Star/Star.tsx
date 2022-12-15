@@ -3,7 +3,7 @@ import "./Star.css"
 
 interface StartProps {
     size?: 'md' | 'lg'
-    color?: 'yellow' | 'white'
+    color?: 'yellow' | 'white' | 'gray'
     className?: string
 }
 const Star: React.FC<StartProps> = props => {

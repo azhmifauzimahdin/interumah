@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { imgPoster1 } from "../../../assets/dummy"
-import { Button, ProductCard, ReviewBox } from "../../../component"
+import { Button, ProductCard } from "../../../component"
 import { IconChat, IconFolderOutline, IconHandPayment, IconHomeCityOutline, IconLocation, IconStart, IconUsers } from "../../../component/Icon"
 import { userService } from "../../../services"
 import { User } from "../../../types/User"
@@ -101,7 +101,10 @@ const UserDesainer: React.FC = () => {
                         }
                     </article>
                     <article className="userDesainer-reviewBox">
-                        <ReviewBox />
+                        {/* <ReviewBox
+                            rating="null"
+                            amount={0}
+                        /> */}
                     </article>
                 </>
             }
@@ -135,7 +138,10 @@ const UserDesainer: React.FC = () => {
             {menu === 3 &&
                 <>
                     <article className="userDesainer-reviewBox">
-                        <ReviewBox />
+                        {/* <ReviewBox
+                            rating="null"
+                            amount={0}
+                        /> */}
                     </article>
                 </>
             }

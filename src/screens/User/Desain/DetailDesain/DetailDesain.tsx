@@ -3,9 +3,10 @@ import { useNavigate, useSearchParams } from "react-router-dom"
 import { IlustrationAtmMachine, IlustrationOk } from "../../../../assets"
 import { Button, LoadingScreen, ModalBlank, ReviewBox } from "../../../../component"
 import { IconChat, IconLocation, IconProfile, IconStart } from "../../../../component/Icon"
-import { BudgetService, DesignService, OrderService } from "../../../../services"
+import { BudgetService, DesignService, OrderService, ReviewService } from "../../../../services"
 import { BudgetPlan } from "../../../../types/Budget"
 import { Design } from "../../../../types/Design"
+import { ResponseGetReview } from "../../../../types/Review"
 import "./DetailDesain.css"
 
 const UserDetailDesain: React.FC = () => {
@@ -14,7 +15,10 @@ const UserDetailDesain: React.FC = () => {
     const [showModal, setShowModal] = useState<boolean>(false)
     const [showModalTwo, setShowModalTwo] = useState<boolean>(false)
     const [designData, setDesignData] = useState<Design>()
-    window.scrollTo(0, 0)
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     //------ Get Params ------
     let [searchParams] = useSearchParams()
@@ -72,6 +76,7 @@ const UserDetailDesain: React.FC = () => {
     const [budgetPlan, setBudget] = useState<BudgetPlan>()
     useEffect(() => {
         getSpecificDesign(desain)
+
         //------- Get Budget Plan By ID -------
         BudgetService.getBudgetPlanByID(desain)
             .then(response => {
@@ -84,6 +89,17 @@ const UserDetailDesain: React.FC = () => {
             })
 
     }, [desain])
+
+    //------ Get Review Design ------
+    const [reviewDesign, setReviewDesign] = useState<ResponseGetReview>()
+    useEffect(() => {
+        if (designData?.id) {
+            ReviewService.getReviewByIdDesign(designData?.id)
+                .then(response => setReviewDesign(response.data))
+                .catch(error => console.log("error", error))
+        }
+    }, [designData?.id])
+
     return (
         <>
             <main className="userDetailDesain-container">
@@ -95,13 +111,13 @@ const UserDetailDesain: React.FC = () => {
                         <header className="userDetailDesain-detail-content-header">{designData?.title}</header>
                         <section className="userDetailDesain-detail-content-price">
                             {designData?.price && formatter.format(parseInt(designData?.price))}
-                            <section className="sold-box">5 Terjual {desain}</section>
+                            <section className="sold-box">5 Terjual</section>
                         </section>
                         <section className="userDetailDesain-detail-content-desc">
                             {designData?.description}
                         </section>
                         <section className="userDetailDesain-detail-content-descTwo"><span className="icon-desc"><IconLocation size="lg" /></span>{designData?.location}</section>
-                        <section className="userDetailDesain-detail-content-descTwo"><span className="icon-desc"><IconStart size="lg" /></span>4.9 (5 Ulasan)</section>
+                        <section className="userDetailDesain-detail-content-descTwo"><span className="icon-desc"><IconStart size="lg" /></span>{reviewDesign?.review.designRatingAverage} ({reviewDesign?.data.length} Ulasan)</section>
                         <section className="userDetailDesain-detail-footer">
                             <section className="userDetailDesain-detail-footer-btn"><Button type="secondary" className="btn"><IconChat className="icon-chat" />Hubungi</Button></section>
                             <section className="userDetailDesain-detail-footer-btn"><Button onClick={toggleModal}>Pesan Desain</Button></section>
@@ -139,7 +155,7 @@ const UserDetailDesain: React.FC = () => {
                     <figure className="userDetailDesain-desainer-image"><IconProfile size="xxl" image={`http://${designData?.designer.imageUrl}`} /></figure>
                     <section className="userDetailDesain-desainer-desc">
                         <section className="company">{designData?.designer.name}</section>
-                        <section className="rating"><IconStart size="lg" /><span className="ratingText" >4.9  (5 Ulasan)</span></section>
+                        <section className="rating"><IconStart size="lg" /><span className="ratingText" >{reviewDesign?.review.designerRatingAverage}  ({reviewDesign?.data.length} Ulasan)</span></section>
                         <section className="location">{designData?.location}</section>
                     </section>
                     <section className="userDetailDesain-desainer-btn">
@@ -147,7 +163,11 @@ const UserDetailDesain: React.FC = () => {
                     </section>
                 </article>
                 <article className="userDetailDesain-boxReview">
-                    <ReviewBox />
+                    <ReviewBox
+                        rating={reviewDesign?.review.designRatingAverage as string}
+                        amount={reviewDesign?.data.length as number}
+                        review={reviewDesign?.data as any}
+                    />
                 </article>
                 {loading && <LoadingScreen />}
             </main>

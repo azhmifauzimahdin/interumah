@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { IconStart } from "../Icon";
+import { IconStart } from "../../Icon";
 import "./StarRating.css"
 
 interface StarRatingProps {
@@ -18,29 +18,29 @@ const StarRating: React.FC<StarRatingProps> = props => {
 
     return (
         <>
-            <section className="star-rating">
+            <section className="starRating-rating">
                 {[...Array(5)].map((star, index) => {
                     index += 1;
                     return (
                         <button
                             key={index}
-                            className={index <= (hover || rating) ? "rating on" : "rating off"}
+                            className={index <= (hover || rating) ? "StarRating on" : "StarRating off"}
                             onClick={() => setRating(index)}
                             onMouseEnter={() => setHover(index)}
                             onMouseLeave={() => setHover(rating)}
                         >
-                            <IconStart size="lg" className="star" />
+                            <IconStart size="lg" className="starRating" />
                         </button>
                     )
                 })}
             </section>
-            <section className="star-desc">
-                {rating === 5 && <section className="star-value">Amazing</section>}
-                {rating === 4 && <section className="star-value">Very Good</section>}
-                {rating === 3 && <section className="star-value">Good</section>}
-                {rating === 2 && <section className="star-value">Dissapoint</section>}
-                {rating === 1 && <section className="star-value">Bad</section>}
-                {rating === 0 && <section className="star-value">------------------------</section>}
+            <section className="starRating-desc">
+                {rating === 5 && <section className="starRating-value">Amazing</section>}
+                {rating === 4 && <section className="starRating-value">Very Good</section>}
+                {rating === 3 && <section className="starRating-value">Good</section>}
+                {rating === 2 && <section className="starRating-value">Dissapoint</section>}
+                {rating === 1 && <section className="starRating-value">Bad</section>}
+                {rating === 0 && <section className="starRating-value">------------------------</section>}
             </section>
         </>
     )
