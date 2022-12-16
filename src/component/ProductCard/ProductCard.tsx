@@ -19,6 +19,7 @@ const ProductCard: React.FC<ProductCardProps> = props => {
 
     //------ Get token ------
     const token = localStorage.getItem("token")
+    const [tokenVerification, setTokenVerification] = useState<boolean>(true)
 
     // ------- Inititate Design ------
     const initiateDesign = (data: any[]) => {
@@ -27,7 +28,7 @@ const ProductCard: React.FC<ProductCardProps> = props => {
 
     // ------- Handle Navigate Detail Design -------
     const detailDesign = (id: any) => {
-        if (!token) {
+        if (!tokenVerification) {
             toggleModal()
         } else {
             navigate(`/detail_desain?desain=${id}`)
@@ -36,7 +37,7 @@ const ProductCard: React.FC<ProductCardProps> = props => {
 
     // ------ Handle Click Favorite ------
     const handleFavorite = async (id: number) => {
-        if (!token) {
+        if (!tokenVerification) {
             toggleModal()
         } else {
             try {
@@ -66,11 +67,12 @@ const ProductCard: React.FC<ProductCardProps> = props => {
         initiateDesign([...props.data])
 
         // ------ Get favorite designs ------
-        if (token) {
-            FavoriteService.getAllDesignFavorite()
-                .then(response => setDesignFavorite(response.data.data))
-                .catch(error => console.log("error", error))
-        }
+        FavoriteService.getAllDesignFavorite()
+            .then(response => setDesignFavorite(response.data.data))
+            .catch(error => {
+                console.log("error", error)
+                setTokenVerification(false)
+            })
     }, [props.data, token])
 
     //------- currency format -------

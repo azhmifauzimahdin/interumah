@@ -25,6 +25,9 @@ const Logout: React.FC = () => {
                 console.log('error', error)
                 setLoading(false)
             })
+        localStorage.removeItem('token')
+        localStorage.removeItem('refreshToken')
+        navigate('/login')
     }, [navigate, refreshToken, token])
 
     return (

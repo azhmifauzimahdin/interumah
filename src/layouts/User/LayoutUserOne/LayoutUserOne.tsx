@@ -89,14 +89,19 @@ const LayoutUserOne: React.FC = () => {
         if (!token) {
             navigate('/login')
         }
-        //------Get Profile Loged------
-        ProfileService.getProfile()
-            .then(response => setProfile(response.data.data))
-            .catch(error => console.log("error", error))
+        if (token) {
+            //------Get Profile Loged------
+            ProfileService.getProfile()
+                .then(response => setProfile(response.data.data))
+                .catch(error => {
+                    console.log("error", error)
+                    navigate('/login')
+                })
+        }
     }, [navigate, token, profile])
 
     return (
-        <div className="user-layout">
+        <main className="user-layout">
             <nav className="user-navbar">
                 <figure className="logo">
                     <a href="/dashboard">
@@ -215,7 +220,7 @@ const LayoutUserOne: React.FC = () => {
                     © 2022 Interumah | Interumah adalah merek milik PT Media Kreasi Abadi. Terdaftar pada Direktorat Jendral Kekayaan Intelektual Republik Indonesia.
                 </article>
             </footer>
-        </div >
+        </main >
     )
 }
 

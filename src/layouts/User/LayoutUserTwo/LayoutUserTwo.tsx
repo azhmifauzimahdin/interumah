@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom"
 import { ImageBackgoundEstimate, Logo, LogoFooter } from "../../../assets"
-import { imgProfile1 } from "../../../assets/dummy"
 import { Button, Estimate, EstimateList, ModalEstimate, NewEstimate, NotificationCard, ProfileHover } from "../../../component"
 import { IconAppStore, IconBar, IconCalculator, IconChatNav, IconFacebook, IconFavorite, IconInstagram, IconNotification, IconPlayStore, IconProfile, IconTiktok, IconYoutube } from "../../../component/Icon"
 import { ProfileService } from "../../../services"
@@ -77,10 +76,16 @@ const LayoutUserOne: React.FC = () => {
         if (!token) {
             navigate('/login')
         }
-        //------Get Profile Loged------
-        ProfileService.getProfile()
-            .then(response => setProfile(response.data.data))
-            .catch(error => console.log("error", error))
+
+        if (token) {
+            //------Get Profile Loged------
+            ProfileService.getProfile()
+                .then(response => setProfile(response.data.data))
+                .catch(error => {
+                    console.log("error", error)
+                    navigate('/login')
+                })
+        }
     }, [navigate, token])
 
     const location = useLocation()
