@@ -9,12 +9,15 @@ import { OrderData } from "../../../../types/Order"
 import "./Payment.css"
 
 const UserPayment: React.FC = () => {
-    window.scrollTo(0, 0)
-    const [loading, setLoading] = useState<boolean>(true)
+    const [loading, setLoading] = useState<boolean>(false)
+    const [loadingProgress, setLoadingProgress] = useState<boolean>(false)
     const [orderData, setOrderData] = useState<OrderData>()
     const [designData, setDesignData] = useState<Design>()
     const [sending, setSending] = useState<boolean>(false)
-
+    //------ Scroll ------
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     //------ Get Params -------
     let [searchParams] = useSearchParams()
     const idOrder = parseInt(searchParams.get("id") as string)
@@ -29,6 +32,7 @@ const UserPayment: React.FC = () => {
     //------ Get Order By ID -------
     useEffect(() => {
         if (idOrder) {
+            setLoading(true)
             OrderService.getOrderByID(idOrder)
                 .then(response => setOrderData(response.data.data))
                 .catch(error => console.log('error', error))
@@ -65,7 +69,7 @@ const UserPayment: React.FC = () => {
     //------ Upload Receipt ------
     const uploadReceipt = async (e: React.FormEvent<HTMLFormElement>) => {
         setSending(true)
-        setLoading(true)
+        setLoadingProgress(true)
         e.preventDefault()
         try {
             const formData = new FormData(e.currentTarget)
@@ -74,11 +78,11 @@ const UserPayment: React.FC = () => {
 
             await OrderService.uploadReceipt(idOrder, formData)
             setSending(false)
-            setLoading(false)
+            setLoadingProgress(false)
             toggleModal()
         } catch (error) {
             setSending(false)
-            setLoading(false)
+            setLoadingProgress(false)
             console.log('error', error)
         }
     }
@@ -143,26 +147,32 @@ const UserPayment: React.FC = () => {
                         <article className="userPayment-boxOne">
                             <header className="userPayment-header">Detail Pesanan</header>
                             <section className="userPayment-content">
-                                <section className="detail-header">
-                                    <section className="detail-company">
-                                        <IconProfile size="xs" image={`http://${designData?.designer.imageUrl}`} /><span className="text">{designData?.designer.name}</span>
-                                    </section>
-                                    <section className="detail-show" onClick={() => navigateDetailDesign(designData?.id as number)}>
-                                        Lihat Detail
-                                    </section>
-                                </section>
-                                <section className="detail-content">
-                                    <figure className="detail-image">
-                                        <img src={`http://${designData?.imageUrl}`} alt="desain" />
-                                    </figure>
-                                    <section className="detail-desc">
-                                        {designData?.title}
-                                        <section className="detail-desc-size">Ukuran 3 x 9 meter</section>
-                                    </section>
-                                </section>
-                                <section className="detail-footer">
-                                    Total Harga:<span className="detail-footer-price"> {formatter.format(designData?.price as any)}</span>
-                                </section>
+                                {loading ?
+                                    <LoadingScreen type="content" />
+                                    :
+                                    <>
+                                        <section className="detail-header">
+                                            <section className="detail-company">
+                                                <IconProfile size="xs" image={`http://${designData?.designer.imageUrl}`} /><span className="text">{designData?.designer.name}</span>
+                                            </section>
+                                            <section className="detail-show" onClick={() => navigateDetailDesign(designData?.id as number)}>
+                                                Lihat Detail
+                                            </section>
+                                        </section>
+                                        <section className="detail-content">
+                                            <figure className="detail-image">
+                                                <img src={`http://${designData?.imageUrl}`} alt="desain" />
+                                            </figure>
+                                            <section className="detail-desc">
+                                                {designData?.title}
+                                                <section className="detail-desc-size">Ukuran 3 x 9 meter</section>
+                                            </section>
+                                        </section>
+                                        <section className="detail-footer">
+                                            Total Harga:<span className="detail-footer-price"> {formatter.format(designData?.price as any)}</span>
+                                        </section>
+                                    </>
+                                }
                             </section>
                         </article>
                         <article className="userPayment-boxTwo">
@@ -216,7 +226,7 @@ const UserPayment: React.FC = () => {
                         </article>
                     </article>
                 </form>
-                {loading && <LoadingScreen />}
+                {loadingProgress && <LoadingScreen />}
             </main>
             <ModalBlank
                 visible={showModal}

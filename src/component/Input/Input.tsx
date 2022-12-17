@@ -10,13 +10,14 @@ export interface InputProps {
     placeholder?: string
     disabled?: boolean
     defaultValue?: string
+    value?: string
     onFocus?: () => void
     onBlur?: () => void
     onKeyUp?: (e: any) => void
 }
 
 const Input: React.FC<InputProps> = props => {
-    const { type, name, inputType, placeholder, disabled, defaultValue, onFocus, onBlur, onKeyUp } = props
+    const { type, name, inputType, placeholder, disabled, defaultValue, value, onFocus, onBlur, onKeyUp } = props
     const inputValid = props.inputValid || ''
     const size = props.size || 'md'
 
@@ -24,6 +25,7 @@ const Input: React.FC<InputProps> = props => {
         <input
             type={type}
             name={name}
+            value={value}
             defaultValue={defaultValue}
             className={`form-control fc-type-${inputType} fc-size-${size} ${inputValid}`}
             placeholder={placeholder}

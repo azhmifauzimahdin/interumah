@@ -14,11 +14,8 @@ const Logout: React.FC = () => {
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
         setLoading(true)
         authService.logout(refreshToken as any)
-            .then(response => {
-                localStorage.removeItem('token')
-                localStorage.removeItem('refreshToken')
+            .then(() => {
                 setLoading(false)
-                navigate('/login')
             })
             .catch(error => {
                 console.log('error', error)

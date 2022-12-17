@@ -18,7 +18,6 @@ const LayoutUserOne: React.FC = () => {
         const formData = new FormData(e.target as HTMLFormElement)
         const inputObject = Object.fromEntries(formData)
         navigate(`/search?keyword=${inputObject.keyword}`)
-        console.log(inputObject);
     }
 
     //------ Show Notification -------
@@ -95,7 +94,7 @@ const LayoutUserOne: React.FC = () => {
                 .then(response => setProfile(response.data.data))
                 .catch(error => {
                     console.log("error", error)
-                    navigate('/login')
+                    navigate('/logout')
                 })
         }
     }, [navigate, token, profile])
@@ -104,9 +103,9 @@ const LayoutUserOne: React.FC = () => {
         <main className="user-layout">
             <nav className="user-navbar">
                 <figure className="logo">
-                    <a href="/dashboard">
+                    <Link to="/dashboard">
                         <img src={Logo} alt="Logo Interumah" />
-                    </a>
+                    </Link>
                 </figure>
                 <input type="checkbox" id="click" className="checkboxLayout" />
                 <label htmlFor="click" className="menu-btn">

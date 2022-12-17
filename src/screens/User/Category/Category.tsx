@@ -84,10 +84,13 @@ const UserCategory: React.FC = () => {
             </main>
             <main className="userCategory-containerDesainer">
                 <section className="userCategory-desain-wrapper">
-                    <ProductCard data={designsData} />
+                    {loading ?
+                        <LoadingScreen type="content" />
+                        :
+                        <ProductCard data={designsData} />
+                    }
                 </section>
             </main>
-            {loading && <LoadingScreen />}
         </>
     )
 }

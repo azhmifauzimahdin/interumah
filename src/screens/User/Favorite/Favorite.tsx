@@ -53,37 +53,45 @@ const UserFavorite: React.FC = () => {
     return (
         <>
             <main className="userFavorite-containerFavorite">
-                {designFavorite.length > 0 ?
-                    <article className="userFavorite-boxFavorite">
-                        <section className="userFavorite-menuCategory">
-                            <ul>
-                                {/* <li><Button size="sm" button="btnProduct">Semua Kategori</Button></li>
+                {loading ?
+                    <article className="userFavorite-box">
+                        <LoadingScreen type="content" />
+                    </article>
+                    :
+                    <>
+                        {designFavorite.length > 0 ?
+                            <article className="userFavorite-boxFavorite">
+                                <section className="userFavorite-menuCategory">
+                                    <ul>
+                                        {/* <li><Button size="sm" button="btnProduct">Semua Kategori</Button></li>
                                 {categoriesData.length > 0 ? categoriesData.map(data => (
                                     <li key={data.id}><Button size="sm" button="btnProduct" type="secondary" name={data.id}>{data.name}</Button></li>
                                 )) : null} */}
-                            </ul>
-                        </section>
-                        <section className="userFavorite-FavoriteList">
-                            <ProductCard data={designFavorite} />
-                        </section>
-                    </article>
-                    :
-                    <article className="userFavorite-box">
-                        <figure className="userFavorite-ilustration">
-                            <img src={IlustrationFavorite} alt="Ilustration favorite" />
-                        </figure>
-                        <section className="userFavorite-description">
-                            <header className="userFavorite-description-header">
-                                Desain yang kamu sukai masih kosong
-                            </header>
-                            <section className="userFavorite-description-content">
-                                Yukk!! cari desain kesukaanmu, dan segera wujudkan mimpi desain interiormu
-                            </section>
-                        </section>
-                        <section className="userFavorite-button">
-                            <Button onClick={navigateDashboard}>Temukan Desainmu</Button>
-                        </section>
-                    </article>
+                                    </ul>
+                                </section>
+                                <section className="userFavorite-FavoriteList">
+                                    <ProductCard data={designFavorite} />
+                                </section>
+                            </article>
+                            :
+                            <article className="userFavorite-box">
+                                <figure className="userFavorite-ilustration">
+                                    <img src={IlustrationFavorite} alt="Ilustration favorite" />
+                                </figure>
+                                <section className="userFavorite-description">
+                                    <header className="userFavorite-description-header">
+                                        Desain yang kamu sukai masih kosong
+                                    </header>
+                                    <section className="userFavorite-description-content">
+                                        Yukk!! cari desain kesukaanmu, dan segera wujudkan mimpi desain interiormu
+                                    </section>
+                                </section>
+                                <section className="userFavorite-button">
+                                    <Button onClick={navigateDashboard}>Temukan Desainmu</Button>
+                                </section>
+                            </article>
+                        }
+                    </>
                 }
             </main>
             {designFavorite.length < 0 &&
@@ -97,7 +105,6 @@ const UserFavorite: React.FC = () => {
                 </section> */}
                 </main>
             }
-            {loading && <LoadingScreen />}
 
         </>
     )

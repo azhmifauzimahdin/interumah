@@ -67,7 +67,6 @@ const UserSearch: React.FC = () => {
                 setLoading(false)
             })
 
-        setLoading(true)
         //------ Serach Design By Name ------
         DesignerService.searchDesignerByName(keyword as string)
             .then(response => {
@@ -114,39 +113,50 @@ const UserSearch: React.FC = () => {
                     <section className="userSearch-section-content-product">
                         {menu === 0 ?
                             <>
-                                {designData.length > 0 ?
-                                    <ProductCard data={designData} />
+                                {loading ?
+                                    <LoadingScreen type="content" />
                                     :
-                                    <article className="userSearch-empytyBox">
-                                        <figure className="userSearch-empyty-ilustration">
-                                            <img src={IlustrationFavorite} alt="Ilustration" />
-                                        </figure>
-                                        <section className="userSearch-empyty-desc">
-                                            Desain yang kamu cari tidak ada
-                                        </section>
-                                    </article>
+                                    <>
+                                        {designData.length > 0 ?
+                                            <ProductCard data={designData} />
+                                            :
+                                            <article className="userSearch-empytyBox">
+                                                <figure className="userSearch-empyty-ilustration">
+                                                    <img src={IlustrationFavorite} alt="Ilustration" />
+                                                </figure>
+                                                <section className="userSearch-empyty-desc">
+                                                    Desain yang kamu cari tidak ada
+                                                </section>
+                                            </article>
+                                        }
+                                    </>
                                 }
                             </>
                             :
                             <>
-                                {designerData.length > 0 ?
-                                    <DesignerCard data={designerData} />
+                                {loading ?
+                                    <LoadingScreen type="content" />
                                     :
-                                    <article className="userSearch-empytyBox">
-                                        <figure className="userSearch-empyty-ilustration">
-                                            <img src={IlustrationFavorite} alt="Ilustration" />
-                                        </figure>
-                                        <section className="userSearch-empyty-desc">
-                                            Desainer yang kamu cari tidak ada
-                                        </section>
-                                    </article>
+                                    <>
+                                        {designerData.length > 0 ?
+                                            <DesignerCard data={designerData} />
+                                            :
+                                            <article className="userSearch-empytyBox">
+                                                <figure className="userSearch-empyty-ilustration">
+                                                    <img src={IlustrationFavorite} alt="Ilustration" />
+                                                </figure>
+                                                <section className="userSearch-empyty-desc">
+                                                    Desainer yang kamu cari tidak ada
+                                                </section>
+                                            </article>
+                                        }
+                                    </>
                                 }
                             </>
                         }
                     </section>
                 </section>
             </section>
-            {loading && <LoadingScreen />}
         </main>
     )
 }

@@ -12,6 +12,7 @@ import "./AddReview.css"
 const AddReview: React.FC = () => {
     const navigate = useNavigate()
     const [loading, setLoading] = useState<boolean>(false)
+    const [loadingProgress, setLoadingProgress] = useState<boolean>(false)
     const [imagesDesign, setImagesDesign] = useState([] as any)
     const [imageURLSDesign, setImageURLsDesign] = useState([])
     const [imagesDesigner, setImagesDesigner] = useState([] as any)
@@ -67,7 +68,7 @@ const AddReview: React.FC = () => {
 
     //------ Review Design ------
     const reviewDesign = async (e: React.FormEvent<HTMLFormElement>) => {
-        setLoading(true)
+        setLoadingProgress(true)
         try {
             e.preventDefault()
             let formData = new FormData()
@@ -77,11 +78,11 @@ const AddReview: React.FC = () => {
             formData.append('designerComments', designerComments)
             const inputObject = Object.fromEntries(formData)
             await ReviewService.addReview(designData?.id as number, inputObject as any as RequestAddReview)
-            setLoading(false)
+            setLoadingProgress(false)
             toggleModal()
         } catch (error) {
             console.log('error', error);
-            setLoading(false)
+            setLoadingProgress(false)
         }
     }
 
@@ -128,26 +129,31 @@ const AddReview: React.FC = () => {
             <main className="userAddReview-wrapper" >
                 <header className="userAddReview-header">Detail Pesanan</header>
                 <section className="userAddReview-box">
-                    <section className="detail-header">
-                        <section className="detail-company">
-                            <IconProfile size="xs" image={`http://${designData?.designer.imageUrl}`} /><span className="text">{designData?.designer.name}</span>
-                        </section>
-                        <section className="detail-show" onClick={() => navigateDetailDesign(designData?.id as number)}>
-                            Lihat Detail
-                        </section>
-                    </section>
-                    <section className="detail-content">
-                        <figure className="detail-image">
-                            <img src={`http://${designData?.imageUrl}`} alt="desain" />
-                        </figure>
-                        <section className="detail-desc">
-                            {designData?.title}
-                            <section className="detail-desc-size">Ukuran 3 x 9 meter</section>
-                        </section>
-                    </section>
-                    <section className="detail-footer">
-                        Total Harga:<span className="detail-footer-price"> {formatter.format(designData?.price as any)}</span>
-                    </section>
+                    {loading ? <LoadingScreen type="content" />
+                        :
+                        <>
+                            <section className="detail-header">
+                                <section className="detail-company">
+                                    <IconProfile size="xs" image={`http://${designData?.designer.imageUrl}`} /><span className="text">{designData?.designer.name}</span>
+                                </section>
+                                <section className="detail-show" onClick={() => navigateDetailDesign(designData?.id as number)}>
+                                    Lihat Detail
+                                </section>
+                            </section>
+                            <section className="detail-content">
+                                <figure className="detail-image">
+                                    <img src={`http://${designData?.imageUrl}`} alt="desain" />
+                                </figure>
+                                <section className="detail-desc">
+                                    {designData?.title}
+                                    <section className="detail-desc-size">Ukuran 3 x 9 meter</section>
+                                </section>
+                            </section>
+                            <section className="detail-footer">
+                                Total Harga:<span className="detail-footer-price"> {formatter.format(designData?.price as any)}</span>
+                            </section>
+                        </>
+                    }
                 </section>
                 <section className="userAddReview-boxOne">
                     <section className="userAddReview-headerbox">
@@ -196,7 +202,7 @@ const AddReview: React.FC = () => {
                         </section>
                     </form>
                 </section>
-                {loading && <LoadingScreen />}
+                {loadingProgress && <LoadingScreen />}
             </main >
             <ModalBlank
                 visible={showModal}

@@ -5,6 +5,7 @@ import { FavoriteService } from "../../services"
 import { Favorite } from "../../types/Favorite"
 import Button from "../Button/Button"
 import { IconFavoriteBorder, IconLocation, IconPrice } from "../Icon"
+import LoadingScreen from "../LoadingScreen/LoadingScreen"
 import ModalBlank from "../ModalBlank/ModalBlank"
 import "./ProductCard.css"
 
@@ -14,6 +15,7 @@ interface ProductCardProps<T = any> {
 
 const ProductCard: React.FC<ProductCardProps> = props => {
     const navigate = useNavigate()
+    const [loadingProgress, setLoadingProgress] = useState<boolean>(false)
     const [designData, setDesignData] = useState<any[]>([])
     const [designFavorite, setDesignFavorite] = useState<Favorite[]>([])
 
@@ -40,11 +42,14 @@ const ProductCard: React.FC<ProductCardProps> = props => {
         if (!tokenVerification) {
             toggleModal()
         } else {
+            setLoadingProgress(true)
             try {
                 await FavoriteService.FavoriteDesign(id)
-                window.location.reload()
+                setLoadingProgress(false)
+                // window.location.reload()
             } catch (error) {
                 console.log("error", error)
+                setLoadingProgress(false)
             }
         }
     }
@@ -68,13 +73,14 @@ const ProductCard: React.FC<ProductCardProps> = props => {
 
         // ------ Get favorite designs ------
         FavoriteService.getAllDesignFavorite()
-            .then(response => setDesignFavorite(response.data.data))
+            .then(response => {
+                setDesignFavorite(response.data.data)
+            })
             .catch(error => {
                 console.log("error", error)
                 setTokenVerification(false)
             })
-    }, [props.data, token])
-
+    }, [props.data, token, loadingProgress])
     //------- currency format -------
     const formatter = new Intl.NumberFormat('id-ID', {
         style: 'currency',
@@ -110,6 +116,7 @@ const ProductCard: React.FC<ProductCardProps> = props => {
                 )
             }) : null
             }
+            {loadingProgress && <LoadingScreen />}
             <ModalBlank
                 visible={showModal}
                 onClose={toggleModal}

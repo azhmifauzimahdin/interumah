@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { imgPoster1 } from "../../../assets/dummy"
-import { Button, ProductCard } from "../../../component"
+import { Button, LoadingScreen, ProductCard } from "../../../component"
 import { IconChat, IconFolderOutline, IconHandPayment, IconHomeCityOutline, IconLocation, IconStart, IconUsers } from "../../../component/Icon"
 import { userService } from "../../../services"
 import { User } from "../../../types/User"
 import "./Desainer.css"
 
 const UserDesainer: React.FC = () => {
-    window.scrollTo(0, 0)
     const navigate = useNavigate()
     const [designerData, setDesignerData] = useState<User>()
+    const [loading, setLoading] = useState<boolean>(false)
 
+    //------ Scroll ------
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     //------ Get Keyword ------
     let [searchParams] = useSearchParams()
     const id = parseInt(searchParams.get("id") as string)
@@ -38,10 +42,17 @@ const UserDesainer: React.FC = () => {
     }
 
     useEffect(() => {
+        setLoading(true)
         //------ Get Designer By ID------
         userService.getUserByID(id)
-            .then(response => setDesignerData(response.data.data))
-            .catch(error => console.log("error", error))
+            .then(response => {
+                setDesignerData(response.data.data)
+                setLoading(false)
+            })
+            .catch(error => {
+                console.log("error", error)
+                setLoading(false)
+            })
     }, [id])
 
     return (
@@ -96,8 +107,14 @@ const UserDesainer: React.FC = () => {
                         </section>
                     </article>
                     <article className="userDesainer-boxDesain">
-                        {design !== undefined &&
-                            <ProductCard data={design} />
+                        {loading ?
+                            <LoadingScreen type="content" />
+                            :
+                            <>
+                                {design !== undefined &&
+                                    <ProductCard data={design} />
+                                }
+                            </>
                         }
                     </article>
                     <article className="userDesainer-reviewBox">
@@ -129,8 +146,14 @@ const UserDesainer: React.FC = () => {
             {menu === 2 &&
                 <>
                     <article className="userDesainer-boxDesain">
-                        {design !== undefined &&
-                            <ProductCard data={design} />
+                        {loading ?
+                            <LoadingScreen type="content" />
+                            :
+                            <>
+                                {design !== undefined &&
+                                    <ProductCard data={design} />
+                                }
+                            </>
                         }
                     </article>
                 </>

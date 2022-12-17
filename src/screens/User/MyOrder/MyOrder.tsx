@@ -72,23 +72,28 @@ const UserOrder: React.FC = () => {
                 })}
             </nav>
             <article className="userOrder-box">
-                {designOrderFilter.length > 0 ?
-                    <OrderCard data={designOrderFilter} />
+                {loading ?
+                    <LoadingScreen type="content" />
                     :
-                    <article className="userOrder-content">
-                        <figure className="userOrder-content-ilustration">
-                            <img src={IlustrationResume} alt="resume" />
-                        </figure>
-                        <section className="userOrder-content-title">
-                            Belum Ada Pesanan
-                        </section>
-                        <section className="userOrder-content-desc">
-                            Kamu bisa berkonsultasi dengan dengan desainer, memesan desain dan deal ini itu. Cobain, Yuk!
-                        </section>
-                    </article>
+                    <>
+                        {designOrderFilter.length > 0 ?
+                            <OrderCard data={designOrderFilter} />
+                            :
+                            <article className="userOrder-content">
+                                <figure className="userOrder-content-ilustration">
+                                    <img src={IlustrationResume} alt="resume" />
+                                </figure>
+                                <section className="userOrder-content-title">
+                                    Belum Ada Pesanan
+                                </section>
+                                <section className="userOrder-content-desc">
+                                    Kamu bisa berkonsultasi dengan dengan desainer, memesan desain dan deal ini itu. Cobain, Yuk!
+                                </section>
+                            </article>
+                        }
+                    </>
                 }
             </article>
-            {loading && <LoadingScreen />}
         </main>
     )
 }

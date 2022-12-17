@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { IlustrationAtmMachine, IlustrationOk } from "../../../../assets"
-import { Button, LoadingScreen, ModalBlank, ReviewBox } from "../../../../component"
+import { Button, ModalBlank, ReviewBox } from "../../../../component"
 import { IconChat, IconLocation, IconProfile, IconStart } from "../../../../component/Icon"
 import { BudgetService, DesignService, OrderService, ReviewService } from "../../../../services"
 import { BudgetPlan } from "../../../../types/Budget"
@@ -11,7 +11,6 @@ import "./DetailDesain.css"
 
 const UserDetailDesain: React.FC = () => {
     const navigate = useNavigate()
-    const [loading, setLoading] = useState<boolean>(true)
     const [showModal, setShowModal] = useState<boolean>(false)
     const [showModalTwo, setShowModalTwo] = useState<boolean>(false)
     const [designData, setDesignData] = useState<Design>()
@@ -81,11 +80,9 @@ const UserDetailDesain: React.FC = () => {
         BudgetService.getBudgetPlanByID(desain)
             .then(response => {
                 setBudget(response.data.data)
-                setLoading(false)
             })
             .catch(error => {
                 console.log('error', error)
-                setLoading(false)
             })
 
     }, [desain])
@@ -117,7 +114,7 @@ const UserDetailDesain: React.FC = () => {
                             {designData?.description}
                         </section>
                         <section className="userDetailDesain-detail-content-descTwo"><span className="icon-desc"><IconLocation size="lg" /></span>{designData?.location}</section>
-                        <section className="userDetailDesain-detail-content-descTwo"><span className="icon-desc"><IconStart size="lg" /></span>{reviewDesign?.review.designRatingAverage} ({reviewDesign?.data.length} Ulasan)</section>
+                        <section className="userDetailDesain-detail-content-descTwo"><span className="icon-desc"><IconStart size="lg" /></span>{reviewDesign?.review.designRatingAverage !== "NaN" ? reviewDesign?.review.designRatingAverage : 0} ({reviewDesign?.data.length} Ulasan)</section>
                         <section className="userDetailDesain-detail-footer">
                             <section className="userDetailDesain-detail-footer-btn"><Button type="secondary" className="btn"><IconChat className="icon-chat" />Hubungi</Button></section>
                             <section className="userDetailDesain-detail-footer-btn"><Button onClick={toggleModal}>Pesan Desain</Button></section>
@@ -169,7 +166,6 @@ const UserDetailDesain: React.FC = () => {
                         review={reviewDesign?.data as any}
                     />
                 </article>
-                {loading && <LoadingScreen />}
             </main>
             <ModalBlank
                 visible={showModal}

@@ -128,13 +128,16 @@ const UserDashboard: React.FC = () => {
             </main>
             <main className="userDashbord-mainThree">
                 <article className="userDashbord-mainThree-articleOne">
-                    <ProductCard data={designsData} />
+                    {loading ?
+                        <LoadingScreen type="content" />
+                        :
+                        <ProductCard data={designsData} />
+                    }
                 </article>
                 {/* <article className="userDashbord-mainThree-articleTwo">
                     <Button type="colorfull" fontSize="lg">Selengkapnya</Button>
                 </article> */}
             </main>
-            {loading && <LoadingScreen />}
         </main>
     )
 }
