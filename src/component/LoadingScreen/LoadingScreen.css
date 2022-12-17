@@ -1,18 +1,31 @@
 .loader {
+    overflow: hidden;
+}
+
+.loader-type-fixed {
     background: radial-gradient(rgba(34, 34, 34, 0.4), rgba(0, 0, 0, 0.4));
     bottom: 0;
     left: 0;
-    overflow: hidden;
     position: fixed;
     right: 0;
     top: 0;
     z-index: 2;
 }
 
+.loader-type-content {
+    background: radial-gradient(rgba(186, 186, 186, 0.1), rgba(161, 161, 161, 0.1));
+    border-radius: 1vw;
+    position: relative;
+    width: 100%;
+    height: 20vw;
+    position: relative;
+}
+
 .loader-inner {
     bottom: 0;
-    height: 60px;
     left: 0;
+    /* height: 60px; */
+    height: 30px;
     margin: auto;
     position: absolute;
     right: 0;
@@ -23,7 +36,8 @@
 .loader-line-wrap {
     animation: spin 2000ms cubic-bezier(.175, .885, .32, 1.275) infinite;
     box-sizing: border-box;
-    height: 50px;
+    /* height: 50px; */
+    height: 38px;
     left: 0;
     overflow: hidden;
     position: absolute;
@@ -68,40 +82,50 @@
 .loader-line-wrap:nth-child(1) .loader-line {
     /* border-color: hsl(0, 84%, 37%); */
     border-color: #101B94;
-    height: 90px;
-    width: 90px;
+    height: 60px;
+    width: 60px;
+    /* height: 90px;
+    width: 90px; */
     top: 7px;
 }
 
 .loader-line-wrap:nth-child(2) .loader-line {
     /* border-color: hsl(60, 80%, 60%); */
     border-color: #152CBF;
-    height: 76px;
-    width: 76px;
+    /* height: 76px;
+    width: 76px; */
+    height: 46px;
+    width: 46px;
     top: 14px;
 }
 
 .loader-line-wrap:nth-child(3) .loader-line {
     /* border-color: hsl(120, 80%, 60%); */
     border-color: #1740E6;
-    height: 62px;
-    width: 62px;
+    /* height: 62px;
+    width: 62px; */
+    height: 32px;
+    width: 32px;
     top: 21px;
 }
 
 .loader-line-wrap:nth-child(4) .loader-line {
     /* border-color: hsl(180, 80%, 60%); */
     border-color: #1B59F5;
-    height: 48px;
-    width: 48px;
+    /* height: 48px;
+    width: 48px; */
+    height: 18px;
+    width: 18px;
     top: 28px;
 }
 
 .loader-line-wrap:nth-child(5) .loader-line {
     /* border-color: hsl(240, 80%, 60%); */
     border-color: #1D86FF;
-    height: 34px;
-    width: 34px;
+    /* height: 34px;
+    width: 34px; */
+    height: 4px;
+    width: 4px;
     top: 35px;
 }
 

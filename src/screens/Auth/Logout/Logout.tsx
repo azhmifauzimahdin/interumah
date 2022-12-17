@@ -15,7 +15,6 @@ const Logout: React.FC = () => {
         setLoading(true)
         authService.logout(refreshToken as any)
             .then(response => {
-                console.log(response.data)
                 localStorage.removeItem('token')
                 localStorage.removeItem('refreshToken')
                 setLoading(false)

@@ -10,18 +10,21 @@ import "./UserDashboard.css"
 
 const UserDashboard: React.FC = () => {
     const navigate = useNavigate()
-    const [loading, setLoading] = useState<boolean>(true)
+    const [loading, setLoading] = useState<boolean>(false)
     const [designsData, setDesignData] = useState<Design[]>([])
     const [designerData, setDesignerData] = useState<Designer[]>([])
     const [categoriesData, setCategoriesData] = useState<Category[]>([])
 
     //------ Get All Design ------
     const getAllDesigns = async () => {
+        setLoading(true)
         try {
             const response = await DesignService.getAllDesigns()
             setDesignData(response.data.data)
+            setLoading(false)
         } catch (error) {
             console.log('error', error)
+            setLoading(false)
         }
     }
 
@@ -42,10 +45,18 @@ const UserDashboard: React.FC = () => {
     useEffect(() => {
         getAllDesigns()
 
+        setLoading(true)
         //------ Get All Categories ------
         CategoryService.getAllCategories()
-            .then(response => setCategoriesData(response.data.data.categories))
-            .catch(error => console.log("error", error))
+            .then(response => {
+                setCategoriesData(response.data.data.categories)
+                setLoading(false)
+            })
+            .catch(error => {
+                console.log("error", error)
+                setLoading(false)
+            })
+        setLoading(true)
         //------ Get All Designer ------
         DesignerService.getAllDesigner()
             .then(response => {

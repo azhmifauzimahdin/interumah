@@ -134,6 +134,7 @@ const LandingPage: React.FC = () => {
                     </nav>
                 </article>
                 <article className="landingPage-mainThree-articleTwo">
+                    {loading && <LoadingScreen type="content" />}
                     {designsData.length > 0 ? <ProductCard data={designsData} /> : null}
                 </article>
                 {/* <article className="landingPage-mainThree-articleThree">
@@ -239,7 +240,6 @@ const LandingPage: React.FC = () => {
                     </article>
                 </footer>
             </main>
-            {loading && <LoadingScreen />}
         </main>
     )
 }

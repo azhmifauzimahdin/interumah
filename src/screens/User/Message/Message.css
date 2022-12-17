@@ -109,7 +109,7 @@
 
 .userMessage-content {
     position: relative;
-    max-height: 68%;
+    height: 68%;
     background: #EBEBEB;
     box-sizing: border-box;
     overflow-y: scroll;

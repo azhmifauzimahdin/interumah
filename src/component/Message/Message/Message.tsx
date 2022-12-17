@@ -19,7 +19,7 @@ const Message: React.FC<MessageProps> = props => {
         <>
             {dataMessage.length > 0 ? dataMessage.map(data => {
                 return (
-                    <section className="message-content" key={data.id}>{data.message}<section className="time">{data.time}</section></section>
+                    <section className="message-content" key={data.id}>{data.contents}<section className="time">{data.time}</section></section>
                 )
             }) : null}
         </>

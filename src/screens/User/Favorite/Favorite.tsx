@@ -34,9 +34,7 @@ const UserFavorite: React.FC = () => {
         setLoading(true)
         //------ Get favorite designs ------
         FavoriteService.getAllDesignFavorite()
-            .then(response => {
-                setDesignFavorite(response.data.data)
-            })
+            .then(response => { setDesignFavorite(response.data.data) })
             .catch(error => console.log("error", error))
 
         //------ Get All Categories ------
@@ -51,6 +49,7 @@ const UserFavorite: React.FC = () => {
             })
         getAllDesigns()
     }, [])
+
     return (
         <>
             <main className="userFavorite-containerFavorite">

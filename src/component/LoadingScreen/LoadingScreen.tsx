@@ -1,9 +1,13 @@
 import React from "react"
 import "./LoadingScreen.css"
 
-const LoadingScreen: React.FC = () => {
+interface LoadingScreenProps {
+    type?: 'fixed' | 'content'
+}
+const LoadingScreen: React.FC<LoadingScreenProps> = props => {
+    const type = props.type || 'fixed'
     return (
-        <div className="loader">
+        <div className={`loader loader-type-${type}`}>
             <div className="loader-inner">
                 <div className="loader-line-wrap">
                     <div className="loader-line"></div>

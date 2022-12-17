@@ -17,6 +17,7 @@ const Login: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(false)
     const changeStatus = changePassword === true ? false : true
 
+    //------ Login ------
     const login = async (e: React.FormEvent<HTMLFormElement>) => {
         setSending(true)
         setLoading(true)
@@ -51,6 +52,12 @@ const Login: React.FC = () => {
         }
     }
 
+    //------- Login With Google -------
+    const loginWithGoogle = () => {
+        window.location.assign('http://103.250.10.102/oauth2/redirect/google');
+    }
+
+    //------ Input Invalid --------
     const classNameEmail = errorMessageEmail ? "input-invalid" : ""
     const classNamePassword = errorMessagePassword ? "input-invalid" : ""
 
@@ -88,7 +95,7 @@ const Login: React.FC = () => {
                 <span>------------- OR ------------</span>
             </section>
             <section className="buttonLoginWithGoogle">
-                <Button type="secondary" ><img src={Google} alt="Logo Google" className="img-google" /> Masuk Menggunakan Google</Button>
+                <Button type="secondary" onClick={loginWithGoogle} ><img src={Google} alt="Logo Google" className="img-google" /> Masuk Menggunakan Google</Button>
             </section>
             <section className="linktoRegister">
                 <span>Belum punya akun? <a href="/register">Daftar</a></span>

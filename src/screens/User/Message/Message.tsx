@@ -4,13 +4,25 @@ import { imgProfile1 } from "../../../assets/dummy"
 import { Button, Input, Message, MessageList, MessageMenu } from "../../../component"
 import { IconPointThree, IconProfile, IconRoundPlus, IconSearch, IconSendMessage } from "../../../component/Icon"
 import { EmoteSmile } from "../../../component/Icon/Emote"
-import { DesignerService } from "../../../services"
+import { DesignerService, MessageService } from "../../../services"
 import { Designer } from "../../../types/Design"
+import { Chat } from "../../../types/Message"
 import "./Message.css"
 
 const UserMessage: React.FC = () => {
     const [designerData, setDesignerData] = useState<Designer[]>([])
 
+    //------- Get All Chats With Designer -------
+    const [message, setMessage] = useState<Chat[]>([])
+    useEffect(() => {
+        MessageService.getAllChatsWithDesigner(2)
+            .then(response => setMessage(response.data.data.chats))
+            .catch(error => console.log("error", error))
+    }, [])
+
+    useEffect(() => {
+        console.log("message", message)
+    }, [message])
     //------- Message ------
     const dataMessage = [
         {
@@ -108,7 +120,7 @@ const UserMessage: React.FC = () => {
                         </section>
                     </article>
                     <article className="userMessage-content" style={{ backgroundImage: `url(${ImageBackgoundEstimate})`, backgroundRepeat: "no-repeat", backgroundPosition: "center", backgroundSize: "8vw" }}>
-                        <Message data={dataMessage} />
+                        <Message data={message} />
                     </article>
                     <article className="userMessage-footer">
                         <section className="userMessage-footer-recommendation">
