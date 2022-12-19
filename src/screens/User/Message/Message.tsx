@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { ImageBackgoundEstimate } from "../../../assets"
 import { imgProfile1 } from "../../../assets/dummy"
-import { Button, Input, Message, MessageList, MessageMenu } from "../../../component"
+import { Button, Input, LoadingScreen, Message, MessageList, MessageMenu } from "../../../component"
 import { IconPointThree, IconProfile, IconRoundPlus, IconSearch, IconSendMessage } from "../../../component/Icon"
 import { EmoteSmile } from "../../../component/Icon/Emote"
 import { DesignerService, MessageService } from "../../../services"
@@ -11,46 +11,22 @@ import "./Message.css"
 
 const UserMessage: React.FC = () => {
     const [designerData, setDesignerData] = useState<Designer[]>([])
+    const [loading, setLoading] = useState<boolean>(false)
 
     //------- Get All Chats With Designer -------
     const [message, setMessage] = useState<Chat[]>([])
     useEffect(() => {
+        setLoading(true)
         MessageService.getAllChatsWithDesigner(2)
-            .then(response => setMessage(response.data.data.chats))
-            .catch(error => console.log("error", error))
+            .then(response => {
+                setMessage(response.data.data.chats)
+                setLoading(false)
+            })
+            .catch(error => {
+                console.log("error", error)
+                setLoading(false)
+            })
     }, [])
-
-    useEffect(() => {
-        console.log("message", message)
-    }, [message])
-    //------- Message ------
-    const dataMessage = [
-        {
-            id: 1,
-            message: "Berapa perkiraan desain dapur mas?",
-            time: "10.20"
-        },
-        {
-            id: 2,
-            message: "Untuk bahannya memakai apa pak?",
-            time: "10.21"
-        },
-        {
-            id: 3,
-            message: "Kalau keramic berapa?",
-            time: "10.22"
-        },
-        {
-            id: 4,
-            message: "Untuk bahannya memakai apa pak?",
-            time: "10.23"
-        },
-        {
-            id: 5,
-            message: "Untuk bahannya memakai apa pak?",
-            time: "10.23"
-        }
-    ]
 
     //------ Message recommendation ------
     const messageRecommendation = [
@@ -74,7 +50,6 @@ const UserMessage: React.FC = () => {
     const [showMessageMenu, setShowMessageMenu] = useState<boolean>(false)
     const MenuMessageHover = () => {
         setShowMessageMenu(prevState => !prevState)
-        console.log('masuk');
     }
 
     useEffect(() => {
@@ -83,6 +58,7 @@ const UserMessage: React.FC = () => {
             .then(response => setDesignerData(response.data.data))
             .catch(error => console.log("error", error))
     })
+
     return (
         <main className="userMessage-container">
             <section className="userMessage-boxMessage">
@@ -120,7 +96,11 @@ const UserMessage: React.FC = () => {
                         </section>
                     </article>
                     <article className="userMessage-content" style={{ backgroundImage: `url(${ImageBackgoundEstimate})`, backgroundRepeat: "no-repeat", backgroundPosition: "center", backgroundSize: "8vw" }}>
-                        <Message data={message} />
+                        {loading ?
+                            <LoadingScreen type="content" />
+                            :
+                            <Message data={message} />
+                        }
                     </article>
                     <article className="userMessage-footer">
                         <section className="userMessage-footer-recommendation">

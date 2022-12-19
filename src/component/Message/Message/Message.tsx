@@ -15,11 +15,12 @@ const Message: React.FC<MessageProps> = props => {
         if (props.data.length === 0) return
         initiateDataMessage([...props.data])
     }, [props.data])
+
     return (
         <>
             {dataMessage.length > 0 ? dataMessage.map(data => {
                 return (
-                    <section className="message-content" key={data.id}>{data.contents}<section className="time">{data.time}</section></section>
+                    <section className="message-content" key={data.id}>{data.contents}<section className="time">{data.created_at}</section></section>
                 )
             }) : null}
         </>

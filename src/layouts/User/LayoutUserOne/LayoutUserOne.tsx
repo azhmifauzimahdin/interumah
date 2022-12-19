@@ -94,7 +94,6 @@ const LayoutUserOne: React.FC = () => {
                 .then(response => setProfile(response.data.data))
                 .catch(error => {
                     console.log("error", error)
-                    navigate('/logout')
                 })
         }
     }, [navigate, token, profile])
