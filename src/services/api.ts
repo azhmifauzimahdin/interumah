@@ -1,9 +1,11 @@
 import axios from "axios"
 import { authService } from "."
-// import { authService } from "."
 
+// export const httpRequest = axios.create({
+//     baseURL: 'http://103.250.10.102'
+// })
 export const httpRequest = axios.create({
-    baseURL: 'http://103.250.10.102'
+    baseURL: 'http://103.250.10.102:3000'
 })
 
 httpRequest.interceptors.request.use(config => {
