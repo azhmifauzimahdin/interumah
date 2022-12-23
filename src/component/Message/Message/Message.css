@@ -13,7 +13,7 @@
     text-align: end;
 }
 
-.message-content:nth-child(odd) {
+.message-content-user {
     border-radius: 0 1vw 1vw 1vw;
     float: left;
     background: #ffffff;
@@ -21,7 +21,7 @@
     margin-left: 2%;
 }
 
-.message-content:nth-child(even) {
+.message-content-designer {
     border-radius: 1vw 0 1vw 1vw;
     float: right;
     background: #B6D8FF;

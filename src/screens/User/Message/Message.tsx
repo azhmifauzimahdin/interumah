@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from "react"
 import { ImageBackgoundEstimate } from "../../../assets"
 import { imgProfile1 } from "../../../assets/dummy"
-import { Button, Input, LoadingScreen, Message, MessageList, MessageMenu } from "../../../component"
+import { Button, Input, LoadingScreen, Message, MessageMenu } from "../../../component"
 import { IconPointThree, IconProfile, IconRoundPlus, IconSearch, IconSendMessage } from "../../../component/Icon"
 import { EmoteSmile } from "../../../component/Icon/Emote"
-import { DesignerService, MessageService } from "../../../services"
-import { Designer } from "../../../types/Design"
-import { Chat } from "../../../types/Message"
+import { MessageService } from "../../../services"
+import { Chat, ChatPartner } from "../../../types/Message"
 import "./Message.css"
 
 const UserMessage: React.FC = () => {
-    const [designerData, setDesignerData] = useState<Designer[]>([])
     const [loading, setLoading] = useState<boolean>(false)
 
     //------- Get All Chats With Designer -------
     const [message, setMessage] = useState<Chat[]>([])
+    const [chatPartner, setChatPartner] = useState<ChatPartner>()
     useEffect(() => {
         setLoading(true)
         MessageService.getAllChatsWithDesigner(2)
             .then(response => {
                 setMessage(response.data.data.chats)
+                setChatPartner(response.data.data.chatPartner)
                 setLoading(false)
             })
             .catch(error => {
@@ -52,13 +52,6 @@ const UserMessage: React.FC = () => {
         setShowMessageMenu(prevState => !prevState)
     }
 
-    useEffect(() => {
-        //------ Get All Designer ------
-        DesignerService.getAllDesigner()
-            .then(response => setDesignerData(response.data.data))
-            .catch(error => console.log("error", error))
-    })
-
     return (
         <main className="userMessage-container">
             <section className="userMessage-boxMessage">
@@ -75,7 +68,7 @@ const UserMessage: React.FC = () => {
                         </section>
                     </article>
                     <article className="userMessage-messageList-content">
-                        <MessageList data={designerData} />
+                        {/* <MessageList data={designerData} /> */}
                     </article>
                 </section>
                 <section className="userMessage-Message">
@@ -84,10 +77,10 @@ const UserMessage: React.FC = () => {
                             <section className="userMessage-header-userbox-profile"><IconProfile image={imgProfile1} /></section>
                             <section className="userMessage-header-userbox-desc">
                                 <section className="userMessage-header-userbox-desc-name">
-                                    Ilham Agustian
+                                    {chatPartner?.name}
                                 </section>
                                 <section className="userMessage-header-userbox-desc-view">
-                                    Aktif 10 menit lalu
+                                    online
                                 </section>
                             </section>
                         </section>
@@ -99,7 +92,9 @@ const UserMessage: React.FC = () => {
                         {loading ?
                             <LoadingScreen type="content" />
                             :
-                            <Message data={message} />
+                            <Message
+                                data={message}
+                                desainer={chatPartner as any} />
                         }
                     </article>
                     <article className="userMessage-footer">
