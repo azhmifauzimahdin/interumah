@@ -212,3 +212,86 @@
     width: 69%;
     margin: 0 auto;
 }
+
+@media screen and (max-width: 920px) {
+    .userAddReview-wrapper {
+        padding: 1.8vw 4vw;
+    }
+
+    .userAddReview-header {
+        font-size: 3.6vw;
+        margin-bottom: 1.2vw;
+    }
+
+    .detail-header {
+        margin: 2vw 4vw;
+        padding-bottom: 2vw;
+        font-size: 2.5vw;
+    }
+
+    .detail-content {
+        padding: 0 4vw;
+        margin-bottom: 2vw;
+    }
+
+    .detail-image {
+        width: 16vw;
+        height: 16vw;
+    }
+
+    .detail-desc {
+        font-size: 3vw;
+        padding: 0 3.2vw;
+    }
+
+    .detail-desc-size {
+        font-size: 2.5vw;
+    }
+
+    .detail-footer {
+        font-size: 2.6vw;
+        padding: 2vw 4vw;
+    }
+
+    .detail-footer-price {
+        font-size: 3vw;
+    }
+
+    .userAddReview-boxOne {
+        padding: 4vw;
+        margin-bottom: 4vw;
+    }
+
+    .userAddReview-headerbox {
+        margin-bottom: 4vw;
+    }
+
+    .userAddReview-headerbox-title {
+        font-size: 2.5vw;
+    }
+
+    .userAddReview-textArea {
+        height: 16vw;
+        font-size: 1.8vw;
+        margin-top: 2vw;
+    }
+
+    .userAddReview-buttonUpload {
+        padding: 2vw 5%;
+        font-size: 2.5vw;
+    }
+
+    .userAddReview-imgWrapper {
+        margin-top: 3.6vw;
+    }
+
+    .userAddReview-imgBox {
+        width: 10vw;
+        height: 10vw;
+    }
+
+    /* Modal */
+    .modalAddReview-title {
+        font-size: 2.5vw;
+    }
+}

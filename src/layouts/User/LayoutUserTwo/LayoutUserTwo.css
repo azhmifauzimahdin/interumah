@@ -221,7 +221,7 @@
 
 @media (max-width: 920px) {
     .user-navbar {
-        height: 14vw;
+        height: 12vw;
         z-index: 2;
     }
 
@@ -297,6 +297,11 @@
     .user-navbar ul li a:hover {
         background: none;
         color: cyan;
+    }
+
+    .user-container {
+        margin-top: 14vw;
+        margin-bottom: 0;
     }
 
     .user-footer .logo {
