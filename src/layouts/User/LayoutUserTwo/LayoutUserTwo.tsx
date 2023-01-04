@@ -108,11 +108,11 @@ const LayoutUserOne: React.FC = () => {
                         {title}
                     </section>
                     <ul>
-                        <li><Link to={'/favorite'}><IconFavorite /></Link></li>
-                        <li onClick={Notification}><IconNotification /></li>
-                        <li><Link to={'/message'}><IconChatNav number={0} /></Link></li>
-                        <li><div className="verticalline"></div></li>
-                        <li onClick={profileHover}><IconProfile image={`http://${profile?.imageUrl}`} /></li>
+                        <li className="liLink"><Link to={'/favorite'}><IconFavorite /></Link></li>
+                        <li onClick={Notification} className="liNoLink"><IconNotification /></li>
+                        <li className="liLink"><Link to={'/message'}><IconChatNav number={0} /></Link></li>
+                        <li className="liHidden"><div className="verticalline"></div></li>
+                        <li onClick={profileHover} className="liNoLink"><IconProfile image={`http://${profile?.imageUrl}`} /></li>
                     </ul>
                     <ProfileHover data={menuProfile} visible={showProfileHover} onClose={profileHover} />
                     <NotificationCard visible={showNotification} onClose={Notification} />
