@@ -97,3 +97,13 @@
     height: 7.6vh;
     margin: 4vh auto;
 }
+
+@media screen and (max-width: 920px) {
+    .userFavorite-containerFavorite {
+        padding: 0vw 2.6vw;
+    }
+
+    .userFavorite-box {
+        margin: 20vw auto;
+    }
+}

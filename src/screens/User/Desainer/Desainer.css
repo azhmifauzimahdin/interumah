@@ -133,3 +133,9 @@
 .userDesainer-reviewBox {
     margin: 0 1vw;
 }
+
+@media screen and (max-width: 920px) {
+    .userDesainer-container {
+        padding: 1.8vw 2.8vw;
+    }
+}

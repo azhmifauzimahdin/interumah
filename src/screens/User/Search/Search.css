@@ -124,3 +124,66 @@
     font-weight: 700;
     margin-bottom: 0.6vh;
 }
+
+@media screen and (max-width: 920px) {
+    .userSearch-container {
+        padding: 1.8vw 2.6vw;
+        box-sizing: border-box;
+    }
+
+    .userSearch-aside {
+        width: 100%;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .userSearch-aside-header {
+        font-size: 4.08vw;
+        margin-bottom: 0vw;
+    }
+
+    .userSearch-aside-content ul {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        padding: 1vw 0.2vw;
+    }
+
+    .userSearch-aside-content ul::-webkit-scrollbar {
+        height: 0px;
+    }
+
+    .userSearch-aside-content ul li {
+        margin: 0 1vw;
+    }
+
+    .userSearch-section {
+        width: 100%;
+        padding: 0;
+    }
+
+    .userSearch-section-header {
+        font-size: 4.08vw;
+        margin-bottom: 0;
+    }
+
+    .userSearch-section-keyword {
+        font-size: 2.04vw;
+        margin-bottom: 1vw;
+    }
+
+    .menuSearch {
+        font-size: 2.45vw;
+    }
+
+    .userSearch-empyty-ilustration {
+        width: 30.65vw;
+    }
+
+    .userSearch-empyty-desc {
+        font-size: 2.25vw;
+        margin-bottom: 10vw;
+    }
+}

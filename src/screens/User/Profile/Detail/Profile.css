@@ -290,3 +290,9 @@
     width: 50%;
     margin: 1vw auto;
 }
+
+@media screen and (max-width: 920px) {
+    .userProfile-container {
+        padding: 8.6vw 6vw;
+    }
+}

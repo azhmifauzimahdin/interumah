@@ -204,3 +204,22 @@
 .coba {
     display: none;
 }
+
+@media screen and (max-width: 920px) {
+    .userPayment-container {
+        padding: 1.8vw 4vw;
+    }
+
+    .userPayment-buttonUpload {
+        padding: 2vw 6vw;
+    }
+
+    .modalSuccessfullPayment-title {
+        font-size: 3vw;
+    }
+
+    .userPayment-previewImage {
+        width: 80%;
+    }
+
+}

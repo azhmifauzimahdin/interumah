@@ -59,3 +59,23 @@
     font-size: 1.02vw;
     font-weight: 400;
 }
+
+@media screen and (max-width: 920px) {
+    .userOder-container {
+        padding: 1.8vw 4vw;
+    }
+
+    .userOrder-content {
+        margin-bottom: 2vw;
+        padding: 18vw 30%;
+        text-align: center;
+    }
+
+    .userOrder-content-title {
+        font-size: 2.44vw;
+    }
+
+    .userOrder-content-desc {
+        font-size: 2.02vw;
+    }
+}
