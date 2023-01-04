@@ -35,3 +35,23 @@
 .userCategory-containerDesainer {
     padding: 0 13.4vw 3vw;
 }
+
+@media screen and (max-width: 920px) {
+    .userCategory-container {
+        padding: 1.8vw 4vw 0;
+    }
+
+    .userCategory-rekomendation-wrapper {
+        padding: 2vw 3vw;
+    }
+
+    .userCategory-rekomendation-title {
+        font-size: 4.08vw;
+        margin-bottom: 2vw;
+        padding: 0 1.2vw;
+    }
+
+    .userCategory-containerDesainer {
+        padding: 0 2.8vw 3vw;
+    }
+}
