@@ -248,3 +248,79 @@
     height: 7.6vh;
     margin: 0 auto;
 }
+
+@media screen and (max-width: 920px) {
+    .userDashbord-mainOne {
+        padding: 1.8vw 4vw;
+    }
+
+    .userDashbord-mainTwo {
+        padding: 1.8vh 4vw;
+        box-sizing: border-box;
+    }
+
+    .userDashboard-mainTwo-articleOne {
+        padding: 4vw;
+    }
+
+    .userDashboard-mainTwo-articleOne .referensiRuangan {
+        width: 100%;
+    }
+
+    .userDashboard-mainTwo-articleOne .referensiRuangan .header {
+        font-size: 4.08vw;
+    }
+
+    .userDashboard-mainTwo-articleOne .referensiRuangan .boxIconReferensi {
+        margin-bottom: 2vw;
+    }
+
+    .userDashboard-mainTwo-articleOne .referensiRuangan .boxIconReferensi::-webkit-scrollbar {
+        height: 0px;
+    }
+
+    .iconReferensi {
+        font-size: 2.14vw;
+    }
+
+    .iconReferensi:hover {
+        transform: scale(1.1);
+    }
+
+    .userDashboard-mainTwo-articleOne .referensiRuangan .boxIconReferensi .iconReferensi .icon {
+        width: 10vw;
+    }
+
+    .userDashboard-mainTwo-articleOne .daftarDesainer {
+        width: 100%;
+    }
+
+    .userDashboard-mainTwo-articleOne .daftarDesainer .boxheader .header {
+        font-size: 4.08vw;
+    }
+
+    .userDashboard-mainTwo-articleOne .daftarDesainer .boxheader .link {
+        padding-top: 0;
+        display: flex;
+        align-items: center;
+        font-size: 2.25vw;
+    }
+
+    .userDashboard-mainTwo-articleOne .daftarDesainer .boxIconDesainer .iconDesainer {
+        width: 14.4vw;
+        height: 16vw;
+    }
+
+    .userDashboard-mainTwo-articleOne .daftarDesainer .boxIconDesainer .deskripsi {
+        font-size: 1.83vw;
+    }
+
+    .userDashbord-mainThree {
+        width: 100%;
+        padding: 1.8vw 2.8vw;
+    }
+
+    .userDashbord-mainThree-articleOne {
+        margin-bottom: 6vw;
+    }
+}

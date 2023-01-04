@@ -134,9 +134,6 @@ const UserDashboard: React.FC = () => {
                         <ProductCard data={designsData} />
                     }
                 </article>
-                {/* <article className="userDashbord-mainThree-articleTwo">
-                    <Button type="colorfull" fontSize="lg">Selengkapnya</Button>
-                </article> */}
             </main>
         </main>
     )

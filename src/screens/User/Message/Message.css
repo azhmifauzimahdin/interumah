@@ -58,6 +58,11 @@
     border-radius: 5px;
 }
 
+.userMessage-blankMessage {
+    width: 60%;
+    height: 100%;
+}
+
 .userMessage-Message {
     width: 60%;
     height: 100%;

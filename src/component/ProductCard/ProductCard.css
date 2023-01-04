@@ -120,39 +120,34 @@
 
 @media screen and (max-width: 920px) {
     .productCard {
-        width: 46%;
-        margin: 2% 1%;
-        padding-bottom: 2%;
+        width: 44vw;
+        margin: 1.6vw 1.6vw;
+        padding-bottom: 2vw;
     }
 
     .productCard-imgProduct {
-        margin-bottom: 2%;
-        height: 14vh;
+        height: 36vw;
+        margin-bottom: 2.6vw;
     }
 
     .productCard-title {
-        font-size: 2.5vw;
-        margin-bottom: 2.55%;
+        font-size: 2.04vw;
+        margin-bottom: 1.2vw;
     }
 
     .productCard-company {
-        font-size: 2vw;
-        margin-bottom: 2%;
+        font-size: 1.83vw;
+        margin-bottom: 1.2vw;
     }
 
     .productCard-address {
-        font-size: 2vw;
-        margin-bottom: 1.74%;
-    }
-
-    .productCard-address .icon {
-        width: 2.7vw;
-        margin-right: 2vw;
+        font-size: 1.83vw;
+        margin-bottom: 1.2vw;
     }
 
     .productCard-price {
-        font-size: 2vw;
-        margin-bottom: 2%;
+        font-size: 1.83vw;
+        margin-bottom: 1.2vw;
     }
 
     .productCard-price .icon {
