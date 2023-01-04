@@ -21,6 +21,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 0.6vw;
+    padding: 0;
 }
 
 .reviewCard-start .date {
@@ -31,6 +32,7 @@
 
 .reviewCard-review {
     margin-bottom: 1vw;
+    font-size: 1.25vw;
 }
 
 .reviewCard-wrapperImg {

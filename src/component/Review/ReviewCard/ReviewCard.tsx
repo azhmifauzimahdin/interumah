@@ -24,20 +24,6 @@ const ReviewCard: React.FC<ReviewCardProps> = props => {
                         <section className="reviewCard-review">
                             {data.designComments && (`${data.designComments}. ${data.designerComments}`)}
                         </section>
-                        {/* <section className="reviewCard-wrapperImg">
-                            <section className="reviewCard-boxImg">
-                                <img src={imgClassic1} alt="review" />
-                            </section>
-                            <section className="reviewCard-boxImg">
-                                <img src={imgClassic2} alt="review" />
-                            </section>
-                            <section className="reviewCard-boxImg">
-                                <section className="other-box">
-                                    Laninnya 5+
-                                </section>
-                                <img src={imgClassic3} alt="review" />
-                            </section>
-                        </section> */}
                     </article>
                 )
             }) : null}
