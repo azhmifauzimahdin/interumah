@@ -52,6 +52,9 @@ const Login: React.FC = () => {
                 <section className="descriptionLogin-directory">
                     /var/lib/interumah/secrets/adminPassword
                 </section>
+                <section className="descriptionLogin-directory">
+                    Session Storage key authToken
+                </section>
                 Harap salin kata sandi dari salah satu lokasi dan tempel di bawah.
             </section>
             <form onSubmit={login}>

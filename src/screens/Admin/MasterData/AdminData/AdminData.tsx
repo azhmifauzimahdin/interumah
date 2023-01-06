@@ -7,93 +7,10 @@ const AdminDataAdmin: React.FC = () => {
         {
             IDAdmin: "IT32423",
             Nama: "Agus Mulyo",
-            Email: "agus@mail.com"
+            Email: "agus@mail.com",
+            address: 'Balikpapan',
+            phone: '087837223742',
         },
-        {
-            IDAdmin: "IT32423",
-            Nama: "Agus Mulyo",
-            Email: "agus@mail.com"
-        },
-        {
-            IDAdmin: "IT32423",
-            Nama: "Agus Mulyo",
-            Email: "agus@mail.com"
-        },
-        {
-            IDAdmin: "IT32423",
-            Nama: "Agus Mulyo",
-            Email: "agus@mail.com"
-        },
-        {
-            IDAdmin: "IT32423",
-            Nama: "Agus Mulyo",
-            Email: "agus@mail.com"
-        },
-        {
-            IDAdmin: "IT32423",
-            Nama: "Agus Mulyo",
-            Email: "agus@mail.com"
-        },
-        {
-            IDAdmin: "IT32423",
-            Nama: "Agus Mulyo",
-            Email: "agus@mail.com"
-        },
-        {
-            IDAdmin: "IT32423",
-            Nama: "Agus Mulyo",
-            Email: "agus@mail.com"
-        },
-        {
-            IDAdmin: "IT32423",
-            Nama: "Agus Mulyo",
-            Email: "agus@mail.com"
-        },
-        {
-            IDAdmin: "IT32423",
-            Nama: "Agus Mulyo",
-            Email: "agus@mail.com"
-        },
-        {
-            IDAdmin: "IT32423",
-            Nama: "Agus Mulyo",
-            Email: "agus@mail.com"
-        },
-        {
-            IDAdmin: "IT32423",
-            Nama: "Agus Mulyo",
-            Email: "agus@mail.com"
-        },
-        {
-            IDAdmin: "IT32423",
-            Nama: "Agus Mulyo",
-            Email: "agus@mail.com"
-        },
-        {
-            IDAdmin: "IT32423",
-            Nama: "Agus Mulyo",
-            Email: "agus@mail.com"
-        },
-        {
-            IDAdmin: "IT32423",
-            Nama: "Agus Mulyo",
-            Email: "agus@mail.com"
-        },
-        {
-            IDAdmin: "IT32423",
-            Nama: "Agus Mulyo",
-            Email: "agus@mail.com"
-        },
-        {
-            IDAdmin: "IT32423",
-            Nama: "Agus Mulyo",
-            Email: "agus@mail.com"
-        },
-        {
-            IDAdmin: "IT32423",
-            Nama: "Indra Kurniawan",
-            Email: "indra@mai.com"
-        }
     ]
     const columns: TableColumn[] = [
         {
@@ -108,6 +25,29 @@ const AdminDataAdmin: React.FC = () => {
             title: 'Email',
             dataIndex: 'Email',
         },
+        {
+            title: 'Role',
+            render: data => <span>Admin</span>
+        },
+        {
+            title: 'Alamat',
+            dataIndex: 'address'
+        },
+        {
+            title: 'No. Telp',
+            dataIndex: 'phone'
+        },
+        {
+            title: 'Aksi',
+            render: data => {
+                return (
+                    <React.Fragment>
+                        <button className="admin-btn admin-btn-edit">Edit</button>
+                        <button className="admin-btn admin-btn-delete">Hapus</button>
+                    </React.Fragment>
+                )
+            }
+        }
     ]
 
     return (

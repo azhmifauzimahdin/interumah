@@ -1,0 +1,26 @@
+.adminDataTransfer-wrapper {
+    padding: 1vw 2.6vw;
+}
+
+.adminDataProduct-header {
+    font-size: 2.08vw;
+    font-weight: 700;
+    margin-bottom: 1.2vw;
+}
+
+.imagetableBox {
+    width: 6vw;
+    background: gray;
+}
+
+.imagetableBox img {
+    width: 100%;
+}
+
+.admin-btn-edit {
+    background: #08FD21;
+}
+
+.admin-btn-delete {
+    background: #DB152D;
+}

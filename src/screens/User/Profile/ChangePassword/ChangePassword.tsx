@@ -8,7 +8,6 @@ import { Profile, RequestChangePassword } from "../../../../types/User"
 import "./ChangePassword.css"
 
 const UserChangePassword: React.FC = () => {
-    window.scrollTo(0, 0)
     // const location = useLocation()
     const [changePassword1, setChangePassword1] = useState(true)
     const [changePassword2, setChangePassword2] = useState(true)
@@ -20,6 +19,10 @@ const UserChangePassword: React.FC = () => {
     const [errorMessagePasword, setErrorMessagePasword] = useState<string>('')
     const [errorMessageConfirmPasword, setErrorMessageConfirmPasword] = useState<string>('')
 
+    //------ Scroll ------
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     //------Change Password ------
     const changePassword = async (e: React.FormEvent<HTMLFormElement>) => {
