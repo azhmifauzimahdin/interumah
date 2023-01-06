@@ -42,7 +42,7 @@ const AdminFinancialReport: React.FC = () => {
     ]
     return (
         <main className="adminDataReport-wrapper">
-            <header className="adminDataReport-header">Data Desainer</header>
+            <header className="adminDataReport-header">Laporan Keuangan</header>
             <Table data={reportData} columns={columns} hideAdd={false} />
             {loading && <LoadingScreen />}
         </main>)

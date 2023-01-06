@@ -63,11 +63,11 @@ const LayoutAdmin: React.FC = () => {
         if (!isOpen) setIsOpen(!isOpen)
     }
 
-    useEffect(() => {
-        if (!token) {
-            navigate('/admin/login')
-        }
-    }, [navigate, token])
+    // useEffect(() => {
+    //     if (!token) {
+    //         navigate('/admin/login')
+    //     }
+    // }, [navigate, token])
 
     return (
         <>
